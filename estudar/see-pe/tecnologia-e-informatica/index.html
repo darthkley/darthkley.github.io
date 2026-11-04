@@ -1,0 +1,793 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tecnologia na educação e informática básica · Giz &amp; Gabarito</title>
+<meta name="description" content="Apostila densa de Uso de Tecnologia na Educação e Informática Básica para a P1 do concurso de professor da SEE-PE (Cebraspe): vírus, worm, cavalo de troia, ransomware, phishing e golpes, antivírus e firewall, backup completo, incremental e diferencial, regra 3-2-1, Google Sala de Aula, compartilhamento e histórico de versões no Google Documentos, fórmulas no Google Planilhas e no Excel, atalhos do Windows e do Word em português, mala direta, internet, URL, e-mail, Cc e Cco, buscas avançadas, nuvem e LGPD na escola, com os itens 41 a 50 da prova de 2022.">
+<meta name="theme-color" content="#1f3b30">
+<link rel="canonical" href="https://darthkley.github.io/estudar/see-pe/tecnologia-e-informatica/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tecnologia na educação e informática básica">
+<meta property="og:description" content="Apostila densa de Uso de Tecnologia na Educação e Informática Básica para a P1 do concurso de professor da SEE-PE (Cebraspe): vírus, worm, cavalo de troia, ransomware, phishing e golpes, antivírus e firewall, backup completo, incremental e diferencial, regra 3-2-1, Google Sala de Aula, compartilhamento e histórico de versões no Google Documentos, fórmulas no Google Planilhas e no Excel, atalhos do Windows e do Word em português, mala direta, internet, URL, e-mail, Cc e Cco, buscas avançadas, nuvem e LGPD na escola, com os itens 41 a 50 da prova de 2022.">
+<meta property="og:url" content="https://darthkley.github.io/estudar/see-pe/tecnologia-e-informatica/">
+<link rel="icon" href="data:image/webp;base64,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">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Cabin+Sketch:wght@400;700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap">
+<script>
+  // tema escolhido antes (lousa ou papel), aplicado antes de desenhar a página para não piscar
+  try { if (localStorage.getItem('gg.apostila.tema') === 'papel') document.documentElement.setAttribute('data-tema', 'papel'); } catch (e) { /* sem armazenamento */ }
+</script>
+<style>
+/* Apostilas do Giz & Gabarito: a mesma lousa do app e das outras páginas, com uma opção "papel" para leitura longa.
+   O texto vem de ferramentas-mulder/loja/apostilas/; este modelo só dá a forma. */
+:root {
+  --bg: #1f3b30;
+  --surface: #274a3b;
+  --surface-2: #2e5444;
+  --ink: #f3f1e7;
+  --muted: #b5c8bb;
+  --line: #3d6553;
+  --destaque: #f3d677;
+  --destaque-2: #f4a9bd;
+  --link: #f3d677;
+  --madeira: #6e4a2d;
+  --sombra: rgba(0, 0, 0, .28);
+  --font-marca: "Cabin Sketch", "Archivo", system-ui, sans-serif;
+  --font-ui: "Archivo", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-read: "Literata", Georgia, "Times New Roman", serif;
+  color-scheme: dark;
+}
+:root[data-tema="papel"] {
+  --bg: #f7f2e4;
+  --surface: #fffaf0;
+  --surface-2: #f1e9d4;
+  --ink: #23302a;
+  --muted: #5d6b62;
+  --line: #d8ccb0;
+  --destaque: #8a5c00;
+  --destaque-2: #a63f67;
+  --link: #1d6047;
+  --sombra: rgba(60, 45, 20, .12);
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scroll-padding-top: 16px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-read);
+  font-size: 18px;
+  line-height: 1.7;
+  border-top: 10px solid var(--madeira);
+}
+:root:not([data-tema="papel"]) body {
+  background-image:
+    radial-gradient(120% 60% at 15% -10%, rgba(255, 255, 255, .07), transparent 60%),
+    radial-gradient(80% 50% at 110% 105%, rgba(0, 0, 0, .22), transparent 65%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .075 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)'/%3E%3C/svg%3E");
+  background-attachment: fixed;
+}
+
+/* barra de leitura: um traço de giz que cresce conforme a página desce */
+.progresso { position: fixed; top: 0; left: 0; right: 0; height: 4px; z-index: 5; pointer-events: none; }
+.progresso span { display: block; height: 100%; width: 0; background: var(--destaque); border-radius: 0 3px 3px 0; opacity: .85; }
+
+.topo { max-width: 1180px; margin: 0 auto; padding: 18px 16px 0; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.marca { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; font-family: var(--font-marca); font-weight: 700; font-size: 22px; }
+.marca img { width: 40px; height: 40px; border-radius: 10px; box-shadow: 0 3px 10px var(--sombra); }
+.botao-tema {
+  font: 600 14px var(--font-ui); color: var(--ink); background: var(--surface); border: 2px solid var(--line);
+  border-radius: 999px; padding: 7px 14px; cursor: pointer;
+}
+.botao-tema:hover { border-color: var(--destaque); }
+.botao-tema:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px dashed var(--destaque-2); outline-offset: 3px; border-radius: 6px; }
+
+.pagina { max-width: 1180px; margin: 0 auto; padding: 8px 16px 64px; }
+.cabeca { max-width: 740px; }
+.trilha { margin: 22px 0 6px; font: 500 14px var(--font-ui); color: var(--muted); }
+.trilha a { color: var(--muted); }
+h1 { margin: 0; font-family: var(--font-marca); font-weight: 700; font-size: 44px; line-height: 1.08; letter-spacing: .3px; }
+.subtitulo { margin: 10px 0 0; font-family: var(--font-marca); font-weight: 700; font-size: 24px; line-height: 1.2; color: var(--destaque); }
+.meta { margin: 14px 0 0; font: 14px/1.5 var(--font-ui); color: var(--muted); }
+.meta span + span::before { content: "·"; margin: 0 8px; }
+.risco {
+  height: 14px; margin: 22px 0 18px; border: 0; opacity: .8;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='14'%3E%3Cpath d='M2 8 C 30 3, 60 12, 90 7 S 150 3, 180 8 S 225 11, 238 6' fill='none' stroke='%23b5c8bb' stroke-opacity='.7' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E") repeat-x left center / 240px 14px;
+}
+
+/* sumário: caixa no começo no celular; coluna fixa ao lado no computador */
+.sumario { background: var(--surface); border-radius: 16px; box-shadow: 0 8px 22px var(--sombra); padding: 4px 18px; margin: 0 0 30px; }
+.sumario summary { cursor: pointer; padding: 12px 0; font: 700 16px var(--font-ui); list-style: none; display: flex; justify-content: space-between; align-items: center; }
+.sumario summary::-webkit-details-marker { display: none; }
+.sumario summary::after { content: "+"; font: 700 22px var(--font-ui); color: var(--destaque); }
+.sumario[open] summary::after { content: "–"; }
+.sumario ol { margin: 0 0 14px; padding-left: 24px; font: 15px/1.45 var(--font-ui); }
+.sumario li { margin: 6px 0; }
+.sumario li::marker { color: var(--muted); }
+.sumario a { color: var(--ink); text-decoration: none; }
+.sumario a:hover, .sumario a.atual { color: var(--destaque); text-decoration: underline; text-underline-offset: 3px; }
+
+.texto { max-width: 740px; counter-reset: secao; }
+.texto h2 {
+  counter-increment: secao; margin: 52px 0 14px; padding-top: 8px; font-family: var(--font-marca); font-weight: 700;
+  font-size: 32px; line-height: 1.15; color: var(--ink);
+}
+.texto h2::before { content: counter(secao) ". "; color: var(--destaque); }
+.texto h3 { margin: 32px 0 8px; font: 700 20px/1.3 var(--font-ui); color: var(--destaque); }
+.texto p { margin: 0 0 16px; }
+.texto ul, .texto ol { margin: 0 0 18px; padding-left: 24px; }
+.texto li { margin: 0 0 6px; }
+.texto li > ul, .texto li > ol { margin: 6px 0 0; }
+.texto li::marker { color: var(--destaque); }
+.texto strong { font-weight: 600; color: var(--ink); }
+.texto em { font-style: italic; }
+a { color: var(--link); text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 3px; overflow-wrap: anywhere; }
+.nota { font: 14px/1.5 var(--font-ui); color: var(--muted); }
+sup a { text-decoration: none; font: 600 12px var(--font-ui); }
+
+/* quadros: Para lembrar (amarelo), Atenção na prova (rosa) e Curiosidade (tracejado) */
+.lembrar, .atencao, .curiosidade { margin: 22px 0 26px; padding: 14px 18px 4px; border-radius: 16px; font-size: 16.5px; line-height: 1.6; }
+.lembrar { background: var(--surface); border: 2px solid var(--destaque); box-shadow: 0 8px 20px var(--sombra); }
+.atencao { background: var(--surface); border: 2px dashed var(--destaque-2); }
+.curiosidade { border: 2px dashed var(--line); }
+.rotulo { margin: 0 0 6px !important; font: 700 13px/1.2 var(--font-ui); letter-spacing: .08em; text-transform: uppercase; }
+.lembrar .rotulo { color: var(--destaque); }
+.atencao .rotulo { color: var(--destaque-2); }
+.curiosidade .rotulo { color: var(--muted); }
+.lembrar ul, .atencao ul, .curiosidade ul { padding-left: 20px; }
+
+/* aviso do começo: resumo, sem ligação com a banca, gerado por IA */
+.aviso-topo { margin: 20px 0 0; padding: 12px 18px 2px; border-radius: 16px; border: 2px dashed var(--destaque-2); background: var(--surface); font: 15px/1.55 var(--font-ui); }
+.aviso-topo .rotulo { color: var(--destaque-2); }
+.aviso-topo ul { margin: 0 0 10px; padding-left: 20px; }
+.aviso-topo li { margin: 0 0 6px; }
+.aviso-topo li::marker { color: var(--destaque-2); }
+
+/* ficha do município */
+.ficha { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0; margin: 18px 0 26px; border-radius: 16px; overflow: hidden; background: var(--surface); box-shadow: 0 8px 22px var(--sombra); }
+.ficha div { padding: 12px 16px; border-bottom: 1px solid var(--line); }
+.ficha div:nth-child(odd) { border-right: 1px solid var(--line); }
+.ficha dt { font: 600 12.5px/1.3 var(--font-ui); letter-spacing: .05em; text-transform: uppercase; color: var(--muted); }
+.ficha dd { margin: 3px 0 0; font: 600 17px/1.35 var(--font-ui); }
+.ficha dd small { display: block; font-weight: 400; font-size: 13px; color: var(--muted); }
+
+/* linha do tempo */
+.linha-tempo { list-style: none; margin: 18px 0 28px; padding: 0 0 0 22px; border-left: 3px solid var(--line); }
+.linha-tempo li { position: relative; margin: 0 0 18px; padding-left: 8px; }
+.linha-tempo li::before { content: ""; position: absolute; left: -32px; top: 8px; width: 14px; height: 14px; border-radius: 50%; background: var(--bg); border: 3px solid var(--destaque); }
+.linha-tempo b { display: block; font: 700 18px/1.3 var(--font-ui); color: var(--destaque); }
+
+/* tabelas */
+.tabela { overflow-x: auto; margin: 14px 0 24px; border-radius: 14px; background: var(--surface); box-shadow: 0 8px 22px var(--sombra); }
+table { width: 100%; border-collapse: collapse; font: 15px/1.45 var(--font-ui); }
+caption { caption-side: top; text-align: left; padding: 12px 14px 4px; font-weight: 700; }
+th, td { text-align: left; vertical-align: top; padding: 10px 14px; border-bottom: 1px solid var(--line); }
+th { font-weight: 700; color: var(--destaque); }
+tr:last-child td { border-bottom: 0; }
+
+/* figuras e esquemas */
+figure { margin: 22px 0 28px; }
+figure svg { display: block; width: 100%; height: auto; max-width: 560px; margin: 0 auto; }
+figcaption { margin-top: 8px; text-align: center; font: 14px/1.45 var(--font-ui); color: var(--muted); }
+.esq-linha { stroke: var(--ink); }
+.esq-tenue { stroke: var(--muted); }
+.esq-centro { fill: var(--surface-2); stroke: var(--destaque); }
+.esq-caixa { fill: var(--surface); stroke: var(--line); }
+.esq-texto { fill: var(--ink); font-family: var(--font-ui); }
+.esq-destaque { fill: var(--destaque); font-family: var(--font-ui); }
+.esq-suave { fill: var(--muted); font-family: var(--font-ui); }
+
+/* exercícios: a resposta fica escondida até a pessoa tocar */
+.fixar { counter-reset: questao; margin: 10px 0 24px; }
+.fixar details { counter-increment: questao; margin: 0 0 12px; background: var(--surface); border-radius: 14px; border: 2px solid var(--line); }
+.fixar details[open] { border-color: var(--destaque); }
+.fixar summary { cursor: pointer; padding: 12px 16px; font: 500 16px/1.5 var(--font-ui); list-style: none; }
+.fixar summary::-webkit-details-marker { display: none; }
+.fixar summary::before { content: counter(questao) ". "; font-weight: 700; color: var(--destaque); }
+.fixar summary .ver { display: block; margin-top: 6px; font-size: 13px; font-weight: 600; color: var(--muted); }
+.fixar details[open] summary .ver { display: none; }
+.fixar .resposta { padding: 0 16px 12px; font-size: 16px; }
+.fixar .resposta p { margin: 0 0 8px; }
+.fixar .resposta b:first-child { color: var(--destaque); font-family: var(--font-ui); }
+
+.fontes { font: 14.5px/1.55 var(--font-ui); }
+.fontes li { margin-bottom: 8px; }
+
+.chamada { margin: 40px 0 0; padding: 18px 20px; border-radius: 18px; background: var(--surface); box-shadow: 0 10px 24px var(--sombra); }
+.chamada h2 { margin: 0 0 6px; counter-increment: none; font-family: var(--font-marca); font-size: 26px; color: var(--destaque); padding: 0; }
+.chamada h2::before { content: none; }
+.chamada p { margin: 0 0 8px; }
+
+.rodape { max-width: 740px; margin-top: 44px; padding-top: 14px; border-top: 2px dashed var(--line); font: 13.5px/1.55 var(--font-ui); color: var(--muted); }
+.rodape p { margin: 0 0 6px; }
+
+.subir {
+  position: fixed; right: 16px; bottom: 16px; width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--destaque); color: var(--bg); font: 700 22px var(--font-ui); text-decoration: none; box-shadow: 0 6px 16px var(--sombra);
+  opacity: 0; transform: translateY(8px); transition: opacity .2s, transform .2s; pointer-events: none;
+}
+.subir.visivel { opacity: 1; transform: none; pointer-events: auto; }
+
+@media (min-width: 1100px) {
+  .corpo { display: grid; grid-template-columns: minmax(0, 740px) 300px; gap: 56px; align-items: start; }
+  .sumario { position: sticky; top: 24px; order: 2; max-height: calc(100vh - 48px); overflow: auto; margin: 52px 0 0; }
+  .sumario summary { pointer-events: none; }
+  .sumario summary::after { content: none; }
+  .texto { order: 1; }
+}
+@media (max-width: 560px) {
+  body { font-size: 17px; }
+  h1 { font-size: 34px; }
+  .subtitulo { font-size: 20px; }
+  .texto h2 { font-size: 27px; margin-top: 44px; }
+  .ficha { grid-template-columns: minmax(0, 1fr); }
+  .ficha div:nth-child(odd) { border-right: 0; }
+  table.empilha thead { display: none; }
+  table.empilha, table.empilha tbody, table.empilha tr, table.empilha td { display: block; width: 100%; }
+  table.empilha tr { padding: 8px 0; border-bottom: 1px solid var(--line); }
+  table.empilha tr:last-child { border-bottom: 0; }
+  table.empilha td { border: 0; padding: 5px 16px; }
+  table.empilha td::before { content: attr(data-rotulo); display: block; font-size: 12px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--destaque); }
+}
+@media print {
+  :root, :root[data-tema="papel"] { --bg: #fff; --surface: #fff; --surface-2: #f2f2f2; --ink: #111; --muted: #444; --line: #bbb; --destaque: #000; --destaque-2: #000; --link: #000; --sombra: transparent; color-scheme: light; }
+  body { background: #fff !important; border-top: 0; font-size: 12pt; }
+  .progresso, .botao-tema, .subir, .sumario { display: none !important; }
+  .corpo { display: block; }
+  .fixar details { break-inside: avoid; }
+  .fixar details > :not(summary) { display: block !important; }
+  .texto h2 { break-after: avoid; }
+}
+</style>
+</head>
+<body>
+<div class="progresso" aria-hidden="true"><span id="barra"></span></div>
+<header class="topo" id="topo">
+  <a class="marca" href="../../../"><img src="data:image/webp;base64,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" alt="">Giz &amp; Gabarito</a>
+  <button class="botao-tema" id="botao-tema" type="button" aria-pressed="false">Ler no papel</button>
+</header>
+<div class="pagina">
+  <div class="cabeca">
+    <nav class="trilha" aria-label="Você está em"><a href="../../../estudar/">Estudar</a> › <a href="../">SEE-PE: Professor da Educação Básica</a></nav>
+    <h1>Tecnologia na educação e informática básica</h1>
+    <p class="subtitulo">Segurança da informação e backup, a plataforma Google (Sala de Aula, Documentos, Planilhas, Drive e Formulários), Windows, Word, Excel e PowerPoint, internet e organização de arquivos</p>
+    <p class="meta"><span>Leitura de uns 30 minutos</span><span>Atualizada em 4 de novembro de 2026</span></p>
+    <aside class="aviso-topo" aria-label="Aviso importante">
+      <p class="rotulo">Antes de começar</p>
+      <ul>
+        <li><strong>Isto é só um resumo.</strong> Estude pelo edital, pela lista oficial de conteúdos e pelos documentos oficiais citados nas fontes, no fim da página.</li>
+        <li><strong>Não temos ligação com a banca</strong> nem com o órgão do concurso. A prova pode cobrar assuntos que não estão neste resumo.</li>
+        <li><strong>Conteúdo gerado por inteligência artificial</strong>, tendo como base documentos e registros oficiais.</li>
+      </ul>
+    </aside>
+    <hr class="risco" aria-hidden="true">
+  </div>
+  <div class="corpo">
+    <details class="sumario" id="sumario" open>
+      <summary>Sumário</summary>
+      <ol>
+        <li><a href="#seguranca-da-informacao">Segurança da informação</a></li>
+        <li><a href="#backup">Backup</a></li>
+        <li><a href="#o-google-sala-de-aula">O Google Sala de Aula</a></li>
+        <li><a href="#google-documentos-planilhas-drive-e-formularios">Google Documentos, Planilhas, Drive e Formulários</a></li>
+        <li><a href="#o-windows-e-a-organizacao-de-arquivos">O Windows e a organização de arquivos</a></li>
+        <li><a href="#a-edicao-de-textos-o-word">A edição de textos: o Word</a></li>
+        <li><a href="#as-planilhas-excel-e-google-planilhas">As planilhas: Excel e Google Planilhas</a></li>
+        <li><a href="#as-apresentacoes-powerpoint-e-google-apresentacoes">As apresentações: PowerPoint e Google Apresentações</a></li>
+        <li><a href="#a-internet">A internet</a></li>
+        <li><a href="#pegadinhas-que-a-cebraspe-adora">Pegadinhas que a Cebraspe adora</a></li>
+        <li><a href="#revisao-de-vespera">Revisão de véspera</a></li>
+        <li><a href="#para-fixar">Para fixar</a></li>
+        <li><a href="#fontes">Fontes</a></li>
+      </ol>
+    </details>
+    <article class="texto">
+<p>Na P1 de 2022, foram <strong>10 itens</strong> de tecnologia e informática (41 a 50). O edital foca no que o professor usa todo dia:</p>
+<ul>
+  <li>a <strong>segurança da informação</strong>: os vírus e as pragas virtuais e os procedimentos de backup;</li>
+  <li>a <strong>plataforma Google</strong>: o Google Sala de Aula, o Google Documentos e o Google Planilhas;</li>
+  <li>o <strong>Windows</strong> e a edição de textos, planilhas e apresentações;</li>
+  <li>a <strong>internet</strong>: os conceitos, as ferramentas, os aplicativos e os procedimentos;</li>
+  <li>a <strong>organização</strong> e o gerenciamento de informações, arquivos, pastas e programas.</li>
+</ul>
+<p>As questões pedagógicas sobre tecnologia (TDIC, ensino híbrido, BNCC Computação, lei dos celulares e inteligência artificial) estão em Temas pedagógicos 3.</p>
+<aside class="curiosidade"><p class="rotulo">Como caiu em 2022</p>
+  <ul>
+    <li><strong>Itens 41 a 45:</strong> o Google Sala de Aula: relatórios de originalidade, compartilhamento de planilhas, entrada do aluno, envio de arquivos e acompanhamento das atividades.</li>
+    <li><strong>Item 46:</strong> o Google Chrome e as ferramentas Google.</li>
+    <li><strong>Item 47:</strong> a seleção de vários arquivos no Explorador do Windows.</li>
+    <li><strong>Itens 48 e 49:</strong> o Word: um link num arquivo salvo em PDF e a planilha do Excel dentro do documento.</li>
+    <li><strong>Item 50:</strong> o backup como proteção contra o ransomware.</li>
+  </ul>
+</aside>
+
+<h2 id="seguranca-da-informacao">Segurança da informação</h2>
+<ul>
+  <li><strong>Os três pilares</strong> (a "tríade CID"):
+    <ul>
+      <li>a <strong>confidencialidade</strong>: só quem tem autorização acessa a informação;</li>
+      <li>a <strong>integridade</strong>: a informação não é alterada indevidamente;</li>
+      <li>a <strong>disponibilidade</strong>: a informação está acessível quando é preciso.</li>
+    </ul>
+    Somam-se a eles a <strong>autenticidade</strong> (garantir quem é o autor) e o <strong>não repúdio</strong> (o autor não pode negar o que fez).</li>
+</ul>
+<div class="tabela"><table>
+  <caption>As pragas virtuais (malware)</caption>
+  <thead><tr><th>Praga</th><th>Como age</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Vírus</strong></td><td>Infecta <strong>outros arquivos ou programas</strong> (o "hospedeiro") e precisa que eles sejam <strong>executados</strong> para agir e se espalhar</td></tr>
+    <tr><td><strong>Worm</strong> (verme)</td><td>Programa <strong>independente</strong>, que se <strong>replica sozinho</strong> pela rede, explorando falhas, <strong>sem precisar de hospedeiro</strong> nem da ação do usuário. Consome a rede e os recursos</td></tr>
+    <tr><td><strong>Cavalo de troia</strong> (trojan)</td><td>Parece um programa útil ou legítimo, como um jogo ou um "atualizador", mas executa funções maliciosas escondidas. Não se replica sozinho</td></tr>
+    <tr><td><strong>Ransomware</strong></td><td><strong>Criptografa</strong> (sequestra) os arquivos ou bloqueia o computador e exige um <strong>resgate</strong>, em geral em criptomoeda. A melhor proteção é ter <strong>backup</strong> fora do computador</td></tr>
+    <tr><td><strong>Spyware</strong></td><td>Espiona e coleta informações sem o usuário saber. O <strong>keylogger</strong> registra as teclas digitadas; o <strong>screenlogger</strong> registra a tela e os cliques</td></tr>
+    <tr><td><strong>Adware</strong></td><td>Mostra propagandas indesejadas</td></tr>
+    <tr><td><strong>Backdoor</strong></td><td>Abre uma "porta dos fundos" para o invasor voltar ao computador quando quiser</td></tr>
+    <tr><td><strong>Rootkit</strong></td><td>Conjunto de programas que <strong>esconde</strong> a presença do invasor e de outras pragas no sistema</td></tr>
+    <tr><td><strong>Bot</strong> e <strong>botnet</strong></td><td>O computador infectado vira um "zumbi" controlado à distância. Uma rede de zumbis (botnet) pode ser usada em ataques que derrubam sites (DDoS) e no envio de spam</td></tr>
+  </tbody>
+</table></div>
+<div class="tabela"><table>
+  <caption>Os golpes</caption>
+  <thead><tr><th>Golpe</th><th>Como é</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Phishing</strong></td><td>Mensagens e sites <strong>falsos</strong>, que imitam bancos, lojas, órgãos públicos ou a própria escola, para roubar senhas e dados. Variantes: por SMS (smishing) e por ligação (vishing)</td></tr>
+    <tr><td><strong>Pharming</strong></td><td>Desvia o usuário para um site falso mesmo quando ele digita o endereço certo, adulterando a resolução de nomes (DNS)</td></tr>
+    <tr><td><strong>Engenharia social</strong></td><td>Manipula a pessoa para que ela mesma entregue informações ou faça algo, explorando a confiança, a pressa ou o medo. Exemplos: o falso técnico e o falso parente que pede dinheiro pelo aplicativo de mensagens</td></tr>
+    <tr><td><strong>Deepfake</strong></td><td>Vídeos, áudios ou imagens falsos gerados por inteligência artificial, que imitam pessoas reais</td></tr>
+  </tbody>
+</table></div>
+<aside class="lembrar"><p class="rotulo">As boas práticas</p>
+  <ul>
+    <li><strong>Antivírus</strong> atualizado. O Windows tem o Microsoft Defender.</li>
+    <li><strong>Firewall</strong> ativo. Ele filtra o <strong>tráfego de rede</strong>, permitindo ou bloqueando conexões. <strong>Não é antivírus</strong>: não remove pragas de arquivos.</li>
+    <li><strong>Atualizações</strong> do sistema e dos programas, que corrigem falhas de segurança.</li>
+    <li><strong>Senhas fortes</strong> e diferentes para cada serviço, com um gerenciador de senhas, e a <strong>verificação em duas etapas</strong> (2FA).</li>
+    <li>Desconfiar de <strong>links e anexos</strong> inesperados, mesmo de conhecidos, e de mensagens com urgência ou prêmios.</li>
+    <li>O <strong>cadeado</strong> e o <strong>HTTPS</strong> no endereço só indicam que a conexão é <strong>criptografada</strong>; <strong>não garantem</strong> que o site é confiável, porque sites falsos também usam HTTPS.</li>
+    <li>Evitar operações bancárias em <strong>Wi-Fi público</strong>, ou usar uma VPN.</li>
+    <li>Bloquear a tela ao sair da mesa (no Windows, <strong>Win + L</strong>) e sair das contas em computadores compartilhados, como os do laboratório da escola.</li>
+    <li>Fazer <strong>backup</strong> regularmente.</li>
+  </ul>
+</aside>
+<ul>
+  <li><strong>A proteção de dados na escola:</strong> a escola lida com dados pessoais de estudantes (notas, saúde, endereço, fotos). Pela <strong>LGPD</strong> (Lei 13.709/2018), os dados de crianças e adolescentes devem ser tratados no seu <strong>melhor interesse</strong>. Os de <strong>crianças</strong> exigem, em regra, o consentimento específico de pelo menos um dos pais ou do responsável (art. 14). Os dados de saúde, de origem racial e biométricos são <strong>sensíveis</strong>. Na prática: não divulgar listas de notas com nomes em grupos abertos, pedir autorização para publicar fotos e usar as contas institucionais.</li>
+  <li><strong>O ECA Digital</strong> (Lei 15.211/2025) reforçou a proteção de crianças e adolescentes nos serviços digitais (ver Legislação 2).</li>
+</ul>
+
+<h2 id="backup">Backup</h2>
+<ul>
+  <li><strong>O que é:</strong> uma <strong>cópia de segurança</strong> dos dados, guardada em <strong>outro lugar</strong>, para recuperá-los em caso de defeito, roubo, apagamento acidental ou ataque.</li>
+</ul>
+<div class="tabela"><table class="empilha">
+  <caption>Os tipos de backup</caption>
+  <thead><tr><th>Tipo</th><th>O que copia</th><th>Vantagem</th><th>Para restaurar</th></tr></thead>
+  <tbody>
+    <tr><td data-rotulo="Tipo"><strong>Completo</strong> (total)</td><td data-rotulo="O que copia"><strong>Todos</strong> os arquivos escolhidos</td><td data-rotulo="Vantagem">A restauração é a mais simples</td><td data-rotulo="Para restaurar">Só o último completo. Mas é o mais demorado e o que ocupa mais espaço</td></tr>
+    <tr><td data-rotulo="Tipo"><strong>Incremental</strong></td><td data-rotulo="O que copia">Só o que mudou desde o <strong>último backup de qualquer tipo</strong></td><td data-rotulo="Vantagem">É o mais rápido e o que ocupa menos espaço</td><td data-rotulo="Para restaurar">O último completo <strong>e todos</strong> os incrementais feitos depois dele, em ordem</td></tr>
+    <tr><td data-rotulo="Tipo"><strong>Diferencial</strong></td><td data-rotulo="O que copia">O que mudou desde o <strong>último backup completo</strong>. Cresce a cada dia</td><td data-rotulo="Vantagem">Restauração mais simples que a do incremental</td><td data-rotulo="Para restaurar">O último completo e o <strong>último</strong> diferencial</td></tr>
+  </tbody>
+</table></div>
+<aside class="lembrar"><p class="rotulo">A regra 3-2-1</p>
+  <p>Mantenha <strong>3 cópias</strong> dos dados, em <strong>2 tipos de mídia</strong> diferentes (por exemplo, o computador e um HD externo), com <strong>1 cópia fora do local</strong>, como na nuvem. Teste de vez em quando se a restauração funciona.</p>
+</aside>
+<ul>
+  <li><strong>Sincronização não é backup:</strong> se um arquivo é apagado ou criptografado por um ransomware na pasta sincronizada, o problema pode ir para a nuvem também. Por isso, ajudam muito os recursos de <strong>lixeira</strong> e de <strong>histórico de versões</strong>. No Google Drive, os arquivos ficam 30 dias na lixeira, e os documentos guardam as versões anteriores.</li>
+  <li><strong>As mídias:</strong> HD externo, pendrive, nuvem (Google Drive, OneDrive) e servidores. Uma cópia desconectada, ou <strong>offline</strong>, protege melhor contra o ransomware, que pode criptografar também as unidades conectadas.</li>
+</ul>
+<aside class="atencao"><p class="rotulo">Caiu em 2022</p>
+  <p><strong>Item 50, certo:</strong> os arquivos do computador podem ser protegidos contra o ransomware com backup na nuvem ou em outras mídias diferentes do HD do computador. O backup não impede a infecção, mas permite <strong>recuperar</strong> os dados sem pagar o resgate.</p>
+</aside>
+
+<h2 id="o-google-sala-de-aula">O Google Sala de Aula</h2>
+<ul>
+  <li><strong>O que é:</strong> o Google Sala de Aula (Google Classroom) é a plataforma do Google Workspace for Education para organizar as turmas, distribuir atividades, recolher trabalhos, dar notas e se comunicar com os estudantes.</li>
+  <li><strong>O acesso:</strong> o estudante entra com a sua <strong>conta Google</strong> (institucional ou pessoal) e vê as turmas em que está matriculado. Para entrar numa turma nova, usa o <strong>código da turma</strong>, o <strong>link</strong> de convite ou aceita o <strong>convite por e-mail</strong> enviado pelo professor.</li>
+  <li><strong>Os papéis:</strong> professor, <strong>coprofessor</strong> (com quase todos os poderes do professor) e aluno. Os <strong>responsáveis</strong> podem receber, por e-mail, resumos das atividades pendentes, quando a escola permite.</li>
+</ul>
+<div class="tabela"><table>
+  <caption>As áreas de uma turma</caption>
+  <thead><tr><th>Área</th><th>Para que serve</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Mural</strong></td><td>Avisos, comunicados e comentários da turma. O professor controla quem pode postar e comentar</td></tr>
+    <tr><td><strong>Atividades</strong></td><td>Onde o professor cria as tarefas: <strong>atividade</strong>, <strong>atividade com teste</strong> (com o Google Formulários), <strong>pergunta</strong>, <strong>material</strong> e reutilização de postagens. Organiza tudo por <strong>tópicos</strong> e pode <strong>agendar</strong> a publicação e definir o prazo de entrega</td></tr>
+    <tr><td><strong>Pessoas</strong></td><td>A lista dos professores e dos alunos, e os convites</td></tr>
+    <tr><td><strong>Notas</strong></td><td>A planilha de notas da turma, com categorias e pesos. O professor dá a nota e <strong>devolve</strong> o trabalho ao aluno, com comentários</td></tr>
+  </tbody>
+</table></div>
+<ul>
+  <li><strong>Como o aluno entrega:</strong> abre a atividade e, em "Seus trabalhos", pode <strong>adicionar ou criar</strong>:
+    <ul>
+      <li>um arquivo do <strong>Google Drive</strong>;</li>
+      <li>um <strong>link</strong>;</li>
+      <li>um <strong>arquivo do computador</strong> ou do celular, por upload;</li>
+      <li>um documento, planilha ou apresentação <strong>novo</strong>.</li>
+    </ul>
+    Depois, clica em <strong>"Entregar"</strong>. Se a atividade não pede arquivo, há a opção "Marcar como concluída".</li>
+  <li><strong>O documento para cada aluno:</strong> ao anexar um documento do Google à atividade, o professor escolhe entre três opções:
+    <ul>
+      <li>"os alunos podem ver o arquivo";</li>
+      <li>"os alunos podem editar o arquivo", quando todos editam o mesmo;</li>
+      <li>"<strong>fazer uma cópia para cada aluno</strong>".</li>
+    </ul>
+    Na cópia individual, o professor <strong>acompanha o trabalho em andamento</strong>, antes da entrega, porque o documento fica no Drive com acesso de edição para ele.</li>
+  <li><strong>Os relatórios de originalidade:</strong> comparam o trabalho do aluno com páginas da internet e apontam trechos semelhantes e fontes, para detectar possível plágio e ensinar a citar. Nas versões pagas do Workspace for Education, comparam também com trabalhos já entregues por outros alunos da escola. Na versão gratuita, há um limite de relatórios por turma.</li>
+  <li><strong>A integração:</strong> cada turma tem uma pasta no Google Drive do professor, com os trabalhos entregues. A turma também pode ter um link do <strong>Google Meet</strong> e uma agenda no Google Agenda.</li>
+</ul>
+<aside class="atencao"><p class="rotulo">Caiu em 2022</p>
+  <ul>
+    <li><strong>Item 41, certo:</strong> a ferramenta <strong>Relatórios de originalidade</strong> serve para checar possíveis plágios e encontrar as fontes usadas nos trabalhos.</li>
+    <li><strong>Item 44, errado:</strong> dizia que, para enviar um arquivo, ele "deve estar disponível na pasta do aluno no Google Drive". O aluno também pode enviar um <strong>arquivo do computador</strong>, um link ou criar um documento novo.</li>
+    <li><strong>Item 45, certo:</strong> o progresso de uma atividade num documento pode ser acompanhado mesmo antes da entrega.</li>
+    <li><strong>Item 43:</strong> sobre a entrada do aluno com login e senha e o direcionamento automático às turmas, foi <strong>anulado</strong>. O aluno entra com a conta Google, mas precisa estar inscrito ou aceitar o convite da turma.</li>
+  </ul>
+</aside>
+
+<h2 id="google-documentos-planilhas-drive-e-formularios">Google Documentos, Planilhas, Drive e Formulários</h2>
+<ul>
+  <li><strong>O que eles têm em comum:</strong> são aplicativos <strong>na nuvem</strong>, usados pelo <strong>navegador</strong>, com salvamento <strong>automático</strong> no Google Drive. Não precisam ser instalados no computador. No celular, há aplicativos próprios, e é possível trabalhar <strong>off-line</strong> se esse recurso estiver ativado.</li>
+  <li><strong>O compartilhamento:</strong> pelo botão <strong>"Compartilhar"</strong>, o dono do arquivo:
+    <ul>
+      <li>adiciona pessoas pelo <strong>e-mail</strong>, de qualquer domínio, e não só do Gmail;</li>
+      <li>ou gera um <strong>link</strong> com acesso "Restrito" ou "Qualquer pessoa com o link".</li>
+    </ul>
+    Os níveis de permissão são <strong>Leitor</strong>, <strong>Comentarista</strong> e <strong>Editor</strong>. Com o link aberto, quem não tem conta Google pode <strong>ver</strong> o arquivo, mas, para editar com identificação, precisa entrar numa conta Google.</li>
+</ul>
+<aside class="atencao"><p class="rotulo">Caiu em 2022</p>
+  <p><strong>Item 42, errado:</strong> dizia que uma planilha do Google só pode ser compartilhada com alunos que tenham e-mail do domínio @gmail.com. O compartilhamento funciona com qualquer e-mail e por link. As contas institucionais das escolas, com outro domínio, são justamente as mais usadas.</p>
+</aside>
+<div class="tabela"><table>
+  <caption>Recursos do Google Documentos</caption>
+  <thead><tr><th>Recurso</th><th>Para que serve</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Histórico de versões</strong> (Arquivo › Histórico de versões)</td><td>Ver as versões anteriores, quem alterou o quê e <strong>restaurar</strong> uma versão</td></tr>
+    <tr><td><strong>Modo "Sugestão"</strong></td><td>As alterações aparecem como sugestões, que o dono aceita ou rejeita. É como o "Controlar alterações" do Word, ótimo para corrigir textos dos alunos</td></tr>
+    <tr><td><strong>Comentários</strong></td><td>Comentar um trecho e mencionar alguém com <strong>@</strong>, podendo atribuir uma tarefa</td></tr>
+    <tr><td><strong>Digitação por voz</strong> (Ferramentas)</td><td>Ditar o texto. Funciona no navegador Chrome. Útil também para a acessibilidade</td></tr>
+    <tr><td>Contagem de palavras</td><td>Ferramentas › Contagem de palavras (Ctrl + Shift + C)</td></tr>
+    <tr><td><strong>Fazer download</strong></td><td>Baixar como Word (.docx), PDF, texto (.txt), OpenDocument (.odt) e outros formatos</td></tr>
+    <tr><td>Fazer uma cópia</td><td>Criar outro arquivo igual, para usar como modelo</td></tr>
+  </tbody>
+</table></div>
+<ul>
+  <li><strong>O Google Planilhas:</strong> funciona como o Excel (ver adiante), com as fórmulas em português e o separador "<strong>;</strong>" entre os argumentos. Tem:
+    <ul>
+      <li>filtros, classificação, <strong>formatação condicional</strong> (por exemplo, pintar de vermelho as notas abaixo de 6) e gráficos;</li>
+      <li><strong>validação de dados</strong> e listas suspensas;</li>
+      <li>a opção de <strong>proteger intervalos</strong>, para evitar que outros editem certas células;</li>
+      <li>o recebimento automático das respostas do Google Formulários.</li>
+    </ul>
+  </li>
+  <li><strong>O Google Formulários:</strong> cria questionários e <strong>testes</strong> com correção automática, gabarito e comentários. As respostas vão para um resumo com gráficos e podem ir para uma planilha.</li>
+  <li><strong>O Google Drive:</strong> guarda e organiza os arquivos em pastas, mostra os "Compartilhados comigo" e tem lixeira de <strong>30 dias</strong>. A conta gratuita tem 15 GB, divididos entre o Drive, o Gmail e o Google Fotos. As contas educacionais têm cotas próprias.</li>
+</ul>
+<aside class="atencao"><p class="rotulo">Caiu em 2022</p>
+  <p><strong>Item 46, errado:</strong> dizia que, pelo Chrome, é possível "baixar, instalar localmente e acessar <strong>todas</strong> as ferramentas Google" no computador, como o Meet, o Drive e o Gmail. Essas ferramentas são aplicativos <strong>web</strong>, usados pelo navegador. Algumas têm versão para instalar ou atalhos, mas não "todas", nem "localmente". A palavra "todas" já era um sinal de alerta.</p>
+</aside>
+
+<h2 id="o-windows-e-a-organizacao-de-arquivos">O Windows e a organização de arquivos</h2>
+<ul>
+  <li><strong>O sistema operacional</strong> gerencia o computador: os programas, a memória, os arquivos e os dispositivos. O Windows 11 é a versão atual. O <strong>suporte ao Windows 10 terminou em outubro de 2025</strong>, e ele deixou de receber atualizações de segurança gratuitas.</li>
+  <li><strong>O Explorador de Arquivos</strong> (antes chamado Windows Explorer) organiza os arquivos em <strong>pastas</strong>, numa estrutura em <strong>árvore</strong>. Um <strong>caminho</strong> mostra onde o arquivo está: <code>C:\<wbr>Usuários\<wbr>Ana\<wbr>Documentos\<wbr>Notas.xlsx</code>.</li>
+  <li><strong>As extensões</strong> indicam o tipo do arquivo:
+    <ul>
+      <li>.docx (Word), .xlsx (Excel), .pptx (PowerPoint), .pdf, .txt;</li>
+      <li>.odt, .ods e .odp (LibreOffice);</li>
+      <li>.jpg e .png (imagens), .mp3 (áudio), .mp4 (vídeo);</li>
+      <li>.zip (compactado);</li>
+      <li>.exe (programa executável: cuidado com ele em anexos de e-mail).</li>
+    </ul>
+  </li>
+</ul>
+<div class="tabela"><table>
+  <caption>Os atalhos do Windows que mais caem</caption>
+  <thead><tr><th>Atalho</th><th>O que faz</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Ctrl + clique</strong></td><td>Seleciona vários itens <strong>não vizinhos</strong>, um a um</td></tr>
+    <tr><td><strong>Shift + clique</strong></td><td>Seleciona um <strong>intervalo contínuo</strong>, do primeiro ao último clicado</td></tr>
+    <tr><td><strong>Ctrl + A</strong></td><td>Seleciona tudo, no Windows e no Explorador</td></tr>
+    <tr><td>Ctrl + C, Ctrl + X e Ctrl + V</td><td>Copiar, recortar e colar</td></tr>
+    <tr><td>Ctrl + Z</td><td>Desfazer</td></tr>
+    <tr><td><strong>Delete</strong></td><td>Envia para a <strong>Lixeira</strong></td></tr>
+    <tr><td><strong>Shift + Delete</strong></td><td>Exclui <strong>definitivamente</strong>, sem passar pela Lixeira</td></tr>
+    <tr><td><strong>F2</strong></td><td>Renomear</td></tr>
+    <tr><td>Alt + Tab</td><td>Alternar entre as janelas abertas</td></tr>
+    <tr><td>Alt + F4</td><td>Fechar a janela ou o programa</td></tr>
+    <tr><td><strong>Win + E</strong></td><td>Abrir o Explorador de Arquivos</td></tr>
+    <tr><td>Win + D</td><td>Mostrar a área de trabalho</td></tr>
+    <tr><td><strong>Win + L</strong></td><td>Bloquear o computador</td></tr>
+    <tr><td>Win + V</td><td>Histórico da área de transferência</td></tr>
+    <tr><td>Win + Shift + S</td><td>Capturar uma parte da tela</td></tr>
+    <tr><td>Ctrl + Shift + Esc</td><td>Abrir o Gerenciador de Tarefas</td></tr>
+  </tbody>
+</table></div>
+<aside class="atencao"><p class="rotulo">Caiu em 2022</p>
+  <p><strong>Item 47, certo:</strong> para selecionar aleatoriamente vários arquivos de uma pasta, clica-se em cada um mantendo pressionada a tecla <strong>Ctrl</strong>. Com Shift, a seleção seria de um intervalo contínuo.</p>
+</aside>
+<ul>
+  <li><strong>A Lixeira:</strong> guarda os arquivos excluídos do disco do computador até ser esvaziada, e permite <strong>restaurá-los</strong>. Os arquivos apagados de um <strong>pendrive</strong> ou de uma <strong>pasta de rede</strong>, em geral, <strong>não</strong> vão para a Lixeira: são excluídos de vez.</li>
+  <li><strong>Copiar e mover:</strong> arrastar um arquivo para outra pasta no <strong>mesmo disco</strong> o <strong>move</strong>; para <strong>outro disco</strong> ou pendrive, o <strong>copia</strong>. Com Ctrl, força a cópia; com Shift, força a movimentação.</li>
+  <li><strong>Os atalhos de arquivos:</strong> um atalho na área de trabalho só <strong>aponta</strong> para o arquivo ou programa. Apagar o atalho não apaga o original.</li>
+  <li><strong>Compactar:</strong> clicando com o botão direito, "Compactar para arquivo ZIP" junta vários arquivos num só e, em geral, reduz o tamanho, o que facilita enviar por e-mail.</li>
+  <li><strong>Os programas:</strong> instalam-se e desinstalam-se em Configurações › Aplicativos. As atualizações ficam no Windows Update.</li>
+  <li><strong>As unidades de medida:</strong> 1 byte = 8 bits; 1 KB ≈ mil bytes; 1 MB ≈ mil KB; 1 GB ≈ mil MB; 1 TB ≈ mil GB. Na base binária, cada passo vale 1.024.</li>
+  <li><strong>Boas práticas de organização:</strong> pastas por ano, turma e componente; nomes de arquivo claros, com datas no formato ano-mês-dia para ordenar (2026-03-10_prova_1ano.docx); evitar "versao_final_final2"; e manter os arquivos importantes numa pasta com backup.</li>
+</ul>
+
+<h2 id="a-edicao-de-textos-o-word">A edição de textos: o Word</h2>
+<div class="tabela"><table>
+  <caption>As abas da Faixa de Opções do Word</caption>
+  <thead><tr><th>Aba</th><th>O que tem</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Arquivo</strong></td><td>Novo, Abrir, Salvar, Salvar como (inclusive em <strong>PDF</strong>), Imprimir, Exportar, Compartilhar e as Opções</td></tr>
+    <tr><td><strong>Página Inicial</strong></td><td>Fonte, Parágrafo (alinhamento, recuo, espaçamento, marcadores e numeração), <strong>Estilos</strong>, Localizar e Substituir e o <strong>Pincel de Formatação</strong>, que copia a formatação de um trecho para outro</td></tr>
+    <tr><td><strong>Inserir</strong></td><td>Página em branco, quebra de página, <strong>Tabela</strong> (inclusive uma <strong>Planilha do Excel</strong> dentro do documento), Imagens, Formas, SmartArt, Gráfico, <strong>Link</strong>, Comentário, Cabeçalho e Rodapé, Número de Página, Caixa de Texto, Símbolo e Equação</td></tr>
+    <tr><td><strong>Layout</strong></td><td>Margens, Orientação (retrato ou paisagem), Tamanho do papel, Colunas, Quebras (de página e de <strong>seção</strong>, que permite mudar a orientação só de algumas páginas), recuo e espaçamento</td></tr>
+    <tr><td><strong>Referências</strong></td><td><strong>Sumário automático</strong> (gerado a partir dos estilos de título), <strong>notas de rodapé</strong>, citações e bibliografia, legendas e índices</td></tr>
+    <tr><td><strong>Correspondências</strong></td><td><strong>Mala direta</strong>: junta um modelo com uma lista de dados (por exemplo, uma planilha de alunos) para gerar certificados, convites, etiquetas e cartas personalizadas</td></tr>
+    <tr><td><strong>Revisão</strong></td><td>Ortografia e gramática (<strong>F7</strong>), contagem de palavras, comentários, <strong>Controlar Alterações</strong>, comparar documentos e restringir a edição</td></tr>
+    <tr><td><strong>Exibir</strong></td><td>Os modos de exibição (Layout de Impressão, Leitura, Web, Estrutura de Tópicos), a régua, o zoom e as janelas lado a lado</td></tr>
+  </tbody>
+</table></div>
+<aside class="atencao"><p class="rotulo">Caiu em 2022</p>
+  <ul>
+    <li><strong>Item 48, certo:</strong> um link inserido no Word para um endereço da internet continua <strong>ativo</strong> quando o documento é salvo em PDF.</li>
+    <li><strong>Item 49, certo:</strong> em Inserir › Tabela, há a opção "<strong>Planilha do Excel</strong>", que cria uma planilha editável dentro do documento do Word.</li>
+  </ul>
+</aside>
+<div class="tabela"><table class="empilha">
+  <caption>Os atalhos do Word em português (os mais cobrados)</caption>
+  <thead><tr><th>Atalho</th><th>Função</th><th>Atalho</th><th>Função</th></tr></thead>
+  <tbody>
+    <tr><td data-rotulo="Atalho"><strong>Ctrl + N</strong></td><td data-rotulo="Função"><strong>Negrito</strong></td><td data-rotulo="Atalho"><strong>Ctrl + B</strong></td><td data-rotulo="Função"><strong>Salvar</strong></td></tr>
+    <tr><td data-rotulo="Atalho"><strong>Ctrl + I</strong></td><td data-rotulo="Função">Itálico</td><td data-rotulo="Atalho">Ctrl + A</td><td data-rotulo="Função">Abrir</td></tr>
+    <tr><td data-rotulo="Atalho"><strong>Ctrl + S</strong></td><td data-rotulo="Função"><strong>Sublinhado</strong></td><td data-rotulo="Atalho">Ctrl + O</td><td data-rotulo="Função">Novo documento</td></tr>
+    <tr><td data-rotulo="Atalho"><strong>Ctrl + T</strong></td><td data-rotulo="Função">Selecionar tudo</td><td data-rotulo="Atalho">Ctrl + P</td><td data-rotulo="Função">Imprimir</td></tr>
+    <tr><td data-rotulo="Atalho"><strong>Ctrl + E</strong></td><td data-rotulo="Função">Centralizar</td><td data-rotulo="Atalho">Ctrl + L</td><td data-rotulo="Função">Localizar</td></tr>
+    <tr><td data-rotulo="Atalho"><strong>Ctrl + J</strong></td><td data-rotulo="Função">Justificar</td><td data-rotulo="Atalho">Ctrl + U</td><td data-rotulo="Função">Substituir</td></tr>
+    <tr><td data-rotulo="Atalho">Ctrl + Q</td><td data-rotulo="Função">Alinhar à esquerda</td><td data-rotulo="Atalho">Ctrl + K</td><td data-rotulo="Função">Inserir link</td></tr>
+    <tr><td data-rotulo="Atalho">Ctrl + G</td><td data-rotulo="Função">Alinhar à direita</td><td data-rotulo="Atalho">Ctrl + Enter</td><td data-rotulo="Função">Quebra de página</td></tr>
+    <tr><td data-rotulo="Atalho">Ctrl + Z</td><td data-rotulo="Função">Desfazer</td><td data-rotulo="Atalho">F7</td><td data-rotulo="Função">Ortografia e gramática</td></tr>
+  </tbody>
+</table></div>
+<ul>
+  <li><strong>Português e inglês são diferentes:</strong> no Word em <strong>inglês</strong>, Ctrl + B é negrito (<em>bold</em>), Ctrl + S é salvar (<em>save</em>) e Ctrl + A é selecionar tudo. A prova em português costuma usar os atalhos da versão em <strong>português</strong>.</li>
+  <li><strong>Os formatos:</strong> .docx é o padrão atual; .doc é o antigo; .dotx é um modelo; .pdf é para distribuir sem edição; .odt é o do LibreOffice Writer, gratuito, que também abre e salva .docx.</li>
+  <li><strong>A acessibilidade:</strong> usar os <strong>estilos de título</strong> (e não só o negrito) ajuda os leitores de tela e gera o sumário automático. Imagens devem ter <strong>texto alternativo</strong>.</li>
+</ul>
+
+<h2 id="as-planilhas-excel-e-google-planilhas">As planilhas: Excel e Google Planilhas</h2>
+<ul>
+  <li><strong>A estrutura:</strong> a planilha tem <strong>colunas</strong> (letras), <strong>linhas</strong> (números) e <strong>células</strong> (o cruzamento, como B3). Um <strong>intervalo</strong> é escrito com dois-pontos (A1:A30). Um arquivo, ou pasta de trabalho, pode ter várias planilhas, em abas.</li>
+  <li><strong>As fórmulas</strong> começam com "<strong>=</strong>". Os operadores são + (soma), − (subtração), * (multiplicação), / (divisão) e ^ (potência). A ordem segue a matemática: primeiro a potência, depois a multiplicação e a divisão, depois a soma e a subtração, com os parênteses mudando a ordem.</li>
+</ul>
+<div class="tabela"><table class="empilha">
+  <caption>As funções mais úteis para o professor</caption>
+  <thead><tr><th>Função</th><th>Exemplo</th><th>O que faz</th></tr></thead>
+  <tbody>
+    <tr><td data-rotulo="Função"><strong>SOMA</strong></td><td data-rotulo="Exemplo">=SOMA(B2:D2)</td><td data-rotulo="O que faz">Soma o intervalo</td></tr>
+    <tr><td data-rotulo="Função"><strong>MÉDIA</strong></td><td data-rotulo="Exemplo">=MÉDIA(B2:D2)</td><td data-rotulo="O que faz">Média aritmética</td></tr>
+    <tr><td data-rotulo="Função">MÁXIMO e MÍNIMO</td><td data-rotulo="Exemplo">=MÁXIMO(E2:E40)</td><td data-rotulo="O que faz">O maior e o menor valor</td></tr>
+    <tr><td data-rotulo="Função"><strong>SE</strong></td><td data-rotulo="Exemplo">=SE(E2&gt;=6;"Aprovado";"Recuperação")</td><td data-rotulo="O que faz">Testa uma condição e devolve um valor se for verdadeira e outro se for falsa</td></tr>
+    <tr><td data-rotulo="Função"><strong>CONT.SE</strong></td><td data-rotulo="Exemplo">=CONT.SE(F2:F40;"Aprovado")</td><td data-rotulo="O que faz">Conta as células que atendem a um critério</td></tr>
+    <tr><td data-rotulo="Função">SOMASE</td><td data-rotulo="Exemplo">=SOMASE(A2:A40;"1º A";E2:E40)</td><td data-rotulo="O que faz">Soma só as células que atendem a um critério</td></tr>
+    <tr><td data-rotulo="Função">CONT.VALORES e CONT.NÚM</td><td data-rotulo="Exemplo">=CONT.VALORES(A2:A40)</td><td data-rotulo="O que faz">Contam as células não vazias e as que têm números</td></tr>
+    <tr><td data-rotulo="Função"><strong>PROCV</strong></td><td data-rotulo="Exemplo">=PROCV("Ana";A2:E40;5;FALSO)</td><td data-rotulo="O que faz">Procura um valor na primeira coluna de uma tabela e devolve o valor de outra coluna da mesma linha</td></tr>
+    <tr><td data-rotulo="Função">ARRED</td><td data-rotulo="Exemplo">=ARRED(E2;1)</td><td data-rotulo="O que faz">Arredonda para o número de casas indicado</td></tr>
+    <tr><td data-rotulo="Função">HOJE e AGORA</td><td data-rotulo="Exemplo">=HOJE()</td><td data-rotulo="O que faz">A data atual, e a data com a hora</td></tr>
+  </tbody>
+</table></div>
+<ul>
+  <li><strong>Uma média ponderada:</strong> com a prova (peso 2) em B2 e o trabalho (peso 3) em C2: <code>=(B2*2+C2*3)/5</code>.</li>
+  <li><strong>As referências:</strong>
+    <ul>
+      <li>a <strong>relativa</strong> (A1) muda quando a fórmula é copiada para outra célula: copiada uma linha para baixo, A1 vira A2;</li>
+      <li>a <strong>absoluta</strong> (<strong>$A$1</strong>) não muda: o cifrão "trava" a coluna e a linha. Use-a, por exemplo, para dividir todas as notas pelo mesmo valor máximo, que está numa célula só;</li>
+      <li>a <strong>mista</strong> ($A1 ou A$1) trava só a coluna ou só a linha.</li>
+    </ul>
+  </li>
+  <li><strong>A alça de preenchimento:</strong> o quadradinho no canto da célula. Arrastar copia a fórmula, ajustando as referências relativas, ou continua sequências (1, 2, 3; janeiro, fevereiro).</li>
+  <li><strong>Os erros:</strong>
+    <ul>
+      <li>#DIV/0! é divisão por zero;</li>
+      <li>#NOME? é um nome de função errado;</li>
+      <li>#VALOR! é um tipo de dado errado, como somar um texto;</li>
+      <li>#REF! é uma referência a uma célula que não existe mais;</li>
+      <li>#N/D é um valor não encontrado, comum no PROCV;</li>
+      <li>##### é uma coluna estreita demais para mostrar o número.</li>
+    </ul>
+  </li>
+  <li><strong>Os outros recursos:</strong> classificar e filtrar, formatação condicional, congelar painéis (para manter o cabeçalho visível), tabelas dinâmicas, validação de dados e gráficos. O gráfico de <strong>pizza</strong> mostra partes de um todo; o de <strong>colunas</strong> compara categorias; o de <strong>linhas</strong> mostra a evolução no tempo.</li>
+</ul>
+
+<h2 id="as-apresentacoes-powerpoint-e-google-apresentacoes">As apresentações: PowerPoint e Google Apresentações</h2>
+<ul>
+  <li><strong>Os recursos:</strong> os slides com <strong>layouts</strong> (título, título e conteúdo, comparação) e <strong>temas</strong> (cores e fontes); o <strong>slide mestre</strong>, que muda o padrão de todos os slides de uma vez; e as <strong>anotações do orador</strong>, que só o apresentador vê.</li>
+  <li><strong>Transição e animação:</strong> a <strong>transição</strong> é o efeito na <strong>passagem</strong> de um slide para outro. A <strong>animação</strong> é o efeito num <strong>objeto</strong> dentro do slide, como um texto que aparece.</li>
+  <li><strong>Para apresentar:</strong> no PowerPoint, <strong>F5</strong> começa do primeiro slide, e <strong>Shift + F5</strong> começa do slide atual. Esc encerra. O formato padrão é .pptx.</li>
+  <li><strong>Boas práticas:</strong> pouco texto por slide, letras grandes, bom <strong>contraste</strong>, imagens com <strong>texto alternativo</strong> e legendas nos vídeos. Isso também favorece a inclusão.</li>
+</ul>
+
+<h2 id="a-internet">A internet</h2>
+<div class="tabela"><table>
+  <caption>Os conceitos básicos</caption>
+  <thead><tr><th>Termo</th><th>O que é</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Internet</strong> e <strong>web</strong></td><td>A internet é a rede mundial de computadores. A <strong>web</strong> (World Wide Web) é um dos serviços dela: as páginas com links. O e-mail e as videochamadas também usam a internet, mas não são a web</td></tr>
+    <tr><td><strong>Navegador</strong></td><td>O programa que abre as páginas: Chrome, Edge, Firefox, Safari</td></tr>
+    <tr><td><strong>Buscador</strong></td><td>O site que procura páginas: Google, Bing. Não é a mesma coisa que o navegador</td></tr>
+    <tr><td><strong>URL</strong></td><td>O endereço de um recurso: protocolo, domínio e caminho, como em <code>https://<wbr>www.exemplo.edu.br/<wbr>pasta/<wbr>pagina.html</code>. Os domínios .gov.br, .edu.br e .org.br indicam governo, educação e organizações, no Brasil</td></tr>
+    <tr><td><strong>DNS</strong></td><td>O serviço que traduz os nomes dos sites em números (os endereços IP)</td></tr>
+    <tr><td><strong>HTTP</strong> e <strong>HTTPS</strong></td><td>Os protocolos das páginas web. O HTTPS é a versão <strong>criptografada</strong></td></tr>
+    <tr><td><strong>Cookies</strong> e <strong>cache</strong></td><td>Os cookies são pequenos dados que os sites guardam no navegador, como o login e as preferências. O cache guarda cópias de partes das páginas para abri-las mais rápido</td></tr>
+    <tr><td><strong>Navegação anônima</strong></td><td>Não guarda o histórico, os cookies e os dados de formulários no computador depois de fechada. <strong>Não</strong> torna o usuário invisível para os sites, o provedor ou a rede da escola</td></tr>
+    <tr><td><strong>Intranet</strong> e <strong>extranet</strong></td><td>A intranet é uma rede interna de uma organização, com tecnologia da internet. A extranet é parte da intranet aberta a parceiros externos autorizados</td></tr>
+    <tr><td><strong>Nuvem</strong></td><td>Usar programas e guardar dados em servidores na internet. O Google Documentos é um exemplo de software como serviço (SaaS)</td></tr>
+  </tbody>
+</table></div>
+<ul>
+  <li><strong>O e-mail:</strong>
+    <ul>
+      <li>os campos: <strong>Para</strong> (o destinatário principal), <strong>Cc</strong> (com cópia: todos veem quem recebeu) e <strong>Cco</strong> (com cópia <strong>oculta</strong>: os outros não veem esse destinatário). Para mandar um aviso a todos os responsáveis sem expor os endereços uns aos outros, use o <strong>Cco</strong>;</li>
+      <li>os protocolos: o <strong>SMTP</strong> envia as mensagens; o <strong>POP3</strong> e o <strong>IMAP</strong> recebem. O IMAP mantém as mensagens sincronizadas no servidor; o POP3, em geral, baixa as mensagens para o computador;</li>
+      <li>os anexos têm limite de tamanho. Arquivos grandes vão melhor como <strong>link</strong> do Drive.</li>
+    </ul>
+  </li>
+  <li><strong>As buscas avançadas no Google:</strong>
+    <ul>
+      <li>as <strong>aspas</strong> buscam a frase exata ("educação integral em Pernambuco");</li>
+      <li>o <strong>sinal de menos</strong> exclui uma palavra (fotossíntese -vídeo);</li>
+      <li><strong>site:</strong> busca num site ou domínio (BNCC site:gov.br);</li>
+      <li><strong>filetype:</strong> busca um tipo de arquivo (plano de aula filetype:pdf);</li>
+      <li><strong>OR</strong> busca uma coisa ou outra.</li>
+    </ul>
+    Para pesquisas escolares, ensine os estudantes a conferir a fonte, a data e o autor.</li>
+  <li><strong>Os direitos autorais:</strong> estar na internet não significa ser livre para uso. Prefira materiais com licença aberta (Creative Commons e recursos educacionais abertos) e sempre cite a fonte.</li>
+</ul>
+
+<h2 id="pegadinhas-que-a-cebraspe-adora">Pegadinhas que a Cebraspe adora</h2>
+<div class="tabela"><table>
+  <thead><tr><th>A banca escreve</th><th>O certo</th></tr></thead>
+  <tbody>
+    <tr><td>"O vírus se propaga sozinho pela rede, sem precisar de outro arquivo"</td><td>Isso é o <strong>worm</strong>; o vírus precisa de hospedeiro e de execução</td></tr>
+    <tr><td>"O firewall remove vírus dos arquivos"</td><td>O firewall filtra o tráfego de rede; quem remove pragas é o <strong>antivírus</strong></td></tr>
+    <tr><td>"O cadeado no navegador garante que o site é legítimo"</td><td>Indica só que a conexão é <strong>criptografada</strong>; sites falsos também têm cadeado</td></tr>
+    <tr><td>"A navegação anônima impede que o provedor veja os sites acessados"</td><td>Só não guarda dados <strong>no computador</strong></td></tr>
+    <tr><td>"O backup incremental copia tudo o que mudou desde o último backup completo"</td><td>Esse é o <strong>diferencial</strong>; o incremental copia o que mudou desde o último backup de qualquer tipo</td></tr>
+    <tr><td>"Manter os arquivos sincronizados na nuvem dispensa o backup"</td><td>A sincronização pode copiar o problema (exclusão ou criptografia); o backup guarda cópias independentes</td></tr>
+    <tr><td>"Só é possível compartilhar arquivos do Google com contas @gmail.com"</td><td>Qualquer e-mail e também por link (item 42, errado)</td></tr>
+    <tr><td>"No Google Sala de Aula, o aluno só pode enviar arquivos que estejam no Drive"</td><td>Também do computador, por link ou criando um arquivo novo (item 44, errado)</td></tr>
+    <tr><td>"Os aplicativos Google precisam ser instalados no computador"</td><td>São aplicativos <strong>web</strong>, usados pelo navegador (item 46, errado)</td></tr>
+    <tr><td>"No Windows, para selecionar arquivos não vizinhos, usa-se Shift"</td><td>Usa-se <strong>Ctrl</strong>; o Shift seleciona um intervalo contínuo</td></tr>
+    <tr><td>"Shift + Delete envia o arquivo para a Lixeira"</td><td>Exclui <strong>definitivamente</strong></td></tr>
+    <tr><td>"Arquivos apagados de um pendrive podem ser restaurados da Lixeira"</td><td>Em geral, <strong>não</strong> vão para a Lixeira</td></tr>
+    <tr><td>"No Word em português, Ctrl + S salva o documento"</td><td>Ctrl + S é <strong>sublinhado</strong>; salvar é <strong>Ctrl + B</strong></td></tr>
+    <tr><td>"Os links do Word deixam de funcionar quando o arquivo é salvo em PDF"</td><td>Continuam ativos (item 48, certo)</td></tr>
+    <tr><td>"Na fórmula =A1*$B$1 copiada para baixo, $B$1 vira $B$2"</td><td>A referência <strong>absoluta</strong> não muda</td></tr>
+    <tr><td>"A transição é o efeito aplicado a um texto dentro do slide"</td><td>Isso é a <strong>animação</strong>; a transição é a passagem entre slides</td></tr>
+    <tr><td>"Os destinatários em Cc ficam ocultos para os demais"</td><td>O oculto é o <strong>Cco</strong></td></tr>
+    <tr><td>"Navegador e buscador são a mesma coisa"</td><td>O navegador abre as páginas; o buscador procura páginas</td></tr>
+  </tbody>
+</table></div>
+
+<h2 id="revisao-de-vespera">Revisão de véspera</h2>
+<aside class="lembrar"><p class="rotulo">Leia na véspera</p>
+  <ul>
+    <li><strong>Segurança:</strong> confidencialidade, integridade e disponibilidade. Vírus (hospedeiro e execução), worm (sozinho pela rede), cavalo de troia (disfarce), ransomware (criptografa e pede resgate), spyware (keylogger e screenlogger), backdoor, rootkit, bot e botnet. Phishing, pharming, engenharia social e deepfake. Antivírus; firewall (rede, não é antivírus); atualizações; senhas fortes e 2FA; o cadeado só indica criptografia; Win + L.</li>
+    <li><strong>Backup:</strong> completo (tudo), incremental (desde o último de qualquer tipo; restaura com o completo e todos os incrementais) e diferencial (desde o último completo; restaura com o completo e o último diferencial). Regra 3-2-1. Sincronização não é backup. Cópia offline contra o ransomware. Lixeira do Drive de 30 dias e histórico de versões.</li>
+    <li><strong>Google Sala de Aula:</strong> entra com a conta Google e o código, o link ou o convite da turma; Mural, Atividades, Pessoas e Notas; atividade, teste, pergunta e material; tópicos; agendamento. O aluno entrega pelo Drive, por link, do computador ou criando um arquivo novo. "Fazer uma cópia para cada aluno" permite acompanhar antes da entrega. Relatórios de originalidade. Pasta da turma no Drive.</li>
+    <li><strong>Google Documentos, Planilhas e Drive:</strong> web, com salvamento automático; compartilhar por e-mail de qualquer domínio ou por link; Leitor, Comentarista e Editor; histórico de versões; modo Sugestão; comentários com @; digitação por voz; baixar como .docx e .pdf; Formulários com correção automática; Drive gratuito de 15 GB.</li>
+    <li><strong>Windows:</strong> Ctrl + clique (não vizinhos), Shift + clique (intervalo), Ctrl + A, Delete (Lixeira), Shift + Delete (definitivo), F2, Win + E, Win + L, Win + V, Win + Shift + S. Pendrive e rede não vão para a Lixeira. Mesmo disco move, outro disco copia. O atalho só aponta. O suporte ao Windows 10 terminou em outubro de 2025.</li>
+    <li><strong>Word em português:</strong> Ctrl + N (negrito), I (itálico), S (sublinhado), B (salvar), A (abrir), O (novo), T (selecionar tudo), E (centralizar), J (justificar), L (localizar), U (substituir), K (link), Ctrl + Enter (quebra de página), F7 (ortografia). Inserir › Tabela › Planilha do Excel; links ativos no PDF; Referências (sumário e notas); Correspondências (mala direta); Revisão (Controlar Alterações).</li>
+    <li><strong>Planilhas:</strong> fórmulas com =; SOMA, MÉDIA, SE, CONT.SE, SOMASE e PROCV com ";"; $A$1 é absoluta; os erros #DIV/0!, #NOME?, #VALOR!, #REF! e #N/D; pizza (partes do todo), colunas e linhas.</li>
+    <li><strong>Apresentações:</strong> transição (entre slides) e animação (objeto); F5 do início e Shift + F5 do slide atual; slide mestre; anotações; texto alternativo.</li>
+    <li><strong>Internet:</strong> a web é um serviço da internet; navegador e buscador são diferentes; URL; DNS; HTTPS; cookies e cache; a navegação anônima é só local; intranet e extranet; nuvem (SaaS). E-mail: Cc e Cco; SMTP envia, POP3 e IMAP recebem. Buscas: aspas, menos, site:, filetype:, OR.</li>
+  </ul>
+</aside>
+
+<h2 id="para-fixar">Para fixar</h2>
+<p>Itens no estilo da Cebraspe. Julgue certo ou errado antes de abrir a resposta.</p>
+<div class="fixar">
+  <details><summary>O worm é uma praga virtual capaz de se propagar automaticamente pelas redes, sem necessidade de se anexar a outros arquivos ou de ser executado pelo usuário.<span class="ver">Toque para ver a resposta</span></summary><div class="resposta"><p><b>Certo.</b> O vírus, ao contrário, precisa de um arquivo hospedeiro e de execução.</p></div></details>
+  <details><summary>O ransomware é um tipo de código malicioso que torna os dados inacessíveis, geralmente por meio de criptografia, e exige o pagamento de resgate para restabelecer o acesso.<span class="ver">Toque para ver a resposta</span></summary><div class="resposta"><p><b>Certo.</b> A melhor defesa é ter backup fora do computador, de preferência uma cópia desconectada.</p></div></details>
+  <details><summary>O firewall é um programa destinado a detectar e remover vírus de arquivos armazenados no disco rígido.<span class="ver">Toque para ver a resposta</span></summary><div class="resposta"><p><b>Errado.</b> O firewall filtra o tráfego de rede, permitindo ou bloqueando conexões. Detectar e remover pragas é a função do antivírus.</p></div></details>
+  <details><summary>A presença do cadeado e do protocolo HTTPS na barra de endereços garante que o site acessado pertence a uma instituição legítima e confiável.<span class="ver">Toque para ver a resposta</span></summary><div class="resposta"><p><b>Errado.</b> O cadeado indica que a conexão é criptografada. Sites de phishing também podem usar HTTPS.</p></div></details>
+  <details><summary>No backup incremental, são copiados apenas os arquivos alterados desde o último backup, de qualquer tipo, e a restauração exige o último backup completo e todos os incrementais posteriores.<span class="ver">Toque para ver a resposta</span></summary><div class="resposta"><p><b>Certo.</b> No diferencial, copia-se o que mudou desde o último completo, e a restauração usa o completo e o último diferencial.</p></div></details>
+  <details><summary>Manter os arquivos em uma pasta sincronizada com a nuvem elimina a necessidade de backup, pois qualquer arquivo excluído ou corrompido no computador permanece intacto na nuvem.<span class="ver">Toque para ver a resposta</span></summary><div class="resposta"><p><b>Errado.</b> A sincronização pode replicar a exclusão ou a criptografia. Recursos como a lixeira e o histórico de versões ajudam, mas o backup independente continua necessário.</p></div></details>
+  <details><summary>No Google Sala de Aula, ao anexar um documento a uma atividade, o professor pode optar por fazer uma cópia para cada aluno, o que permite acompanhar o trabalho antes da entrega.<span class="ver">Toque para ver a resposta</span></summary><div class="resposta"><p><b>Certo.</b> Cada aluno edita a sua cópia, e o professor tem acesso a ela.</p></div></details>
+  <details><summary>No Google Sala de Aula, o aluno só pode entregar uma atividade se o arquivo estiver previamente armazenado em sua pasta do Google Drive.<span class="ver">Toque para ver a resposta</span></summary><div class="resposta"><p><b>Errado.</b> O aluno também pode enviar um arquivo do computador ou do celular, um link ou criar um documento novo.</p></div></details>
+  <details><summary>Um documento do Google Documentos pode ser compartilhado com pessoas que tenham endereços de e-mail de qualquer domínio ou por meio de link, com permissões de leitor, comentarista ou editor.<span class="ver">Toque para ver a resposta</span></summary><div class="resposta"><p><b>Certo.</b> Não é preciso que o e-mail seja do Gmail.</p></div></details>
+  <details><summary>No Google Documentos, o histórico de versões permite visualizar alterações anteriores e restaurar uma versão anterior do documento.<span class="ver">Toque para ver a resposta</span></summary><div class="resposta"><p><b>Certo.</b> Fica em Arquivo › Histórico de versões.</p></div></details>
+  <details><summary>No Explorador de Arquivos do Windows, para selecionar vários arquivos não adjacentes, deve-se clicar em cada um deles mantendo pressionada a tecla Shift.<span class="ver">Toque para ver a resposta</span></summary><div class="resposta"><p><b>Errado.</b> Com Shift, seleciona-se um intervalo contínuo. Para itens não adjacentes, usa-se a tecla <b>Ctrl</b>.</p></div></details>
+  <details><summary>A combinação de teclas Shift + Delete, no Windows, exclui o arquivo selecionado definitivamente, sem enviá-lo para a Lixeira.<span class="ver">Toque para ver a resposta</span></summary><div class="resposta"><p><b>Certo.</b> A tecla Delete sozinha envia para a Lixeira.</p></div></details>
+  <details><summary>Arquivos excluídos de um pendrive conectado ao computador são enviados para a Lixeira do Windows, de onde podem ser restaurados.<span class="ver">Toque para ver a resposta</span></summary><div class="resposta"><p><b>Errado.</b> Em geral, os arquivos apagados de mídias removíveis e de pastas de rede não vão para a Lixeira.</p></div></details>
+  <details><summary>No Microsoft Word em português, a combinação Ctrl + N aplica o negrito ao texto selecionado, e Ctrl + B salva o documento.<span class="ver">Toque para ver a resposta</span></summary><div class="resposta"><p><b>Certo.</b> Na versão em inglês, Ctrl + B é negrito e Ctrl + S é salvar.</p></div></details>
+  <details><summary>No Word, o recurso de mala direta, da guia Correspondências, permite gerar documentos personalizados, como certificados para cada aluno, a partir de uma lista de dados.<span class="ver">Toque para ver a resposta</span></summary><div class="resposta"><p><b>Certo.</b> A lista pode estar numa planilha do Excel, por exemplo.</p></div></details>
+  <details><summary>O sumário automático do Word é gerado a partir dos estilos de título aplicados ao documento.<span class="ver">Toque para ver a resposta</span></summary><div class="resposta"><p><b>Certo.</b> Fica na guia Referências. Os estilos também ajudam os leitores de tela.</p></div></details>
+  <details><summary>Em uma planilha, a fórmula =SE(B2&gt;=6;"Aprovado";"Recuperação") retorna "Aprovado" quando o valor da célula B2 é maior ou igual a 6.<span class="ver">Toque para ver a resposta</span></summary><div class="resposta"><p><b>Certo.</b> Se a condição for falsa, retorna "Recuperação".</p></div></details>
+  <details><summary>Ao copiar para a célula C3 a fórmula =A2*$B$1, escrita em C2, obtém-se, em C3, a fórmula =A3*$B$2.<span class="ver">Toque para ver a resposta</span></summary><div class="resposta"><p><b>Errado.</b> A referência relativa A2 vira A3, mas a absoluta $B$1 não muda. A fórmula em C3 é =A3*$B$1.</p></div></details>
+  <details><summary>O erro #DIV/0! indica que uma fórmula tenta dividir um valor por zero ou por uma célula vazia.<span class="ver">Toque para ver a resposta</span></summary><div class="resposta"><p><b>Certo.</b> O erro #NOME? indica nome de função errado, e o #REF!, referência inválida.</p></div></details>
+  <details><summary>No PowerPoint, a transição é o efeito visual aplicado na passagem de um slide para o seguinte, enquanto a animação é aplicada a objetos dentro do slide.<span class="ver">Toque para ver a resposta</span></summary><div class="resposta"><p><b>Certo.</b> F5 inicia a apresentação do primeiro slide, e Shift + F5, do slide atual.</p></div></details>
+  <details><summary>Ao enviar uma mensagem a vários responsáveis, o professor que inclui os endereços no campo Cco impede que cada destinatário veja os endereços dos demais.<span class="ver">Toque para ver a resposta</span></summary><div class="resposta"><p><b>Certo.</b> No campo Cc, todos veriam os endereços.</p></div></details>
+  <details><summary>A navegação anônima nos navegadores impede que o provedor de internet e os sites visitados identifiquem as páginas acessadas pelo usuário.<span class="ver">Toque para ver a resposta</span></summary><div class="resposta"><p><b>Errado.</b> Ela só deixa de guardar o histórico, os cookies e os dados de formulários no próprio computador.</p></div></details>
+  <details><summary>Na pesquisa do Google, o uso de aspas em torno de uma expressão faz que sejam buscadas páginas que contenham exatamente aquela sequência de palavras.<span class="ver">Toque para ver a resposta</span></summary><div class="resposta"><p><b>Certo.</b> O sinal de menos exclui palavras; site: limita a um domínio; filetype: busca um tipo de arquivo.</p></div></details>
+</div>
+
+<h2 id="fontes">Fontes</h2>
+<p>Conteúdo explicado com palavras e exemplos próprios, a partir da documentação oficial dos produtos, da cartilha de segurança do CERT.br e da legislação. Nenhum trecho foi copiado de apostilas ou cursinhos.</p>
+<ol class="fontes">
+  <li><strong>Edital nº 1 – SEE/PE, de 2022 (Cebraspe)</strong>, Conhecimentos Gerais, Uso de Tecnologia na Educação e Informática Básica.</li>
+  <li><strong>Cebraspe:</strong> caderno 714_SEE_PE_CG1_01 e gabarito definitivo (itens 41 a 50), aplicação em 21/08/2022.</li>
+  <li><strong>CERT.br</strong> (Centro de Estudos, Resposta e Tratamento de Incidentes de Segurança no Brasil): Cartilha de Segurança para Internet.</li>
+  <li>Central de Ajuda do <strong>Google for Education</strong> e do Google Workspace (Google Sala de Aula, Documentos, Planilhas, Drive e Formulários).</li>
+  <li>Suporte da <strong>Microsoft</strong> (Windows, Word, Excel e PowerPoint em português), inclusive o fim do suporte ao Windows 10, em outubro de 2025.</li>
+  <li><strong>Lei nº 13.709/2018</strong> (LGPD) e <strong>Lei nº 15.211/2025</strong> (ECA Digital).</li>
+</ol>
+      <section class="chamada">
+        <h2>Agora, treine</h2>
+        <p>No app <strong>Giz &amp; Gabarito</strong>, escolha o edital de SEE-PE: Professor da Educação Básica e treine com questões comentadas. Toque em "Estude grátis agora mesmo!" para voltar às apostilas deste concurso.</p>
+      </section>
+      <div class="rodape">
+        <p>Resumo gerado por inteligência artificial para o Giz &amp; Gabarito, a partir das fontes listadas acima. Nada aqui foi copiado de bancas ou cursinhos. Não temos ligação com a banca nem com o órgão do concurso: estude também pelo edital e pelos documentos oficiais.</p>
+        <p>Viu um erro? Escreva para <a href="mailto:gizegabarito@gmail.com?subject=Erro%20na%20apostila%3A%20Tecnologia%20na%20educa%C3%A7%C3%A3o%20e%20inform%C3%A1tica%20b%C3%A1sica%20%28SEE-PE%3A%20Professor%20da%20Educa%C3%A7%C3%A3o%20B%C3%A1sica%29">gizegabarito@gmail.com</a> que a gente confere e corrige.</p>
+        <p><a href="../">Outras apostilas deste concurso</a> · <a href="../../../privacidade/">Política de privacidade</a></p>
+      </div>
+    </article>
+  </div>
+</div>
+<a class="subir" id="subir" href="#topo" aria-label="Voltar ao começo">↑</a>
+<script>
+(function () {
+  var raiz = document.documentElement, botao = document.getElementById('botao-tema');
+  function marcarTema() {
+    var papel = raiz.getAttribute('data-tema') === 'papel';
+    botao.textContent = papel ? 'Ler na lousa' : 'Ler no papel';
+    botao.setAttribute('aria-pressed', String(papel));
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', papel ? '#f7f2e4' : '#1f3b30');
+  }
+  botao.addEventListener('click', function () {
+    if (raiz.getAttribute('data-tema') === 'papel') raiz.removeAttribute('data-tema'); else raiz.setAttribute('data-tema', 'papel');
+    try { localStorage.setItem('gg.apostila.tema', raiz.getAttribute('data-tema') || 'lousa'); } catch (e) { /* sem armazenamento */ }
+    marcarTema();
+  });
+  marcarTema();
+
+  // no computador o sumário fica aberto ao lado; no celular, aberto no começo e fechado ao tocar num item
+  var sumario = document.getElementById('sumario'), largo = window.matchMedia('(min-width: 1100px)');
+  function ajustarSumario() { if (largo.matches) sumario.open = true; }
+  if (largo.addEventListener) largo.addEventListener('change', ajustarSumario);
+  ajustarSumario();
+  // fecha antes de rolar: assim o texto que sobe com o sumário fechado não tira a seção do lugar
+  sumario.addEventListener('click', function (e) {
+    var a = e.target.closest('a'), alvo = a && document.getElementById(a.getAttribute('href').slice(1));
+    if (!alvo || largo.matches) return;
+    e.preventDefault();
+    sumario.open = false;
+    alvo.scrollIntoView({ block: 'start' });
+    try { history.replaceState(null, '', a.getAttribute('href')); } catch (erro) { /* file:// em alguns navegadores */ }
+  });
+
+  // barra de leitura, botão de subir e item do sumário da seção que está na tela
+  var barra = document.getElementById('barra'), subir = document.getElementById('subir');
+  var links = Array.prototype.slice.call(sumario.querySelectorAll('a'));
+  var secoes = links.map(function (a) { return document.getElementById(a.getAttribute('href').slice(1)); });
+  var pedido = false;
+  function rolar() {
+    pedido = false;
+    var alto = document.documentElement.scrollHeight - window.innerHeight;
+    barra.style.width = (alto > 0 ? Math.min(100, window.scrollY / alto * 100) : 0) + '%';
+    subir.classList.toggle('visivel', window.scrollY > 900);
+    var atual = -1;
+    secoes.forEach(function (s, i) { if (s && s.getBoundingClientRect().top < 140) atual = i; });
+    links.forEach(function (a, i) { a.classList.toggle('atual', i === atual); });
+  }
+  window.addEventListener('scroll', function () { if (!pedido) { pedido = true; requestAnimationFrame(rolar); } }, { passive: true });
+  rolar();
+})();
+</script>
+</body>
+</html>
