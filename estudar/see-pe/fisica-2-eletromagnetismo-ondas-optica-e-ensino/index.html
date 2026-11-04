@@ -1,0 +1,884 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Física 2: eletromagnetismo, ondas, óptica, física moderna e ensino · Giz &amp; Gabarito</title>
+<meta name="description" content="Segunda apostila de Física para o concurso de professor da SEE-PE: lei de Coulomb, campo, lei de Gauss, potencial e capacitores, corrente, lei de Ohm, potência, associações, gerador real e ponte de Wheatstone, consumo em kWh, campo magnético, lei de Ampère, indução de Faraday e Lenz, transformadores e o magnetismo dos materiais, MHS, oscilações amortecidas e forçadas, ondas, som, espectro eletromagnético, reflexão, refração, lentes, olho humano, telescópio e microscópio, experimento de Young, difração e polarização, relatividade, física quântica e nuclear, sequências didáticas, ensino por investigação, Tracker e Clicker, segurança no laboratório, avaliação e o Currículo de Pernambuco, com os itens 71 a 105 da prova de 2022 resolvidos.">
+<meta name="theme-color" content="#1f3b30">
+<link rel="canonical" href="https://darthkley.github.io/estudar/see-pe/fisica-2-eletromagnetismo-ondas-optica-e-ensino/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Física 2: eletromagnetismo, ondas, óptica, física moderna e ensino">
+<meta property="og:description" content="Segunda apostila de Física para o concurso de professor da SEE-PE: lei de Coulomb, campo, lei de Gauss, potencial e capacitores, corrente, lei de Ohm, potência, associações, gerador real e ponte de Wheatstone, consumo em kWh, campo magnético, lei de Ampère, indução de Faraday e Lenz, transformadores e o magnetismo dos materiais, MHS, oscilações amortecidas e forçadas, ondas, som, espectro eletromagnético, reflexão, refração, lentes, olho humano, telescópio e microscópio, experimento de Young, difração e polarização, relatividade, física quântica e nuclear, sequências didáticas, ensino por investigação, Tracker e Clicker, segurança no laboratório, avaliação e o Currículo de Pernambuco, com os itens 71 a 105 da prova de 2022 resolvidos.">
+<meta property="og:url" content="https://darthkley.github.io/estudar/see-pe/fisica-2-eletromagnetismo-ondas-optica-e-ensino/">
+<link rel="icon" href="data:image/webp;base64,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">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Cabin+Sketch:wght@400;700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap">
+<script>
+  // tema escolhido antes (lousa ou papel), aplicado antes de desenhar a página para não piscar
+  try { if (localStorage.getItem('gg.apostila.tema') === 'papel') document.documentElement.setAttribute('data-tema', 'papel'); } catch (e) { /* sem armazenamento */ }
+</script>
+<style>
+/* Apostilas do Giz & Gabarito: a mesma lousa do app e das outras páginas, com uma opção "papel" para leitura longa.
+   O texto vem de ferramentas-mulder/loja/apostilas/; este modelo só dá a forma. */
+:root {
+  --bg: #1f3b30;
+  --surface: #274a3b;
+  --surface-2: #2e5444;
+  --ink: #f3f1e7;
+  --muted: #b5c8bb;
+  --line: #3d6553;
+  --destaque: #f3d677;
+  --destaque-2: #f4a9bd;
+  --link: #f3d677;
+  --madeira: #6e4a2d;
+  --sombra: rgba(0, 0, 0, .28);
+  --font-marca: "Cabin Sketch", "Archivo", system-ui, sans-serif;
+  --font-ui: "Archivo", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-read: "Literata", Georgia, "Times New Roman", serif;
+  color-scheme: dark;
+}
+:root[data-tema="papel"] {
+  --bg: #f7f2e4;
+  --surface: #fffaf0;
+  --surface-2: #f1e9d4;
+  --ink: #23302a;
+  --muted: #5d6b62;
+  --line: #d8ccb0;
+  --destaque: #8a5c00;
+  --destaque-2: #a63f67;
+  --link: #1d6047;
+  --sombra: rgba(60, 45, 20, .12);
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scroll-padding-top: 16px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-read);
+  font-size: 18px;
+  line-height: 1.7;
+  border-top: 10px solid var(--madeira);
+}
+:root:not([data-tema="papel"]) body {
+  background-image:
+    radial-gradient(120% 60% at 15% -10%, rgba(255, 255, 255, .07), transparent 60%),
+    radial-gradient(80% 50% at 110% 105%, rgba(0, 0, 0, .22), transparent 65%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .075 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)'/%3E%3C/svg%3E");
+  background-attachment: fixed;
+}
+
+/* barra de leitura: um traço de giz que cresce conforme a página desce */
+.progresso { position: fixed; top: 0; left: 0; right: 0; height: 4px; z-index: 5; pointer-events: none; }
+.progresso span { display: block; height: 100%; width: 0; background: var(--destaque); border-radius: 0 3px 3px 0; opacity: .85; }
+
+.topo { max-width: 1180px; margin: 0 auto; padding: 18px 16px 0; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.marca { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; font-family: var(--font-marca); font-weight: 700; font-size: 22px; }
+.marca img { width: 40px; height: 40px; border-radius: 10px; box-shadow: 0 3px 10px var(--sombra); }
+.botao-tema {
+  font: 600 14px var(--font-ui); color: var(--ink); background: var(--surface); border: 2px solid var(--line);
+  border-radius: 999px; padding: 7px 14px; cursor: pointer;
+}
+.botao-tema:hover { border-color: var(--destaque); }
+.botao-tema:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px dashed var(--destaque-2); outline-offset: 3px; border-radius: 6px; }
+
+.pagina { max-width: 1180px; margin: 0 auto; padding: 8px 16px 64px; }
+.cabeca { max-width: 740px; }
+.trilha { margin: 22px 0 6px; font: 500 14px var(--font-ui); color: var(--muted); }
+.trilha a { color: var(--muted); }
+h1 { margin: 0; font-family: var(--font-marca); font-weight: 700; font-size: 44px; line-height: 1.08; letter-spacing: .3px; }
+.subtitulo { margin: 10px 0 0; font-family: var(--font-marca); font-weight: 700; font-size: 24px; line-height: 1.2; color: var(--destaque); }
+.meta { margin: 14px 0 0; font: 14px/1.5 var(--font-ui); color: var(--muted); }
+.meta span + span::before { content: "·"; margin: 0 8px; }
+.risco {
+  height: 14px; margin: 22px 0 18px; border: 0; opacity: .8;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='14'%3E%3Cpath d='M2 8 C 30 3, 60 12, 90 7 S 150 3, 180 8 S 225 11, 238 6' fill='none' stroke='%23b5c8bb' stroke-opacity='.7' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E") repeat-x left center / 240px 14px;
+}
+
+/* sumário: caixa no começo no celular; coluna fixa ao lado no computador */
+.sumario { background: var(--surface); border-radius: 16px; box-shadow: 0 8px 22px var(--sombra); padding: 4px 18px; margin: 0 0 30px; }
+.sumario summary { cursor: pointer; padding: 12px 0; font: 700 16px var(--font-ui); list-style: none; display: flex; justify-content: space-between; align-items: center; }
+.sumario summary::-webkit-details-marker { display: none; }
+.sumario summary::after { content: "+"; font: 700 22px var(--font-ui); color: var(--destaque); }
+.sumario[open] summary::after { content: "–"; }
+.sumario ol { margin: 0 0 14px; padding-left: 24px; font: 15px/1.45 var(--font-ui); }
+.sumario li { margin: 6px 0; }
+.sumario li::marker { color: var(--muted); }
+.sumario a { color: var(--ink); text-decoration: none; }
+.sumario a:hover, .sumario a.atual { color: var(--destaque); text-decoration: underline; text-underline-offset: 3px; }
+
+.texto { max-width: 740px; counter-reset: secao; }
+.texto h2 {
+  counter-increment: secao; margin: 52px 0 14px; padding-top: 8px; font-family: var(--font-marca); font-weight: 700;
+  font-size: 32px; line-height: 1.15; color: var(--ink);
+}
+.texto h2::before { content: counter(secao) ". "; color: var(--destaque); }
+.texto h3 { margin: 32px 0 8px; font: 700 20px/1.3 var(--font-ui); color: var(--destaque); }
+.texto p { margin: 0 0 16px; }
+.texto ul, .texto ol { margin: 0 0 18px; padding-left: 24px; }
+.texto li { margin: 0 0 6px; }
+.texto li > ul, .texto li > ol { margin: 6px 0 0; }
+.texto li::marker { color: var(--destaque); }
+.texto strong { font-weight: 600; color: var(--ink); }
+.texto em { font-style: italic; }
+a { color: var(--link); text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 3px; overflow-wrap: anywhere; }
+.nota { font: 14px/1.5 var(--font-ui); color: var(--muted); }
+sup a { text-decoration: none; font: 600 12px var(--font-ui); }
+
+/* quadros: Para lembrar (amarelo), Atenção na prova (rosa) e Curiosidade (tracejado) */
+.lembrar, .atencao, .curiosidade { margin: 22px 0 26px; padding: 14px 18px 4px; border-radius: 16px; font-size: 16.5px; line-height: 1.6; }
+.lembrar { background: var(--surface); border: 2px solid var(--destaque); box-shadow: 0 8px 20px var(--sombra); }
+.atencao { background: var(--surface); border: 2px dashed var(--destaque-2); }
+.curiosidade { border: 2px dashed var(--line); }
+.rotulo { margin: 0 0 6px !important; font: 700 13px/1.2 var(--font-ui); letter-spacing: .08em; text-transform: uppercase; }
+.lembrar .rotulo { color: var(--destaque); }
+.atencao .rotulo { color: var(--destaque-2); }
+.curiosidade .rotulo { color: var(--muted); }
+.lembrar ul, .atencao ul, .curiosidade ul { padding-left: 20px; }
+
+/* aviso do começo: resumo, sem ligação com a banca, gerado por IA */
+.aviso-topo { margin: 20px 0 0; padding: 12px 18px 2px; border-radius: 16px; border: 2px dashed var(--destaque-2); background: var(--surface); font: 15px/1.55 var(--font-ui); }
+.aviso-topo .rotulo { color: var(--destaque-2); }
+.aviso-topo ul { margin: 0 0 10px; padding-left: 20px; }
+.aviso-topo li { margin: 0 0 6px; }
+.aviso-topo li::marker { color: var(--destaque-2); }
+
+/* ficha do município */
+.ficha { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0; margin: 18px 0 26px; border-radius: 16px; overflow: hidden; background: var(--surface); box-shadow: 0 8px 22px var(--sombra); }
+.ficha div { padding: 12px 16px; border-bottom: 1px solid var(--line); }
+.ficha div:nth-child(odd) { border-right: 1px solid var(--line); }
+.ficha dt { font: 600 12.5px/1.3 var(--font-ui); letter-spacing: .05em; text-transform: uppercase; color: var(--muted); }
+.ficha dd { margin: 3px 0 0; font: 600 17px/1.35 var(--font-ui); }
+.ficha dd small { display: block; font-weight: 400; font-size: 13px; color: var(--muted); }
+
+/* linha do tempo */
+.linha-tempo { list-style: none; margin: 18px 0 28px; padding: 0 0 0 22px; border-left: 3px solid var(--line); }
+.linha-tempo li { position: relative; margin: 0 0 18px; padding-left: 8px; }
+.linha-tempo li::before { content: ""; position: absolute; left: -32px; top: 8px; width: 14px; height: 14px; border-radius: 50%; background: var(--bg); border: 3px solid var(--destaque); }
+.linha-tempo b { display: block; font: 700 18px/1.3 var(--font-ui); color: var(--destaque); }
+
+/* tabelas */
+.tabela { overflow-x: auto; margin: 14px 0 24px; border-radius: 14px; background: var(--surface); box-shadow: 0 8px 22px var(--sombra); }
+table { width: 100%; border-collapse: collapse; font: 15px/1.45 var(--font-ui); }
+caption { caption-side: top; text-align: left; padding: 12px 14px 4px; font-weight: 700; }
+th, td { text-align: left; vertical-align: top; padding: 10px 14px; border-bottom: 1px solid var(--line); }
+th { font-weight: 700; color: var(--destaque); }
+tr:last-child td { border-bottom: 0; }
+
+/* figuras e esquemas */
+figure { margin: 22px 0 28px; }
+figure svg { display: block; width: 100%; height: auto; max-width: 560px; margin: 0 auto; }
+figcaption { margin-top: 8px; text-align: center; font: 14px/1.45 var(--font-ui); color: var(--muted); }
+.esq-linha { stroke: var(--ink); }
+.esq-tenue { stroke: var(--muted); }
+.esq-centro { fill: var(--surface-2); stroke: var(--destaque); }
+.esq-caixa { fill: var(--surface); stroke: var(--line); }
+.esq-texto { fill: var(--ink); font-family: var(--font-ui); }
+.esq-destaque { fill: var(--destaque); font-family: var(--font-ui); }
+.esq-suave { fill: var(--muted); font-family: var(--font-ui); }
+
+/* exercícios: a resposta fica escondida até a pessoa tocar */
+.fixar { counter-reset: questao; margin: 10px 0 24px; }
+.fixar details { counter-increment: questao; margin: 0 0 12px; background: var(--surface); border-radius: 14px; border: 2px solid var(--line); }
+.fixar details[open] { border-color: var(--destaque); }
+.fixar summary { cursor: pointer; padding: 12px 16px; font: 500 16px/1.5 var(--font-ui); list-style: none; }
+.fixar summary::-webkit-details-marker { display: none; }
+.fixar summary::before { content: counter(questao) ". "; font-weight: 700; color: var(--destaque); }
+.fixar summary .ver { display: block; margin-top: 6px; font-size: 13px; font-weight: 600; color: var(--muted); }
+.fixar details[open] summary .ver { display: none; }
+.fixar .resposta { padding: 0 16px 12px; font-size: 16px; }
+.fixar .resposta p { margin: 0 0 8px; }
+.fixar .resposta b:first-child { color: var(--destaque); font-family: var(--font-ui); }
+
+.fontes { font: 14.5px/1.55 var(--font-ui); }
+.fontes li { margin-bottom: 8px; }
+
+.chamada { margin: 40px 0 0; padding: 18px 20px; border-radius: 18px; background: var(--surface); box-shadow: 0 10px 24px var(--sombra); }
+.chamada h2 { margin: 0 0 6px; counter-increment: none; font-family: var(--font-marca); font-size: 26px; color: var(--destaque); padding: 0; }
+.chamada h2::before { content: none; }
+.chamada p { margin: 0 0 8px; }
+
+.rodape { max-width: 740px; margin-top: 44px; padding-top: 14px; border-top: 2px dashed var(--line); font: 13.5px/1.55 var(--font-ui); color: var(--muted); }
+.rodape p { margin: 0 0 6px; }
+
+.subir {
+  position: fixed; right: 16px; bottom: 16px; width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--destaque); color: var(--bg); font: 700 22px var(--font-ui); text-decoration: none; box-shadow: 0 6px 16px var(--sombra);
+  opacity: 0; transform: translateY(8px); transition: opacity .2s, transform .2s; pointer-events: none;
+}
+.subir.visivel { opacity: 1; transform: none; pointer-events: auto; }
+
+@media (min-width: 1100px) {
+  .corpo { display: grid; grid-template-columns: minmax(0, 740px) 300px; gap: 56px; align-items: start; }
+  .sumario { position: sticky; top: 24px; order: 2; max-height: calc(100vh - 48px); overflow: auto; margin: 52px 0 0; }
+  .sumario summary { pointer-events: none; }
+  .sumario summary::after { content: none; }
+  .texto { order: 1; }
+}
+@media (max-width: 560px) {
+  body { font-size: 17px; }
+  h1 { font-size: 34px; }
+  .subtitulo { font-size: 20px; }
+  .texto h2 { font-size: 27px; margin-top: 44px; }
+  .ficha { grid-template-columns: minmax(0, 1fr); }
+  .ficha div:nth-child(odd) { border-right: 0; }
+  table.empilha thead { display: none; }
+  table.empilha, table.empilha tbody, table.empilha tr, table.empilha td { display: block; width: 100%; }
+  table.empilha tr { padding: 8px 0; border-bottom: 1px solid var(--line); }
+  table.empilha tr:last-child { border-bottom: 0; }
+  table.empilha td { border: 0; padding: 5px 16px; }
+  table.empilha td::before { content: attr(data-rotulo); display: block; font-size: 12px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--destaque); }
+}
+@media print {
+  :root, :root[data-tema="papel"] { --bg: #fff; --surface: #fff; --surface-2: #f2f2f2; --ink: #111; --muted: #444; --line: #bbb; --destaque: #000; --destaque-2: #000; --link: #000; --sombra: transparent; color-scheme: light; }
+  body { background: #fff !important; border-top: 0; font-size: 12pt; }
+  .progresso, .botao-tema, .subir, .sumario { display: none !important; }
+  .corpo { display: block; }
+  .fixar details { break-inside: avoid; }
+  .fixar details > :not(summary) { display: block !important; }
+  .texto h2 { break-after: avoid; }
+}
+</style>
+</head>
+<body>
+<div class="progresso" aria-hidden="true"><span id="barra"></span></div>
+<header class="topo" id="topo">
+  <a class="marca" href="../../../"><img src="data:image/webp;base64,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" alt="">Giz &amp; Gabarito</a>
+  <button class="botao-tema" id="botao-tema" type="button" aria-pressed="false">Ler no papel</button>
+</header>
+<div class="pagina">
+  <div class="cabeca">
+    <nav class="trilha" aria-label="Você está em"><a href="../../../estudar/">Estudar</a> › <a href="../">SEE-PE: Professor da Educação Básica</a></nav>
+    <h1>Física 2: eletromagnetismo, ondas, óptica, física moderna e ensino</h1>
+    <p class="subtitulo">Campo e potencial elétricos, lei de Gauss, circuitos e ponte de Wheatstone, magnetismo, Ampère, Faraday e Lenz; MHS, ressonância, som e ondas eletromagnéticas; espelhos, lentes e telescópio; interferência, difração e polarização; física moderna; ensino, TDIC, avaliação e o Currículo de Pernambuco</p>
+    <p class="meta"><span>Leitura de uns 44 minutos</span><span>Atualizada em 4 de novembro de 2026</span></p>
+    <aside class="aviso-topo" aria-label="Aviso importante">
+      <p class="rotulo">Antes de começar</p>
+      <ul>
+        <li><strong>Isto é só um resumo.</strong> Estude pelo edital, pela lista oficial de conteúdos e pelos documentos oficiais citados nas fontes, no fim da página.</li>
+        <li><strong>Não temos ligação com a banca</strong> nem com o órgão do concurso. A prova pode cobrar assuntos que não estão neste resumo.</li>
+        <li><strong>Conteúdo gerado por inteligência artificial</strong>, tendo como base documentos e registros oficiais.</li>
+      </ul>
+    </aside>
+    <hr class="risco" aria-hidden="true">
+  </div>
+  <div class="corpo">
+    <details class="sumario" id="sumario" open>
+      <summary>Sumário</summary>
+      <ol>
+        <li><a href="#eletrostatica-carga-campo-e-potencial">Eletrostática: carga, campo e potencial</a></li>
+        <li><a href="#eletrodinamica-corrente-resistores-e-circuitos">Eletrodinâmica: corrente, resistores e circuitos</a></li>
+        <li><a href="#magnetismo-e-inducao-eletromagnetica">Magnetismo e indução eletromagnética</a></li>
+        <li><a href="#oscilacoes-e-ondas">Oscilações e ondas</a></li>
+        <li><a href="#optica-geometrica">Óptica geométrica</a></li>
+        <li><a href="#optica-fisica-interferencia-difracao-e-polarizacao">Óptica física: interferência, difração e polarização</a></li>
+        <li><a href="#fisica-moderna-no-curriculo-do-3o-ano">Física moderna, no currículo do 3º ano</a></li>
+        <li><a href="#o-ensino-de-fisica-sequencias-didaticas-e-abordagens">O ensino de Física: sequências didáticas e abordagens</a></li>
+        <li><a href="#recursos-didaticos-tdic-e-o-laboratorio">Recursos didáticos, TDIC e o laboratório</a></li>
+        <li><a href="#a-avaliacao-da-aprendizagem-em-fisica">A avaliação da aprendizagem em Física</a></li>
+        <li><a href="#o-curriculo-de-pernambuco-de-fisica">O Currículo de Pernambuco de Física</a></li>
+        <li><a href="#pegadinhas-que-a-cebraspe-adora">Pegadinhas que a Cebraspe adora</a></li>
+        <li><a href="#revisao-de-vespera">Revisão de véspera</a></li>
+        <li><a href="#para-fixar">Para fixar</a></li>
+        <li><a href="#fontes">Fontes</a></li>
+      </ol>
+    </details>
+    <article class="texto">
+<p>Esta é a segunda apostila de Física. Cobre os itens 4 a 10 do edital:</p>
+<ul>
+  <li>o <strong>eletromagnetismo</strong>: eletricidade, campo e potencial elétricos, lei de Gauss, corrente, resistores, circuitos, campo magnético, leis de Ampère e de Faraday e as propriedades elétricas e magnéticas dos materiais;</li>
+  <li>a <strong>ondulatória</strong>: movimento harmônico simples, oscilações livres, amortecidas e forçadas, ondas sonoras e eletromagnéticas e a ressonância;</li>
+  <li>a <strong>óptica geométrica</strong> e os instrumentos ópticos, e a <strong>óptica física</strong>: interferência, difração e polarização;</li>
+  <li>o <strong>ensino de Física</strong>, os recursos didáticos e a segurança no laboratório, a <strong>avaliação</strong> e o <strong>Currículo de Pernambuco</strong>.</li>
+</ul>
+<p>Há também uma seção curta de física moderna, que não está no edital, mas está no currículo do 3º ano.</p>
+<aside class="curiosidade"><p class="rotulo">Como caiu em 2022</p>
+  <ul>
+    <li><strong>71 a 73:</strong> duas placas paralelas carregadas: campo, potencial e equilíbrio de uma carga.</li>
+    <li><strong>74 a 77:</strong> um circuito com bateria real e cinco resistores, que era uma ponte de Wheatstone equilibrada.</li>
+    <li><strong>78 a 81:</strong> o experimento de Faraday, a lei de Lenz e a origem do magnetismo.</li>
+    <li><strong>82 a 84:</strong> dois pêndulos acoplados: ressonância, período e som.</li>
+    <li><strong>85 a 90:</strong> um telescópio refrator e o experimento da dupla fenda.</li>
+    <li><strong>91 a 101:</strong> sequências didáticas, ensino por investigação, TDIC, Tracker e Clicker.</li>
+    <li><strong>102 a 105:</strong> o Currículo de Pernambuco e a BNCC.</li>
+  </ul>
+  <p>Mais de um terço dos itens específicos foi de ensino e de currículo, sem conta nenhuma.</p>
+</aside>
+
+<h2 id="eletrostatica-carga-campo-e-potencial">Eletrostática: carga, campo e potencial</h2>
+<ul>
+  <li><strong>A carga elétrica</strong> é quantizada: Q = n·e, com e = 1,6 × 10⁻¹⁹ C. Num sistema isolado, a carga total se <strong>conserva</strong>.</li>
+  <li><strong>As formas de eletrização:</strong>
+    <ul>
+      <li>por <strong>atrito</strong>, em que os corpos ficam com cargas de <strong>sinais opostos</strong>;</li>
+      <li>por <strong>contato</strong>, em que ficam com cargas de <strong>mesmo sinal</strong> (esferas iguais dividem a carga total igualmente);</li>
+      <li>por <strong>indução</strong>, em que o induzido fica com carga de sinal <strong>oposto</strong> ao do indutor, desde que seja ligado à terra.</li>
+    </ul>
+  </li>
+  <li><strong>Condutores e isolantes:</strong> nos condutores, há cargas livres. Em equilíbrio, a carga fica na <strong>superfície externa</strong>, e o campo no interior é <strong>nulo</strong>. É a <strong>gaiola de Faraday</strong>, que explica por que o interior de um carro ou de um avião protege contra raios. As cargas se concentram nas pontas, que é o princípio do para-raios.</li>
+  <li><strong>A lei de Coulomb:</strong> F = k·|q₁|·|q₂|/d², com k ≈ 9 × 10⁹ N·m²/C² no vácuo. Cargas de mesmo sinal se repelem, e de sinais opostos se atraem.</li>
+  <li><strong>O campo elétrico:</strong> E = F/q, em N/C ou V/m.
+    <ul>
+      <li>O campo de uma carga puntiforme é E = k·|Q|/d².</li>
+      <li>As linhas de campo <strong>saem</strong> das cargas positivas e <strong>chegam</strong> às negativas.</li>
+      <li>Uma carga positiva sofre força no sentido do campo, e uma negativa, no sentido contrário.</li>
+    </ul>
+  </li>
+  <li><strong>A lei de Gauss:</strong> o fluxo do campo elétrico através de uma superfície <strong>fechada</strong> é proporcional à carga <strong>interna</strong> a ela: Φ = Q<sub>interna</sub>/ε₀. Cargas fora da superfície não mudam o fluxo total. Com ela se deduz o campo de uma esfera, de um fio e de um plano muito grande carregados.</li>
+  <li><strong>O potencial elétrico:</strong> V = k·Q/d para uma carga puntiforme, em volts. A <strong>diferença de potencial</strong> (tensão) é U = V<sub>A</sub> − V<sub>B</sub>, e o trabalho da força elétrica é W = q·U. As linhas de campo apontam no sentido em que o potencial <strong>diminui</strong>. As superfícies equipotenciais são perpendiculares às linhas de campo.</li>
+  <li><strong>O campo uniforme</strong> entre duas placas paralelas com cargas opostas: o campo tem o mesmo módulo, a mesma direção e o mesmo sentido em todos os pontos entre as placas, e vale <strong>E = U/d</strong>. O <strong>potencial</strong> não é constante: ele <strong>varia linearmente</strong> de uma placa para a outra.</li>
+  <li><strong>Os capacitores:</strong> C = Q/U, em farads. O capacitor de placas planas tem C = ε·A/d, e a energia armazenada é Q·U/2 = C·U²/2. São usados no flash da câmera, no desfibrilador e nas telas sensíveis ao toque. Em <strong>paralelo</strong>, as capacitâncias se somam; em <strong>série</strong>, somam-se os inversos.</li>
+  <li><strong>O dielétrico</strong> é um isolante entre as placas que aumenta a capacitância.</li>
+</ul>
+<aside class="atencao"><p class="rotulo">Caiu em 2022</p>
+  <ul>
+    <li><strong>Item 71, errado:</strong> entre as placas, o potencial <strong>não</strong> é constante: ele varia linearmente. Constante seria se o campo fosse nulo.</li>
+    <li><strong>Item 72, certo:</strong> o vetor campo elétrico entre placas muito grandes é constante (uniforme).</li>
+    <li><strong>Item 73, errado:</strong> como o campo é o mesmo em todos os pontos, uma carga no meio do caminho sofre a força F = q·E, como em qualquer outro ponto. Ela <strong>não</strong> fica em equilíbrio.</li>
+  </ul>
+</aside>
+
+<h2 id="eletrodinamica-corrente-resistores-e-circuitos">Eletrodinâmica: corrente, resistores e circuitos</h2>
+<ul>
+  <li><strong>A corrente elétrica:</strong> i = ΔQ/Δt, em ampères. Nos metais, são os <strong>elétrons</strong> que se movem. O sentido <strong>convencional</strong> da corrente é o contrário, o do movimento de cargas positivas.</li>
+  <li><strong>A primeira lei de Ohm:</strong> U = R·i, para os resistores ôhmicos, em que o gráfico U × i é uma reta.</li>
+  <li><strong>A segunda lei de Ohm:</strong> R = ρ·L/A. Um fio mais <strong>longo</strong> tem resistência maior; um fio mais <strong>grosso</strong>, menor. Por isso o chuveiro de alta potência precisa de fio grosso.</li>
+  <li><strong>A potência elétrica:</strong> P = U·i = R·i² = U²/R, em watts. O <strong>efeito Joule</strong> é a conversão de energia elétrica em térmica num resistor, como no chuveiro, no ferro de passar e na lâmpada incandescente.</li>
+  <li><strong>A energia consumida:</strong> E = P·Δt. A conta de luz cobra em <strong>quilowatt-hora</strong>: 1 kWh = 3,6 × 10⁶ J. Um chuveiro de 5.500 W ligado 30 minutos por dia, durante 30 dias, consome 5,5 × 0,5 × 30 = <strong>82,5 kWh</strong>.</li>
+  <li><strong>As redes de 110 V (ou 127 V) e de 220 V:</strong> para a mesma potência, o aparelho de 220 V puxa <strong>metade da corrente</strong>, o que permite fios mais finos e reduz a perda nos fios. A potência e o consumo não dependem da tensão da rede, e sim do aparelho. Ligar um aparelho de 110 V numa tomada de 220 V pode queimá-lo. No Recife, a tensão residencial padrão é de 220 V.</li>
+</ul>
+<div class="tabela"><table class="empilha">
+  <caption>As associações de resistores</caption>
+  <thead><tr><th>Associação</th><th>Corrente</th><th>Tensão</th><th>Resistência equivalente</th></tr></thead>
+  <tbody>
+    <tr><td data-rotulo="Associação"><strong>Série</strong></td><td data-rotulo="Corrente">A <strong>mesma</strong> em todos</td><td data-rotulo="Tensão">Divide-se entre eles</td><td data-rotulo="Resistência equivalente">R<sub>eq</sub> = R₁ + R₂ + …; se um queimar, todos apagam (como num pisca-pisca antigo)</td></tr>
+    <tr><td data-rotulo="Associação"><strong>Paralelo</strong></td><td data-rotulo="Corrente">Divide-se entre eles</td><td data-rotulo="Tensão">A <strong>mesma</strong> em todos</td><td data-rotulo="Resistência equivalente">1/R<sub>eq</sub> = 1/R₁ + 1/R₂ + …; para dois, R₁R₂/(R₁ + R₂). É sempre menor que o menor resistor. É assim a instalação de uma casa</td></tr>
+  </tbody>
+</table></div>
+<ul>
+  <li><strong>O gerador real:</strong> tem força eletromotriz ε e resistência interna r. A tensão nos terminais é U = ε − r·i. A corrente no circuito é <strong>i = ε/(R<sub>eq</sub> + r)</strong>.
+    <ul>
+      <li>A potência <strong>gerada</strong> é ε·i; a <strong>dissipada</strong> dentro do gerador é r·i²; a <strong>fornecida</strong> ao circuito externo é U·i.</li>
+      <li>O rendimento é η = U/ε.</li>
+    </ul>
+  </li>
+  <li><strong>As leis de Kirchhoff:</strong> nos <strong>nós</strong>, a soma das correntes que chegam é igual à soma das que saem (conservação da carga). Numa <strong>malha</strong> fechada, a soma das tensões é zero (conservação da energia).</li>
+  <li><strong>A ponte de Wheatstone:</strong> quatro resistores em losango, com um quinto ligando os dois vértices do meio. Ela está <strong>equilibrada</strong> quando os produtos dos resistores opostos são iguais (ou as razões dos lados são iguais). Nesse caso, os dois vértices do meio têm o <strong>mesmo potencial</strong>, e o resistor central tem <strong>corrente nula</strong>: ele pode ser retirado do cálculo.</li>
+  <li><strong>Os instrumentos:</strong> o <strong>amperímetro</strong> vai em <strong>série</strong> e deve ter resistência muito pequena; o <strong>voltímetro</strong> vai em <strong>paralelo</strong> e deve ter resistência muito grande.</li>
+  <li><strong>Os dispositivos de segurança</strong>, citados no Currículo de Pernambuco: o <strong>fusível</strong> derrete e abre o circuito quando a corrente passa do limite; o <strong>disjuntor</strong> desarma e pode ser religado; o <strong>DR</strong> (dispositivo diferencial residual) desliga quando há fuga de corrente, como num choque; o <strong>aterramento</strong> desvia as correntes de fuga para a terra.</li>
+  <li><strong>O choque elétrico:</strong> o que fere é a <strong>corrente</strong> que passa pelo corpo. Acima de alguns miliamperes, ela já pode causar contrações musculares, e, a partir de dezenas de miliamperes, pode causar parada cardíaca. A pele molhada tem resistência muito menor.</li>
+</ul>
+<aside class="lembrar"><p class="rotulo">O circuito de 2022, resolvido</p>
+  <p>A bateria tinha ε = 27 V e r = 1 Ω, com R₁ = 4 Ω, R₂ = 8 Ω, R₃ = 16 Ω, R₄ = 8 Ω e R₅ = 2 Ω.</p>
+  <ol>
+    <li><strong>A ponte está equilibrada:</strong> R₁/R₂ = 4/8 = 1/2 e R₄/R₃ = 8/16 = 1/2. Então a corrente em R₅ é <strong>nula</strong>, e a potência dissipada nele é zero. O <strong>item 74</strong> (mais de 15 W) foi <strong>errado</strong>.</li>
+    <li><strong>A resistência equivalente:</strong> sem R₅, sobram dois ramos em paralelo, de 4 + 8 = 12 Ω e de 8 + 16 = 24 Ω. R<sub>eq</sub> = 12 × 24/(12 + 24) = 288/36 = <strong>8 Ω</strong>. O <strong>item 75</strong> foi <strong>certo</strong>.</li>
+    <li><strong>A resistência interna:</strong> se r fosse nula, a corrente total mudaria, mas a ponte continuaria equilibrada, e R₅ continuaria <strong>sem corrente</strong>. O <strong>item 76</strong> foi <strong>errado</strong>.</li>
+    <li><strong>As potências:</strong> i = 27/(8 + 1) = 3 A. A potência gerada é 27 × 3 = <strong>81 W</strong>; a perdida dentro da bateria é 1 × 3² = 9 W; a fornecida ao circuito externo é 81 − 9 = <strong>72 W</strong>. O <strong>item 77</strong> foi <strong>certo</strong>.</li>
+  </ol>
+</aside>
+
+<h2 id="magnetismo-e-inducao-eletromagnetica">Magnetismo e indução eletromagnética</h2>
+<ul>
+  <li><strong>Os ímãs:</strong> têm polo norte e polo sul, que <strong>não podem ser separados</strong>: um ímã partido ao meio vira dois ímãs. Polos iguais se repelem, e diferentes se atraem. O polo norte geográfico da Terra está perto de um polo sul <strong>magnético</strong>, por isso a ponta norte da bússola aponta para ele.</li>
+  <li><strong>Oersted</strong> (1820) mostrou que uma <strong>corrente elétrica cria campo magnético</strong>: foi o nascimento do eletromagnetismo.
+    <ul>
+      <li>As linhas de campo em torno de um fio retilíneo são círculos, dados pela regra da mão direita, e B = μ₀·i/(2π·d).</li>
+      <li>No centro de uma espira, B = μ₀·i/(2R).</li>
+      <li>Dentro de um <strong>solenoide</strong>, o campo é praticamente uniforme: B = μ₀·N·i/L. É o princípio do eletroímã.</li>
+    </ul>
+  </li>
+  <li><strong>A lei de Ampère:</strong> a circulação do campo magnético ao longo de um caminho fechado é proporcional à corrente que atravessa esse caminho. Ela faz para o magnetismo o que a lei de Gauss faz para o campo elétrico: com ela se deduzem os campos do fio e do solenoide.</li>
+  <li><strong>A força magnética:</strong>
+    <ul>
+      <li>sobre uma carga em movimento, F = |q|·v·B·sen θ. Ela é <strong>perpendicular</strong> à velocidade, por isso <strong>não realiza trabalho</strong> e não muda o módulo da velocidade. Uma carga lançada perpendicularmente ao campo faz um MCU. Uma carga parada, ou que se move na direção do campo, não sofre força;</li>
+      <li>sobre um fio com corrente, F = B·i·L·sen θ. É o princípio do <strong>motor elétrico</strong> e do alto-falante.</li>
+    </ul>
+  </li>
+  <li><strong>A indução de Faraday</strong> (1831): a <strong>variação</strong> do fluxo magnético através de um circuito gera nele uma força eletromotriz induzida: ε = −ΔΦ/Δt. O fluxo é Φ = B·A·cos θ. Ele varia se o campo, a área ou o ângulo mudar. Um ímã <strong>parado</strong> diante de uma bobina parada não induz corrente.</li>
+  <li><strong>A lei de Lenz</strong> dá o sinal de menos: a corrente induzida tem um sentido tal que <strong>se opõe à variação</strong> que a produziu. Se o polo norte de um ímã se aproxima de uma bobina, a face da bobina voltada para ele vira um polo <strong>norte</strong>, para repeli-lo. Visto de frente, um polo norte corresponde a uma corrente no sentido <strong>anti-horário</strong>. É uma consequência da conservação da energia.</li>
+  <li><strong>O gerador</strong> de corrente alternada: uma bobina que <strong>gira</strong> num campo magnético tem um fluxo que varia como um cosseno. A força eletromotriz induzida muda de sinal a cada meia volta: a corrente é <strong>alternada</strong>. No Brasil, a frequência da rede é de <strong>60 Hz</strong>. As usinas hidrelétricas, como as do rio São Francisco, eólicas e termelétricas, usam esse princípio.</li>
+  <li><strong>O transformador:</strong> U₁/U₂ = N₁/N₂, com as tensões na razão do número de espiras. Ele só funciona com corrente <strong>alternada</strong>, porque precisa de fluxo variável. Num transformador ideal, a potência se mantém: U₁·i₁ = U₂·i₂. Por isso a transmissão a longa distância usa alta tensão e baixa corrente, que perde menos energia nos fios.</li>
+  <li><strong>Nikola Tesla</strong>, citado no Currículo de Pernambuco, desenvolveu os sistemas de corrente alternada e o motor de indução, que venceram a "guerra das correntes" contra a corrente contínua defendida por Thomas Edison no fim do século XIX.</li>
+  <li><strong>Maxwell</strong> (década de 1860) reuniu as leis de Gauss, de Faraday e de Ampère, completando a última, e previu as <strong>ondas eletromagnéticas</strong>, com a velocidade da luz. <strong>Hertz</strong> produziu essas ondas em laboratório em 1887.</li>
+</ul>
+<div class="tabela"><table class="empilha">
+  <caption>As propriedades magnéticas dos materiais</caption>
+  <thead><tr><th>Material</th><th>Comportamento</th><th>Exemplos</th></tr></thead>
+  <tbody>
+    <tr><td data-rotulo="Material"><strong>Ferromagnético</strong></td><td data-rotulo="Comportamento">É fortemente atraído e pode virar ímã permanente. Tem domínios magnéticos alinháveis. Perde a propriedade acima da <strong>temperatura de Curie</strong></td><td data-rotulo="Exemplos">Ferro, níquel, cobalto e algumas ligas</td></tr>
+    <tr><td data-rotulo="Material"><strong>Paramagnético</strong></td><td data-rotulo="Comportamento">É fracamente atraído e não guarda a magnetização</td><td data-rotulo="Exemplos">Alumínio, platina, oxigênio</td></tr>
+    <tr><td data-rotulo="Material"><strong>Diamagnético</strong></td><td data-rotulo="Comportamento">É fracamente <strong>repelido</strong></td><td data-rotulo="Exemplos">Cobre, água, bismuto, ouro, grafite; um supercondutor é um diamagnético perfeito e faz um ímã levitar</td></tr>
+  </tbody>
+</table></div>
+<p><strong>A origem do magnetismo dos materiais</strong> está nos elétrons, por dois motivos: o movimento <strong>orbital</strong> em torno do núcleo e o <strong>spin</strong>, uma propriedade quântica do elétron. No ferro e nos ímãs comuns, o spin é a contribuição principal. Os núcleos contribuem muito pouco.</p>
+<aside class="atencao"><p class="rotulo">Caiu em 2022</p>
+  <ul>
+    <li><strong>Item 78, errado:</strong> uma bobina girando em movimento circular uniforme perto de um ímã fixo tem um fluxo que aumenta e diminui. A corrente gerada é <strong>alternada</strong>, e não contínua. É exatamente o princípio do gerador.</li>
+    <li><strong>Item 79, certo:</strong> enquanto o ímã se aproxima, o fluxo varia e o amperímetro registra corrente. Se ele parar, a corrente cessa.</li>
+    <li><strong>Item 80, errado:</strong> as propriedades magnéticas não dependem <strong>unicamente</strong> do movimento orbital dos elétrons: o spin é decisivo.</li>
+    <li><strong>Item 81, certo:</strong> com o polo norte do ímã se aproximando da extremidade z = L da bobina, a face dela nesse lado vira um polo norte (Lenz), e a corrente fica no sentido anti-horário em relação ao plano xy.</li>
+  </ul>
+</aside>
+
+<h2 id="oscilacoes-e-ondas">Oscilações e ondas</h2>
+<ul>
+  <li><strong>O movimento harmônico simples</strong> (MHS) é causado por uma força restauradora proporcional ao afastamento (F = −k·x). A posição varia como um cosseno: x = A·cos(ω·t + φ₀).
+    <ul>
+      <li>A velocidade é <strong>máxima</strong> no centro e <strong>nula</strong> nos extremos.</li>
+      <li>A aceleração é máxima nos extremos e nula no centro.</li>
+      <li>A energia mecânica é constante e passa de cinética para potencial e de volta.</li>
+    </ul>
+  </li>
+  <li><strong>Os períodos:</strong>
+    <ul>
+      <li>no sistema massa-mola, T = 2π·√(m/k), que depende da massa;</li>
+      <li>no <strong>pêndulo simples</strong>, para pequenas amplitudes, T = 2π·√(L/g). Ele <strong>não depende da massa</strong> nem da amplitude, só do comprimento e da gravidade. Galileu já havia notado o isocronismo do pêndulo, e ele foi usado nos relógios.</li>
+    </ul>
+  </li>
+  <li><strong>As oscilações livres, amortecidas e forçadas:</strong>
+    <ul>
+      <li>na oscilação <strong>livre</strong>, o sistema oscila na sua <strong>frequência natural</strong>, sem perdas;</li>
+      <li>na <strong>amortecida</strong>, o atrito e a resistência do ar diminuem a amplitude com o tempo, como no amortecedor de um carro;</li>
+      <li>na <strong>forçada</strong>, uma força periódica externa mantém a oscilação.</li>
+    </ul>
+  </li>
+  <li><strong>A ressonância</strong> ocorre quando a frequência da força externa é <strong>igual</strong> à frequência natural do sistema: a amplitude cresce muito, e a transferência de energia é máxima. Exemplos: o balanço empurrado no ritmo certo, a taça que se quebra com uma nota, o rádio sintonizado numa estação, o forno de micro-ondas e a ponte de Tacoma Narrows (1940), um caso clássico, embora a explicação completa envolva também efeitos aerodinâmicos.</li>
+</ul>
+<aside class="atencao"><p class="rotulo">Caiu em 2022</p>
+  <ul>
+    <li><strong>Item 82, certo:</strong> os dois pêndulos têm o mesmo comprimento, portanto a mesma frequência natural. Pendurados na mesma corda, um transmite energia ao outro pela corda, sem contato direto, e o segundo passa a oscilar na mesma frequência. É a ressonância.</li>
+    <li><strong>Item 83, errado:</strong> o período do pêndulo simples não depende da massa. Os dois fazem MHS (para pequenas amplitudes) com a mesma frequência.</li>
+    <li><strong>Item 84, errado:</strong> o som no ar é uma onda <strong>longitudinal</strong>, de compressões e rarefações, e não transversal. (O pêndulo, aliás, oscila numa frequência muito baixa para ser ouvido.)</li>
+  </ul>
+</aside>
+<ul>
+  <li><strong>As ondas</strong> transportam <strong>energia</strong>, sem transportar matéria.
+    <ul>
+      <li><strong>Quanto à natureza:</strong> as <strong>mecânicas</strong> precisam de um meio (o som, as ondas do mar, as ondas numa corda); as <strong>eletromagnéticas</strong> propagam-se também no vácuo.</li>
+      <li><strong>Quanto à vibração:</strong> nas <strong>transversais</strong>, a vibração é perpendicular à propagação (as ondas numa corda e todas as eletromagnéticas); nas <strong>longitudinais</strong>, é na mesma direção (o som nos fluidos).</li>
+      <li><strong>A equação fundamental:</strong> v = λ·f. Quando uma onda muda de meio, a <strong>frequência não muda</strong>; mudam a velocidade e o comprimento de onda.</li>
+      <li><strong>Numa corda</strong>, a velocidade é v = √(T/μ), em que T é a tração e μ é a densidade linear.</li>
+    </ul>
+  </li>
+  <li><strong>Os fenômenos ondulatórios:</strong> reflexão, refração, difração, interferência, polarização (só nas transversais) e ressonância. As <strong>ondas estacionárias</strong> resultam da interferência de ondas iguais em sentidos opostos e têm nós e ventres, como nas cordas do violão e nos tubos sonoros.</li>
+  <li><strong>O som:</strong>
+    <ul>
+      <li>propaga-se a cerca de 340 m/s no ar, mais rápido na água e ainda mais nos sólidos, e <strong>não</strong> se propaga no vácuo;</li>
+      <li>o ouvido humano capta de 20 Hz a 20.000 Hz. Abaixo, é infrassom; acima, ultrassom, usado na ultrassonografia e pelos morcegos;</li>
+      <li>a <strong>altura</strong> depende da <strong>frequência</strong> (o som agudo tem frequência alta, e o grave, baixa); a <strong>intensidade</strong> (o "volume") depende da amplitude e é medida em decibéis, numa escala logarítmica: 10 dB a mais é 10 vezes mais intensidade; o <strong>timbre</strong> depende da forma da onda e distingue um violão de uma flauta na mesma nota;</li>
+      <li>o <strong>efeito Doppler</strong> é a mudança da frequência percebida quando a fonte e o observador se aproximam (mais agudo) ou se afastam (mais grave), como na sirene da ambulância. Na luz, o desvio para o vermelho das galáxias que se afastam foi uma das evidências da expansão do universo.</li>
+    </ul>
+  </li>
+</ul>
+<div class="tabela"><table>
+  <caption>O espectro eletromagnético, da menor para a maior frequência</caption>
+  <thead><tr><th>Faixa</th><th>Usos e efeitos</th></tr></thead>
+  <tbody>
+    <tr><td>Ondas de rádio e de TV</td><td>Comunicação, rádio AM e FM</td></tr>
+    <tr><td>Micro-ondas</td><td>Forno, telefonia celular, wi-fi, radar</td></tr>
+    <tr><td>Infravermelho</td><td>Calor irradiado, controle remoto, câmeras térmicas</td></tr>
+    <tr><td>Luz visível</td><td>Do vermelho (menor frequência) ao violeta (maior)</td></tr>
+    <tr><td>Ultravioleta</td><td>Bronzeamento, câncer de pele, esterilização; é bloqueado em parte pela camada de ozônio</td></tr>
+    <tr><td>Raios X</td><td>Radiografias e tomografias; são <strong>ionizantes</strong></td></tr>
+    <tr><td>Raios gama</td><td>Radioterapia e esterilização; são os mais penetrantes e ionizantes</td></tr>
+  </tbody>
+</table></div>
+<p>Todas viajam no vácuo à velocidade da luz, c ≈ 3 × 10⁸ m/s. Quanto maior a frequência, maior a energia de cada fóton. A partir do ultravioleta, a radiação é capaz de ionizar átomos e danificar o DNA: são as "ondas penetrantes" que o Currículo de Pernambuco cita no 2º ano.</p>
+
+<h2 id="optica-geometrica">Óptica geométrica</h2>
+<ul>
+  <li><strong>Os princípios da propagação da luz:</strong> nos meios homogêneos, a luz se propaga em <strong>linha reta</strong> (o que explica as sombras, as penumbras, os eclipses e a câmara escura); os raios de luz são independentes (eles se cruzam sem se perturbar); e os caminhos são reversíveis.</li>
+  <li><strong>As fontes e os meios:</strong> as fontes <strong>primárias</strong> têm luz própria (o Sol, a lâmpada acesa); as <strong>secundárias</strong> são iluminadas (a Lua). Os meios podem ser transparentes, translúcidos ou opacos.</li>
+  <li><strong>A cor de um objeto</strong> é a cor da luz que ele <strong>reflete</strong>. Uma camisa vermelha iluminada só por luz azul parece preta.</li>
+  <li><strong>A reflexão:</strong> o ângulo de incidência é igual ao de reflexão, ambos medidos em relação à normal. A reflexão <strong>regular</strong> ocorre nos espelhos, e a <strong>difusa</strong>, nas superfícies rugosas, e é ela que nos permite ver os objetos.
+    <ul>
+      <li>O <strong>espelho plano</strong> dá uma imagem virtual, do mesmo tamanho, à mesma distância e <strong>revertida</strong> (troca a direita pela esquerda). Dois espelhos com um ângulo α entre eles formam n = 360/α − 1 imagens.</li>
+      <li>O espelho <strong>côncavo</strong> é usado nos espelhos de maquiagem e nos faróis.</li>
+      <li>O espelho <strong>convexo</strong> dá imagens virtuais, menores e direitas, e amplia o campo de visão: é usado nos retrovisores e nas saídas de garagem.</li>
+    </ul>
+  </li>
+  <li><strong>A refração:</strong> é a mudança de velocidade da luz ao passar de um meio para outro.
+    <ul>
+      <li>O índice de refração absoluto é n = c/v, e é sempre maior ou igual a 1.</li>
+      <li>A <strong>lei de Snell-Descartes</strong> é n₁·sen θ₁ = n₂·sen θ₂. Ao entrar num meio mais refringente, o raio se <strong>aproxima</strong> da normal.</li>
+      <li>A <strong>reflexão total</strong> ocorre quando a luz vai do meio mais refringente para o menos refringente, com ângulo maior que o ângulo limite. É o princípio das <strong>fibras ópticas</strong> e do brilho do diamante.</li>
+      <li>Exemplos do dia a dia: a piscina parece mais rasa, o lápis parece quebrado no copo d'água, e as miragens no asfalto quente.</li>
+      <li>A <strong>dispersão</strong> da luz branca no prisma, e no arco-íris, ocorre porque o índice de refração depende da cor: o violeta desvia mais.</li>
+    </ul>
+  </li>
+  <li><strong>As lentes esféricas delgadas:</strong>
+    <ul>
+      <li>a <strong>equação de Gauss</strong> é 1/f = 1/p + 1/p', e o aumento linear é A = −p'/p. Usa-se f &gt; 0 para lentes convergentes e f &lt; 0 para divergentes;</li>
+      <li>a <strong>vergência</strong> é V = 1/f, em dioptrias (o "grau" dos óculos), com f em metros;</li>
+      <li>uma lente de vidro no ar com <strong>bordas finas</strong> é convergente, e com bordas grossas é divergente;</li>
+      <li>a <strong>lupa</strong> é uma lente convergente com o objeto entre o foco e a lente, e a imagem é virtual, direita e maior.</li>
+    </ul>
+  </li>
+</ul>
+<div class="tabela"><table class="empilha">
+  <caption>O olho humano e os defeitos da visão</caption>
+  <thead><tr><th>Defeito</th><th>O que acontece</th><th>Correção</th></tr></thead>
+  <tbody>
+    <tr><td data-rotulo="Defeito"><strong>Miopia</strong></td><td data-rotulo="O que acontece">A imagem de objetos distantes se forma <strong>antes</strong> da retina (o olho é "longo"); não se enxerga bem de longe</td><td data-rotulo="Correção">Lente <strong>divergente</strong></td></tr>
+    <tr><td data-rotulo="Defeito"><strong>Hipermetropia</strong></td><td data-rotulo="O que acontece">A imagem se formaria <strong>depois</strong> da retina; não se enxerga bem de perto</td><td data-rotulo="Correção">Lente <strong>convergente</strong></td></tr>
+    <tr><td data-rotulo="Defeito"><strong>Presbiopia</strong> ("vista cansada")</td><td data-rotulo="O que acontece">O cristalino perde a capacidade de acomodação com a idade</td><td data-rotulo="Correção">Lente convergente para perto (ou multifocal)</td></tr>
+    <tr><td data-rotulo="Defeito"><strong>Astigmatismo</strong></td><td data-rotulo="O que acontece">A córnea tem curvaturas diferentes em direções diferentes</td><td data-rotulo="Correção">Lente <strong>cilíndrica</strong></td></tr>
+  </tbody>
+</table></div>
+<p>No olho, a <strong>córnea</strong> e o <strong>cristalino</strong> formam o sistema de lentes convergente, e a imagem na retina é <strong>real e invertida</strong>; o cérebro a interpreta. A <strong>acomodação visual</strong> é a mudança da curvatura do cristalino para focalizar objetos a distâncias diferentes.</p>
+<ul>
+  <li><strong>Os instrumentos ópticos:</strong>
+    <ul>
+      <li>a <strong>câmera fotográfica</strong> é uma lente convergente que forma uma imagem real, invertida e menor sobre o sensor;</li>
+      <li>o <strong>microscópio composto</strong> tem duas lentes convergentes: a objetiva, de distância focal muito pequena, perto do objeto, e a ocular. O aumento total é o produto dos aumentos das duas;</li>
+      <li>o <strong>telescópio refrator</strong>, ou luneta astronômica, tem duas lentes convergentes: a objetiva, de distância focal <strong>grande</strong>, e a ocular, de distância focal pequena. Para objetos muito distantes, a imagem da objetiva se forma no <strong>foco dela</strong>, e a ocular é colocada de modo que o seu foco coincida com esse ponto. A distância entre as lentes é f<sub>obj</sub> + f<sub>oc</sub>, e o aumento angular é <strong>f<sub>obj</sub>/f<sub>oc</sub></strong>. Funciona só com <strong>refração</strong>;</li>
+      <li>o <strong>telescópio refletor</strong> (newtoniano) usa um espelho côncavo como objetiva. Os grandes telescópios atuais são refletores.</li>
+    </ul>
+  </li>
+</ul>
+<aside class="atencao"><p class="rotulo">Caiu em 2022</p>
+  <p>O telescópio refrator tinha objetiva de 50,0 cm e ocular de 2,0 cm.</p>
+  <ul>
+    <li><strong>Item 85, errado:</strong> para objetos muito distantes, a imagem da objetiva se forma no foco dela, a <strong>50,0 cm</strong>, e não a 52,0 cm.</li>
+    <li><strong>Item 86, errado:</strong> o telescópio <strong>refrator</strong> funciona com lentes, e se explica só pela <strong>refração</strong>. Não é necessário usar as leis da reflexão.</li>
+    <li><strong>Item 87, certo:</strong> com os focos coincidindo, a distância entre as lentes é 50,0 + 2,0 = <strong>52,0 cm</strong>. O aumento angular desse telescópio é de 50/2 = 25 vezes.</li>
+  </ul>
+</aside>
+
+<h2 id="optica-fisica-interferencia-difracao-e-polarizacao">Óptica física: interferência, difração e polarização</h2>
+<ul>
+  <li><strong>A difração</strong> é a capacidade de uma onda <strong>contornar obstáculos</strong> ou se espalhar ao passar por uma fenda. Ela é marcante quando a fenda tem tamanho da ordem do comprimento de onda. Ouvimos uma conversa atrás de um muro, porque o som tem comprimento de onda grande; mas não vemos atrás dele, porque o da luz é muito pequeno.</li>
+  <li><strong>A interferência</strong> é a superposição de ondas. É <strong>construtiva</strong> quando as cristas coincidem, e as amplitudes se somam; é <strong>destrutiva</strong> quando a crista de uma encontra o vale da outra, e elas se anulam. É o que produz as cores das bolhas de sabão e das manchas de óleo, e é o princípio dos fones com cancelamento de ruído.</li>
+  <li><strong>O experimento de Young</strong> (dupla fenda, por volta de 1801): a luz que passa por duas fendas próximas forma, numa tela, <strong>franjas claras e escuras</strong> alternadas. Foi a prova forte de que a luz se comporta como <strong>onda</strong>. A distância entre duas franjas claras vizinhas é <strong>Δy = λ·D/d</strong>, em que D é a distância até a tela e d é a distância entre as fendas.</li>
+  <li><strong>A polarização</strong> é a seleção de uma única direção de vibração da onda. Só as ondas <strong>transversais</strong> podem ser polarizadas. Por isso a polarização da luz prova que ela é transversal, e o som no ar não pode ser polarizado. São exemplos os óculos de sol polarizados, que cortam o reflexo da água e do asfalto, as telas de cristal líquido e os óculos dos filmes em 3D.</li>
+</ul>
+<aside class="atencao"><p class="rotulo">Caiu em 2022</p>
+  <p>No experimento, λ = 500 nm, d = 0,1 mm e D = 4 m.</p>
+  <ul>
+    <li><strong>Item 88, certo:</strong> a luz é difratada nas fendas, e as raias na tela resultam da interferência construtiva e destrutiva.</li>
+    <li><strong>Item 89, errado:</strong> Δy = λ·D/d = (500 × 10⁻⁹ × 4)/(0,1 × 10⁻³) = 2 × 10⁻² m = <strong>2 cm</strong>, que não é superior a 4 cm.</li>
+    <li><strong>Item 90, errado:</strong> o fenômeno que faz a luz se espalhar ao passar por uma fenda é a <strong>difração</strong>, e não a polarização.</li>
+  </ul>
+</aside>
+
+<h2 id="fisica-moderna-no-curriculo-do-3o-ano">Física moderna, no currículo do 3º ano</h2>
+<ul>
+  <li><strong>A relatividade restrita</strong> (Einstein, 1905) tem dois postulados: as leis da Física são as mesmas em todos os referenciais inerciais, e a velocidade da luz no vácuo é a mesma para todos os observadores. As consequências são a <strong>dilatação do tempo</strong>, a <strong>contração do comprimento</strong> e a equivalência entre massa e energia, <strong>E = m·c²</strong>. O GPS precisa corrigir os efeitos da relatividade restrita e da geral para não errar a posição.</li>
+  <li><strong>A física quântica:</strong>
+    <ul>
+      <li><strong>Planck</strong> (1900) propôs que a energia é trocada em pacotes: E = h·f, com h ≈ 6,63 × 10⁻³⁴ J·s;</li>
+      <li><strong>Einstein</strong> (1905) explicou o <strong>efeito fotoelétrico</strong> com fótons: só a luz com frequência acima de um limite arranca elétrons de um metal. Aumentar a intensidade aumenta o <strong>número</strong> de elétrons, e não a energia de cada um. Foi o motivo do Nobel de 1921 dele. É o princípio das células solares;</li>
+      <li><strong>Bohr</strong> (1913) propôs órbitas com energias quantizadas, o que explica os espectros de linhas dos átomos;</li>
+      <li><strong>de Broglie</strong> (1924) propôs que a matéria também tem comportamento ondulatório: é a <strong>dualidade onda-partícula</strong>, e <strong>Heisenberg</strong> (1927) formulou o princípio da incerteza;</li>
+      <li>2025 foi o Ano Internacional da Ciência e Tecnologia Quânticas, declarado pela ONU nos cem anos da mecânica quântica. O Nobel de Física de 2025 premiou John Clarke, Michel Devoret e John Martinis por mostrarem efeitos quânticos num circuito elétrico macroscópico, base de alguns computadores quânticos.</li>
+    </ul>
+  </li>
+  <li><strong>A física nuclear:</strong>
+    <ul>
+      <li>a radioatividade foi descoberta por Becquerel (1896) e estudada por Marie e Pierre Curie. As emissões são as partículas <strong>alfa</strong> (dois prótons e dois nêutrons, pouco penetrantes, barradas por uma folha de papel), as <strong>beta</strong> (elétrons, barradas por alguns milímetros de alumínio) e a radiação <strong>gama</strong> (onda eletromagnética, muito penetrante, que exige chumbo ou concreto);</li>
+      <li>a <strong>meia-vida</strong> é o tempo para metade dos núcleos decair. O carbono-14 tem cerca de 5.730 anos e é usado na datação;</li>
+      <li>na <strong>fissão</strong>, um núcleo pesado se divide, como nas usinas de Angra dos Reis; na <strong>fusão</strong>, núcleos leves se unem, como no Sol;</li>
+      <li>o acidente com o <strong>césio-137</strong> em Goiânia, em 1987, é o maior acidente radiológico do Brasil e um bom tema para discutir com a turma o descarte de fontes radioativas.</li>
+    </ul>
+  </li>
+  <li><strong>Terra e Universo:</strong> o currículo do 3º ano cita a teoria do <strong>Big Bang</strong> (a origem e a expansão do universo, há cerca de 13,8 bilhões de anos), os <strong>aceleradores de partículas</strong>, a composição da matéria subatômica, o nascimento, a evolução e a morte das <strong>estrelas</strong>, a origem dos elementos químicos nas estrelas e os <strong>buracos negros</strong>. Algumas notícias recentes ajudam a contextualizar:
+    <ul>
+      <li>a primeira detecção direta de <strong>ondas gravitacionais</strong> pelo LIGO, em 2015, que deu o Nobel de 2017;</li>
+      <li>as primeiras imagens de buracos negros pelo Telescópio do Horizonte de Eventos: o de M87, em 2019, e o do centro da Via Láctea, em 2022;</li>
+      <li>o <strong>Telescópio Espacial James Webb</strong>, lançado em 2021, que observa sobretudo no infravermelho as galáxias mais antigas.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="o-ensino-de-fisica-sequencias-didaticas-e-abordagens">O ensino de Física: sequências didáticas e abordagens</h2>
+<ul>
+  <li><strong>A sequência didática</strong> é um conjunto de atividades <strong>ordenadas, articuladas e com objetivos</strong>, com começo e fim conhecidos pelo professor e pelos estudantes, segundo a definição clássica de Antoni Zabala (<em>A prática educativa</em>). Na didática das ciências, fala-se em <strong>sequências de ensino e aprendizagem</strong> (Martine Méheut e Dimitris Psillos, 2004), que são ao mesmo tempo um produto para a sala de aula e um objeto de pesquisa.</li>
+  <li><strong>A ordem do planejamento:</strong> primeiro vêm os <strong>objetivos</strong> e os <strong>referenciais</strong> (o que se quer ensinar, a quem, e com que concepção de aprendizagem); depois se escolhe a abordagem metodológica; e só então se monta a sequência de atividades. A sequência <strong>decorre</strong> da metodologia, e não o contrário.</li>
+  <li><strong>Os referenciais teóricos:</strong>
+    <ul>
+      <li>alguns explicam os <strong>mecanismos psicológicos</strong> da aprendizagem, como as teorias de Piaget, de Vygotsky e a aprendizagem significativa de Ausubel (com os conhecimentos prévios e os subsunçores);</li>
+      <li>outros são <strong>epistemológicos</strong> e tratam da natureza do conhecimento científico, como os de Bachelard, Kuhn e Popper;</li>
+      <li>outros têm caráter <strong>normativo</strong>, isto é, dizem como o ensino <strong>deve</strong> ser organizado, como os princípios de planejamento e os documentos curriculares;</li>
+      <li>os referenciais <strong>não passam diretamente</strong> para a sala de aula. Entre a teoria e a atividade há <strong>mediações</strong>: as ferramentas de planejamento, as hipóteses de aprendizagem e as escolhas do professor. Méheut representa isso com um <strong>losango</strong> de quatro vértices (professor, estudantes, conhecimento científico e mundo material), com uma dimensão epistêmica e uma pedagógica;</li>
+      <li>a experiência do professor é muito importante, mas não substitui os referenciais: eles dão coerência às escolhas.</li>
+    </ul>
+  </li>
+  <li><strong>As concepções alternativas</strong> (ou espontâneas) dos estudantes são ideias de senso comum, muitas vezes parecidas com as de Aristóteles, que resistem ao ensino tradicional. Exemplos:
+    <ul>
+      <li>"é preciso força para manter o movimento";</li>
+      <li>"os corpos pesados caem mais rápido";</li>
+      <li>"o verão acontece quando a Terra está mais perto do Sol" (as estações se devem à <strong>inclinação</strong> do eixo da Terra);</li>
+      <li>"a corrente se gasta na lâmpada" (a corrente é a mesma antes e depois da lâmpada; o que se converte é a energia);</li>
+      <li>"vemos porque sai algo dos olhos" (vemos porque a luz que sai dos objetos chega aos olhos);</li>
+      <li>"o casaco esquenta" (ele isola e reduz a perda de calor do corpo).</li>
+    </ul>
+    A estratégia da <strong>mudança conceitual</strong> parte delas, cria um conflito com a observação e oferece uma ideia nova, inteligível, plausível e útil.</li>
+  <li><strong>O ensino por investigação:</strong>
+    <ul>
+      <li>parte de um <strong>problema</strong>. Os estudantes levantam e testam hipóteses, discutem, argumentam e sistematizam;</li>
+      <li>no Brasil, Anna Maria Pessoa de Carvalho propôs as <strong>sequências de ensino investigativas</strong>: problema, resolução pelos estudantes, sistematização do conhecimento, contextualização e avaliação;</li>
+      <li>a investigação <strong>nem sempre</strong> exige que os estudantes manipulem o experimento. Pode ser uma <strong>demonstração investigativa</strong> feita pelo professor, um problema aberto, uma simulação ou a análise de dados ou de um texto histórico. O que a define é o problema e o raciocínio dos estudantes, e não as mãos no equipamento.</li>
+    </ul>
+  </li>
+  <li><strong>Outras abordagens:</strong>
+    <ul>
+      <li>o <strong>POE</strong> (prever, observar e explicar): o estudante registra a previsão, vê o fenômeno e explica a diferença;</li>
+      <li>a <strong>instrução pelos colegas</strong> (Peer Instruction), de Eric Mazur: o professor faz uma pergunta conceitual, os estudantes votam, discutem com os colegas e votam de novo;</li>
+      <li>a <strong>história e a filosofia da ciência</strong> no ensino: mostram a ciência como construção humana, provisória e coletiva;</li>
+      <li>a abordagem <strong>CTSA</strong> (ciência, tecnologia, sociedade e ambiente), com temas como a matriz energética, a conta de luz e o lixo eletrônico;</li>
+      <li>os <strong>três momentos pedagógicos</strong> (Delizoicov e Angotti): problematização inicial, organização do conhecimento e aplicação do conhecimento.</li>
+    </ul>
+  </li>
+  <li><strong>A alfabetização científica</strong>, que a BNCC chama de <strong>letramento científico</strong>: é a capacidade de compreender e interpretar o mundo com os conhecimentos da ciência e de agir sobre ele. Lúcia Sasseron e Anna Maria Pessoa de Carvalho descrevem três <strong>eixos estruturantes</strong>: a compreensão de termos e conceitos científicos fundamentais; a compreensão da natureza da ciência e dos fatores éticos e políticos da sua prática; e o entendimento das relações entre ciência, tecnologia, sociedade e ambiente.</li>
+  <li><strong>A divulgação científica</strong> e as <strong>olimpíadas</strong>: o Currículo de Pernambuco pede a participação ativa em olimpíadas e eventos de divulgação, exercitando o protagonismo juvenil. Exemplos: a Olimpíada Brasileira de Física (OBF), a Olimpíada Brasileira de Astronomia e Astronáutica (OBA), a Mostra Brasileira de Foguetes (MOBFOG) e as feiras de ciências.</li>
+</ul>
+<aside class="atencao"><p class="rotulo">Caiu em 2022</p>
+  <ul>
+    <li><strong>Item 91, errado:</strong> o plano não começa pela sequência didática, para depois "encaixar" a metodologia. A metodologia e os referenciais orientam a construção da sequência.</li>
+    <li><strong>Item 92, errado:</strong> os referenciais teóricos não são espelhados de maneira direta: há mediação.</li>
+    <li><strong>Item 93, certo:</strong> há referenciais que apresentam os mecanismos psicológicos de aprendizagem dos estudantes.</li>
+    <li><strong>Item 94, certo:</strong> alguns referenciais têm caráter normativo.</li>
+    <li><strong>Item 95, errado:</strong> os referenciais não são "apenas guias genéricos", e a coerência da aula não vem só da experiência do professor.</li>
+    <li><strong>Item 96, errado:</strong> o ensino por investigação não exige que os estudantes <strong>sempre</strong> manipulem a situação experimental.</li>
+  </ul>
+</aside>
+
+<h2 id="recursos-didaticos-tdic-e-o-laboratorio">Recursos didáticos, TDIC e o laboratório</h2>
+<ul>
+  <li><strong>As tecnologias digitais de informação e comunicação</strong> (TDIC) ganharam muito espaço na sala de aula, sobretudo depois da pandemia. Mas o uso delas <strong>não é universal</strong>: depende da infraestrutura da escola, da conexão, dos equipamentos e da formação dos professores, e o acesso é desigual entre as regiões e entre a cidade e o campo.</li>
+</ul>
+<div class="tabela"><table>
+  <caption>Recursos digitais para as aulas de Física</caption>
+  <thead><tr><th>Recurso</th><th>O que faz</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Tracker</strong></td><td>Software gratuito de <strong>análise de vídeo</strong> e modelagem, do projeto Open Source Physics. O estudante filma um movimento (uma bola, um pêndulo) e marca as posições quadro a quadro, obtendo gráficos e tabelas. Tem a versão para computador e a versão <strong>on-line</strong>, que roda no navegador, inclusive em tablets e Chromebooks</td></tr>
+    <tr><td><strong>Clicker</strong></td><td>Sistema de <strong>resposta da plateia</strong>: os estudantes votam em perguntas com um controle ou com o celular, e o professor vê as respostas na hora. Serve à avaliação formativa e à instrução pelos colegas. Tem função didática <strong>diferente</strong> da do Tracker</td></tr>
+    <tr><td><strong>PhET</strong></td><td>Simulações interativas gratuitas da Universidade do Colorado (circuitos, ondas, forças), traduzidas para o português</td></tr>
+    <tr><td><strong>phyphox</strong></td><td>Aplicativo gratuito da Universidade RWTH Aachen que usa os <strong>sensores do celular</strong> (acelerômetro, microfone, magnetômetro) como laboratório</td></tr>
+    <tr><td><strong>Arduino</strong></td><td>Placa programável barata para montar sensores e coletar dados, ligada ao pensamento computacional e ao "mundo digital" que o currículo cita</td></tr>
+  </tbody>
+</table></div>
+<ul>
+  <li><strong>A experimentação</strong> não precisa de laboratório caro. Materiais de baixo custo (garrafas PET, seringas, pilhas, ímãs, lanternas) servem para as atividades investigativas. A atividade deve ter um <strong>problema</strong> e não ser só "receita" para confirmar a teoria.</li>
+  <li><strong>As normas de segurança no laboratório:</strong>
+    <ul>
+      <li>usar <strong>jaleco</strong>, óculos de proteção e sapato fechado, e prender o cabelo;</li>
+      <li>não comer nem beber no laboratório;</li>
+      <li>conhecer a localização do <strong>extintor</strong>, do chuveiro e do lava-olhos;</li>
+      <li>não manusear aparelhos elétricos com as mãos molhadas e desligar da tomada antes de mexer no circuito;</li>
+      <li>usar pilhas e fontes de baixa tensão nas atividades com estudantes;</li>
+      <li>não olhar diretamente para o Sol nem para um laser, nem apontá-lo para os olhos de alguém;</li>
+      <li>descartar corretamente as pilhas, as lâmpadas e os resíduos;</li>
+      <li>comunicar ao professor qualquer acidente, por menor que seja.</li>
+    </ul>
+  </li>
+</ul>
+<aside class="atencao"><p class="rotulo">Caiu em 2022</p>
+  <ul>
+    <li><strong>Item 97, certo:</strong> as TDIC ganharam lugar de notoriedade entre os recursos didáticos.</li>
+    <li><strong>Item 98, errado:</strong> o Tracker não roda <strong>apenas</strong> em notebooks e desktops: há a versão on-line, no navegador.</li>
+    <li><strong>Item 99, errado:</strong> o uso das TDIC não é universal nem independente do lugar: depende da infraestrutura e da conexão.</li>
+    <li><strong>Item 100, certo:</strong> o Tracker é um recurso para as aulas de Física, sobretudo com experimentos.</li>
+    <li><strong>Item 101, errado:</strong> o Clicker e o Tracker cumprem funções didáticas diferentes: um coleta respostas, e o outro analisa vídeos.</li>
+  </ul>
+</aside>
+
+<h2 id="a-avaliacao-da-aprendizagem-em-fisica">A avaliação da aprendizagem em Física</h2>
+<ul>
+  <li><strong>As funções:</strong>
+    <ul>
+      <li>a avaliação <strong>diagnóstica</strong>, no início, levanta os conhecimentos prévios e as concepções alternativas;</li>
+      <li>a <strong>formativa</strong>, ao longo do processo, orienta o professor e o estudante, com devolutivas;</li>
+      <li>a <strong>somativa</strong>, ao fim, faz o balanço. A LDB pede a prevalência dos aspectos qualitativos sobre os quantitativos.</li>
+    </ul>
+  </li>
+  <li><strong>Avaliar a compreensão</strong>, e não só a conta: perguntas conceituais, como as do Inventário de Conceitos de Força (Force Concept Inventory, de David Hestenes e colegas, 1992), mostram que muitos estudantes que acertam os cálculos mantêm concepções aristotélicas.</li>
+  <li><strong>Os instrumentos:</strong> relatórios de experimentos, mapas conceituais, portfólios, autoavaliação, rubricas, seminários, projetos, a resolução de problemas abertos e os registros das atividades investigativas. A diversidade de instrumentos é coerente com a avaliação por competências.</li>
+  <li><strong>A avaliação externa:</strong> o ENEM cobra Física na prova de Ciências da Natureza, sempre contextualizada e com leitura de gráficos e tabelas. Vale usar itens dele como modelo para as avaliações da escola.</li>
+</ul>
+
+<h2 id="o-curriculo-de-pernambuco-de-fisica">O Currículo de Pernambuco de Física</h2>
+<ul>
+  <li><strong>A base:</strong> o Currículo de Pernambuco do Ensino Médio (2020) está em harmonia com a BNCC, mas <strong>não é uma cópia</strong> dela. Ele parte das competências específicas e das habilidades da área de <strong>Ciências da Natureza e suas Tecnologias</strong> (com códigos como EM13CNT101) e as <strong>desdobra</strong> em habilidades próprias de cada componente, com o sufixo do estado. Por exemplo, EM13CNT101FIS01PE é uma habilidade de Física de Pernambuco derivada da habilidade EM13CNT101 da BNCC.</li>
+  <li><strong>As três unidades temáticas da área</strong>, uma por ano no organizador de Física:</li>
+</ul>
+<div class="tabela"><table class="empilha">
+  <caption>O organizador curricular de Física</caption>
+  <thead><tr><th>Ano</th><th>Unidade temática</th><th>Objetos de conhecimento</th></tr></thead>
+  <tbody>
+    <tr><td data-rotulo="Ano"><strong>1º ano</strong></td><td data-rotulo="Unidade temática">Matéria e Energia</td><td data-rotulo="Objetos de conhecimento">Cinemática (MRU, MRUV, gráficos, MCU), movimento vertical e lançamentos, gravitação (Kepler, satélites), teoria geral da relatividade, energia e sua conservação, impulso e quantidade de movimento</td></tr>
+    <tr><td data-rotulo="Ano"><strong>2º ano</strong></td><td data-rotulo="Unidade temática">Vida e Evolução</td><td data-rotulo="Objetos de conhecimento">Calor e temperatura, dilatação, propagação do calor (lei de Fourier), calorimetria e diagrama de fases; ondulatória (fenômenos, ondas estacionárias, efeitos fisiológicos do som, tubos sonoros, efeito Doppler, radiação ionizante); óptica geométrica e a visão humana; estudo dos gases, primeira lei, máquinas térmicas, ciclo de Carnot, segunda lei e entropia</td></tr>
+    <tr><td data-rotulo="Ano"><strong>3º ano</strong></td><td data-rotulo="Unidade temática">Terra e Universo</td><td data-rotulo="Objetos de conhecimento">Circuitos (rendimento, corrente contínua e alternada, redes de 110 V e 220 V, consumo e custo, as contribuições de Tesla), componentes, dispositivos de segurança, resistores, geradores, capacitores, receptores, transformadores e indutores, sensores; Big Bang, aceleradores de partículas, astronomia (estrelas, origem dos elementos, buracos negros); matrizes energéticas</td></tr>
+  </tbody>
+</table></div>
+<ul>
+  <li><strong>Em todos os anos</strong>, há habilidades sobre a <strong>metodologia da pesquisa científica</strong>, a representação de dados em tabelas e gráficos, o combate às informações falsas, a <strong>divulgação científica</strong>, as olimpíadas e a elaboração de experimentos para testar hipóteses e controlar variáveis.</li>
+  <li><strong>A física quântica:</strong> as habilidades do currículo <strong>não fazem referência direta</strong> aos desenvolvimentos específicos da física quântica. A física do século XX aparece pela relatividade, pelo Big Bang, pelos aceleradores e pela matéria subatômica.</li>
+  <li><strong>A BNCC</strong> da área de Ciências da Natureza tem o compromisso com o <strong>letramento científico</strong> e prevê a divulgação científica. A competência específica 3 fala em comunicar descobertas e conclusões a públicos variados, usando diferentes mídias e tecnologias digitais.</li>
+</ul>
+<aside class="atencao"><p class="rotulo">Caiu em 2022</p>
+  <ul>
+    <li><strong>Item 102, certo:</strong> as habilidades do currículo não fazem referência direta à física quântica.</li>
+    <li><strong>Item 103, errado:</strong> as habilidades do currículo não são "apenas transcrições" das da BNCC: são desdobramentos próprios do estado.</li>
+    <li><strong>Item 104, certo:</strong> a BNCC prevê ações de divulgação científica.</li>
+    <li><strong>Item 105, certo:</strong> a BNCC prevê ações relativas à alfabetização (letramento) científica.</li>
+  </ul>
+</aside>
+
+<h2 id="pegadinhas-que-a-cebraspe-adora">Pegadinhas que a Cebraspe adora</h2>
+<div class="tabela"><table>
+  <thead><tr><th>A banca escreve</th><th>O certo</th></tr></thead>
+  <tbody>
+    <tr><td>"Entre placas paralelas com cargas opostas, o potencial é constante"</td><td>O <strong>campo</strong> é constante; o potencial varia linearmente</td></tr>
+    <tr><td>"Uma carga no meio das placas fica em equilíbrio"</td><td>Sofre F = qE em qualquer ponto</td></tr>
+    <tr><td>"No interior de um condutor eletrizado em equilíbrio, o campo é máximo"</td><td>É <strong>nulo</strong>; a carga fica na superfície (gaiola de Faraday)</td></tr>
+    <tr><td>"Em paralelo, a resistência equivalente é maior que a maior das resistências"</td><td>É <strong>menor</strong> que a menor</td></tr>
+    <tr><td>"O resistor central de uma ponte de Wheatstone equilibrada é percorrido pela corrente máxima"</td><td>A corrente nele é <strong>nula</strong></td></tr>
+    <tr><td>"O amperímetro é ligado em paralelo"</td><td>Em <strong>série</strong>; o voltímetro, em paralelo</td></tr>
+    <tr><td>"Um aparelho de 220 V consome menos energia que um de 110 V de mesma potência"</td><td>O consumo depende da potência e do tempo; muda só a corrente</td></tr>
+    <tr><td>"Um ímã parado ao lado de uma bobina induz corrente contínua"</td><td>Sem <strong>variação</strong> de fluxo, não há corrente induzida</td></tr>
+    <tr><td>"Uma bobina girando num campo gera corrente contínua"</td><td>Gera corrente <strong>alternada</strong></td></tr>
+    <tr><td>"O transformador funciona com corrente contínua"</td><td>Só com corrente <strong>alternada</strong></td></tr>
+    <tr><td>"A força magnética aumenta a velocidade da carga"</td><td>É perpendicular à velocidade e não realiza trabalho</td></tr>
+    <tr><td>"O magnetismo vem só do movimento orbital dos elétrons"</td><td>Vem também do <strong>spin</strong>, que é a contribuição principal nos ímãs</td></tr>
+    <tr><td>"Um pêndulo de massa maior tem período maior"</td><td>T = 2π√(L/g) não depende da massa</td></tr>
+    <tr><td>"O som no ar é uma onda transversal"</td><td>É <strong>longitudinal</strong>; e não se propaga no vácuo</td></tr>
+    <tr><td>"Ao mudar de meio, a frequência da onda muda"</td><td>A frequência se mantém; mudam a velocidade e o comprimento de onda</td></tr>
+    <tr><td>"A altura do som depende da amplitude"</td><td>Depende da <strong>frequência</strong>; a amplitude dá a intensidade</td></tr>
+    <tr><td>"O míope usa lente convergente"</td><td>Usa lente <strong>divergente</strong></td></tr>
+    <tr><td>"No telescópio refrator, a imagem da objetiva se forma a f<sub>obj</sub> + f<sub>oc</sub>"</td><td>Forma-se no foco da objetiva; f<sub>obj</sub> + f<sub>oc</sub> é a distância entre as lentes</td></tr>
+    <tr><td>"O som pode ser polarizado"</td><td>Só as ondas <strong>transversais</strong> se polarizam</td></tr>
+    <tr><td>"A luz passa pela fenda por polarização"</td><td>É <strong>difração</strong></td></tr>
+    <tr><td>"No efeito fotoelétrico, uma luz mais intensa arranca elétrons mais rápidos"</td><td>Arranca <strong>mais</strong> elétrons; a energia de cada um depende da frequência</td></tr>
+    <tr><td>"O ensino por investigação exige sempre a manipulação do experimento pelos estudantes"</td><td>Pode ser uma demonstração investigativa, um problema ou uma simulação</td></tr>
+    <tr><td>"Os referenciais teóricos se refletem diretamente na sequência didática"</td><td>Há <strong>mediação</strong> entre a teoria e as atividades</td></tr>
+    <tr><td>"As habilidades do Currículo de Pernambuco são transcrições da BNCC"</td><td>São <strong>desdobramentos</strong> próprios, com o código PE</td></tr>
+  </tbody>
+</table></div>
+
+<h2 id="revisao-de-vespera">Revisão de véspera</h2>
+<aside class="lembrar"><p class="rotulo">Leia na véspera</p>
+  <ul>
+    <li><strong>Eletrostática:</strong> e = 1,6 × 10⁻¹⁹ C; atrito (sinais opostos), contato (mesmo sinal), indução (oposto); condutor em equilíbrio com campo nulo dentro (gaiola de Faraday); Coulomb (F = kq₁q₂/d², k = 9 × 10⁹); E = F/q; Gauss (fluxo pela carga interna); V = kQ/d; W = qU; placas: E = U/d uniforme e potencial linear; C = Q/U = εA/d.</li>
+    <li><strong>Circuitos:</strong> U = Ri; R = ρL/A; P = Ui = Ri² = U²/R; E = P·Δt em kWh; série (mesma corrente) e paralelo (mesma tensão; menor que o menor); i = ε/(R<sub>eq</sub> + r); gerada εi, perdida ri², fornecida Ui; Kirchhoff; Wheatstone equilibrada (produtos opostos iguais, corrente zero no centro); amperímetro em série, voltímetro em paralelo; fusível, disjuntor, DR, aterramento; 220 V com metade da corrente.</li>
+    <li><strong>Magnetismo:</strong> polos inseparáveis; Oersted (1820); fio B = μ₀i/(2πd), solenoide B = μ₀Ni/L; Ampère (circulação pela corrente); F = qvB sen θ (sem trabalho), F = BiL sen θ (motor); Faraday (1831; ε = −ΔΦ/Δt); Lenz (opõe-se à variação; norte que chega cria norte, anti-horário); bobina girando dá corrente alternada (60 Hz); transformador U₁/U₂ = N₁/N₂, só alternada; Tesla e a corrente alternada; Maxwell e Hertz; ferro, para e diamagnéticos; magnetismo pelo orbital e pelo spin.</li>
+    <li><strong>Ondas:</strong> MHS (velocidade máxima no centro); massa-mola T = 2π√(m/k); pêndulo T = 2π√(L/g), sem massa; livre, amortecida, forçada; ressonância (frequência igual à natural); v = λf; mecânicas e eletromagnéticas; transversais e longitudinais (o som); a frequência não muda ao mudar de meio; som a 340 m/s, de 20 Hz a 20 kHz; altura (frequência), intensidade (dB), timbre (forma); Doppler; espectro do rádio ao gama; ionizantes do UV para cima.</li>
+    <li><strong>Óptica geométrica:</strong> propagação retilínea, independência, reversibilidade; reflexão (i = r; espelho plano revertido; convexo no retrovisor); n = c/v; Snell (n₁ sen θ₁ = n₂ sen θ₂); reflexão total (fibra óptica); dispersão; Gauss (1/f = 1/p + 1/p'); A = −p'/p; V = 1/f em dioptrias; miopia (divergente), hipermetropia e presbiopia (convergente), astigmatismo (cilíndrica); telescópio (imagem no foco da objetiva; distância f<sub>obj</sub> + f<sub>oc</sub>; aumento f<sub>obj</sub>/f<sub>oc</sub>; 50 e 2 cm dão 52 cm e 25×).</li>
+    <li><strong>Óptica física:</strong> difração (contornar obstáculos); interferência construtiva e destrutiva; Young (Δy = λD/d; 500 nm, 4 m e 0,1 mm dão 2 cm); polarização só nas transversais (óculos polarizados, LCD, 3D).</li>
+    <li><strong>Moderna:</strong> relatividade (1905; c constante; dilatação do tempo; E = mc²; GPS); Planck (E = hf); fotoelétrico (Einstein; frequência mínima; intensidade dá o número de elétrons); Bohr; de Broglie; Heisenberg; alfa, beta e gama; meia-vida; fissão e fusão; césio-137 (1987); Big Bang, LIGO (2015), buracos negros (2019 e 2022), James Webb (2021); Nobel de 2025 (circuitos quânticos).</li>
+    <li><strong>Ensino:</strong> sequência didática (Zabala; Méheut e Psillos; o losango); os objetivos e a metodologia antes da sequência; referenciais psicológicos, epistemológicos e normativos, com mediação; concepções alternativas e mudança conceitual; ensino por investigação (Carvalho; nem sempre com manipulação); POE; Peer Instruction (Mazur); três momentos pedagógicos; CTSA; alfabetização científica (Sasseron e Carvalho, três eixos); OBF, OBA, MOBFOG.</li>
+    <li><strong>Recursos e avaliação:</strong> TDIC em destaque, mas sem uso universal; Tracker (análise de vídeo; também on-line); Clicker (votação; função diferente); PhET; phyphox; Arduino; segurança (EPI, extintor, baixa tensão, laser); avaliação diagnóstica, formativa e somativa; FCI; instrumentos variados.</li>
+    <li><strong>Currículo de Pernambuco:</strong> desdobra a BNCC (EM13CNT…FIS…PE), não a transcreve; 1º ano Matéria e Energia (mecânica), 2º Vida e Evolução (térmica, ondas, óptica, termodinâmica), 3º Terra e Universo (eletricidade e cosmologia); sem referência direta à física quântica; divulgação científica e letramento científico.</li>
+  </ul>
+</aside>
+
+<h2 id="para-fixar">Para fixar</h2>
+<p>Itens no estilo da Cebraspe. Julgue certo ou errado antes de abrir a resposta.</p>
+<div class="fixar">
+  <details><summary>Na eletrização por atrito, os dois corpos adquirem cargas de mesmo módulo e sinais opostos.<span class="ver">Toque para ver a resposta</span></summary><div class="resposta"><p><b>Certo.</b> Os elétrons passam de um corpo para o outro, e a carga total se conserva.</p></div></details>
+  <details><summary>Se a distância entre duas cargas puntiformes for reduzida à metade, a força elétrica entre elas ficará quatro vezes maior.<span class="ver">Toque para ver a resposta</span></summary><div class="resposta"><p><b>Certo.</b> A força é inversamente proporcional ao quadrado da distância: (1/2)² no denominador multiplica a força por 4.</p></div></details>
+  <details><summary>Segundo a lei de Gauss, o fluxo do campo elétrico através de uma superfície fechada depende das cargas situadas fora dessa superfície.<span class="ver">Toque para ver a resposta</span></summary><div class="resposta"><p><b>Errado.</b> O fluxo total depende só da carga <b>interna</b>.</p></div></details>
+  <details><summary>Uma pessoa dentro de um automóvel atingido por um raio fica protegida porque a carroceria metálica funciona como uma blindagem eletrostática.<span class="ver">Toque para ver a resposta</span></summary><div class="resposta"><p><b>Certo.</b> É a gaiola de Faraday: a carga fica na superfície externa, e o campo no interior é praticamente nulo.</p></div></details>
+  <details><summary>Dois resistores de 6 Ω associados em paralelo têm resistência equivalente de 12 Ω.<span class="ver">Toque para ver a resposta</span></summary><div class="resposta"><p><b>Errado.</b> Em paralelo, R<sub>eq</sub> = 6 × 6/(6 + 6) = 3 Ω. Os 12 Ω seriam da associação em série.</p></div></details>
+  <details><summary>Um chuveiro de 4.000 W, usado 15 minutos por dia durante 30 dias, consome 30 kWh no mês.<span class="ver">Toque para ver a resposta</span></summary><div class="resposta"><p><b>Certo.</b> E = 4 kW × 0,25 h × 30 = 30 kWh.</p></div></details>
+  <details><summary>Para uma mesma potência, um aparelho projetado para 220 V é percorrido por uma corrente menor que a de um aparelho equivalente projetado para 110 V.<span class="ver">Toque para ver a resposta</span></summary><div class="resposta"><p><b>Certo.</b> P = U·i: com o dobro da tensão, a corrente cai à metade.</p></div></details>
+  <details><summary>Em uma ponte de Wheatstone equilibrada, o resistor que liga os dois pontos centrais é percorrido pela maior corrente do circuito.<span class="ver">Toque para ver a resposta</span></summary><div class="resposta"><p><b>Errado.</b> Os dois pontos têm o mesmo potencial, e a corrente nesse resistor é nula.</p></div></details>
+  <details><summary>Um gerador de força eletromotriz 12 V e resistência interna 0,5 Ω, ligado a um resistor externo de 5,5 Ω, fornece ao circuito externo uma corrente de 2 A.<span class="ver">Toque para ver a resposta</span></summary><div class="resposta"><p><b>Certo.</b> i = ε/(R + r) = 12/(5,5 + 0,5) = 12/6 = 2 A.</p></div></details>
+  <details><summary>Uma partícula carregada que se move na mesma direção das linhas de um campo magnético uniforme não sofre força magnética.<span class="ver">Toque para ver a resposta</span></summary><div class="resposta"><p><b>Certo.</b> F = qvB sen θ, e, com θ = 0°, sen θ = 0.</p></div></details>
+  <details><summary>A força magnética sobre uma carga em movimento pode aumentar o módulo da sua velocidade, pois realiza trabalho positivo.<span class="ver">Toque para ver a resposta</span></summary><div class="resposta"><p><b>Errado.</b> A força magnética é perpendicular à velocidade e não realiza trabalho: só muda a direção do movimento.</p></div></details>
+  <details><summary>Um transformador ideal com 200 espiras no primário e 20 no secundário, ligado a uma rede de 220 V em corrente alternada, fornece 22 V no secundário.<span class="ver">Toque para ver a resposta</span></summary><div class="resposta"><p><b>Certo.</b> U₂ = U₁·N₂/N₁ = 220 × 20/200 = 22 V.</p></div></details>
+  <details><summary>Pela lei de Lenz, a corrente induzida numa espira tem sentido tal que reforça a variação do fluxo magnético que a originou.<span class="ver">Toque para ver a resposta</span></summary><div class="resposta"><p><b>Errado.</b> Ela se <b>opõe</b> à variação do fluxo. Se reforçasse, haveria criação de energia do nada.</p></div></details>
+  <details><summary>Quadruplicando-se o comprimento de um pêndulo simples, o seu período de oscilação dobra.<span class="ver">Toque para ver a resposta</span></summary><div class="resposta"><p><b>Certo.</b> T = 2π√(L/g): com 4L, a raiz dá 2, e o período dobra.</p></div></details>
+  <details><summary>Em um sistema massa-mola em movimento harmônico simples, a velocidade do corpo é máxima nos pontos de maior afastamento da posição de equilíbrio.<span class="ver">Toque para ver a resposta</span></summary><div class="resposta"><p><b>Errado.</b> Nos extremos, a velocidade é nula, e a aceleração é máxima. A velocidade é máxima na posição de equilíbrio.</p></div></details>
+  <details><summary>Quando uma onda sonora passa do ar para a água, a sua frequência se mantém, mas a sua velocidade e o seu comprimento de onda aumentam.<span class="ver">Toque para ver a resposta</span></summary><div class="resposta"><p><b>Certo.</b> A frequência é dada pela fonte. O som é mais rápido na água, e, como v = λf, o comprimento de onda também aumenta.</p></div></details>
+  <details><summary>A altura de um som, que o caracteriza como grave ou agudo, está relacionada à amplitude da onda sonora.<span class="ver">Toque para ver a resposta</span></summary><div class="resposta"><p><b>Errado.</b> A altura depende da frequência. A amplitude está ligada à intensidade.</p></div></details>
+  <details><summary>A ultrassonografia utiliza ondas eletromagnéticas de alta frequência.<span class="ver">Toque para ver a resposta</span></summary><div class="resposta"><p><b>Errado.</b> O ultrassom é uma onda <b>mecânica</b> (sonora), de frequência acima de 20 kHz.</p></div></details>
+  <details><summary>A miopia, em que a imagem de objetos distantes se forma antes da retina, é corrigida com lentes divergentes.<span class="ver">Toque para ver a resposta</span></summary><div class="resposta"><p><b>Certo.</b> A lente divergente afasta o ponto em que a imagem se forma, levando-o até a retina.</p></div></details>
+  <details><summary>Um objeto colocado a 30 cm de uma lente convergente de distância focal 10 cm tem imagem real formada a 15 cm da lente.<span class="ver">Toque para ver a resposta</span></summary><div class="resposta"><p><b>Certo.</b> 1/10 = 1/30 + 1/p', logo 1/p' = 3/30 − 1/30 = 2/30, e p' = 15 cm, real.</p></div></details>
+  <details><summary>As fibras ópticas conduzem a luz por meio de sucessivas reflexões totais, que ocorrem quando a luz incide do meio de menor índice de refração para o de maior índice.<span class="ver">Toque para ver a resposta</span></summary><div class="resposta"><p><b>Errado.</b> A reflexão total ocorre quando a luz vai do meio de <b>maior</b> índice (o núcleo da fibra) para o de menor índice, com ângulo maior que o limite.</p></div></details>
+  <details><summary>O fato de a luz poder ser polarizada é uma evidência de que ela é uma onda transversal.<span class="ver">Toque para ver a resposta</span></summary><div class="resposta"><p><b>Certo.</b> Só as ondas transversais podem ser polarizadas.</p></div></details>
+  <details><summary>No efeito fotoelétrico, ao se aumentar a intensidade de uma luz com frequência abaixo da frequência de corte do metal, passam a ser emitidos elétrons.<span class="ver">Toque para ver a resposta</span></summary><div class="resposta"><p><b>Errado.</b> Abaixo da frequência de corte, nenhum elétron é emitido, qualquer que seja a intensidade. Cada fóton precisa ter energia suficiente.</p></div></details>
+  <details><summary>A estratégia de prever, observar e explicar parte do registro das previsões dos estudantes para que eles confrontem as suas ideias com o fenômeno observado.<span class="ver">Toque para ver a resposta</span></summary><div class="resposta"><p><b>Certo.</b> É uma forma de trabalhar as concepções alternativas.</p></div></details>
+  <details><summary>Na perspectiva da alfabetização científica, basta que o estudante memorize os termos e as fórmulas da Física.<span class="ver">Toque para ver a resposta</span></summary><div class="resposta"><p><b>Errado.</b> Além dos conceitos, ela envolve a compreensão da natureza da ciência e das relações entre ciência, tecnologia, sociedade e ambiente.</p></div></details>
+</div>
+
+<h2 id="fontes">Fontes</h2>
+<p>Conteúdo e exemplos numéricos escritos para esta apostila. Nenhum trecho foi copiado de apostilas ou cursinhos.</p>
+<ol class="fontes">
+  <li><strong>Edital nº 1 – SEE/PE, de 2022 (Cebraspe)</strong>, Disciplina 5, Física, itens 4 a 10.</li>
+  <li><strong>Cebraspe:</strong> caderno 714_SEE_PE_005_01 e gabarito definitivo (itens 71 a 105), aplicação em 21/08/2022.</li>
+  <li><strong>Secretaria de Educação e Esportes de Pernambuco.</strong> <em>Currículo de Pernambuco: Ensino Médio</em>, 2020, Organizador Curricular de Física (1º, 2º e 3º anos).</li>
+  <li><strong>Ministério da Educação.</strong> <em>Base Nacional Comum Curricular: Ensino Médio</em>, área de Ciências da Natureza e suas Tecnologias.</li>
+  <li>Obras de didática das ciências citadas no texto: Antoni Zabala, <em>A prática educativa</em>; Méheut e Psillos, sobre as sequências de ensino e aprendizagem (2004); Anna Maria Pessoa de Carvalho, sobre o ensino por investigação; Sasseron e Carvalho, sobre a alfabetização científica; Delizoicov e Angotti, sobre os três momentos pedagógicos; Eric Mazur, <em>Peer Instruction</em>.</li>
+  <li>Obras universitárias de física básica (por exemplo, as de Halliday, Resnick e Walker e de H. Moysés Nussenzveig).</li>
+</ol>
+      <section class="chamada">
+        <h2>Agora, treine</h2>
+        <p>No app <strong>Giz &amp; Gabarito</strong>, escolha o edital de SEE-PE: Professor da Educação Básica e treine com questões comentadas. Toque em "Estude grátis agora mesmo!" para voltar às apostilas deste concurso.</p>
+      </section>
+      <div class="rodape">
+        <p>Resumo gerado por inteligência artificial para o Giz &amp; Gabarito, a partir das fontes listadas acima. Nada aqui foi copiado de bancas ou cursinhos. Não temos ligação com a banca nem com o órgão do concurso: estude também pelo edital e pelos documentos oficiais.</p>
+        <p>Viu um erro? Escreva para <a href="mailto:gizegabarito@gmail.com?subject=Erro%20na%20apostila%3A%20F%C3%ADsica%202%3A%20eletromagnetismo%2C%20ondas%2C%20%C3%B3ptica%2C%20f%C3%ADsica%20moderna%20e%20ensino%20%28SEE-PE%3A%20Professor%20da%20Educa%C3%A7%C3%A3o%20B%C3%A1sica%29">gizegabarito@gmail.com</a> que a gente confere e corrige.</p>
+        <p><a href="../">Outras apostilas deste concurso</a> · <a href="../../../privacidade/">Política de privacidade</a></p>
+      </div>
+    </article>
+  </div>
+</div>
+<a class="subir" id="subir" href="#topo" aria-label="Voltar ao começo">↑</a>
+<script>
+(function () {
+  var raiz = document.documentElement, botao = document.getElementById('botao-tema');
+  function marcarTema() {
+    var papel = raiz.getAttribute('data-tema') === 'papel';
+    botao.textContent = papel ? 'Ler na lousa' : 'Ler no papel';
+    botao.setAttribute('aria-pressed', String(papel));
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', papel ? '#f7f2e4' : '#1f3b30');
+  }
+  botao.addEventListener('click', function () {
+    if (raiz.getAttribute('data-tema') === 'papel') raiz.removeAttribute('data-tema'); else raiz.setAttribute('data-tema', 'papel');
+    try { localStorage.setItem('gg.apostila.tema', raiz.getAttribute('data-tema') || 'lousa'); } catch (e) { /* sem armazenamento */ }
+    marcarTema();
+  });
+  marcarTema();
+
+  // no computador o sumário fica aberto ao lado; no celular, aberto no começo e fechado ao tocar num item
+  var sumario = document.getElementById('sumario'), largo = window.matchMedia('(min-width: 1100px)');
+  function ajustarSumario() { if (largo.matches) sumario.open = true; }
+  if (largo.addEventListener) largo.addEventListener('change', ajustarSumario);
+  ajustarSumario();
+  // fecha antes de rolar: assim o texto que sobe com o sumário fechado não tira a seção do lugar
+  sumario.addEventListener('click', function (e) {
+    var a = e.target.closest('a'), alvo = a && document.getElementById(a.getAttribute('href').slice(1));
+    if (!alvo || largo.matches) return;
+    e.preventDefault();
+    sumario.open = false;
+    alvo.scrollIntoView({ block: 'start' });
+    try { history.replaceState(null, '', a.getAttribute('href')); } catch (erro) { /* file:// em alguns navegadores */ }
+  });
+
+  // barra de leitura, botão de subir e item do sumário da seção que está na tela
+  var barra = document.getElementById('barra'), subir = document.getElementById('subir');
+  var links = Array.prototype.slice.call(sumario.querySelectorAll('a'));
+  var secoes = links.map(function (a) { return document.getElementById(a.getAttribute('href').slice(1)); });
+  var pedido = false;
+  function rolar() {
+    pedido = false;
+    var alto = document.documentElement.scrollHeight - window.innerHeight;
+    barra.style.width = (alto > 0 ? Math.min(100, window.scrollY / alto * 100) : 0) + '%';
+    subir.classList.toggle('visivel', window.scrollY > 900);
+    var atual = -1;
+    secoes.forEach(function (s, i) { if (s && s.getBoundingClientRect().top < 140) atual = i; });
+    links.forEach(function (a, i) { a.classList.toggle('atual', i === atual); });
+  }
+  window.addEventListener('scroll', function () { if (!pedido) { pedido = true; requestAnimationFrame(rolar); } }, { passive: true });
+  rolar();
+})();
+</script>
+</body>
+</html>
