@@ -1,0 +1,53 @@
+name: Enviar o site para a Homehost
+
+# A cada envio para a main, manda o site para www.gizegabarito.com.br por FTPS (FTP com criptografia).
+# Fica desligado até existirem os segredos FTP_SERVIDOR, FTP_USUARIO e FTP_SENHA, cadastrados pelo dono em
+# Settings > Secrets and variables > Actions. A senha nunca fica no repositório.
+# Opcional: a variável FTP_PASTA (aba Variables), com a pasta do site no servidor; o padrão é public_html/.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: homehost
+  cancel-in-progress: false
+
+jobs:
+  enviar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Conferir se os dados de acesso já foram cadastrados
+        id: dados
+        env:
+          SERVIDOR: ${{ secrets.FTP_SERVIDOR }}
+        run: |
+          if [ -z "$SERVIDOR" ]; then
+            echo "Ainda sem os segredos do FTP (FTP_SERVIDOR, FTP_USUARIO e FTP_SENHA): nada foi enviado."
+            echo "pronto=nao" >> "$GITHUB_OUTPUT"
+          else
+            echo "pronto=sim" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Baixar o site
+        if: steps.dados.outputs.pronto == 'sim'
+        uses: actions/checkout@v4
+
+      - name: Enviar por FTPS (só o que mudou)
+        if: steps.dados.outputs.pronto == 'sim'
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVIDOR }}
+          username: ${{ secrets.FTP_USUARIO }}
+          password: ${{ secrets.FTP_SENHA }}
+          protocol: ftps
+          server-dir: ${{ vars.FTP_PASTA || 'public_html/' }}
+          exclude: |
+            **/.git*
+            **/.git*/**
+            .github/**
+            README.md
