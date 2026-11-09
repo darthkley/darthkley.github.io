@@ -12,12 +12,13 @@
 window.NO_NAVEGADOR = !window.JulgaAndroid && /^https?:$/.test(location.protocol);
 if (window.NO_NAVEGADOR) document.documentElement.classList.add('no-navegador');
 </script>
+<script>if (location.protocol === 'http:' && /(^|\.)gizegabarito\.com\.br$/.test(location.hostname)) location.replace('https://' + location.host + location.pathname + location.search + location.hash);</script>
 <meta name="description" content="Treino grátis para concursos de professor: questões de provas anteriores, simulados e gabarito comentado.">
 <meta name="theme-color" content="#1f3b30">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icone-192.png" type="image/png">
 <link rel="apple-touch-icon" href="icone-192.png">
-<script>window.GIZ_VERSAO_WEB = "09/11/2026 · 2417598"; window.GIZ_FIREBASE = null;</script>
+<script>window.GIZ_VERSAO_WEB = "09/11/2026 · 4f85eef"; window.GIZ_FIREBASE = null;</script>
 <script src="web.js"></script>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
