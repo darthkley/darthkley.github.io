@@ -18,7 +18,7 @@ if (window.NO_NAVEGADOR) document.documentElement.classList.add('no-navegador');
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icone-192.png" type="image/png">
 <link rel="apple-touch-icon" href="icone-192.png">
-<script>window.GIZ_VERSAO_WEB = "09/11/2026 · 6768730"; window.GIZ_FIREBASE = {"apiKey": "AIzaSyAJh0hzGgHPRrwXEkBdaadLUEv7qgzvU1A", "authDomain": "giz-e-gabarito.firebaseapp.com", "projectId": "giz-e-gabarito", "storageBucket": "giz-e-gabarito.firebasestorage.app", "messagingSenderId": "538781158823", "appId": "1:538781158823:web:733fd8bf9e1ad08c44ba82"};</script>
+<script>window.GIZ_VERSAO_WEB = "09/11/2026 · 589f5d2"; window.GIZ_FIREBASE = {"apiKey": "AIzaSyAJh0hzGgHPRrwXEkBdaadLUEv7qgzvU1A", "authDomain": "giz-e-gabarito.firebaseapp.com", "projectId": "giz-e-gabarito", "storageBucket": "giz-e-gabarito.firebasestorage.app", "messagingSenderId": "538781158823", "appId": "1:538781158823:web:733fd8bf9e1ad08c44ba82"};</script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
@@ -542,13 +542,17 @@ html:not(.no-navegador) .so-web, html.no-navegador .so-app { display: none !impo
         <p>Leia com atenção antes de começar.</p>
       </div>
     </div>
+    <div class="conta conta-cedo" id="conta-termos" hidden>
+      <div class="conta-txt"><b class="cc-titulo">Já usa o Giz &amp; Gabarito?</b><small class="cc-sub"></small></div>
+      <button class="btn-conta cc-entrar"><span class="g" aria-hidden="true">G</span>Entrar com o Google</button>
+    </div>
     <div class="termos-texto">
       <div class="resumo-termos"><b>Em poucas palavras</b><ul>
         <li class="so-app">O app é gratuito, mantido por anúncios, e serve para estudar.</li>
         <li class="so-web">O Giz &amp; Gabarito é gratuito e serve para estudar. No navegador, por enquanto, não há anúncios.</li>
         <li>As questões são de provas públicas, sempre com a fonte. Os comentários são feitos com inteligência artificial e podem ter erros.</li>
-        <li class="so-app">Não há cadastro: seu histórico fica no seu celular.</li>
-        <li class="so-web">Não há cadastro: seu histórico fica neste navegador.</li>
+        <li class="so-app">Não há cadastro obrigatório: seu histórico fica no seu celular. Se quiser, entre com o Google para guardar uma cópia na nuvem.</li>
+        <li class="so-web">Não há cadastro obrigatório: seu histórico fica neste navegador. Se quiser, entre com o Google para guardar uma cópia na nuvem.</li>
         <li>O edital e o gabarito oficial valem sempre mais do que o app.</li>
       </ul></div>
       <h3>1. O que é o app e como funciona este acordo</h3>
@@ -588,8 +592,9 @@ html:not(.no-navegador) .so-web, html.no-navegador .so-app { display: none !impo
       <p>Você pode usar o app à vontade para o seu estudo pessoal. Não é permitido copiar o banco de questões ou os comentários para vender ou publicar em outro app ou site, nem tentar burlar os anúncios ou o funcionamento do app.</p>
       <p class="base">Base legal: o programa é protegido pela Lei do Software (Lei 9.609/1998, art. 2º), e a seleção e organização do conteúdo (os comentários, os simulados e a forma de apresentar as questões) pela Lei de Direitos Autorais (Lei 9.610/1998, art. 7º, XIII, sobre as compilações e bases de dados).</p>
       <h3>11. Seus dados e sua privacidade</h3>
-      <p class="so-web">No navegador, o app não pede cadastro, nome, e-mail nem senha. Seu histórico, suas escolhas e o progresso do diploma ficam guardados neste navegador (no armazenamento local do site) e não são enviados a nós. Para apagá-los, use "Zerar histórico" na tela inicial ou limpe os dados do site nas configurações do navegador. As fontes de letra vêm do Google Fonts, que recebe o endereço IP do aparelho ao entregá-las, como em qualquer site que as usa.</p>
-      <p class="so-app">O app não pede cadastro, nome, e-mail nem senha, e não tem servidor próprio. Seu histórico, suas escolhas e o progresso do diploma ficam no seu celular, com uma cópia no backup do Google da sua própria conta, que você controla nas configurações do Android. Nós não recebemos esses dados.</p>
+      <p class="so-web">No navegador, o app não exige cadastro. Seu histórico, suas escolhas e o progresso do diploma ficam guardados neste navegador (no armazenamento local do site) e não são enviados a nós, a não ser que você entre com o Google, como explicado abaixo. Para apagá-los, use "Zerar histórico" na tela inicial ou limpe os dados do site nas configurações do navegador. As fontes de letra vêm do Google Fonts, que recebe o endereço IP do aparelho ao entregá-las, como em qualquer site que as usa.</p>
+      <p class="so-app">O app não exige cadastro e não tem servidor próprio. Seu histórico, suas escolhas e o progresso do diploma ficam no seu celular, com uma cópia no backup do Google da sua própria conta, que você controla nas configurações do Android. Nós não recebemos esses dados, a não ser que você entre com o Google, como explicado abaixo.</p>
+      <p>A conta com Google é opcional. Se você entrar, o app usa só o seu nome e o seu e-mail, para mostrar com qual conta você entrou, e guarda uma cópia do seu progresso, das suas escolhas e do aceite destes termos no Firebase, um serviço do Google, onde só a sua conta tem acesso a ela. Assim, em outro aparelho, basta entrar com a mesma conta para continuar de onde parou. O login fica guardado no aparelho até você sair da conta. Você pode sair ou apagar a conta, com o progresso da nuvem, a qualquer momento na tela inicial. Os detalhes estão na política de privacidade.</p>
       <p class="so-app">Para mostrar anúncios, o Google AdMob usa o identificador de publicidade do aparelho, o endereço IP e informações técnicas, como explica a política de privacidade do app, disponível na página dele na Google Play. Você pode redefinir ou desativar o identificador de publicidade nas configurações do Android. Para apagar seu histórico, use "Zerar histórico" na tela inicial ou limpe os dados do app.</p>
       <p class="base">Base legal: Lei Geral de Proteção de Dados (Lei 13.709/2018), arts. 6º (finalidade, necessidade e transparência), 9º (acesso fácil às informações sobre o tratamento) e 18 (direitos do titular, como acesso e eliminação), e Marco Civil da Internet (Lei 12.965/2014), art. 7º, VIII, que garante informações claras sobre a coleta e o uso de dados.</p>
       <h3>12. Notificações</h3>
@@ -601,7 +606,7 @@ html:not(.no-navegador) .so-web, html.no-navegador .so-app { display: none !impo
       <p class="so-web">Dúvidas, sugestões, pedidos e reclamações podem ser enviados para gizegabarito@gmail.com. Estes termos seguem a lei brasileira, e qualquer conflito pode ser levado ao foro do seu domicílio.</p>
       <p class="so-app">Dúvidas, sugestões, pedidos e reclamações podem ser enviados pelo e-mail de contato da página do Giz &amp; Gabarito na Google Play. Estes termos seguem a lei brasileira, e qualquer conflito pode ser levado ao foro do seu domicílio.</p>
       <p class="base">Base legal: Código de Defesa do Consumidor, art. 101, I, que permite ao consumidor propor a ação no seu próprio domicílio, e Marco Civil da Internet, art. 8º, parágrafo único, II, que garante o foro brasileiro nos contratos de adesão de serviços prestados no Brasil.</p>
-      <p class="versao">Versão 2 · 25 de outubro de 2026</p>
+      <p class="versao">Versão 3 · 9 de novembro de 2026</p>
     </div>
     <div class="termos-acoes" id="termos-aceite">
       <label class="aceite esperando" for="termos-ok" id="termos-caixa"><input type="checkbox" id="termos-ok" disabled><span>Li e concordo com os termos de uso</span></label>
@@ -621,6 +626,10 @@ html:not(.no-navegador) .so-web, html.no-navegador .so-app { display: none !impo
         <h2>Monte seu treino</h2>
         <p>Escolha sua área e como quer estudar. Dá para trocar quando quiser.</p>
       </div>
+    </div>
+    <div class="conta conta-cedo" id="conta-foco" hidden>
+      <div class="conta-txt"><b class="cc-titulo">Já usa o Giz &amp; Gabarito?</b><small class="cc-sub"></small></div>
+      <button class="btn-conta cc-entrar"><span class="g" aria-hidden="true">G</span>Entrar com o Google</button>
     </div>
     <button class="modo-card livre-tudo" id="btn-livre-tudo"><strong>Treino livre, sem foco</strong><span>Questões de todas as áreas e níveis, sem escolher nada. Dá para filtrar depois em "Trocar".</span></button>
     <div class="passo">
@@ -1367,13 +1376,14 @@ html:not(.no-navegador) .so-web, html.no-navegador .so-app { display: none !impo
 
   // ---------------- termos de uso: primeira tela; a caixa só libera depois de 6 segundos de leitura
   // Mudou o texto dos termos? Aumente TERMOS_VERSAO para todo mundo aceitar de novo.
-  var TERMOS_VERSAO = 2, ESPERA_TERMOS = 6000, termosTimer = null;
+  var TERMOS_VERSAO = 3, ESPERA_TERMOS = 6000, termosTimer = null;
   function termosAceitos() { var t = carregar().termos; return !!(t && t.versao >= TERMOS_VERSAO); }
   function mostrarTermos(paraReler) {
     telas('termos');
     $('tela-termos').scrollTop = 0;
     $('termos-aceite').hidden = !!paraReler;
     $('termos-lido').hidden = !paraReler;
+    renderConta();
     clearInterval(termosTimer);
     if (paraReler) {
       var em = new Date(carregar().termos.aceitoEm);
@@ -1438,6 +1448,9 @@ html:not(.no-navegador) .so-web, html.no-navegador .so-app { display: none !impo
     rascunho.aba = null;
     telas('foco');
     $('btn-foco-cancelar').hidden = !f;
+    // primeira escolha do treino: o cartão "Já usa o Giz & Gabarito?" (com a conta disponível e sem foco ainda)
+    if (!CONTA.disponivel) lerEstadoConta();
+    renderConta();
     $('tela-foco').scrollTop = 0;
     renderFoco();
     if (rascunho.area) carregarArea(rascunho.area).then(renderFoco);
@@ -2531,6 +2544,10 @@ html:not(.no-navegador) .so-web, html.no-navegador .so-app { display: none !impo
         Object.keys(n.ofen.dias).forEach(function (k) { o.dias[k] = Math.max(o.dias[k] || 0, Number(n.ofen.dias[k]) || 0); });
         o.recorde = Math.max(o.recorde || 0, Number(n.ofen.recorde) || 0);
       }
+      // o aceite dos termos vem junto (o mesmo texto já aceito em outro aparelho, com a mesma conta)
+      if (n.termos && typeof n.termos === 'object' && Number(n.termos.versao) >= TERMOS_VERSAO && !termosAceitos()) {
+        d.termos = { versao: Number(n.termos.versao), aceitoEm: Number(n.termos.aceitoEm) || Date.now() };
+      }
       if (novo) {
         if (n.foco && typeof n.foco === 'object') d.foco = n.foco;
         if (n.prefs && typeof n.prefs === 'object') { d.prefs = n.prefs; aplicarTema(d.prefs.tema); }
@@ -2539,11 +2556,35 @@ html:not(.no-navegador) .so-web, html.no-navegador .so-app { display: none !impo
     salvar();
     nuvemUltimo = '';
     enviarNuvem();
-    // na tela inicial, mostra já o progresso junto (no meio de um treino, espera a pessoa voltar)
-    if (!$('tela-inicio').hidden || (novo && !$('tela-foco').hidden && foco())) seguirParaApp();
+    // na tela de termos, se o aceite veio da nuvem, segue direto; na tela inicial, mostra já o progresso junto (no meio
+    // de um treino, espera a pessoa voltar)
+    if (!$('tela-termos').hidden && !$('termos-aceite').hidden && termosAceitos()) {
+      clearInterval(termosTimer);
+      ponte('iniciarAnuncios');
+      seguirParaApp();
+    } else if (!$('tela-inicio').hidden || (novo && !$('tela-foco').hidden && foco())) seguirParaApp();
   }
   function hora(ms) { var x = new Date(ms); return ('0' + x.getHours()).slice(-2) + ':' + ('0' + x.getMinutes()).slice(-2); }
+  // cartões "Já usa o Giz & Gabarito?" da tela de termos e da primeira escolha do treino: entrar logo de cara traz o
+  // progresso, o treino escolhido e o aceite dos termos de outro aparelho
+  function renderContaCedo() {
+    [['conta-termos', !$('termos-lido').hidden], ['conta-foco', !!foco()]].forEach(function (par) {
+      var box = $(par[0]);
+      box.hidden = !CONTA.disponivel || par[1];
+      if (box.hidden) return;
+      box.querySelector('.cc-titulo').textContent = CONTA.entrou ? 'Conta conectada' : 'Já usa o Giz & Gabarito?';
+      box.querySelector('.cc-sub').textContent = CONTA.msg || (CONTA.entrou ?
+        'Conta: ' + (CONTA.nome ? CONTA.nome + ' · ' : '') + CONTA.email + '. Seu progresso fica guardado na nuvem.' :
+        (par[0] === 'conta-termos' ?
+          'Entre com o Google e continue de onde parou: o progresso volta e, se você já aceitou estes termos em outro aparelho, não precisa aceitar de novo. O app usa só o seu nome e e-mail, como explica a política de privacidade.' :
+          'Entre com o Google para recuperar o progresso, o treino escolhido e o diploma de outro aparelho.'));
+      var bt = box.querySelector('.cc-entrar');
+      bt.hidden = CONTA.entrou;
+      bt.disabled = CONTA.ocupado;
+    });
+  }
   function renderConta() {
+    renderContaCedo();
     var box = $('conta');
     box.hidden = !CONTA.disponivel;
     if (!CONTA.disponivel) return;
@@ -2591,10 +2632,12 @@ html:not(.no-navegador) .so-web, html.no-navegador .so-app { display: none !impo
     if (CONTA.sairDepois && !nuvemEnviando) { CONTA.sairDepois = false; CONTA.ocupado = true; ponte('contaSair'); }
     renderConta();
   };
-  $('btn-conta-entrar').addEventListener('click', function () {
+  function entrarConta() {
     CONTA.ocupado = true; CONTA.msg = 'Abrindo as contas do Google...'; renderConta();
     ponte('contaEntrar');
-  });
+  }
+  $('btn-conta-entrar').addEventListener('click', entrarConta);
+  Array.prototype.forEach.call(document.querySelectorAll('.cc-entrar'), function (b) { b.addEventListener('click', entrarConta); });
   $('btn-conta-sair').addEventListener('click', function () {
     CONTA.ocupado = true; CONTA.msg = 'Saindo...'; renderConta();
     if (enviarNuvem()) CONTA.sairDepois = true; else ponte('contaSair');
@@ -2692,7 +2735,12 @@ html:not(.no-navegador) .so-web, html.no-navegador .so-app { display: none !impo
   carregarConcursos().then(function () {
     // a cópia do backup pode trazer um tema diferente do que estava no armazenamento
     aplicarTema(carregar().prefs.tema);
-    if (!termosAceitos()) { mostrarTermos(); return; }
+    if (!termosAceitos()) {
+      lerEstadoConta();
+      mostrarTermos();
+      if (CONTA.entrou) { CONTA.msg = 'Conferindo o progresso na nuvem...'; renderConta(); ponte('contaLer'); }
+      return;
+    }
     ponte('iniciarAnuncios');
     seguirParaApp();
     lerEstadoConta();

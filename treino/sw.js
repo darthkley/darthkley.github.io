@@ -3,7 +3,7 @@
    - A página vem primeiro da rede (para pegar a versão nova) e, sem internet, do cache.
    - Dados, imagens e fontes vêm do cache; o que ainda não está nele vem da rede e fica guardado.
    - O nome do cache muda a cada versão do site, e o cache antigo é apagado. */
-var CACHE = 'giz-2dfc02825c2e';
+var CACHE = 'giz-11fc572834e0';
 var BASICO = ['./', 'index.html', 'web.js', 'marca.webp', 'manifest.webmanifest', 'icone-192.png', 'dados/catalogo.js', 'dados/niveis.js'];
 
 self.addEventListener('install', function (e) {
