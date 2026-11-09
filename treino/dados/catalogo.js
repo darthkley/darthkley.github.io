@@ -265,7 +265,11 @@ window.CATALOGO = {
     { id: 'autorais-educacao-fisica', arquivo: 'dados/autorais-educacao-fisica.js', areas: ['educacao-fisica'] },
     { id: 'autorais-espanhol', arquivo: 'dados/autorais-espanhol.js', areas: ['espanhol'] },
     // certo ou errado no estilo Cebraspe para a SEE-PE (pedido do dono de 08/11/2026), também por gerar.py
-    { id: 'see-pe-ce-biologia', arquivo: 'dados/see-pe-ce-biologia.js', areas: ['biologia'] }
+    { id: 'see-pe-ce-biologia', arquivo: 'dados/see-pe-ce-biologia.js', areas: ['biologia'] },
+    // a P1 (gerais); as do Estatuto de PE têm local PE
+    { id: 'see-pe-ce-gerais', arquivo: 'dados/see-pe-ce-gerais.js', areas: '*' },
+    // os temas educacionais e pedagógicos da P2: uma cópia por área das 13 disciplinas; as do Currículo de PE têm local PE
+    { id: 'see-pe-ce-comuns', arquivo: 'dados/see-pe-ce-comuns.js', areas: ['artes', 'biologia', 'educacao-fisica', 'filosofia', 'fisica', 'geografia', 'historia', 'espanhol', 'ingles', 'portugues', 'matematica', 'quimica', 'sociologia'] }
   ],
 
   concursos: [
