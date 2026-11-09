@@ -269,7 +269,8 @@ window.CATALOGO = {
     // a P1 (gerais); as do Estatuto de PE têm local PE
     { id: 'see-pe-ce-gerais', arquivo: 'dados/see-pe-ce-gerais.js', areas: '*' },
     // os temas educacionais e pedagógicos da P2: uma cópia por área das 13 disciplinas; as do Currículo de PE têm local PE
-    { id: 'see-pe-ce-comuns', arquivo: 'dados/see-pe-ce-comuns.js', areas: ['artes', 'biologia', 'educacao-fisica', 'filosofia', 'fisica', 'geografia', 'historia', 'espanhol', 'ingles', 'portugues', 'matematica', 'quimica', 'sociologia'] }
+    { id: 'see-pe-ce-comuns', arquivo: 'dados/see-pe-ce-comuns.js', areas: ['artes', 'biologia', 'educacao-fisica', 'filosofia', 'fisica', 'geografia', 'historia', 'espanhol', 'ingles', 'portugues', 'matematica', 'quimica', 'sociologia'] },
+    { id: 'see-pe-ce-matematica', arquivo: 'dados/see-pe-ce-matematica.js', areas: ['matematica'] }
   ],
 
   concursos: [

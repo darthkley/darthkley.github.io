@@ -17,7 +17,7 @@ if (window.NO_NAVEGADOR) document.documentElement.classList.add('no-navegador');
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icone-192.png" type="image/png">
 <link rel="apple-touch-icon" href="icone-192.png">
-<script>window.GIZ_VERSAO_WEB = "09/11/2026 · 42f0ecd"; window.GIZ_FIREBASE = null;</script>
+<script>window.GIZ_VERSAO_WEB = "09/11/2026 · 2417598"; window.GIZ_FIREBASE = null;</script>
 <script src="web.js"></script>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -264,6 +264,7 @@ section { display: flex; flex-direction: column; flex: 1; min-height: 0; }
   box-shadow: 0 -10px 30px rgba(0,0,0,.2); animation: sobe .22s ease-out;
 }
 @keyframes sobe { from { transform: translateY(30px); opacity: .6; } to { transform: none; opacity: 1; } }
+@keyframes aparece { from { transform: scale(.97); opacity: .6; } to { transform: none; opacity: 1; } }
 .folha-cab { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
 .folha-cab h2 { margin: 0; font-size: 17px; flex: 1; min-width: 0; text-wrap: balance; }
 .fechar { background: var(--surface-2); border: 1px solid var(--line); border-radius: 10px; width: 38px; height: 38px; cursor: pointer; font-size: 18px; flex: none; }
@@ -490,6 +491,34 @@ html:not(.no-navegador) .so-web, html.no-navegador .so-app { display: none !impo
 .tema-op small { font-size: 12px; color: var(--muted); line-height: 1.3; }
 .amostras { display: flex; gap: 4px; }
 .amostras i { width: 22px; height: 22px; border-radius: 50%; border: 1px solid rgba(0, 0, 0, .14); }
+/* ---------- modo computador (só no site, com tela grande; o app Android e o celular não mudam) ----------
+   Pedido do dono (09/11/2026): no computador, o app parecia um celular. A página toda ganha uma escala (zoom), que
+   aumenta letras, botões e espaços por igual; a tela inicial fica em duas colunas; a questão, os termos, o foco e o
+   resultado ficam numa coluna central de leitura, e as folhas abrem no meio da tela. O arrastar do cartão divide o
+   movimento do mouse pela escala (escalaApp), para o cartão acompanhar o cursor. */
+.ini-col { display: contents; }
+@media (min-width: 900px) and (min-height: 560px) {
+  html.no-navegador .app, html.no-navegador .veu, html.no-navegador .toast { zoom: 1.15; }
+  html.no-navegador .app { max-width: 1000px; padding-left: 28px; padding-right: 28px; padding-block: 18px; }
+  html.no-navegador .inicio { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); column-gap: 32px; align-items: start; align-content: start; }
+  html.no-navegador .ini-col { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
+  html.no-navegador .ini-b { padding-top: 64px; }
+  html.no-navegador .marca h1 { font-size: 34px; }
+  html.no-navegador #tela-jogo { width: 100%; max-width: 720px; margin-inline: auto; }
+  html.no-navegador #tela-termos, html.no-navegador #tela-foco, html.no-navegador #tela-fim { width: 100%; max-width: 760px; margin-inline: auto; }
+  html.no-navegador .veu { align-items: center; padding: 24px; }
+  html.no-navegador .folha { max-width: 720px; max-height: 90%; border-radius: 22px; padding: 22px 24px; box-shadow: 0 18px 50px rgba(0, 0, 0, .3); animation: aparece .18s ease-out; }
+  html.no-navegador .folha-corpo { font-size: 17px; }
+}
+@media (min-width: 1200px) and (min-height: 700px) {
+  html.no-navegador .app, html.no-navegador .veu, html.no-navegador .toast { zoom: 1.3; }
+}
+@media (min-width: 1600px) and (min-height: 860px) {
+  html.no-navegador .app, html.no-navegador .veu, html.no-navegador .toast { zoom: 1.45; }
+}
+@media (min-width: 2200px) and (min-height: 1150px) {
+  html.no-navegador .app, html.no-navegador .veu, html.no-navegador .toast { zoom: 1.7; }
+}
 @media (prefers-reduced-motion: reduce) {
   .cartao.voando, .cartao.voltando, .barra i, .ofe-barra i { transition: none; }
   .folha, .toast, .chama, .passo.novo { animation: none; }
@@ -624,6 +653,7 @@ html:not(.no-navegador) .so-web, html.no-navegador .so-app { display: none !impo
   </section>
 
   <section class="inicio" id="tela-inicio" hidden>
+    <div class="ini-col ini-a">
     <div class="marca">
       <img class="logo" src="marca.webp" alt="" aria-hidden="true">
       <div>
@@ -663,6 +693,8 @@ html:not(.no-navegador) .so-web, html.no-navegador .so-app { display: none !impo
     </div>
     <button class="btn-erros" id="btn-erros" hidden>Revisar meus erros<span id="qtd-erros"></span></button>
     <button class="btn-erros" id="btn-desempenho" hidden>Meu desempenho por matéria<span id="desempenho-sub"></span></button>
+    </div>
+    <div class="ini-col ini-b">
     <div class="legenda" aria-label="Como responder">
       <div class="l-e"><b>←</b>Errado</div>
       <div class="l-p"><b>↑</b>Branco</div>
@@ -688,6 +720,7 @@ html:not(.no-navegador) .so-web, html.no-navegador .so-app { display: none !impo
       <a class="link-btn" href="https://darthkley.github.io/sugerir/" target="_blank" rel="noopener">Sugerir concurso</a>
     </div>
     <p class="versao-app"><span class="so-app">Apostilas também no computador: <a id="link-pc" href="https://darthkley.github.io/estudar/" target="_blank" rel="noopener">darthkley.github.io/estudar</a></span><span class="so-web">Apostilas: <a href="https://darthkley.github.io/estudar/" target="_blank" rel="noopener">darthkley.github.io/estudar</a> · <a href="https://darthkley.github.io/">página inicial do site</a></span><span id="versao-app" hidden></span></p>
+    </div>
   </section>
 
   <section id="tela-jogo" hidden>
@@ -2143,9 +2176,11 @@ html:not(.no-navegador) .so-web, html.no-navegador .so-app { display: none !impo
   // passagem natural de um item para o próximo: o único momento em que pode entrar um anúncio
   function proximoItem() { talvezAnuncio(); renderMesa(); }
 
+  // no modo computador do site, o cartão é mais largo, e a fonte do enunciado começa maior
+  var MODO_PC = window.NO_NAVEGADOR && window.matchMedia ? window.matchMedia('(min-width: 900px) and (min-height: 560px)') : null;
   function ajustarFonte(c) {
     var corpo = c.querySelector('.corpo');
-    var fs = 18;
+    var fs = MODO_PC && MODO_PC.matches ? 21 : 18;
     c.style.setProperty('--fs', fs + 'px');
     while (corpo.scrollHeight > corpo.clientHeight + 1 && fs > 14) {
       fs -= 1; c.style.setProperty('--fs', fs + 'px');
@@ -2157,6 +2192,12 @@ html:not(.no-navegador) .so-web, html.no-navegador .so-app { display: none !impo
   }
 
   // ---------------- gestos: direita certo, esquerda errado, para cima em branco, para baixo depois
+  // escala (zoom) do modo computador do site: o movimento do mouse, em pixels da tela, é dividido por ela para o
+  // cartão acompanhar o cursor. No app Android e no celular, vale 1.
+  function escalaApp() {
+    var z = parseFloat(getComputedStyle($('app')).zoom);
+    return z > 0 ? z : 1;
+  }
   function ligarGestos(c, q) {
     var d = null, suprimirClique = false;
     var carC = c.querySelector('.carimbo.c'), carE = c.querySelector('.carimbo.e'), carP = c.querySelector('.carimbo.p'), carD = c.querySelector('.carimbo.d');
@@ -2174,11 +2215,11 @@ html:not(.no-navegador) .so-web, html.no-navegador .so-app { display: none !impo
       if (travado) return;
       if (e.pointerType === 'mouse' && e.button !== 0) return;
       var naRolagem = e.target.closest('.corpo.rolavel');
-      d = { x0: e.clientX, y0: e.clientY, dx: 0, dy: 0, id: e.pointerId, ativo: false, t: performance.now(), rolagem: !!naRolagem };
+      d = { x0: e.clientX, y0: e.clientY, dx: 0, dy: 0, id: e.pointerId, ativo: false, t: performance.now(), rolagem: !!naRolagem, z: escalaApp() };
     });
     c.addEventListener('pointermove', function (e) {
       if (!d || e.pointerId !== d.id) return;
-      d.dx = e.clientX - d.x0; d.dy = e.clientY - d.y0;
+      d.dx = (e.clientX - d.x0) / d.z; d.dy = (e.clientY - d.y0) / d.z;
       if (!d.ativo) {
         var dist = Math.hypot(d.dx, d.dy);
         if (dist < 10) return;
