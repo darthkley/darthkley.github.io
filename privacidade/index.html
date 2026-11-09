@@ -136,8 +136,8 @@ footer p { margin: 0 0 4px; }
   <div class="resumo">
     <h2>Em resumo</h2>
     <ul>
-      <li>O app não pede cadastro, nome, e-mail nem senha.</li>
-      <li>Seu histórico de estudo fica no seu celular. Nós não recebemos esses dados.</li>
+      <li>O app funciona sem cadastro. Entrar com o Google é opcional: serve só para guardar o progresso na nuvem e usa apenas o nome e o e-mail da conta.</li>
+      <li>Sem conta, seu histórico de estudo fica só no seu celular ou no navegador. Com conta, uma cópia fica na nuvem, que só você acessa, e você pode apagá-la quando quiser.</li>
       <li>Os anúncios são do Google AdMob, que usa o identificador de publicidade do aparelho e outras informações técnicas.</li>
       <li>Você apaga tudo limpando os dados do app ou desinstalando-o.</li>
       <li>No navegador, o histórico fica no próprio navegador, e não há anúncios.</li>
@@ -150,24 +150,25 @@ footer p { margin: 0 0 4px; }
       <li><a href="#quem-somos">1. Quem somos</a></li>
       <li><a href="#no-celular">2. O que fica no seu celular</a></li>
       <li><a href="#backup">3. Backup na sua conta Google</a></li>
-      <li><a href="#anuncios">4. Anúncios do Google AdMob</a></li>
-      <li><a href="#notificacoes">5. Notificações</a></li>
-      <li><a href="#links">6. Fontes de letras e links externos</a></li>
-      <li><a href="#sugestoes">7. Sugestões e avisos de erro</a></li>
-      <li><a href="#navegador">8. A versão para navegador</a></li>
-      <li><a href="#compartilhamento">9. Com quem compartilhamos</a></li>
-      <li><a href="#criancas">10. Crianças e adolescentes</a></li>
-      <li><a href="#direitos">11. Seus direitos e como apagar seus dados</a></li>
-      <li><a href="#seguranca">12. Segurança e prazo de guarda</a></li>
-      <li><a href="#mudancas">13. Mudanças nesta política</a></li>
-      <li><a href="#contato">14. Contato</a></li>
+      <li><a href="#conta">4. Conta com Google (opcional)</a></li>
+      <li><a href="#anuncios">5. Anúncios do Google AdMob</a></li>
+      <li><a href="#notificacoes">6. Notificações</a></li>
+      <li><a href="#links">7. Fontes de letras e links externos</a></li>
+      <li><a href="#sugestoes">8. Sugestões e avisos de erro</a></li>
+      <li><a href="#navegador">9. A versão para navegador</a></li>
+      <li><a href="#compartilhamento">10. Com quem compartilhamos</a></li>
+      <li><a href="#criancas">11. Crianças e adolescentes</a></li>
+      <li><a href="#direitos">12. Seus direitos e como apagar seus dados</a></li>
+      <li><a href="#seguranca">13. Segurança e prazo de guarda</a></li>
+      <li><a href="#mudancas">14. Mudanças nesta política</a></li>
+      <li><a href="#contato">15. Contato</a></li>
     </ol>
   </nav>
 
   <section id="quem-somos">
     <h2><span class="num">1</span> Quem somos</h2>
     <p>O Giz &amp; Gabarito é um aplicativo gratuito de estudo para concursos públicos de professores, com questões de provas anteriores, simulados e comentários dos gabaritos. Ele é mantido por um desenvolvedor independente, responsável pelo app, e distribuído pela Google Play com o identificador <b>br.gizegabarito</b>.</p>
-    <p>Esta política vale para o app instalado no celular e para a versão para navegador (seção 8). Para falar conosco, escreva para <a href="mailto:gizegabarito@gmail.com">gizegabarito@gmail.com</a>.</p>
+    <p>Esta política vale para o app instalado no celular e para a versão para navegador (seção 9). Para falar conosco, escreva para <a href="mailto:gizegabarito@gmail.com">gizegabarito@gmail.com</a>.</p>
   </section>
 
   <section id="no-celular">
@@ -178,7 +179,7 @@ footer p { margin: 0 0 4px; }
       <li>suas escolhas, como área de estudo, concurso, tema de cores e configurações do simulado;</li>
       <li>o progresso do diploma (a sequência de dias de estudo) e a data em que você aceitou os termos de uso.</li>
     </ul>
-    <p>Essas informações não são enviadas para nós nem para nenhum servidor nosso. O app não tem servidor próprio.</p>
+    <p>Essas informações não são enviadas para nós nem para nenhum servidor nosso. A única exceção é a conta opcional com Google (seção 4): se você entrar, uma cópia do progresso é guardada na nuvem para você.</p>
   </section>
 
   <section id="backup">
@@ -186,8 +187,28 @@ footer p { margin: 0 0 4px; }
     <p>O Android pode fazer uma cópia do seu histórico e dos ajustes do app no backup da sua própria conta Google, para que eles voltem se você trocar de celular ou reinstalar o app. Esse backup é feito e guardado pelo Google, segue a <a href="https://policies.google.com/privacy" rel="noopener">Política de Privacidade do Google</a> e pode ser desligado em <span class="caminho">Configurações &gt; Google &gt; Backup</span>. Nós não temos acesso a ele.</p>
   </section>
 
+  <section id="conta">
+    <h2><span class="num">4</span> Conta com Google (opcional)</h2>
+    <p>Você pode usar o Giz &amp; Gabarito sem conta. Se quiser, pode entrar com a sua conta Google, no app ou no site, para guardar o progresso na nuvem e continuar de onde parou em outro celular ou no computador. O login é feito pelo Google, por meio do Firebase Authentication, um serviço do Google.</p>
+    <table class="tabela">
+      <thead><tr><th scope="col">O quê</th><th scope="col">Para quê</th></tr></thead>
+      <tbody>
+        <tr><td>Nome e e-mail da conta Google</td><td>Mostrar a você com qual conta entrou. Não usamos o seu e-mail para enviar mensagens nem para nenhuma outra finalidade.</td></tr>
+        <tr><td>Seu progresso: questões respondidas, acertos e erros, escolhas e diploma</td><td>Guardar a cópia na nuvem e juntá-la ao progresso de outro aparelho em que você entrar com a mesma conta.</td></tr>
+        <tr><td>Data e hora da última atualização</td><td>Saber qual cópia é a mais recente.</td></tr>
+      </tbody>
+    </table>
+    <ul class="lista">
+      <li><b>O que não usamos:</b> o app não lê nem mostra a sua foto de perfil, seus contatos, seus arquivos ou qualquer outro dado da sua conta Google. Ao fazer o login, o Google informa também o endereço da foto de perfil, que o Firebase mantém no cadastro técnico da conta; nós não a usamos.</li>
+      <li><b>Onde fica:</b> o progresso fica no Cloud Firestore, o banco de dados do Firebase, nos servidores do Google, ligado ao código da sua conta.</li>
+      <li><b>Quem acessa:</b> as regras de segurança do banco só deixam a própria conta conectada ler, gravar e apagar o próprio progresso; nenhuma outra pessoa que usa o app consegue ver os seus dados. O responsável pelo app, como administrador do projeto no Firebase, tem acesso técnico à lista de contas (nome e e-mail), usado apenas para manutenção e para atender pedidos de exclusão.</li>
+      <li><b>Segurança:</b> a comunicação com o Google é criptografada, e os dados são guardados criptografados pelo Google.</li>
+      <li><b>Sua escolha:</b> o tratamento se baseia no seu consentimento. "Sair da conta" para de enviar o progresso, e "Apagar minha conta" apaga o progresso da nuvem e a conta na hora (seção 12 e <a href="../apagar-conta/">página de exclusão da conta</a>).</li>
+    </ul>
+  </section>
+
   <section id="anuncios">
-    <h2><span class="num">4</span> Anúncios do Google AdMob</h2>
+    <h2><span class="num">5</span> Anúncios do Google AdMob</h2>
     <p>O app é gratuito e se mantém com anúncios exibidos pelo Google AdMob. Para escolher, mostrar e medir os anúncios e evitar fraudes, o SDK do AdMob coleta e envia ao Google, de forma criptografada:</p>
     <table class="tabela">
       <thead><tr><th scope="col">Informação</th><th scope="col">Para quê</th></tr></thead>
@@ -204,68 +225,70 @@ footer p { margin: 0 0 4px; }
   </section>
 
   <section id="notificacoes">
-    <h2><span class="num">5</span> Notificações</h2>
+    <h2><span class="num">6</span> Notificações</h2>
     <p>Se você permitir, o app mostra lembretes de estudo algumas vezes por dia. Eles são agendados e montados no próprio celular, sem nenhum envio de dados. Você pode desligá-los a qualquer momento nas configurações de notificações do Android.</p>
   </section>
 
   <section id="links">
-    <h2><span class="num">6</span> Fontes de letras e links externos</h2>
+    <h2><span class="num">7</span> Fontes de letras e links externos</h2>
     <p>Para mostrar as letras do app, ele baixa as fontes do serviço Google Fonts. Nesse pedido, o Google recebe o endereço IP e informações técnicas do aparelho, como acontece ao abrir qualquer site.</p>
     <p>Alguns concursos têm link para a página oficial da banca ou do órgão. Esses links abrem fora do app, no navegador, e o que acontece lá segue a política de cada site.</p>
   </section>
 
   <section id="sugestoes">
-    <h2><span class="num">7</span> Sugestões de concursos e avisos de erro</h2>
+    <h2><span class="num">8</span> Sugestões de concursos e avisos de erro</h2>
     <p>No app há um link para sugerir um concurso que ainda não está nele e, em cada questão, um link para avisar um erro. Eles abrem, no navegador, as páginas <a href="https://darthkley.github.io/sugerir/">darthkley.github.io/sugerir</a> e <a href="https://darthkley.github.io/reportar/">darthkley.github.io/reportar</a>. A sugestão pede o link do edital e, se você quiser, a cidade, o cargo e uma observação; o aviso de erro leva o código da questão, o tipo de erro e o que você escrever. Nenhuma das duas pede nome, e-mail ou telefone, e pedimos que você não escreva dados pessoais.</p>
     <p>O que você envia passa por um script do Google (Google Apps Script) e vira um registro num repositório privado do Giz &amp; Gabarito no GitHub, onde nós conferimos o concurso ou a questão. Nesse envio, o Google recebe o endereço IP e informações técnicas do navegador, como acontece ao abrir qualquer site. As sugestões e os avisos ficam guardados enquanto forem úteis para o app e não são compartilhados com mais ninguém.</p>
   </section>
 
   <section id="navegador">
-    <h2><span class="num">8</span> A versão para navegador</h2>
+    <h2><span class="num">9</span> A versão para navegador</h2>
     <p>O Giz &amp; Gabarito também pode ser usado no navegador, em <a href="https://darthkley.github.io/treino/">darthkley.github.io/treino</a>, com as mesmas questões. Nessa versão:</p>
     <ul class="lista">
       <li>o histórico, as escolhas e o progresso do diploma ficam guardados no próprio navegador, no armazenamento local do site, e não são enviados a nós;</li>
       <li>uma cópia da página e das questões fica guardada no navegador (cache), para o treino abrir mais rápido e funcionar sem internet;</li>
       <li>não há anúncios, notificações nem backup do Google;</li>
-      <li>as fontes de letras vêm do Google Fonts, como no app (seção 6), e o site é hospedado pelo GitHub Pages, que, como qualquer servidor de páginas, recebe o endereço IP e informações técnicas de quem abre o site.</li>
+      <li>você também pode entrar com o Google para guardar o progresso na nuvem (seção 4); para isso, a página carrega a biblioteca do Firebase, servida pelo Google, que, como as fontes, recebe o endereço IP de quem abre o site, mas só envia dados de conta se você entrar;</li>
+      <li>as fontes de letras vêm do Google Fonts, como no app (seção 7), e o site é hospedado pelo GitHub Pages, que, como qualquer servidor de páginas, recebe o endereço IP e informações técnicas de quem abre o site.</li>
     </ul>
     <p>Para apagar tudo, use "Zerar histórico" na tela inicial ou limpe os dados do site nas configurações do navegador.</p>
   </section>
 
   <section id="compartilhamento">
-    <h2><span class="num">9</span> Com quem compartilhamos</h2>
-    <p>Nós não vendemos, alugamos nem compartilhamos dados pessoais. Os únicos dados que saem do aparelho são os que o próprio Google coleta para os anúncios, o backup e as fontes, os que o GitHub Pages recebe ao entregar o site, descritos acima, e o que você escrever numa sugestão de concurso ou num aviso de erro, se mandar um.</p>
+    <h2><span class="num">10</span> Com quem compartilhamos</h2>
+    <p>Nós não vendemos, alugamos nem compartilhamos dados pessoais. Os únicos dados que saem do aparelho são os que o próprio Google coleta para os anúncios, o backup e as fontes, os que o GitHub Pages recebe ao entregar o site, descritos acima, o que você escrever numa sugestão de concurso ou num aviso de erro, se mandar um, e, se você entrar com o Google, o nome, o e-mail e o progresso guardados no Firebase (seção 4), que o Google trata como prestador de serviço.</p>
   </section>
 
   <section id="criancas">
-    <h2><span class="num">10</span> Crianças e adolescentes</h2>
+    <h2><span class="num">11</span> Crianças e adolescentes</h2>
     <p>O app é feito para adultos que estudam para concursos públicos e não é direcionado a crianças. Não coletamos dados de crianças de propósito.</p>
   </section>
 
   <section id="direitos">
-    <h2><span class="num">11</span> Seus direitos e como apagar seus dados</h2>
-    <p>A Lei Geral de Proteção de Dados (Lei 13.709/2018) garante a você, entre outros direitos, saber quais dados são tratados, corrigi-los e pedir que sejam apagados. Como o histórico fica só no seu celular, você mesmo controla esses dados:</p>
+    <h2><span class="num">12</span> Seus direitos e como apagar seus dados</h2>
+    <p>A Lei Geral de Proteção de Dados (Lei 13.709/2018) garante a você, entre outros direitos, saber quais dados são tratados, corrigi-los e pedir que sejam apagados. Sem conta, o histórico fica só no seu celular, e você mesmo controla esses dados. Com a conta opcional, você também apaga a cópia da nuvem quando quiser:</p>
     <ul class="lista">
       <li><b>Apagar o histórico:</b> em <span class="caminho">Configurações &gt; Apps &gt; Giz &amp; Gabarito &gt; Armazenamento</span>, toque em Limpar dados, ou desinstale o app.</li>
       <li><b>Apagar o backup:</b> pelo Google Drive, em Backups, ou nas configurações de backup da sua conta Google.</li>
+      <li><b>Apagar a conta e o progresso da nuvem:</b> na tela inicial do app ou do site, no cartão da conta, toque em "Apagar minha conta" e confirme. Tudo é apagado na hora. Sem acesso ao app, peça pelo e-mail abaixo, a partir do e-mail da conta; veja a <a href="../apagar-conta/">página de exclusão da conta</a>.</li>
       <li><b>Anúncios:</b> redefina ou exclua o identificador de publicidade nas configurações do Android. Para os dados que o Google guarda, use a página <a href="https://myactivity.google.com" rel="noopener">Minha Atividade do Google</a>.</li>
     </ul>
     <p>Para qualquer pedido sobre os seus dados, escreva para <a href="mailto:gizegabarito@gmail.com">gizegabarito@gmail.com</a>. Respondemos em até 15 dias.</p>
   </section>
 
   <section id="seguranca">
-    <h2><span class="num">12</span> Segurança e prazo de guarda</h2>
-    <p>Os dados do app ficam na área privada do aplicativo no seu celular, que outros apps não conseguem ler. As comunicações do AdMob com o Google são criptografadas.</p>
-    <p>O histórico fica no celular até você limpar os dados ou desinstalar o app. Os dados de anúncios e do backup são guardados pelo Google pelos prazos da política dele.</p>
+    <h2><span class="num">13</span> Segurança e prazo de guarda</h2>
+    <p>Os dados do app ficam na área privada do aplicativo no seu celular, que outros apps não conseguem ler. As comunicações do AdMob e do Firebase com o Google são criptografadas.</p>
+    <p>O histórico fica no celular até você limpar os dados ou desinstalar o app. Os dados de anúncios e do backup são guardados pelo Google pelos prazos da política dele. Com a conta opcional, o nome, o e-mail e o progresso ficam guardados enquanto a conta existir e são apagados quando você a apaga.</p>
   </section>
 
   <section id="mudancas">
-    <h2><span class="num">13</span> Mudanças nesta política</h2>
+    <h2><span class="num">14</span> Mudanças nesta política</h2>
     <p>Se esta política mudar, a nova versão será publicada neste mesmo endereço, com a data atualizada no topo. Mudanças importantes também serão avisadas dentro do app.</p>
   </section>
 
   <section id="contato">
-    <h2><span class="num">14</span> Contato</h2>
+    <h2><span class="num">15</span> Contato</h2>
     <p>Dúvidas, pedidos ou reclamações sobre privacidade:</p>
     <p class="contato"><span>E-mail</span> <a href="mailto:gizegabarito@gmail.com">gizegabarito@gmail.com</a></p>
   </section>
