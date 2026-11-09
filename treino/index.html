@@ -1,0 +1,2660 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1f3b30">
+<style>html{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}</style>
+<title>Giz &amp; Gabarito</title>
+<script>
+/* no site (navegador, sem a ponte do Android): textos e recursos da versão para navegador. No app e nos testes por
+   file://, nada muda */
+window.NO_NAVEGADOR = !window.JulgaAndroid && /^https?:$/.test(location.protocol);
+if (window.NO_NAVEGADOR) document.documentElement.classList.add('no-navegador');
+</script>
+<meta name="description" content="Treino grátis para concursos de professor: questões de provas anteriores, simulados e gabarito comentado.">
+<meta name="theme-color" content="#1f3b30">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icone-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icone-192.png">
+<script>window.GIZ_VERSAO_WEB = "09/11/2026 · dac83cc"; window.GIZ_FIREBASE = null;</script>
+<script src="web.js"></script>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Cabin+Sketch:wght@400;700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,400&display=swap">
+<style>
+/* Layout: app de uma tela, coluna central de até 520px; cartão do item ocupa o meio e a barra de ações fica embaixo. */
+:root {
+  --bg: #eaf0f2;
+  --surface: #ffffff;
+  --surface-2: #f4f7f8;
+  --ink: #13222b;
+  --muted: #5a6b74;
+  --line: #d3dde2;
+  --accent: #1b5a6d;
+  --accent-ink: #ffffff;
+  --certo: #1d7f53;
+  --certo-bg: #e1f2e9;
+  --errado: #b6423a;
+  --errado-bg: #f8e4e1;
+  --pular: #876a1c;
+  --pular-bg: #f4ecd6;
+  --destaque: #c4532f;
+  --destaque-ink: #ffffff;
+  --sombra: 0 14px 34px rgba(19, 34, 43, .14), 0 2px 6px rgba(19, 34, 43, .08);
+  --font-marca: "Cabin Sketch", "Archivo", system-ui, sans-serif;
+  --font-ui: "Archivo", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-read: "Literata", Georgia, "Times New Roman", serif;
+  --raio: 18px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --bg: #0d181e; --surface: #15242c; --surface-2: #1b2d36; --ink: #e4ecef; --muted: #98a9b2; --line: #284049;
+    --accent: #79bdd1; --accent-ink: #0d181e;
+    --certo: #53c792; --certo-bg: #12342a; --errado: #f08279; --errado-bg: #3b1d1a; --pular: #dcb85e; --pular-bg: #33290f;
+    --destaque: #f0a072; --destaque-ink: #241208;
+    --sombra: 0 14px 34px rgba(0, 0, 0, .45), 0 2px 6px rgba(0, 0, 0, .3);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d181e; --surface: #15242c; --surface-2: #1b2d36; --ink: #e4ecef; --muted: #98a9b2; --line: #284049;
+  --accent: #79bdd1; --accent-ink: #0d181e;
+  --certo: #53c792; --certo-bg: #12342a; --errado: #f08279; --errado-bg: #3b1d1a; --pular: #dcb85e; --pular-bg: #33290f;
+  --destaque: #f0a072; --destaque-ink: #241208;
+  --sombra: 0 14px 34px rgba(0, 0, 0, .45), 0 2px 6px rgba(0, 0, 0, .3);
+  color-scheme: dark;
+}
+/* temas escolhidos em Aparência; sem data-theme, segue o claro ou escuro do celular */
+:root[data-theme="pastel"] {
+  --bg: #f1eef9; --surface: #ffffff; --surface-2: #f6f3fc; --ink: #2a2540; --muted: #625b7d; --line: #ddd7ef;
+  --accent: #5f539a; --accent-ink: #ffffff;
+  --certo: #2a7556; --certo-bg: #dff3e8; --errado: #a8445a; --errado-bg: #fbe3e9; --pular: #7d621b; --pular-bg: #f7edd5;
+  --destaque: #2a7f78; --destaque-ink: #ffffff;
+  --sombra: 0 14px 34px rgba(42, 37, 64, .12), 0 2px 6px rgba(42, 37, 64, .07);
+  color-scheme: light;
+}
+:root[data-theme="rosa"] {
+  --bg: #fcedf2; --surface: #ffffff; --surface-2: #fdf3f6; --ink: #3a2430; --muted: #765563; --line: #f0d5df;
+  --accent: #a63f67; --accent-ink: #ffffff;
+  --certo: #2a7556; --certo-bg: #e2f3e8; --errado: #a8344a; --errado-bg: #fbe0e6; --pular: #7d621b; --pular-bg: #f8eedb;
+  --destaque: #5f539a; --destaque-ink: #ffffff;
+  --sombra: 0 14px 34px rgba(58, 36, 48, .12), 0 2px 6px rgba(58, 36, 48, .07);
+  color-scheme: light;
+}
+:root[data-theme="quente"] {
+  --bg: #f6ebdf; --surface: #fffaf3; --surface-2: #f9efe3; --ink: #2e2118; --muted: #6e5847; --line: #e9d6c2;
+  --accent: #a84a17; --accent-ink: #ffffff;
+  --certo: #3b7533; --certo-bg: #e5f0db; --errado: #ad3524; --errado-bg: #f9dfd6; --pular: #7f5e12; --pular-bg: #f5e7cb;
+  --destaque: #2f6f6a; --destaque-ink: #ffffff;
+  --sombra: 0 14px 34px rgba(46, 33, 24, .14), 0 2px 6px rgba(46, 33, 24, .08);
+  color-scheme: light;
+}
+/* Quadro-negro (padrão): lousa verde, letras em giz branco, destaques em giz amarelo e rosa */
+:root[data-theme="quadro"] {
+  --bg: #1f3b30; --surface: #274a3b; --surface-2: #2e5444; --ink: #f3f1e7; --muted: #b5c8bb; --line: #3d6553;
+  --accent: #f3d677; --accent-ink: #1c3529;
+  --certo: #a5e2b2; --certo-bg: #2b5a40; --errado: #f5a59e; --errado-bg: #5a3833; --pular: #f2c77c; --pular-bg: #51472c;
+  --destaque: #f4a9bd; --destaque-ink: #3a1b26;
+  --sombra: 0 14px 30px rgba(0, 0, 0, .32), 0 2px 6px rgba(0, 0, 0, .22);
+  color-scheme: dark;
+}
+/* pó de giz e marcas de apagador no fundo da lousa */
+:root[data-theme="quadro"] body {
+  background-image:
+    radial-gradient(120% 60% at 15% -10%, rgba(255, 255, 255, .07), transparent 60%),
+    radial-gradient(80% 50% at 110% 105%, rgba(0, 0, 0, .22), transparent 65%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .075 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)'/%3E%3C/svg%3E");
+}
+html, body { height: 100%; }
+/* nada pode alargar a página além da tela: um cartão que voa para a direita deixava a página mais larga,
+   e no celular o painel do comentário (posição fixa) ficava descentralizado e quase fora da tela */
+html, body { overflow-x: hidden; }
+@supports (overflow-x: clip) { html, body { overflow-x: clip; } }
+body {
+  background: var(--bg); color: var(--ink); font-family: var(--font-ui); font-size: 15px;
+  -webkit-tap-highlight-color: transparent; overscroll-behavior: none;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+button { font: inherit; color: inherit; }
+button:focus-visible, .alt:focus-visible, summary:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.app {
+  height: 100%; max-width: 520px; margin: 0 auto; display: flex; flex-direction: column;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 12px;
+}
+section { display: flex; flex-direction: column; flex: 1; min-height: 0; }
+
+/* ---------- início ---------- */
+.inicio { gap: 18px; overflow-y: auto; padding-bottom: 8px; }
+.marca { display: flex; align-items: center; gap: 12px; padding-top: 6px; }
+.logo { flex: none; width: 46px; height: 46px; border-radius: 12px; display: block; box-shadow: 0 2px 8px rgba(0, 0, 0, .18); }
+.marca h1, .marca h2 { font-family: var(--font-marca); font-weight: 700; }
+.marca h1 { margin: 0; font-size: 30px; letter-spacing: 0; line-height: 1; }
+.marca p { margin: 3px 0 0; color: var(--muted); font-size: 13px; }
+.resumo-banco { display: flex; flex-wrap: wrap; gap: 6px; }
+.pill { font-size: 12px; padding: 4px 9px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line); color: var(--muted); font-variant-numeric: tabular-nums; }
+.btn-principal {
+  display: flex; flex-direction: column; align-items: flex-start; gap: 4px; width: 100%; text-align: left;
+  background: var(--accent); color: var(--accent-ink); border: 0; border-radius: var(--raio); padding: 18px 18px 16px; cursor: pointer;
+  box-shadow: var(--sombra);
+}
+.btn-principal strong { font-size: 19px; letter-spacing: -.01em; }
+.btn-principal span { font-size: 13px; opacity: .85; }
+.btn-continuar { background: var(--surface); color: var(--ink); border: 2px solid var(--accent); box-shadow: none; }
+.btn-continuar span { color: var(--muted); opacity: 1; }
+.grade-modos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.btn-modo {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 12px 10px; text-align: left; cursor: pointer;
+  display: flex; flex-direction: column; gap: 2px; min-width: 0;
+}
+.btn-modo strong { font-size: 14px; }
+.btn-modo span { font-size: 12px; color: var(--muted); }
+.btn-modo:disabled { opacity: .45; cursor: default; }
+.dupla { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.btn-grande {
+  display: flex; flex-direction: column; align-items: flex-start; gap: 3px; min-height: 118px; min-width: 0; text-align: left;
+  border: 0; border-radius: var(--raio); padding: 14px 14px 13px; cursor: pointer; box-shadow: var(--sombra);
+}
+.btn-grande svg { width: 30px; height: 30px; margin-bottom: auto; }
+.btn-grande strong { font-size: 18px; letter-spacing: -.01em; }
+.btn-grande span { font-size: 12.5px; line-height: 1.3; opacity: .85; }
+.btn-grande.treino { background: var(--accent); color: var(--accent-ink); }
+.btn-grande.simulado { background: var(--destaque); color: var(--destaque-ink); }
+.btn-grande:disabled { opacity: .5; cursor: default; }
+.btn-erros {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px; width: 100%; background: var(--surface);
+  border: 1px solid var(--line); border-radius: 14px; padding: 11px 14px; font-weight: 700; font-size: 14px; cursor: pointer; text-align: left;
+}
+.btn-erros span { font-weight: 500; font-size: 12.5px; color: var(--muted); }
+.opcoes { background: var(--surface); border: 1px solid var(--line); border-radius: var(--raio); padding: 4px 14px; }
+.opcao { display: flex; align-items: center; gap: 12px; padding: 11px 0; border-bottom: 1px solid var(--line); cursor: pointer; }
+.opcao:last-child { border-bottom: 0; }
+.opcao .txt { flex: 1; min-width: 0; }
+.opcao .txt b { display: block; font-weight: 600; font-size: 14px; }
+.opcao .txt small { color: var(--muted); font-size: 12px; }
+.chave { position: relative; width: 44px; height: 26px; flex: none; }
+.chave input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+.chave i { position: absolute; inset: 0; border-radius: 999px; background: var(--line); transition: background .2s; }
+.chave i::after { content: ""; position: absolute; top: 3px; left: 3px; width: 20px; height: 20px; border-radius: 50%; background: var(--surface); box-shadow: 0 1px 3px rgba(0,0,0,.25); transition: transform .2s; }
+.chave input:checked + i { background: var(--accent); }
+.chave input:checked + i::after { transform: translateX(18px); }
+.chave input:focus-visible + i { outline: 3px solid var(--accent); outline-offset: 2px; }
+.legenda { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; border-top: 1px dashed var(--line); border-bottom: 1px dashed var(--line); padding: 8px 0; }
+.legenda div { padding: 2px 4px; display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 6px; font-size: 13px; color: var(--muted); }
+.legenda b { font-size: 18px; line-height: 1; }
+.legenda .l-e b { color: var(--errado); } .legenda .l-p b { color: var(--pular); } .legenda .l-c b { color: var(--certo); }
+.rodape { color: var(--muted); font-size: 12px; display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; align-items: center; }
+.link-btn { background: none; border: 0; color: var(--muted); text-decoration: underline; cursor: pointer; padding: 4px 0; font-size: 12px; }
+.link-btn.perigo { color: var(--errado); }
+
+/* ---------- jogo ---------- */
+.topo { display: flex; align-items: center; gap: 8px; padding-bottom: 10px; }
+.btn-sair { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; height: 38px; padding: 0 12px; cursor: pointer; font-weight: 600; font-size: 13px; }
+.progresso { flex: 1; min-width: 0; }
+.progresso .linha { display: flex; justify-content: space-between; gap: 6px; font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; margin-bottom: 5px; white-space: nowrap; }
+.progresso .linha span { overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+@media (max-width: 379px) { #prog-grupos { display: none; } }
+.barra { height: 6px; border-radius: 99px; background: var(--line); overflow: hidden; }
+.barra i { display: block; height: 100%; background: var(--accent); width: 0; transition: width .25s; }
+.nota { font-variant-numeric: tabular-nums; font-weight: 700; font-size: 13px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; height: 38px; display: grid; place-items: center; padding: 0 10px; min-width: 64px; }
+.mesa { position: relative; flex: 1; min-height: 0; }
+.cartao {
+  position: absolute; inset: 0; background: var(--surface); border-radius: 22px; box-shadow: var(--sombra);
+  display: flex; flex-direction: column; overflow: hidden; touch-action: none; user-select: none; -webkit-user-select: none;
+  will-change: transform; border: 1px solid var(--line);
+}
+.cartao.atras { transform: translateY(10px) scale(.955); opacity: .7; pointer-events: none; }
+.cartao.voando { transition: transform .28s ease-in, opacity .28s ease-in; }
+.cartao.voltando { transition: transform .22s cubic-bezier(.2, .9, .3, 1.2); }
+.cab { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; padding: 14px 16px 0; }
+.etiqueta { font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 4px 8px; border-radius: 8px; }
+.etiqueta.geral { background: var(--surface-2); color: var(--accent); border: 1px solid var(--line); }
+.etiqueta.especifica { background: var(--accent); color: var(--accent-ink); }
+.materia { font-size: 12px; font-weight: 600; color: var(--muted); }
+.corpo { flex: 1; min-height: 0; padding: 10px 16px 16px; display: flex; flex-direction: column; gap: 10px; overflow: hidden; }
+.corpo.rolavel { overflow-y: auto; touch-action: pan-y; }
+.origem { font-size: 11.5px; color: var(--muted); }
+.comando { font-family: var(--font-read); font-size: 13.5px; line-height: 1.45; color: var(--muted); border-left: 3px solid var(--line); padding-left: 10px; }
+.btn-texto {
+  align-self: flex-start; display: inline-flex; align-items: center; gap: 6px; background: var(--surface-2); border: 1px solid var(--line);
+  border-radius: 10px; padding: 7px 11px; font-size: 13px; font-weight: 600; cursor: pointer; color: var(--accent);
+}
+.enunciado { font-family: var(--font-read); font-size: var(--fs, 18px); line-height: 1.5; text-wrap: pretty; }
+.figura { display: block; max-width: 100%; height: auto; margin: 0 auto; border-radius: 8px; border: 1px solid var(--line); background: #fff; }
+.folha-corpo .figura { margin: 4px auto 12px; }
+.legenda-fig { font-family: var(--font-ui); font-size: 11px; color: var(--muted); text-align: right; margin-top: 3px; overflow-wrap: anywhere; }
+.comando p { margin: 0 0 .35em; }
+.comando .verso, .folha-corpo p.verso { text-indent: 0; }
+.comando .fonte, .folha-corpo p.fonte { text-indent: 0; font-family: var(--font-ui); font-size: 11.5px; color: var(--muted); text-align: right; overflow-wrap: anywhere; }
+.enunciado i, .comando i { font-style: italic; }
+.enunciado table, .item-resp table { border-collapse: collapse; font-family: var(--font-ui); font-size: 13px; line-height: 1.35; margin: .4em 0 .6em; max-width: 100%; }
+.enunciado td, .enunciado th, .item-resp td, .item-resp th { border: 1px solid var(--line); padding: 4px 6px; text-align: left; vertical-align: top; }
+.alts { display: flex; flex-direction: column; gap: 7px; }
+.alt {
+  display: flex; gap: 10px; align-items: flex-start; text-align: left; width: 100%; background: var(--surface-2); border: 1px solid var(--line);
+  border-radius: 12px; padding: 9px 10px; cursor: pointer; font-family: var(--font-read); font-size: calc(var(--fs, 18px) - 2.5px); line-height: 1.4;
+}
+.alt .letra { flex: none; width: 26px; height: 26px; border-radius: 50%; border: 2px solid var(--accent); color: var(--accent); display: grid; place-items: center; font-family: var(--font-ui); font-weight: 800; font-size: 13px; }
+.alt.marcada { border-color: var(--accent); }
+.alt.certa { background: var(--certo-bg); border-color: var(--certo); }
+.alt.errada { background: var(--errado-bg); border-color: var(--errado); }
+.dica-longa { font-size: 11.5px; color: var(--muted); padding: 0 16px 10px; }
+.carimbo {
+  position: absolute; top: 18px; padding: 6px 12px; border: 3px solid currentColor; border-radius: 10px; font-weight: 800; font-size: 22px;
+  letter-spacing: .08em; opacity: 0; pointer-events: none; background: var(--surface);
+}
+.carimbo.c { left: 16px; color: var(--certo); transform: rotate(-12deg); }
+.carimbo.e { right: 16px; color: var(--errado); transform: rotate(12deg); }
+.carimbo.p { left: 50%; top: auto; bottom: 22px; color: var(--pular); transform: translateX(-50%); }
+.acoes { display: flex; justify-content: center; align-items: center; gap: 16px; padding-top: 14px; padding-bottom: env(safe-area-inset-bottom, 0px); }
+.acao { display: flex; flex-direction: column; align-items: center; gap: 4px; background: none; border: 0; cursor: pointer; font-size: 12px; font-weight: 600; color: var(--muted); }
+.acao b { width: 62px; height: 62px; border-radius: 50%; display: grid; place-items: center; font-size: 26px; background: var(--surface); box-shadow: var(--sombra); border: 2px solid currentColor; }
+.acao.e b { color: var(--errado); } .acao.c b { color: var(--certo); }
+.acao.p b { width: 48px; height: 48px; font-size: 20px; color: var(--pular); }
+.acao:disabled { opacity: .35; cursor: default; }
+
+/* ---------- folhas ---------- */
+.veu { position: fixed; inset: 0; background: rgba(8, 16, 20, .45); z-index: 20; display: flex; align-items: flex-end; justify-content: center; }
+.folha {
+  background: var(--surface); width: 100%; max-width: 560px; max-height: 88%; border-radius: 22px 22px 0 0; display: flex; flex-direction: column;
+  padding: 16px max(16px, env(safe-area-inset-right, 0px)) calc(16px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
+  box-shadow: 0 -10px 30px rgba(0,0,0,.2); animation: sobe .22s ease-out;
+}
+@keyframes sobe { from { transform: translateY(30px); opacity: .6; } to { transform: none; opacity: 1; } }
+.folha-cab { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
+.folha-cab h2 { margin: 0; font-size: 17px; flex: 1; min-width: 0; text-wrap: balance; }
+.fechar { background: var(--surface-2); border: 1px solid var(--line); border-radius: 10px; width: 38px; height: 38px; cursor: pointer; font-size: 18px; flex: none; }
+.folha-corpo { overflow-y: auto; min-height: 0; font-family: var(--font-read); font-size: 16px; line-height: 1.55; }
+.folha-corpo p { margin: 0 0 .8em; text-indent: 1.2em; }
+.folha-corpo table { border-collapse: collapse; font-family: var(--font-ui); font-size: 13px; margin: .5em 0 1em; }
+.folha-corpo td, .folha-corpo th { border: 1px solid var(--line); padding: 5px 7px; text-align: left; vertical-align: top; }
+.tabela-rola { overflow-x: auto; }
+.linhas { display: grid; grid-template-columns: 2.2em 1fr; column-gap: 8px; }
+.linhas .n { font-family: var(--font-ui); font-size: 11px; color: var(--muted); text-align: right; padding-top: 4px; font-variant-numeric: tabular-nums; }
+.linhas .n.marco { color: var(--ink); font-weight: 700; }
+.linhas .t { white-space: nowrap; overflow: hidden; min-width: 0; }
+.linhas .t.prim { text-indent: 1.2em; }
+.linhas.larga { overflow-x: auto; }
+.linhas.larga .t { overflow: visible; }
+.fonte-texto { font-family: var(--font-ui); font-size: 12px; color: var(--muted); text-align: right; margin-top: 8px; font-style: italic; }
+.res { border-radius: 14px; padding: 12px 14px; display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.res b { font-size: 20px; }
+.res span { font-size: 13px; }
+.res.ok { background: var(--certo-bg); color: var(--certo); }
+.res.no { background: var(--errado-bg); color: var(--errado); }
+.res.pl { background: var(--pular-bg); color: var(--pular); }
+.fb-txt { font-family: var(--font-read); font-size: 15.5px; line-height: 1.55; }
+.fb-txt .item-resp { text-indent: 0; font-size: 13.5px; color: var(--muted); border-left: 3px solid var(--line); padding-left: 10px; margin-bottom: 10px; }
+.fb-txt .gab { font-family: var(--font-ui); font-size: 13px; font-weight: 700; color: var(--muted); margin-bottom: 6px; letter-spacing: .02em; }
+.folha-acoes { display: flex; gap: 10px; margin-top: 14px; }
+.btn { flex: 1; border-radius: 14px; padding: 13px 14px; font-weight: 700; cursor: pointer; border: 1px solid var(--line); background: var(--surface-2); }
+.btn.primario { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+
+/* ---------- resultado ---------- */
+.fim { gap: 14px; overflow-y: auto; padding-bottom: 12px; }
+.fim h2 { margin: 6px 0 0; font-size: 22px; }
+.notas { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.notas div { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 12px 10px; display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.notas small { font-size: 11px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: .05em; }
+.notas b { font-size: 26px; font-variant-numeric: tabular-nums; }
+.notas em { font-style: normal; font-size: 11.5px; font-weight: 700; }
+.notas em.ok { color: var(--certo); } .notas em.no { color: var(--errado); }
+.tabela-materias { width: 100%; border-collapse: collapse; background: var(--surface); border-radius: 14px; overflow: hidden; font-size: 13px; font-variant-numeric: tabular-nums; }
+.tabela-materias th, .tabela-materias td { padding: 8px 10px; border-bottom: 1px solid var(--line); text-align: right; }
+.tabela-materias th:first-child, .tabela-materias td:first-child { text-align: left; }
+.tabela-materias th { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; }
+.erros-lista { display: flex; flex-direction: column; gap: 8px; }
+.erros-lista details { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 10px 12px; }
+.erros-lista summary { cursor: pointer; font-family: var(--font-read); font-size: 14.5px; line-height: 1.45; }
+.erros-lista .det { font-size: 13.5px; line-height: 1.5; margin-top: 8px; color: var(--ink); font-family: var(--font-read); }
+.erros-lista .det .gab { font-family: var(--font-ui); font-weight: 700; color: var(--muted); font-size: 12px; margin-bottom: 4px; }
+/* aviso de erro na questão: abre a página do site no navegador, com o código da questão */
+.reportar { margin: 12px 0 0; text-indent: 0; font-family: var(--font-ui); font-size: 12.5px; }
+.reportar a { color: var(--muted); }
+/* desempenho por matéria: a mais fraca primeiro, com barra e atalho para treinar */
+.dp-nota { margin: 0 0 12px; text-indent: 0; font-size: 12.5px; color: var(--muted); line-height: 1.5; }
+.dp-lista { display: flex; flex-direction: column; gap: 8px; }
+.dp-item { background: var(--surface-2); border: 1px solid var(--line); border-radius: 14px; padding: 10px 12px; display: flex; flex-direction: column; gap: 6px; }
+.dp-topo, .dp-rodape { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.dp-topo b { font-size: 14px; line-height: 1.3; }
+.dp-topo .pct { font-weight: 800; font-size: 15px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.dp-rodape small { font-size: 12px; color: var(--muted); line-height: 1.35; }
+.dp-barra { height: 6px; border-radius: 99px; background: var(--line); overflow: hidden; }
+.dp-barra i { display: block; height: 100%; border-radius: inherit; }
+.dp-treinar { flex: none; background: none; border: 1px solid var(--accent); color: var(--accent); border-radius: 10px; padding: 6px 12px; font-weight: 700; font-size: 12.5px; cursor: pointer; }
+.dp-vazio .pct { color: var(--muted); font-weight: 600; font-size: 12.5px; }
+.vazio { color: var(--muted); font-size: 14px; }
+.fim-acoes { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.aviso { font-size: 12px; color: var(--muted); line-height: 1.45; }
+/* ---------- ofensiva (diploma) ---------- */
+.ofensiva { display: flex; align-items: center; gap: 12px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--raio); padding: 12px 14px; }
+.ofensiva.acesa { border-color: #f08a3c; background: linear-gradient(135deg, rgba(255, 170, 60, .16), transparent 60%), var(--surface); }
+.ofensiva.gelada { border-color: #8cc3df; background: linear-gradient(135deg, rgba(120, 190, 230, .18), transparent 60%), var(--surface); }
+.ofe-icone { flex: none; width: 58px; height: 58px; }
+.ofe-icone svg, .ofe-mini svg, .toast svg { display: block; width: 100%; height: 100%; }
+.ofe-txt { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+.ofe-txt b { font-size: 19px; letter-spacing: -.01em; font-variant-numeric: tabular-nums; }
+.ofe-txt small { color: var(--muted); font-size: 12.5px; line-height: 1.4; }
+.ofe-linha { display: flex; align-items: center; gap: 8px; margin-top: 3px; }
+.ofe-barra { flex: 1; height: 8px; border-radius: 99px; background: var(--line); overflow: hidden; }
+.ofe-barra i { display: block; height: 100%; width: 0; border-radius: 99px; background: linear-gradient(90deg, #f6b73c, #ee6a24); transition: width .3s; }
+.ofensiva.gelada .ofe-barra i { background: linear-gradient(90deg, #9fd3ee, #4f9cc9); }
+.ofe-num { font-size: 12px; font-weight: 700; color: var(--muted); font-variant-numeric: tabular-nums; }
+.ofe-mini { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0; height: 38px; min-width: 34px; font-size: 10.5px; font-weight: 700; color: var(--muted); font-variant-numeric: tabular-nums; flex: none; line-height: 1.1; }
+.ofe-mini span:first-child { width: 24px; height: 24px; }
+.ofe-mini.acesa { color: #e0661f; }
+.toast { position: fixed; z-index: 30; left: 50%; top: calc(12px + env(safe-area-inset-top, 0px)); transform: translateX(-50%); width: min(92vw, 440px);
+  display: flex; align-items: center; gap: 12px; background: var(--surface); color: var(--ink); border: 2px solid #f08a3c; border-radius: 16px; padding: 10px 14px; box-shadow: var(--sombra); animation: desce .3s ease-out; }
+.toast .t-ic { flex: none; width: 46px; height: 46px; }
+.toast b { display: block; font-size: 15px; }
+.toast small { color: var(--muted); font-size: 12.5px; }
+@keyframes desce { from { transform: translate(-50%, -20px); opacity: 0; } to { transform: translate(-50%, 0); opacity: 1; } }
+.chama { transform-origin: 32px 34px; animation: tremula 1.6s ease-in-out infinite; }
+@keyframes tremula { 0%, 100% { transform: scale(1, 1); } 50% { transform: scale(.96, 1.05); } }
+.toast.info { border-color: var(--accent); }
+.btn-principal:disabled { opacity: .5; cursor: default; }
+.carregando { flex: 1; display: grid; place-items: center; color: var(--muted); font-size: 14px; }
+
+/* ---------- foco: área, edital ou treino livre ---------- */
+.foco { gap: 18px; overflow-y: auto; padding-bottom: 4px; }
+.foco h2 { margin: 0; font-size: 22px; letter-spacing: -.01em; line-height: 1.1; }
+.foco .marca p { margin-top: 4px; }
+.passo { display: flex; flex-direction: column; gap: 8px; }
+.passo > b { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip {
+  display: inline-flex; align-items: baseline; gap: 6px; background: var(--surface); border: 1px solid var(--line); border-radius: 999px;
+  padding: 8px 12px; font-size: 13.5px; font-weight: 600; cursor: pointer; text-align: left;
+}
+.chip small { font-size: 11.5px; font-weight: 500; color: var(--muted); font-variant-numeric: tabular-nums; }
+.chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.chip[aria-pressed="true"] small { color: inherit; opacity: .85; }
+.chip:disabled { opacity: .45; cursor: default; }
+.faixa { display: flex; align-items: center; gap: 12px; }
+.faixa input { flex: 1; min-width: 0; margin: 0; accent-color: var(--accent); }
+.faixa output { min-width: 3ch; text-align: right; font-weight: 700; font-variant-numeric: tabular-nums; }
+.cartoes-modo { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.modo-card, .concurso {
+  display: flex; flex-direction: column; gap: 3px; text-align: left; background: var(--surface); border: 2px solid var(--line);
+  border-radius: 14px; padding: 12px; cursor: pointer; min-width: 0;
+}
+.modo-card strong { font-size: 15px; }
+.modo-card span, .concurso span { font-size: 12px; color: var(--muted); line-height: 1.4; }
+.modo-card[aria-pressed="true"], .concurso[aria-pressed="true"] { border-color: var(--accent); background: var(--surface-2); }
+.modo-card:disabled { opacity: .5; cursor: default; }
+.livre-tudo { width: 100%; margin-bottom: 14px; }
+.dica-niveis { display: block; color: var(--muted); font-size: 12px; margin: -2px 0 6px; }
+.lista-concursos { display: flex; flex-direction: column; gap: 8px; }
+.concurso { padding: 12px 14px; }
+.concurso strong { font-size: 16px; }
+.nota-foco { margin: 0; font-size: 12.5px; color: var(--muted); line-height: 1.5; background: var(--surface); border: 1px dashed var(--line); border-radius: 12px; padding: 10px 12px; }
+.foco-acoes { position: sticky; bottom: 0; display: flex; flex-direction: column; align-items: center; gap: 4px; padding-top: 10px; background: linear-gradient(transparent, var(--bg) 35%); }
+.foco-acoes .btn { width: 100%; flex: none; }
+.btn:disabled { opacity: .5; cursor: default; }
+
+/* ---------- início: foco atual e anúncio premiado ---------- */
+.foco-atual { display: flex; align-items: center; gap: 10px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--raio); padding: 10px 12px 10px 14px; }
+.foco-atual .txt { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.foco-atual small { font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.foco-atual b { font-size: 15px; }
+.foco-atual span span { font-size: 12.5px; color: var(--muted); }
+.btn-trocar { flex: none; background: var(--surface-2); border: 1px solid var(--line); border-radius: 10px; padding: 8px 12px; font-weight: 700; font-size: 13px; cursor: pointer; color: var(--accent); }
+.premio { align-self: flex-start; display: inline-flex; align-items: center; flex-wrap: wrap; gap: 4px 8px; max-width: 100%; text-align: left; background: var(--surface); border: 1px dashed var(--accent); border-radius: 999px; padding: 6px 12px 6px 6px; cursor: pointer; }
+.premio .p-ic { flex: none; width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; background: var(--surface-2); color: var(--accent); font-size: 10px; }
+.premio b { font-size: 12.5px; }
+.premio small { font-size: 11.5px; color: var(--muted); }
+.premio.ativo { border-style: solid; border-color: var(--certo); background: var(--certo-bg); }
+.premio.ativo .p-ic { color: var(--certo); background: var(--surface); }
+.premio:disabled { cursor: default; }
+.premio:disabled:not(.ativo) { opacity: .6; }
+/* estude grátis: apostilas do concurso no site, depois de um anúncio premiado só delas */
+.estudar { display: flex; align-items: center; gap: 12px; width: 100%; text-align: left; color: var(--ink); background: var(--surface); border: 2px solid var(--destaque); border-radius: var(--raio); padding: 10px 14px; cursor: pointer; box-shadow: var(--sombra); }
+.estudar .e-ic { flex: none; width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; background: var(--destaque); color: var(--destaque-ink); }
+.estudar .e-ic svg { width: 24px; height: 24px; }
+.estudar .e-txt { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.estudar b { font-size: 15.5px; }
+.estudar small { font-size: 12.5px; color: var(--muted); }
+/* ---------- concursos por situação ---------- */
+.abas { display: flex; gap: 4px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 3px; }
+.aba { flex: 1; min-width: 0; background: none; border: 0; border-radius: 9px; padding: 7px 4px; font-size: 12.5px; font-weight: 700; color: var(--muted); cursor: pointer; line-height: 1.2; }
+.aba small { display: block; font-size: 11px; font-weight: 500; font-variant-numeric: tabular-nums; }
+.aba[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); }
+.concurso { display: flex; flex-direction: column; gap: 6px; background: var(--surface); border: 2px solid var(--line); border-radius: 14px; padding: 12px 14px; }
+.concurso.marcado { border-color: var(--accent); background: var(--surface-2); }
+.concurso-sel { display: flex; flex-direction: column; gap: 3px; background: none; border: 0; padding: 0; text-align: left; cursor: pointer; }
+.situacao { align-self: flex-start; font-size: 11.5px; font-weight: 700; padding: 3px 8px; border-radius: 999px; margin-bottom: 2px; }
+.situacao.abertas { background: var(--certo-bg); color: var(--certo); }
+.situacao.andamento { background: var(--pular-bg); color: var(--pular); }
+.situacao.finalizado { background: var(--surface-2); color: var(--muted); border: 1px solid var(--line); }
+.situacao.previsto { background: transparent; color: var(--destaque); border: 1px dashed var(--destaque); }
+.link-concurso { align-self: flex-start; font-size: 13px; font-weight: 700; color: var(--accent); padding: 2px 0; }
+/* convite para sugerir um concurso que ainda não está no app (abre a página do site no navegador) */
+.sugerir-link { display: inline-block; margin-top: 10px; font-size: 13px; font-weight: 700; color: var(--accent); padding: 4px 0; }
+.vazio-lista { margin: 0; font-size: 13px; color: var(--muted); line-height: 1.45; padding: 4px 2px; }
+
+/* ---------- configurar simulado, cronômetro e deixar para o final ---------- */
+.folha-corpo.cfg { font-family: var(--font-ui); font-size: 15px; line-height: 1.4; display: flex; flex-direction: column; gap: 16px; }
+.folha-corpo.cfg p { text-indent: 0; margin: 0; }
+.passo.novo { animation: aparece .25s ease-out; }
+@keyframes aparece { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.final-cfg { display: flex; flex-direction: column; gap: 16px; }
+.relogio { flex: none; font-weight: 700; color: var(--ink); }
+.relogio.pouco { color: var(--errado); }
+.acao.d b { width: 48px; height: 48px; font-size: 20px; color: var(--accent); }
+.carimbo.d { left: 50%; top: 18px; color: var(--accent); transform: translateX(-50%); }
+.etiqueta.adiada { background: var(--pular-bg); color: var(--pular); }
+.legenda { grid-template-columns: repeat(4, 1fr); }
+.legenda .l-d b { color: var(--accent); }
+/* ---------- termos de uso ---------- */
+.termos { gap: 14px; overflow-y: auto; padding-bottom: 4px; }
+.termos h2 { margin: 0; font-size: 22px; letter-spacing: -.01em; line-height: 1.1; }
+.termos .marca p { margin-top: 4px; }
+.termos-texto { background: var(--surface); border: 1px solid var(--line); border-radius: var(--raio); padding: 14px 16px; font-family: var(--font-read); font-size: 15px; line-height: 1.55; }
+.termos-texto h3 { font-family: var(--font-ui); font-size: 14.5px; margin: 16px 0 4px; }
+.termos-texto h3:first-child { margin-top: 0; }
+.termos-texto p { margin: 0 0 .55em; }
+.termos-texto p:last-child { margin-bottom: 0; }
+.termos-texto .base { font-family: var(--font-ui); font-size: 12.5px; line-height: 1.45; color: var(--muted); border-left: 3px solid var(--line); padding-left: 10px; }
+.termos-texto .resumo-termos { font-family: var(--font-ui); font-size: 13.5px; background: var(--surface-2); border-radius: 12px; padding: 10px 12px; margin-bottom: 4px; }
+.termos-texto .resumo-termos ul { margin: 4px 0 0; padding-left: 18px; }
+.termos-texto .versao { margin-top: 14px; font-family: var(--font-ui); font-size: 12px; color: var(--muted); }
+.termos-acoes { position: sticky; bottom: 0; display: flex; flex-direction: column; gap: 8px; padding-top: 12px; background: linear-gradient(transparent, var(--bg) 22%); }
+.termos-acoes .btn { width: 100%; flex: none; }
+.aceite { display: flex; align-items: center; gap: 10px; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; font-weight: 700; font-size: 14.5px; cursor: pointer; }
+.aceite input { flex: none; width: 22px; height: 22px; margin: 0; accent-color: var(--accent); }
+.aceite.esperando { color: var(--muted); cursor: default; }
+.termos-acoes small { font-size: 12px; color: var(--muted); text-align: center; }
+.links-rodape { display: flex; gap: 16px; justify-content: center; }
+.conta { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; display: flex; flex-direction: column; gap: 10px; }
+.conta-txt { display: flex; flex-direction: column; gap: 2px; }
+.conta-txt b { font-size: 14px; }
+.conta-txt small { color: var(--muted); font-size: 12.5px; line-height: 1.4; overflow-wrap: anywhere; }
+.btn-conta { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 11px 14px; border-radius: 10px; border: 1px solid var(--line); background: #fff; color: #1f1f1f; font: 600 14px var(--font-ui); cursor: pointer; }
+.btn-conta:disabled { opacity: .6; cursor: default; }
+.btn-conta .g { display: inline-flex; width: 20px; height: 20px; align-items: center; justify-content: center; border-radius: 50%; font-weight: 700; font-size: 13px; color: #fff; background: #4285f4; }
+.conta-acoes { display: flex; gap: 16px; justify-content: space-between; flex-wrap: wrap; }
+/* trechos que só valem no app Android (.so-app) ou só no site (.so-web) */
+html:not(.no-navegador) .so-web, html.no-navegador .so-app { display: none !important; }
+.versao-app { margin: 2px 0 0; text-align: center; font-size: 12px; line-height: 1.5; color: var(--muted); overflow-wrap: anywhere; }
+.versao-app a { color: inherit; }
+.versao-app span { display: block; }
+
+/* ---------- aparência ---------- */
+.temas { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.tema-op { display: flex; flex-direction: column; gap: 6px; text-align: left; background: var(--surface); border: 2px solid var(--line); border-radius: 14px; padding: 10px 12px; cursor: pointer; min-width: 0; }
+.tema-op[aria-pressed="true"] { border-color: var(--accent); background: var(--surface-2); }
+.tema-op b { font-size: 14px; }
+.tema-op small { font-size: 12px; color: var(--muted); line-height: 1.3; }
+.amostras { display: flex; gap: 4px; }
+.amostras i { width: 22px; height: 22px; border-radius: 50%; border: 1px solid rgba(0, 0, 0, .14); }
+@media (prefers-reduced-motion: reduce) {
+  .cartao.voando, .cartao.voltando, .barra i, .ofe-barra i { transition: none; }
+  .folha, .toast, .chama, .passo.novo { animation: none; }
+}
+</style>
+
+</head>
+<body>
+<div class="app" id="app">
+  <div class="carregando" id="carregando">Carregando questões…</div>
+
+  <section class="termos" id="tela-termos" hidden>
+    <div class="marca">
+      <img class="logo" src="marca.webp" alt="" aria-hidden="true">
+      <div>
+        <h2>Termos de uso</h2>
+        <p>Leia com atenção antes de começar.</p>
+      </div>
+    </div>
+    <div class="termos-texto">
+      <div class="resumo-termos"><b>Em poucas palavras</b><ul>
+        <li class="so-app">O app é gratuito, mantido por anúncios, e serve para estudar.</li>
+        <li class="so-web">O Giz &amp; Gabarito é gratuito e serve para estudar. No navegador, por enquanto, não há anúncios.</li>
+        <li>As questões são de provas públicas, sempre com a fonte. Os comentários são feitos com inteligência artificial e podem ter erros.</li>
+        <li class="so-app">Não há cadastro: seu histórico fica no seu celular.</li>
+        <li class="so-web">Não há cadastro: seu histórico fica neste navegador.</li>
+        <li>O edital e o gabarito oficial valem sempre mais do que o app.</li>
+      </ul></div>
+      <h3>1. O que é o app e como funciona este acordo</h3>
+      <p>O Giz &amp; Gabarito é um aplicativo gratuito de estudo para concursos públicos de professores, mantido por um desenvolvedor independente. Ele oferece questões de provas anteriores, treinos, simulados e comentários dos gabaritos. Ao tocar em "Aceito", você concorda com estes termos, que valem como um contrato de adesão entre você e o app.</p>
+      <p class="base">Base legal: Código de Defesa do Consumidor (Lei 8.078/1990), art. 54, que exige redação clara e legível nos contratos de adesão, e art. 46, pelo qual o consumidor só se obriga ao que pôde conhecer antes. Por isso o texto fica aberto para leitura antes do aceite e pode ser relido a qualquer momento em "Termos de uso".</p>
+      <h3>2. Quem pode usar</h3>
+      <p>O app é feito para adultos que estudam para concursos. Quem tem menos de 18 anos deve usá-lo com o conhecimento dos pais ou responsáveis.</p>
+      <p class="base">Base legal: Código Civil (Lei 10.406/2002), arts. 3º a 5º, sobre a capacidade para os atos da vida civil, e Estatuto da Criança e do Adolescente (Lei 8.069/1990), art. 22, que confia aos pais o dever de acompanhar a educação dos filhos.</p>
+      <h3>3. Questões de concursos anteriores</h3>
+      <p>As questões vêm de provas de concursos públicos já aplicadas e divulgadas pelas bancas e pelos órgãos. Cada uma mostra a banca, o ano, o concurso e o número que teve na prova. Elas aparecem no app só para estudo e treino, e nenhuma é vendida. Algumas questões de treino foram escritas especialmente para o app e aparecem como inéditas.</p>
+      <p>O Giz &amp; Gabarito não tem nenhuma ligação com as bancas, os órgãos ou os concursos citados. Os nomes deles aparecem apenas para indicar de onde vem cada questão.</p>
+      <p class="base">Base legal: as provas e os gabaritos de concursos públicos são divulgados em atendimento ao princípio da publicidade da administração pública (Constituição Federal, art. 37). O uso das questões se apoia na Lei de Direitos Autorais (Lei 9.610/1998), que permite citar trechos de obras para fins de estudo, com indicação do autor e da origem (art. 46, III), e não protege os textos de leis, decretos e demais atos oficiais (art. 8º, IV). A Lei da Propriedade Industrial (Lei 9.279/1996, art. 132, IV) permite citar marcas sem conotação comercial e sem prejuízo do seu caráter distintivo.</p>
+      <p class="so-app">Se você é titular de algum conteúdo e entende que ele não deveria estar no app, escreva para o contato da página do app na Google Play. O pedido será analisado e, se for procedente, o conteúdo sai na versão seguinte.</p>
+      <p class="so-web">Se você é titular de algum conteúdo e entende que ele não deveria estar no app, escreva para gizegabarito@gmail.com. O pedido será analisado e, se for procedente, o conteúdo sai na versão seguinte.</p>
+      <h3>4. Gabarito oficial e comentários feitos com inteligência artificial</h3>
+      <p>O gabarito de cada questão é o oficial divulgado pela banca. Quando só existe o gabarito preliminar, a questão avisa. Questões anuladas ou de gabarito duvidoso ficam de fora do app.</p>
+      <p>Os comentários que explicam cada gabarito são escritos com inteligência artificial a partir do gabarito oficial, e não por um professor. Por isso podem conter erros. Em caso de dúvida, vale sempre o gabarito oficial, a lei, o edital e o seu material de estudo. Se encontrar um erro, avise pelo contato da página do app.</p>
+      <p class="base">Base legal: Código de Defesa do Consumidor, art. 6º, III, que garante informação adequada e clara sobre o serviço. É por isso que o app explica de onde vem o gabarito e como os comentários são feitos.</p>
+      <h3>5. Feito com o Claude</h3>
+      <p>O aplicativo foi desenvolvido com a ajuda do Claude, inteligência artificial da Anthropic.</p>
+      <h3 class="so-app">6. Gratuito e mantido por anúncios</h3>
+      <h3 class="so-web">6. Gratuito</h3>
+      <p class="so-web">No navegador, o Giz &amp; Gabarito é gratuito e, por enquanto, não mostra anúncios. Se isso mudar, estes termos serão atualizados antes, com um novo aceite. Não existe versão paga, e nada é vendido.</p>
+      <p class="so-app">O app é gratuito e se mantém com anúncios: um a cada 10 questões, que pode ser pulado, e um anúncio opcional na tela inicial que dá 30 minutos sem anúncios. Os anúncios entram só na passagem de uma questão para a outra, nunca no meio de uma, e aparecem sempre identificados como publicidade. Não existe versão paga, e nada é vendido dentro do app.</p>
+      <p class="base">Base legal: Código de Defesa do Consumidor, art. 36, pelo qual a publicidade deve ser veiculada de forma que o consumidor a identifique fácil e imediatamente como tal.</p>
+      <h3>7. Conteúdo dos anúncios</h3>
+      <p class="so-web">Se um dia houver anúncios no site, eles seguirão as mesmas regras do app: classificação livre, sem categorias como apostas, jogos de azar, bebidas alcoólicas e conteúdo sexual.</p>
+      <p class="so-app">Os anúncios são escolhidos e exibidos pelo Google AdMob, segundo as políticas do Google. O app pede apenas anúncios de classificação livre e bloqueia categorias como apostas, jogos de azar, bebidas alcoólicas e conteúdo sexual. Se mesmo assim aparecer um anúncio impróprio, avise pelo contato da página do app na Google Play, e o anunciante será bloqueado o quanto antes.</p>
+      <p class="base">Base legal: Código de Defesa do Consumidor, art. 37, § 2º, que proíbe a publicidade abusiva, e Estatuto da Criança e do Adolescente, art. 71, que garante a crianças e adolescentes produtos e serviços que respeitem sua condição de pessoas em desenvolvimento. Os filtros preventivos e o atendimento aos avisos servem a essa proteção.</p>
+      <h3>8. Informações dos concursos</h3>
+      <p>Datas, links, situação e regras dos concursos são tirados dos editais e das páginas oficiais, mas podem mudar a qualquer momento por decisão do órgão ou da banca. Confira sempre o edital e a página oficial. Se houver diferença, vale o edital.</p>
+      <p class="base">Base legal: o edital é a regra do concurso e obriga a administração e os candidatos (princípio da vinculação ao edital, ligado à Constituição Federal, art. 37, II, e às normas gerais dos concursos públicos da Lei 14.965/2024).</p>
+      <h3>9. O app não garante aprovação</h3>
+      <p>O Giz &amp; Gabarito é uma ferramenta de apoio ao estudo. Notas, acertos e notas mínimas mostrados nos simulados são estimativas para treino e não preveem o resultado da prova real, que depende de muitos fatores. O app não promete aprovação, nomeação nem classificação em concurso.</p>
+      <p class="base">Base legal: Código de Defesa do Consumidor, art. 37, § 1º, que proíbe a publicidade enganosa. Esta cláusula não retira nenhum direito que a lei garante a você (CDC, art. 51, I).</p>
+      <h3>10. Uso permitido</h3>
+      <p>Você pode usar o app à vontade para o seu estudo pessoal. Não é permitido copiar o banco de questões ou os comentários para vender ou publicar em outro app ou site, nem tentar burlar os anúncios ou o funcionamento do app.</p>
+      <p class="base">Base legal: o programa é protegido pela Lei do Software (Lei 9.609/1998, art. 2º), e a seleção e organização do conteúdo (os comentários, os simulados e a forma de apresentar as questões) pela Lei de Direitos Autorais (Lei 9.610/1998, art. 7º, XIII, sobre as compilações e bases de dados).</p>
+      <h3>11. Seus dados e sua privacidade</h3>
+      <p class="so-web">No navegador, o app não pede cadastro, nome, e-mail nem senha. Seu histórico, suas escolhas e o progresso do diploma ficam guardados neste navegador (no armazenamento local do site) e não são enviados a nós. Para apagá-los, use "Zerar histórico" na tela inicial ou limpe os dados do site nas configurações do navegador. As fontes de letra vêm do Google Fonts, que recebe o endereço IP do aparelho ao entregá-las, como em qualquer site que as usa.</p>
+      <p class="so-app">O app não pede cadastro, nome, e-mail nem senha, e não tem servidor próprio. Seu histórico, suas escolhas e o progresso do diploma ficam no seu celular, com uma cópia no backup do Google da sua própria conta, que você controla nas configurações do Android. Nós não recebemos esses dados.</p>
+      <p class="so-app">Para mostrar anúncios, o Google AdMob usa o identificador de publicidade do aparelho, o endereço IP e informações técnicas, como explica a política de privacidade do app, disponível na página dele na Google Play. Você pode redefinir ou desativar o identificador de publicidade nas configurações do Android. Para apagar seu histórico, use "Zerar histórico" na tela inicial ou limpe os dados do app.</p>
+      <p class="base">Base legal: Lei Geral de Proteção de Dados (Lei 13.709/2018), arts. 6º (finalidade, necessidade e transparência), 9º (acesso fácil às informações sobre o tratamento) e 18 (direitos do titular, como acesso e eliminação), e Marco Civil da Internet (Lei 12.965/2014), art. 7º, VIII, que garante informações claras sobre a coleta e o uso de dados.</p>
+      <h3>12. Notificações</h3>
+      <p class="so-web">No navegador, o app não envia notificações.</p>
+      <p class="so-app">Se você permitir, o app mostra lembretes de estudo algumas vezes por dia. Eles são criados no próprio celular, sem enviar dados, e podem ser desligados a qualquer momento nas configurações de notificações do Android.</p>
+      <h3>13. Mudanças nestes termos</h3>
+      <p>Estes termos podem ser atualizados quando o app mudar ou a lei exigir. Quando isso acontecer, o app mostra a nova versão e pede um novo aceite antes de você continuar.</p>
+      <h3>14. Contato, lei aplicável e foro</h3>
+      <p class="so-web">Dúvidas, sugestões, pedidos e reclamações podem ser enviados para gizegabarito@gmail.com. Estes termos seguem a lei brasileira, e qualquer conflito pode ser levado ao foro do seu domicílio.</p>
+      <p class="so-app">Dúvidas, sugestões, pedidos e reclamações podem ser enviados pelo e-mail de contato da página do Giz &amp; Gabarito na Google Play. Estes termos seguem a lei brasileira, e qualquer conflito pode ser levado ao foro do seu domicílio.</p>
+      <p class="base">Base legal: Código de Defesa do Consumidor, art. 101, I, que permite ao consumidor propor a ação no seu próprio domicílio, e Marco Civil da Internet, art. 8º, parágrafo único, II, que garante o foro brasileiro nos contratos de adesão de serviços prestados no Brasil.</p>
+      <p class="versao">Versão 2 · 25 de outubro de 2026</p>
+    </div>
+    <div class="termos-acoes" id="termos-aceite">
+      <label class="aceite esperando" for="termos-ok" id="termos-caixa"><input type="checkbox" id="termos-ok" disabled><span>Li e concordo com os termos de uso</span></label>
+      <small id="termos-espera" aria-live="polite"></small>
+      <button class="btn primario" id="btn-aceito" disabled>Aceito</button>
+    </div>
+    <div class="termos-acoes" id="termos-lido" hidden>
+      <small id="termos-data"></small>
+      <button class="btn" id="btn-termos-voltar">Voltar</button>
+    </div>
+  </section>
+
+  <section class="foco" id="tela-foco" hidden>
+    <div class="marca">
+      <img class="logo" src="marca.webp" alt="" aria-hidden="true">
+      <div>
+        <h2>Monte seu treino</h2>
+        <p>Escolha sua área e como quer estudar. Dá para trocar quando quiser.</p>
+      </div>
+    </div>
+    <button class="modo-card livre-tudo" id="btn-livre-tudo"><strong>Treino livre, sem foco</strong><span>Questões de todas as áreas e níveis, sem escolher nada. Dá para filtrar depois em "Trocar".</span></button>
+    <div class="passo">
+      <b>1. Sua área</b>
+      <div class="chips" id="chips-area"></div>
+    </div>
+    <div class="passo" id="passo-modo" hidden>
+      <b>2. Como treinar</b>
+      <div class="cartoes-modo">
+        <button class="modo-card" id="modo-concurso" aria-pressed="false"><strong>Concurso</strong><span id="modo-concurso-sub"></span></button>
+        <button class="modo-card" id="modo-livre" aria-pressed="false"><strong>Treino livre</strong><span>Questões de todos os concursos, filtradas pela banca.</span></button>
+      </div>
+    </div>
+    <div class="passo" id="passo-concurso" hidden>
+      <b>3. Concurso</b>
+      <div class="abas" id="abas-situacao"></div>
+      <div class="lista-concursos" id="lista-concursos"></div>
+      <a class="sugerir-link" id="link-sugerir" href="https://darthkley.github.io/sugerir/" target="_blank" rel="noopener">Não achou seu concurso? Sugira um ↗</a>
+    </div>
+    <div class="passo" id="passo-niveis" hidden>
+      <b id="titulo-niveis">3. Níveis em que você dá aula</b>
+      <small class="dica-niveis">Marque quantos quiser.</small>
+      <div class="chips" id="chips-niveis"></div>
+    </div>
+    <div class="passo" id="passo-banca" hidden>
+      <b id="titulo-banca">3. Banca</b>
+      <div class="chips" id="chips-banca"></div>
+    </div>
+    <p class="nota-foco" id="nota-foco" hidden></p>
+    <div class="foco-acoes">
+      <button class="btn primario" id="btn-foco-ok" disabled>Começar a treinar</button>
+      <button class="link-btn" id="btn-foco-cancelar" hidden>Voltar sem mudar</button>
+    </div>
+  </section>
+
+  <section class="inicio" id="tela-inicio" hidden>
+    <div class="marca">
+      <img class="logo" src="marca.webp" alt="" aria-hidden="true">
+      <div>
+        <h1>Giz &amp; Gabarito</h1>
+        <p>Treino para concursos de professor</p>
+      </div>
+    </div>
+    <div class="foco-atual">
+      <span class="txt"><small>Seu foco</small><b id="foco-titulo"></b><span id="foco-sub"></span></span>
+      <button class="btn-trocar" id="btn-trocar">Trocar</button>
+    </div>
+    <button class="estudar" id="btn-estudar" hidden>
+      <span class="e-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 5.5C5.6 4.3 8.6 4.4 12 6.2c3.4-1.8 6.4-1.9 9-.7V19c-2.6-1.2-5.6-1.1-9 .7-3.4-1.8-6.4-1.9-9-.7zM12 6.2v13.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></span>
+      <span class="e-txt"><b>Estude grátis agora mesmo!</b><small id="estudar-sub"></small></span>
+    </button>
+    <div class="ofensiva" id="ofensiva" aria-live="polite">
+      <span class="ofe-icone" id="ofe-icone" aria-hidden="true"></span>
+      <span class="ofe-txt">
+        <b id="ofe-titulo">Diploma</b>
+        <small id="ofe-msg"></small>
+        <span class="ofe-linha"><span class="ofe-barra"><i id="ofe-barra"></i></span><span class="ofe-num" id="ofe-num">0/10 hoje</span></span>
+      </span>
+    </div>
+    <button class="premio" id="btn-premio" hidden>
+      <span class="p-ic" aria-hidden="true">▶</span><b id="premio-titulo"></b><small id="premio-sub"></small>
+    </button>
+    <button class="btn-principal btn-continuar" id="btn-continuar" hidden></button>
+    <div class="dupla">
+      <button class="btn-grande treino" id="btn-treino">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M18 3L7 18h8l-2 11 12-16h-8z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/></svg>
+        <strong>Treino rápido</strong><span id="treino-sub">20 questões</span>
+      </button>
+      <button class="btn-grande simulado" id="btn-simulado">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="18" r="11" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M16 11v7l4 3M13 3h6M16 3v4" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+        <strong>Simulado</strong><span id="simulado-sub">Monte sua prova</span>
+      </button>
+    </div>
+    <button class="btn-erros" id="btn-erros" hidden>Revisar meus erros<span id="qtd-erros"></span></button>
+    <button class="btn-erros" id="btn-desempenho" hidden>Meu desempenho por matéria<span id="desempenho-sub"></span></button>
+    <div class="legenda" aria-label="Como responder">
+      <div class="l-e"><b>←</b>Errado</div>
+      <div class="l-p"><b>↑</b>Branco</div>
+      <div class="l-d"><b>↓</b>Depois</div>
+      <div class="l-c"><b>→</b>Certo</div>
+    </div>
+    <div class="rodape">
+      <span id="estatisticas">Nenhum item respondido ainda.</span>
+      <button class="link-btn perigo" id="btn-zerar">Zerar histórico</button>
+    </div>
+    <div class="resumo-banco" id="resumo-banco"></div>
+    <div class="conta" id="conta" hidden>
+      <div class="conta-txt"><b id="conta-titulo">Guarde seu progresso</b><small id="conta-sub"></small></div>
+      <button class="btn-conta" id="btn-conta-entrar"><span class="g" aria-hidden="true">G</span>Entrar com o Google</button>
+      <div class="conta-acoes" id="conta-acoes" hidden>
+        <button class="link-btn" id="btn-conta-sair">Sair da conta</button>
+        <button class="link-btn perigo" id="btn-conta-apagar">Apagar minha conta</button>
+      </div>
+    </div>
+    <div class="links-rodape">
+      <button class="link-btn" id="btn-aparencia">Aparência</button>
+      <button class="link-btn" id="btn-termos">Termos de uso</button>
+      <a class="link-btn" href="https://darthkley.github.io/sugerir/" target="_blank" rel="noopener">Sugerir concurso</a>
+    </div>
+    <p class="versao-app"><span class="so-app">Apostilas também no computador: <a id="link-pc" href="https://darthkley.github.io/estudar/" target="_blank" rel="noopener">darthkley.github.io/estudar</a></span><span class="so-web">Apostilas: <a href="https://darthkley.github.io/estudar/" target="_blank" rel="noopener">darthkley.github.io/estudar</a> · <a href="https://darthkley.github.io/">página inicial do site</a></span><span id="versao-app" hidden></span></p>
+  </section>
+
+  <section id="tela-jogo" hidden>
+    <div class="topo">
+      <button class="btn-sair" id="btn-sair" aria-label="Sair e salvar">Sair</button>
+      <div class="progresso">
+        <div class="linha"><span id="prog-txt">Item 1 de 120</span><span id="prog-grupos"></span><span class="relogio" id="relogio" role="timer" hidden></span></div>
+        <div class="barra"><i id="prog-barra"></i></div>
+      </div>
+      <div class="ofe-mini" id="ofe-mini" aria-label="Meta do dia"></div>
+      <div class="nota" id="nota-atual" aria-label="Nota parcial">0</div>
+    </div>
+    <div class="mesa" id="mesa"></div>
+    <div class="acoes">
+      <button class="acao e" id="btn-errado" aria-label="Errado"><b>✕</b>Errado</button>
+      <button class="acao p" id="btn-pular" aria-label="Deixar em branco"><b>↑</b>Branco</button>
+      <button class="acao d" id="btn-depois" aria-label="Deixar para o final"><b>↓</b>Depois</button>
+      <button class="acao c" id="btn-certo" aria-label="Certo"><b>✓</b>Certo</button>
+    </div>
+  </section>
+
+  <section class="fim" id="tela-fim" hidden></section>
+</div>
+
+<div class="toast" id="toast" role="status" hidden></div>
+
+<div class="veu" id="veu-texto" hidden>
+  <div class="folha" role="dialog" aria-modal="true" aria-labelledby="texto-titulo">
+    <div class="folha-cab"><h2 id="texto-titulo">Texto</h2><button class="fechar" id="fechar-texto" aria-label="Fechar texto">✕</button></div>
+    <div class="folha-corpo" id="texto-corpo"></div>
+  </div>
+</div>
+
+<div class="veu" id="veu-fb" hidden>
+  <div class="folha" role="dialog" aria-modal="true" aria-labelledby="fb-titulo">
+    <div class="res" id="fb-res"><b id="fb-titulo">Acertou</b><span id="fb-sub"></span></div>
+    <div class="folha-corpo fb-txt" id="fb-corpo"></div>
+    <div class="folha-acoes">
+      <button class="btn" id="fb-ver-texto" hidden>Ver texto</button>
+      <button class="btn primario" id="fb-proxima">Próxima</button>
+    </div>
+  </div>
+</div>
+
+<div class="veu" id="veu-config" hidden>
+  <div class="folha" role="dialog" aria-modal="true" aria-labelledby="cfg-titulo">
+    <div class="folha-cab"><h2 id="cfg-titulo">Simulado</h2><button class="fechar" id="fechar-config" aria-label="Fechar">✕</button></div>
+    <div class="folha-corpo cfg" id="cfg-corpo">
+      <div class="passo" id="cfg-passo-banca"><b>1. Banca</b><div class="chips" id="cfg-banca"></div></div>
+      <div class="passo" id="cfg-passo-duracao" hidden><b>2. Tempo de prova</b><div class="chips" id="cfg-duracao"></div></div>
+      <div class="passo" id="cfg-passo-qtd" hidden><b>3. Número de questões</b><div class="chips" id="cfg-qtd"></div>
+        <div class="faixa" id="cfg-faixa"><input type="range" id="cfg-qtd-faixa" min="30" max="200" step="5" aria-label="Número de questões"><output id="cfg-qtd-valor" for="cfg-qtd-faixa"></output></div>
+      </div>
+      <div class="passo" id="cfg-passo-formato" hidden><b>4. Tipo de questão</b><div class="chips" id="cfg-formato"></div></div>
+      <div class="passo" id="cfg-passo-disc" hidden><b>5. Tem prova discursiva?</b><div class="chips" id="cfg-discursiva"></div></div>
+      <div class="passo final-cfg" id="cfg-final" hidden>
+        <p class="nota-foco" id="cfg-resumo"></p>
+        <div class="opcoes">
+          <label class="opcao" for="op-estudo">
+            <span class="txt"><b>Mostrar a resposta a cada item</b><small>Desligado, você só vê o gabarito no fim, como na prova.</small></span>
+            <span class="chave"><input type="checkbox" id="op-estudo" checked><i></i></span>
+          </label>
+          <label class="opcao" for="op-ineditas">
+            <span class="txt"><b>Priorizar o que não vi</b><small>Puxa primeiro os itens que você respondeu menos vezes.</small></span>
+            <span class="chave"><input type="checkbox" id="op-ineditas" checked><i></i></span>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="folha-acoes" id="cfg-acoes" hidden><button class="btn primario" id="cfg-comecar">Começar o simulado</button></div>
+  </div>
+</div>
+
+<div class="veu" id="veu-desempenho" hidden>
+  <div class="folha" role="dialog" aria-modal="true" aria-labelledby="dp-titulo">
+    <div class="folha-cab"><h2 id="dp-titulo">Seu desempenho por matéria</h2><button class="fechar" id="fechar-desempenho" aria-label="Fechar">✕</button></div>
+    <div class="folha-corpo" id="dp-corpo"></div>
+  </div>
+</div>
+
+<div class="veu" id="veu-treino" hidden>
+  <div class="folha" role="dialog" aria-modal="true" aria-labelledby="tr-titulo">
+    <div class="folha-cab"><h2 id="tr-titulo">Treino rápido</h2><button class="fechar" id="fechar-treino" aria-label="Fechar">✕</button></div>
+    <div class="folha-corpo cfg">
+      <div class="passo"><b>Tipo de questão</b><div class="chips" id="tr-formato"></div></div>
+      <div class="passo"><b>O que treinar</b><div class="chips" id="tr-grupo"></div></div>
+      <div class="passo" id="tr-passo-disc" hidden><b id="tr-disc-titulo">Disciplina</b><div class="chips" id="tr-disc"></div></div>
+      <p class="nota-foco" id="tr-resumo"></p>
+    </div>
+    <div class="folha-acoes"><button class="btn primario" id="tr-comecar">Começar o treino</button></div>
+  </div>
+</div>
+
+<div class="veu" id="veu-tema" hidden>
+  <div class="folha" role="dialog" aria-modal="true" aria-labelledby="tema-titulo">
+    <div class="folha-cab"><h2 id="tema-titulo">Aparência</h2><button class="fechar" id="fechar-tema" aria-label="Fechar">✕</button></div>
+    <div class="folha-corpo cfg"><div class="temas" id="lista-temas"></div></div>
+  </div>
+</div>
+
+<script src="dados/catalogo.js"></script>
+<script src="dados/niveis.js"></script>
+<script>
+(function () {
+  'use strict';
+  var CAT = window.CATALOGO;
+  var QS = [], TEXTOS = {}, POR_ID = {};
+  // níveis (dados/niveis.js, gerado por ferramentas-mulder/niveis/classificar.js): em que níveis cada questão cai.
+  // O padrão vem da área (ou das gerais); "q" traz só as questões fora do padrão, com as letras dos níveis
+  var NV = window.NIVEIS || { lista: [], areas: {}, gerais: [], editais: {}, q: {} };
+  var NIVEIS_IDS = NV.lista.map(function (n) { return n.id; }), NIVEL = {}, LETRA = {};
+  NV.lista.forEach(function (n) { NIVEL[n.id] = n; LETRA[n.letra] = n.id; });
+  function niveisDaArea(area) { return area === '*' || !NV.areas[area] ? NIVEIS_IDS : NV.areas[area]; }
+  function niveisDaQuestao(q) {
+    var cod = NV.q[q.id];
+    if (cod) return cod.split('').map(function (l) { return LETRA[l]; });
+    return q.grupo === 'geral' ? (NV.gerais.length ? NV.gerais : NIVEIS_IDS) : niveisDaArea(q.area);
+  }
+  // "Todas as áreas": o treino livre sem foco
+  var AREAS = { '*': { id: '*', nome: 'Todas as áreas' } }, CONCURSOS = {};
+  CAT.areas.forEach(function (a) { AREAS[a.id] = a; });
+  var $ = function (id) { return document.getElementById(id); };
+
+  // ---------------- arquivos de questões
+  // pacotes (dados/*.js) chamam registrarPacote; concursos (dados/concursos/*.js) chamam registrarConcurso
+  var arquivosPedidos = {};
+  function registrarQuestoes(textos, questoes, ajustar) {
+    Object.keys(textos || {}).forEach(function (k) { TEXTOS[k] = textos[k]; });
+    (questoes || []).forEach(function (q) {
+      if (POR_ID[q.id]) return;
+      if (ajustar) ajustar(q);
+      q.niveis = niveisDaQuestao(q);
+      POR_ID[q.id] = q; QS.push(q);
+    });
+  }
+  window.registrarPacote = function (p) { registrarQuestoes(p.textos, p.questoes); };
+  window.registrarConcurso = function (c) {
+    var meta = {};
+    Object.keys(c).forEach(function (k) { if (k !== 'questoes' && k !== 'textos') meta[k] = c[k]; });
+    meta.nQuestoes = (c.questoes || []).length;
+    CONCURSOS[c.id] = meta;
+    // prova com vários cargos: cada cargo aparece na lista como um concurso, com as gerais e as específicas dele
+    (c.cargos || []).forEach(function (k) {
+      var v = {};
+      Object.keys(meta).forEach(function (x) { if (x !== 'cargos') v[x] = meta[x]; });
+      v.id = c.id + '/' + k.id; v.base = c.id; v.cargoId = k.id; v.cargo = k.nome; v.areas = [k.area];
+      if (k.etapa) v.etapa = k.etapa;
+      v.nQuestoes = (c.questoes || []).filter(function (q) { return !q.cargo || q.cargo === k.id; }).length;
+      CONCURSOS[v.id] = v;
+    });
+    registrarQuestoes(c.textos, c.questoes, function (q) {
+      q.concurso = c.id; q.fonte = 'prova';
+      if (c.banca && !q.banca) q.banca = c.banca;
+    });
+  };
+  function carregarArquivo(arquivo) {
+    if (arquivosPedidos[arquivo]) return arquivosPedidos[arquivo];
+    arquivosPedidos[arquivo] = new Promise(function (pronto) {
+      var s = document.createElement('script');
+      s.src = arquivo;
+      s.onload = function () { pronto(); };
+      // sem o arquivo, segue com o que já carregou e tenta de novo na próxima vez
+      s.onerror = function () { delete arquivosPedidos[arquivo]; pronto(); };
+      document.body.appendChild(s);
+    });
+    return arquivosPedidos[arquivo];
+  }
+  function carregarConcursos() {
+    return Promise.all(CAT.concursos.map(function (id) { return carregarArquivo('dados/concursos/' + id + '.js'); }));
+  }
+  function carregarArea(area) {
+    return Promise.all(CAT.pacotes.filter(function (p) {
+      return p.areas === '*' || area === '*' || p.areas.indexOf(area) >= 0;
+    }).map(function (p) { return carregarArquivo(p.arquivo); }));
+  }
+  function temEspecificas(area) {
+    if (area === '*') return true;
+    return CAT.pacotes.some(function (p) { return p.areas !== '*' && p.areas.indexOf(area) >= 0; }) ||
+      QS.some(function (q) { return q.grupo === 'especifica' && q.area === area; });
+  }
+  function listaConcursos() {
+    return CAT.concursos.reduce(function (l, id) {
+      var c = CONCURSOS[id];
+      if (!c) return l;
+      return l.concat(c.cargos ? c.cargos.map(function (k) { return CONCURSOS[id + '/' + k.id]; }) : [c]);
+    }, []);
+  }
+
+  // ---------------- armazenamento local (pode falhar: modo privado, arquivo local etc.)
+  // No Android, uma cópia vai para um arquivo que entra no backup do Google da pessoa.
+  var CHAVE = 'julgaai.v1';
+  var memoria = null, copiaTimer = null;
+  function carregar() {
+    if (memoria) return memoria;
+    var d = null;
+    try { d = JSON.parse(localStorage.getItem(CHAVE) || 'null'); } catch (e) { d = null; }
+    if (!d) {
+      // celular novo ou app reinstalado: recupera a cópia que voltou do backup
+      try { d = JSON.parse(ponte('lerCopia') || 'null'); } catch (e) { d = null; }
+    }
+    memoria = d && typeof d === 'object' ? d : {};
+    memoria.hist = memoria.hist || {};
+    memoria.prefs = memoria.prefs || { estudo: true, ineditas: true };
+    memoria.anuncio = memoria.anuncio || { cont: 0 };
+    migrarFoco(memoria);
+    return memoria;
+  }
+  function salvar() {
+    try { localStorage.setItem(CHAVE, JSON.stringify(memoria)); } catch (e) { /* segue sem salvar */ }
+    clearTimeout(copiaTimer);
+    copiaTimer = setTimeout(guardarCopia, 1500);
+    agendarNuvem();
+  }
+  function guardarCopia() {
+    clearTimeout(copiaTimer); copiaTimer = null;
+    try { if (memoria && window.JulgaAndroid && window.JulgaAndroid.guardarCopia) window.JulgaAndroid.guardarCopia(JSON.stringify(memoria)); } catch (e) { /* fora do app */ }
+  }
+
+  // ---------------- aparência: temas prontos; o padrão é o quadro-negro e "auto" segue o claro ou escuro do celular
+  var TEMAS = [
+    { id: 'quadro', nome: 'Quadro-negro', detalhe: 'Giz na lousa verde (padrão)', cores: ['#1f3b30', '#274a3b', '#f3d677', '#f4a9bd'], barra: '#1f3b30' },
+    { id: 'auto', nome: 'Automático', detalhe: window.NO_NAVEGADOR ? 'Claro ou escuro, como o seu sistema' : 'Claro ou escuro, como o celular', cores: ['#eaf0f2', '#1b5a6d', '#15242c', '#79bdd1'] },
+    { id: 'light', nome: 'Claro', detalhe: 'Azul petróleo', cores: ['#eaf0f2', '#ffffff', '#1b5a6d', '#1d7f53'], barra: '#1b5a6d' },
+    { id: 'dark', nome: 'Escuro', detalhe: 'Para estudar à noite', cores: ['#0d181e', '#15242c', '#79bdd1', '#53c792'], barra: '#0d181e' },
+    { id: 'pastel', nome: 'Pastel', detalhe: 'Lavanda e menta', cores: ['#f1eef9', '#ffffff', '#5f539a', '#dff3e8'], barra: '#5f539a' },
+    { id: 'rosa', nome: 'Rosa pastel', detalhe: 'Rosa suave', cores: ['#fcedf2', '#ffffff', '#a63f67', '#fbe0e6'], barra: '#a63f67' },
+    { id: 'quente', nome: 'Quente', detalhe: 'Terracota e areia', cores: ['#f6ebdf', '#fffaf3', '#a84a17', '#f5e7cb'], barra: '#a84a17' }
+  ];
+  var temaAtual = 'auto', escuroDoCelular = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
+  function aplicarTema(id) {
+    var t = TEMAS.filter(function (x) { return x.id === id; })[0] || TEMAS[0];
+    temaAtual = t.id;
+    if (t.id === 'auto') document.documentElement.removeAttribute('data-theme');
+    else document.documentElement.setAttribute('data-theme', t.id);
+    var barra = t.barra || (escuroDoCelular && escuroDoCelular.matches ? '#0d181e' : '#1b5a6d');
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', barra);
+    // a barra de cima e a de navegação do Android acompanham o tema
+    try { if (window.JulgaAndroid && window.JulgaAndroid.corDaBarra) window.JulgaAndroid.corDaBarra(barra); } catch (e) { /* fora do app */ }
+  }
+  if (escuroDoCelular && escuroDoCelular.addEventListener) escuroDoCelular.addEventListener('change', function () { if (temaAtual === 'auto') aplicarTema('auto'); });
+  // antes de desenhar qualquer tela, para não piscar o tema padrão
+  try { aplicarTema(((JSON.parse(localStorage.getItem(CHAVE) || '{}') || {}).prefs || {}).tema); } catch (e) { aplicarTema('auto'); }
+
+  function migrarFoco(d) {
+    // quem já usava o app treinava para a SEDUC/AL 2026 em Biologia: continua de onde estava
+    if (!d.foco && (Object.keys(d.hist).length || d.sessao)) {
+      d.foco = { area: 'biologia', modo: 'concurso', concurso: 'seduc-al-2026', banca: '*', tipo: d.prefs.me === false ? 'ce' : 'ambos' };
+      var c = CONCURSOS['seduc-al-2026'];
+      if (d.sessao && !d.sessao.foco) {
+        d.sessao.foco = chaveFoco(d.foco);
+        d.sessao.minimos = c ? c.minimos : null;
+        d.sessao.pontuacao = 'liquida';
+      }
+    }
+    // o tipo de questão saiu do foco e foi para a configuração de cada simulado
+    if (d.foco && d.foco.tipo) {
+      if (!d.prefs.formato) d.prefs.formato = d.foco.tipo;
+      delete d.foco.tipo;
+    }
+  }
+
+  // ---------------- foco: área, concurso ou treino livre, banca
+  var TIPOS = { ce: 'Certo ou errado', me: 'Múltipla escolha', ambos: 'Os dois' };
+  var SITUACOES = { abertas: 'Inscrições abertas', andamento: 'Em andamento', previsto: 'Previstos', finalizado: 'Finalizados' };
+  var TREINO_RAPIDO = 20, MAX_GERAIS = 50, MAX_ESPECIFICAS = 70;
+  // níveis: o professor marca em quais dá aula, quantos quiser, entre os da área. No concurso, o edital já vem marcado
+  // (e dá para mudar): prefeitura no fundamental, estado no fundamental 2 e no médio, IF no médio, no IF e na universidade
+  function niveisEdital(c, area) {
+    var daArea = niveisDaArea(area), base = NV.editais[c.base || c.id] || NIVEIS_IDS;
+    var listas = [c.etapa === 'anos-finais' ? ['fund2'] : null, base];
+    for (var i = 0; i < listas.length; i++) {
+      if (!listas[i]) continue;
+      var l = listas[i], x = daArea.filter(function (n) { return l.indexOf(n) >= 0; });
+      if (x.length) return x;
+    }
+    return daArea;
+  }
+  // os níveis do foco (sem nada marcado: os do edital ou todos os da área)
+  function niveisDe(f) {
+    var daArea = niveisDaArea(f.area);
+    var l = (f.niveis || []).filter(function (n) { return daArea.indexOf(n) >= 0; });
+    if (l.length) return l;
+    var c = concursoDe(f);
+    return c ? niveisEdital(c, f.area) : daArea;
+  }
+  function todosOsNiveis(f, l) { return l.length >= niveisDaArea(f.area).length; }
+  function passaNivel(q, l) { for (var i = 0; i < q.niveis.length; i++) if (l.indexOf(q.niveis[i]) >= 0) return true; return false; }
+  function nomesNiveis(l) {
+    var n = l.map(function (x) { return NIVEL[x] ? NIVEL[x].curto : x; });
+    return n.length > 1 ? n.slice(0, -1).join(', ') + ' e ' + n[n.length - 1] : n.join('');
+  }
+  function focoValido(f) {
+    if (!f || !AREAS[f.area]) return null;
+    var g = { area: f.area, modo: f.modo === 'concurso' && f.area !== '*' ? 'concurso' : 'livre', concurso: f.concurso || null, banca: f.banca || '*' };
+    // níveis marcados (só os da área); o foco antigo, com etapa "anos finais", vira Fundamental 2
+    var daArea = niveisDaArea(g.area), marcados = Array.isArray(f.niveis) ? f.niveis : f.etapa === 'anos-finais' ? ['fund2'] : [];
+    marcados = daArea.filter(function (n) { return marcados.indexOf(n) >= 0; });
+    if (marcados.length) g.niveis = marcados;
+    var c = CONCURSOS[g.concurso];
+    // concurso que passou a ser dividido por cargo: fica com o cargo da área da pessoa
+    if (c && c.cargos) {
+      var k = c.cargos.filter(function (x) { return x.area === g.area; })[0];
+      c = k ? CONCURSOS[c.id + '/' + k.id] : null;
+      g.concurso = c ? c.id : null;
+    }
+    if (g.modo === 'concurso' && !(c && serveParaArea(c, g.area))) { g.modo = 'livre'; g.concurso = null; }
+    return g;
+  }
+  function foco() { return focoValido(carregar().foco); }
+  function concursoDe(f) { return f.modo === 'concurso' ? CONCURSOS[f.concurso] : null; }
+  function chaveFoco(f) { return [f.area, f.modo, f.modo === 'concurso' ? f.concurso : f.banca].join('|'); }
+  // sessões antigas guardavam também o tipo de questão no fim da chave
+  function mesmoFoco(chave, f) { return !!chave && chave.split('|').slice(0, 3).join('|') === chaveFoco(f); }
+  function serveParaArea(c, area) { return c.areas === '*' || c.areas.indexOf(area) >= 0; }
+  function concursosDaArea(area) { return area === '*' ? [] : listaConcursos().filter(function (c) { return serveParaArea(c, area); }); }
+  function nomeBanca(b) { return b === '*' ? 'Todas as bancas' : b === 'inedita' ? 'Inéditas do app' : b; }
+  function passaBanca(q, banca) { return banca === '*' || (banca === 'inedita' ? q.fonte === 'inedita' : q.banca === banca); }
+  // questões do foco; tipo 'ce' ou 'me' filtra o formato; semBanca conta as opções do filtro de banca
+  function pool(f, grupo, tipo, semBanca) {
+    var c = concursoDe(f), nv = niveisDe(f), filtraNivel = !todosOsNiveis(f, nv);
+    return QS.filter(function (q) {
+      if (q.grupo !== grupo) return false;
+      if (grupo === 'especifica' && f.area !== '*' && q.area !== f.area) return false;
+      if (tipo && tipo !== 'ambos' && q.tipo !== tipo) return false;
+      if (c) {
+        // prova anterior: só as questões dela (a prova sai inteira); edital sem questões: o banco, pelas matérias do edital
+        if (c.nQuestoes) return q.concurso === (c.base || c.id) && (!q.cargo || q.cargo === c.cargoId);
+        if (filtraNivel && !passaNivel(q, nv)) return false;
+        if (grupo === 'geral' && (c.materiasGerais || []).indexOf(q.materia) < 0) return false;
+        // legislação local: edital de um estado ("AL") aceita só a do estado; edital de uma cidade ("Campo Alegre/AL")
+        // aceita a da cidade e a do estado dela. Nunca entra lei de outro estado ou de outra cidade.
+        return !q.local || q.local === c.local || (c.local || '').split('/')[1] === q.local;
+      }
+      if (filtraNivel && !passaNivel(q, nv)) return false;
+      // legislação estadual só entra quando o edital é daquele estado
+      return !q.local && (semBanca || passaBanca(q, f.banca));
+    });
+  }
+  function poolTudo(f, tipo, semBanca) { return pool(f, 'geral', tipo, semBanca).concat(pool(f, 'especifica', tipo, semBanca)); }
+  // concurso: a regra dele; fora disso, Cebraspe e certo ou errado descontam os erros, e as outras bancas contam só acertos
+  function pontuacaoDe(f, formato, banca) {
+    var c = concursoDe(f);
+    if (c) return c.pontuacao || 'liquida';
+    if (banca && banca !== '*' && banca !== 'inedita' && banca !== 'Cebraspe') return 'acertos';
+    return formato === 'me' ? 'acertos' : 'liquida';
+  }
+
+  // situação do concurso pela data de hoje: muda sozinha, sem precisar atualizar o app. Concurso previsto (previsto: true)
+  // ainda não tem edital: fica em "Previstos" até ganhar as datas
+  function situacao(c) {
+    var hoje = diaStr(0);
+    if (c.encerrado === true || (c.encerrado && hoje >= c.encerrado)) return 'finalizado';
+    if (c.previsto) return 'previsto';
+    if (c.inscricoes && c.inscricoes.fim && hoje <= c.inscricoes.fim) return 'abertas';
+    return 'andamento';
+  }
+  function dataBr(s) { var p = s.split('-'); return p[2] + '/' + p[1] + '/' + p[0]; }
+  function textoSituacao(c) {
+    var s = situacao(c), hoje = diaStr(0);
+    if (s === 'abertas') {
+      return c.inscricoes.inicio && hoje < c.inscricoes.inicio ? 'Inscrições de ' + dataBr(c.inscricoes.inicio) + ' a ' + dataBr(c.inscricoes.fim) :
+        'Inscrições abertas até ' + dataBr(c.inscricoes.fim);
+    }
+    if (s === 'previsto') return 'Previsto: edital ainda não publicado';
+    if (s === 'andamento') return c.prova ? (hoje < c.prova ? 'Prova em ' + dataBr(c.prova) : 'Prova aplicada em ' + dataBr(c.prova)) : 'Inscrições encerradas';
+    return 'Concurso finalizado';
+  }
+  // banca, ano e concurso de onde veio a questão
+  function origemDe(q) {
+    var c = q.concurso && CONCURSOS[q.concurso];
+    if (c) {
+      var k = q.cargo && (c.cargos || []).filter(function (x) { return x.id === q.cargo; })[0];
+      return [c.banca || 'Banca não informada', c.ano, c.nome, k ? k.nome : '', q.numero ? 'questão ' + q.numero : ''].filter(Boolean).join(' · ') +
+        (c.gabaritoPreliminar ? ' (gabarito preliminar)' : '');
+    }
+    return (q.banca ? q.banca + ' · ' : '') + q.origem;
+  }
+
+  // link para avisar um erro na questão: abre a página do site no navegador, já com o código e a origem da questão
+  function linkReportar(q) {
+    return '<p class="reportar"><a href="https://darthkley.github.io/reportar/?q=' + encodeURIComponent(q.id) + '&o=' +
+      encodeURIComponent(origemDe(q).slice(0, 160)) + '" target="_blank" rel="noopener">Viu um erro nesta questão? Avise a gente ↗</a></p>';
+  }
+  // dias até a prova (0 = hoje); null sem data ou depois da prova
+  function diasAteProva(c) {
+    if (!c || !c.prova) return null;
+    var n = Math.round((new Date(c.prova + 'T12:00:00') - new Date(diaStr(0) + 'T12:00:00')) / 864e5);
+    return n >= 0 ? n : null;
+  }
+  function textoContagem(c) {
+    var n = diasAteProva(c);
+    return n === null ? '' : n === 0 ? 'a prova é hoje!' : n === 1 ? 'a prova é amanhã' : 'faltam ' + n + ' dias para a prova';
+  }
+
+  // ---------------- ofensiva: meta diária de itens respondidos para manter o diploma aceso
+  var META = 10;
+  function diaStr(desloc) {
+    var t = new Date(); t.setHours(12, 0, 0, 0); t.setDate(t.getDate() + (desloc || 0));
+    return t.getFullYear() + '-' + ('0' + (t.getMonth() + 1)).slice(-2) + '-' + ('0' + t.getDate()).slice(-2);
+  }
+  function dadosOfensiva() {
+    var d = carregar();
+    if (!d.ofen || typeof d.ofen !== 'object') d.ofen = { dias: {}, recorde: 0 };
+    if (!d.ofen.dias) d.ofen.dias = {};
+    return d.ofen;
+  }
+  function ofensiva() {
+    var o = dadosOfensiva();
+    var hoje = o.dias[diaStr(0)] || 0;
+    var ateOntem = 0;
+    while (ateOntem < 4000 && (o.dias[diaStr(-1 - ateOntem)] || 0) >= META) ateOntem++;
+    var atual = hoje >= META ? ateOntem + 1 : ateOntem;
+    var estado;
+    if (hoje >= META) estado = 'acesa';
+    else if (ateOntem > 0) estado = 'pendente';
+    else if (Object.keys(o.dias).some(function (k) { return o.dias[k] >= META; })) estado = 'gelada';
+    else estado = 'nova';
+    if (atual > (o.recorde || 0)) o.recorde = atual;
+    return { hoje: hoje, atual: atual, ateOntem: ateOntem, estado: estado, recorde: o.recorde || 0 };
+  }
+  // conta um item respondido hoje; devolve true quando a meta acabou de ser batida
+  function registrarDia() {
+    var o = dadosOfensiva();
+    var k = diaStr(0), limite = diaStr(-400);
+    var antes = o.dias[k] || 0;
+    o.dias[k] = antes + 1;
+    Object.keys(o.dias).forEach(function (dia) { if (dia < limite) delete o.dias[dia]; });
+    return antes + 1 === META;
+  }
+  function avisarAndroid() {
+    try {
+      if (window.JulgaAndroid && window.JulgaAndroid.salvarProgresso) {
+        var s = ofensiva();
+        window.JulgaAndroid.salvarProgresso(diaStr(0), s.hoje, META, s.atual, s.ateOntem);
+      }
+    } catch (e) { /* fora do app Android */ }
+  }
+  function nDias(n) { return n + (n === 1 ? ' dia' : ' dias'); }
+  // diploma enrolado com fita; acesa = em chamas, gelada = congelado, pendente = chama apagada
+  function iconeDiploma(estado) {
+    var gelo = estado === 'gelada', cinza = estado === 'nova';
+    var papel = gelo ? '#d7eefa' : cinza ? '#e3e8eb' : '#fff3d6';
+    var borda = gelo ? '#4f8fb3' : cinza ? '#8b99a1' : '#9a7536';
+    var fita = gelo ? '#6aa9cf' : cinza ? '#a7b2b8' : '#c8443a';
+    var s = '<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">';
+    if (estado === 'acesa') {
+      s += '<g class="chama"><path d="M32 3C34 12 45 16 45 28C45 36 39 41 32 41C25 41 19 36 19 28C19 20 25 17 26 10C29 14 30 18 30 21C31.5 15 31.5 9 32 3Z" fill="#f0782a"/>' +
+        '<path d="M32 17C34 22 39.5 24 39.5 30C39.5 35 36 38.5 32 38.5C28 38.5 24.5 35 24.5 30C24.5 26 28 24.5 29 21C30.5 23.5 31 25.5 31 27.5C32.2 24.5 32.2 21 32 17Z" fill="#ffc93c"/></g>';
+    } else if (estado === 'pendente') {
+      s += '<path d="M32 9C33.5 16 42 19 42 28C42 34 37.5 38 32 38C26.5 38 22 34 22 28C22 22 26.5 20 27.5 15C29.5 18 30.2 20.5 30.2 23C31.4 18.5 31.6 14 32 9Z" fill="none" stroke="#b8c2c8" stroke-width="2.2" stroke-dasharray="3.5 3"/>';
+    }
+    s += '<rect x="7" y="31" width="46" height="20" rx="4" fill="' + papel + '" stroke="' + borda + '" stroke-width="2.4"/>' +
+      '<ellipse cx="53" cy="41" rx="4.5" ry="10" fill="' + papel + '" stroke="' + borda + '" stroke-width="2.4"/>' +
+      '<ellipse cx="53" cy="41" rx="1.6" ry="4" fill="none" stroke="' + borda + '" stroke-width="1.6"/>' +
+      '<line x1="13" y1="37.5" x2="23" y2="37.5" stroke="' + borda + '" stroke-width="1.6" stroke-linecap="round" opacity=".6"/>' +
+      '<line x1="13" y1="42" x2="21" y2="42" stroke="' + borda + '" stroke-width="1.6" stroke-linecap="round" opacity=".6"/>' +
+      '<rect x="28" y="30" width="7" height="22" fill="' + fita + '"/>' +
+      '<path d="M28.5 50L26 61L30 58.5L31.5 62L33 51Z" fill="' + fita + '"/>' +
+      '<path d="M34.5 50L37 61L33.5 58.5L32 62L31 51Z" fill="' + fita + '" opacity=".85"/>';
+    if (gelo) {
+      s += '<path d="M10 51L12 57L14 51ZM17 51L18.5 55.5L20 51ZM40 51L42 58L44 51ZM47 51L48.5 55L50 51Z" fill="#9fd3ee" stroke="#4f8fb3" stroke-width=".8" stroke-linejoin="round"/>' +
+        '<g stroke="#4f9cc9" stroke-width="2" stroke-linecap="round"><line x1="32" y1="6" x2="32" y2="26"/><line x1="23.3" y1="11" x2="40.7" y2="21"/><line x1="23.3" y1="21" x2="40.7" y2="11"/>' +
+        '<line x1="29" y1="8" x2="32" y2="11"/><line x1="35" y1="8" x2="32" y2="11"/><line x1="29" y1="24" x2="32" y2="21"/><line x1="35" y1="24" x2="32" y2="21"/></g>';
+    }
+    return s + '</svg>';
+  }
+  function atualizarOfensiva() {
+    var s = ofensiva();
+    var card = $('ofensiva');
+    card.className = 'ofensiva ' + s.estado;
+    $('ofe-icone').innerHTML = iconeDiploma(s.estado);
+    var falta = Math.max(0, META - s.hoje);
+    var titulo, msg;
+    if (s.estado === 'acesa') {
+      titulo = 'Diploma aceso há ' + nDias(s.atual);
+      msg = 'Meta de hoje cumprida. Volte amanhã para manter a chama.';
+    } else if (s.estado === 'pendente') {
+      titulo = 'Diploma aceso há ' + nDias(s.ateOntem);
+      msg = 'Faltam ' + falta + (falta === 1 ? ' item' : ' itens') + ' hoje para ele não congelar.';
+    } else if (s.estado === 'gelada') {
+      titulo = 'Diploma congelado';
+      msg = 'Responda ' + falta + (falta === 1 ? ' item' : ' itens') + ' hoje para acender de novo. Seu recorde é de ' + nDias(s.recorde) + '.';
+    } else {
+      titulo = 'Acenda seu diploma';
+      msg = 'Responda ' + META + ' itens por dia para manter o diploma aceso.';
+    }
+    $('ofe-titulo').textContent = titulo;
+    $('ofe-msg').textContent = msg;
+    $('ofe-barra').style.width = Math.min(100, 100 * s.hoje / META) + '%';
+    $('ofe-num').textContent = Math.min(s.hoje, META) + '/' + META + ' hoje';
+    atualizarMini(s);
+  }
+  function atualizarMini(s) {
+    s = s || ofensiva();
+    var m = $('ofe-mini');
+    m.className = 'ofe-mini' + (s.estado === 'acesa' ? ' acesa' : '');
+    m.innerHTML = '<span>' + iconeDiploma(s.estado) + '</span><span>' + Math.min(s.hoje, META) + '/' + META + '</span>';
+  }
+  var toastTimer = null;
+  function mostrarToast(html, classe) {
+    var t = $('toast');
+    t.className = 'toast' + (classe ? ' ' + classe : '');
+    t.innerHTML = html;
+    t.hidden = false;
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { t.hidden = true; }, 4200);
+  }
+  function avisoInfo(titulo, texto) { mostrarToast('<span><b>' + titulo + '</b><small>' + texto + '</small></span>', 'info'); }
+  function comemorarMeta() {
+    var s = ofensiva();
+    mostrarToast('<span class="t-ic">' + iconeDiploma('acesa') + '</span><span><b>Meta do dia batida!</b><small>Diploma aceso há ' + nDias(s.atual) + '.' +
+      (s.atual > 1 && s.atual === s.recorde ? ' É o seu recorde.' : '') + '</small></span>');
+    try { if (navigator.vibrate) navigator.vibrate([30, 60, 30, 60, 60]); } catch (e) { /* sem vibração */ }
+  }
+
+  // ---------------- anúncios: um intersticial (pulável) a cada 10 itens, nunca no meio de um item.
+  // Quem assiste até o fim ao anúncio premiado fica 30 minutos sem anúncios. Fora do app Android, nada disso aparece.
+  var ANUNCIO_A_CADA = 10, anuncioNaTela = false;
+  function ponte(metodo) {
+    try {
+      var p = window.JulgaAndroid || window.GizWeb;
+      return p && p[metodo] ? p[metodo]() : null;
+    } catch (e) { return null; }
+  }
+  function anunciosLigados() { return !!ponte('anunciosLigados'); }
+  function semAnunciosAte() { return Number(ponte('semAnunciosAte')) || 0; }
+  function contarParaAnuncio() {
+    if (!anunciosLigados()) return;
+    var a = carregar().anuncio;
+    // durante o tempo sem anúncios a contagem fica parada em zero
+    a.cont = Date.now() < semAnunciosAte() ? 0 : (a.cont || 0) + 1;
+  }
+  // chamado na passagem de um item para o outro, depois do comentário
+  function talvezAnuncio() {
+    var a = carregar().anuncio;
+    if ((a.cont || 0) < ANUNCIO_A_CADA || !anunciosLigados()) return;
+    if (Date.now() < semAnunciosAte()) { a.cont = 0; salvar(); return; }
+    if (ponte('mostrarAnuncio')) {
+      a.cont = 0; salvar();
+      // o cronômetro do simulado não corre enquanto o anúncio está na tela
+      anuncioNaTela = true; pararRelogio();
+    }
+  }
+  function atualizarPremio() {
+    var bt = $('btn-premio');
+    if (!anunciosLigados()) { bt.hidden = true; return; }
+    bt.hidden = false;
+    var resta = semAnunciosAte() - Date.now(), pronto = !!ponte('premiadoPronto');
+    bt.classList.toggle('ativo', resta > 0);
+    if (resta > 0) {
+      $('premio-titulo').textContent = 'Sem anúncios por mais ' + plural(Math.ceil(resta / 60000), 'minuto', 'minutos');
+      $('premio-sub').textContent = pronto ? 'Assista a mais um anúncio até o fim para somar outros 30 minutos.' : 'Bom treino!';
+    } else {
+      $('premio-titulo').textContent = 'Assista a um anúncio e fique 30 min sem anúncios';
+      $('premio-sub').textContent = pronto ? 'Veja o vídeo até o fim (até 2 minutos) para ganhar.' : 'Carregando um anúncio…';
+    }
+    bt.disabled = !pronto;
+  }
+  // estude grátis: as apostilas do concurso abrem no navegador depois de um anúncio premiado só delas. Ele não dá os
+  // 30 minutos sem anúncios e aparece mesmo durante esse tempo: cada recompensa tem o seu anúncio. Só aparece com o
+  // foco num concurso que tem apostilas e ainda não acabou (inscrições abertas, em andamento ou previsto).
+  var apostilaPedida = null, apostilaLiberada = false;
+  function apostilasDe(c) {
+    if (!c || !c.apostilas || situacao(c) === 'finalizado') return null;
+    return c.apostilas + (c.cargoId ? '?cargo=' + encodeURIComponent(c.cargoId) : '');
+  }
+  function atualizarEstudar(c) {
+    var url = apostilasDe(c);
+    $('btn-estudar').hidden = !url;
+    if (url) $('estudar-sub').textContent = 'Apostilas de ' + c.nome + (anunciosLigados() ? ' · assista a um anúncio e abra' : window.NO_NAVEGADOR ? ' · abrem em outra aba' : ' · abrem no navegador');
+  }
+  function abrirFora(url) {
+    // no Android, quem abre o navegador é o próprio app: depois do anúncio não há mais o toque da pessoa,
+    // e o WebView bloqueia, sem aviso, o link de nova janela clicado pelo JavaScript (as apostilas não abriam)
+    try {
+      var p = window.JulgaAndroid;
+      if (p && p.abrirNoNavegador && p.abrirNoNavegador(url)) return;
+    } catch (e) { /* ponte antiga: segue pelo link */ }
+    // fora do Android (ou numa ponte antiga), como os outros links do app
+    var a = document.createElement('a');
+    a.href = url; a.target = '_blank'; a.rel = 'noopener';
+    document.body.appendChild(a); a.click(); a.remove();
+  }
+  // avisos que o Android manda: 'pronto' (anúncio carregou), 'recompensa' (assistiu até o fim: 30 minutos),
+  // 'apostila' (assistiu até o fim o anúncio das apostilas) e 'fechado'
+  window.aoAnuncio = function (evento) {
+    if (evento === 'recompensa') {
+      carregar().anuncio.cont = 0; salvar();
+      avisoInfo('Pronto! 30 minutos sem anúncios.', 'Valeu pelo apoio: é isso que mantém o app gratuito.');
+    }
+    if (evento === 'apostila') apostilaLiberada = true;
+    if (evento === 'fechado' && anuncioNaTela) { anuncioNaTela = false; retomarRelogio(); }
+    // a página só abre depois que o anúncio sai da tela, e só se a pessoa assistiu até o fim
+    if (evento === 'fechado' && apostilaPedida) {
+      var url = apostilaPedida;
+      apostilaPedida = null;
+      if (apostilaLiberada) abrirFora(url);
+      else avisoInfo('As apostilas abrem depois do anúncio.', 'Assista até o fim para liberar o acesso. Valeu pelo apoio!');
+      apostilaLiberada = false;
+    }
+    atualizarPremio();
+  };
+
+  // ---------------- utilidades
+  function embaralhar(a) {
+    for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; }
+    return a;
+  }
+  function sortear(pool, n, ineditas) {
+    var h = carregar().hist;
+    var arr = pool.map(function (q) { return { q: q, k: (ineditas ? ((h[q.id] && h[q.id].v) || 0) : 0) + Math.random() }; });
+    arr.sort(function (a, b) { return a.k - b.k; });
+    return arr.slice(0, n).map(function (x) { return x.q; });
+  }
+  function ordemDaProva(lista) { return lista.slice().sort(function (a, b) { return (a.numero || 0) - (b.numero || 0); }); }
+  function fmtNota(n) { return (n > 0 ? '+' : '') + n; }
+  function plural(n, s, p) { return n + ' ' + (n === 1 ? s : p); }
+  function nomeResp(r, q) {
+    if (r === 'P') return 'em branco';
+    if (q.tipo === 'me') return 'letra ' + r;
+    return r === 'C' ? 'CERTO' : 'ERRADO';
+  }
+  function dois(n) { return ('0' + n).slice(-2); }
+  function nomeDuracao(min) { if (!min) return 'Sem tempo'; return Math.floor(min / 60) + 'h' + (min % 60 ? dois(min % 60) : ''); }
+  // 1:05:09 no cronômetro; "2h10min", "45min" ou "1min05s" nos textos
+  function relogioTexto(ms) {
+    var s = Math.max(0, Math.ceil(ms / 1000)), h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60);
+    return (h ? h + ':' + dois(m) : m) + ':' + dois(s % 60);
+  }
+  function duracaoTexto(ms) {
+    var s = Math.round(ms / 1000), h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60);
+    if (h) return h + 'h' + (m ? dois(m) + 'min' : '');
+    if (m >= 10 || !(s % 60)) return m + 'min';
+    return (m ? m + 'min' + dois(s % 60) : s % 60) + 's';
+  }
+  function telas(qual) {
+    $('carregando').hidden = true;
+    ['termos', 'foco', 'inicio', 'jogo', 'fim'].forEach(function (t) { $('tela-' + t).hidden = t !== qual; });
+  }
+
+  // ---------------- termos de uso: primeira tela; a caixa só libera depois de 6 segundos de leitura
+  // Mudou o texto dos termos? Aumente TERMOS_VERSAO para todo mundo aceitar de novo.
+  var TERMOS_VERSAO = 2, ESPERA_TERMOS = 6000, termosTimer = null;
+  function termosAceitos() { var t = carregar().termos; return !!(t && t.versao >= TERMOS_VERSAO); }
+  function mostrarTermos(paraReler) {
+    telas('termos');
+    $('tela-termos').scrollTop = 0;
+    $('termos-aceite').hidden = !!paraReler;
+    $('termos-lido').hidden = !paraReler;
+    clearInterval(termosTimer);
+    if (paraReler) {
+      var em = new Date(carregar().termos.aceitoEm);
+      $('termos-data').textContent = 'Você aceitou estes termos em ' + dois(em.getDate()) + '/' + dois(em.getMonth() + 1) + '/' + em.getFullYear() + '.';
+      return;
+    }
+    var libera = Date.now() + ESPERA_TERMOS;
+    $('termos-ok').checked = false; $('termos-ok').disabled = true; $('btn-aceito').disabled = true;
+    $('termos-caixa').classList.add('esperando');
+    function contar() {
+      var resta = Math.ceil((libera - Date.now()) / 1000);
+      if (resta > 0) { $('termos-espera').textContent = 'Você poderá marcar a caixa em ' + resta + ' s.'; return; }
+      clearInterval(termosTimer);
+      $('termos-ok').disabled = false;
+      $('termos-caixa').classList.remove('esperando');
+      $('termos-espera').textContent = 'Marque a caixa e toque em Aceito para começar.';
+    }
+    contar();
+    termosTimer = setInterval(contar, 250);
+  }
+  $('termos-ok').addEventListener('change', function () { $('btn-aceito').disabled = !$('termos-ok').checked; });
+  $('btn-aceito').addEventListener('click', function () {
+    if (!$('termos-ok').checked) return;
+    carregar().termos = { versao: TERMOS_VERSAO, aceitoEm: Date.now() };
+    salvar();
+    ponte('iniciarAnuncios');
+    seguirParaApp();
+  });
+  $('btn-termos').addEventListener('click', function () { mostrarTermos(true); });
+  $('btn-termos-voltar').addEventListener('click', mostrarInicio);
+  function seguirParaApp() {
+    var f = foco();
+    if (f) carregarArea(f.area).then(mostrarInicio); else mostrarFoco();
+  }
+
+  // ---------------- folha de aparência
+  function renderTemas() {
+    $('lista-temas').innerHTML = TEMAS.map(function (t) {
+      return '<button class="tema-op" data-tema="' + t.id + '" aria-pressed="' + (t.id === temaAtual) + '">' +
+        '<span class="amostras" aria-hidden="true">' + t.cores.map(function (c) { return '<i style="background:' + c + '"></i>'; }).join('') + '</span>' +
+        '<b>' + t.nome + '</b><small>' + t.detalhe + '</small></button>';
+    }).join('');
+  }
+  function fecharTemas() { $('veu-tema').hidden = true; }
+  $('btn-aparencia').addEventListener('click', function () { renderTemas(); $('veu-tema').hidden = false; $('fechar-tema').focus(); });
+  $('lista-temas').addEventListener('click', function (e) {
+    var b = e.target.closest('[data-tema]');
+    if (!b) return;
+    carregar().prefs.tema = b.getAttribute('data-tema');
+    salvar();
+    aplicarTema(carregar().prefs.tema);
+    renderTemas();
+  });
+  $('fechar-tema').addEventListener('click', fecharTemas);
+  $('veu-tema').addEventListener('click', function (e) { if (e.target === $('veu-tema')) fecharTemas(); });
+
+  // ---------------- tela de foco
+  var rascunho = null;
+  function mostrarFoco() {
+    var f = foco();
+    rascunho = f ? JSON.parse(JSON.stringify(f)) : { area: null, modo: 'concurso', concurso: null, banca: '*' };
+    rascunho.aba = null;
+    telas('foco');
+    $('btn-foco-cancelar').hidden = !f;
+    $('tela-foco').scrollTop = 0;
+    renderFoco();
+    if (rascunho.area) carregarArea(rascunho.area).then(renderFoco);
+  }
+  function chip(dado, valor, ligado, texto, extra, desligado) {
+    return '<button class="chip" data-' + dado + '="' + valor + '" aria-pressed="' + ligado + '"' + (desligado ? ' disabled' : '') + '>' + texto +
+      (extra !== '' && extra != null ? ' <small>' + extra + '</small>' : '') + '</button>';
+  }
+  function cartaoConcurso(c, marcado) {
+    var s = situacao(c);
+    var conteudo = c.nQuestoes ? plural(c.nQuestoes, 'questão desta prova no app', 'questões desta prova no app') :
+      'Simulado com o banco' + (c.estrutura ? ': ' + c.estrutura.gerais + ' gerais + ' + c.estrutura.especificas + ' específicas' : '');
+    return '<div class="concurso' + (marcado ? ' marcado' : '') + '">' +
+      '<button class="concurso-sel" data-concurso="' + c.id + '" aria-pressed="' + marcado + '">' +
+      '<span class="situacao ' + s + '">' + textoSituacao(c) + '</span>' +
+      '<strong>' + c.nome + '</strong><span>' + c.orgao + ' · ' + c.cargo + '</span>' +
+      '<span>' + (c.banca ? 'Banca ' + c.banca : 'Banca não informada') + ' · ' + (c.ano || 'ano a definir') + ' · ' + TIPOS[c.formato] + '</span>' +
+      '<span>' + conteudo + '</span></button>' +
+      (c.link ? '<a class="link-concurso" href="' + c.link + '" target="_blank" rel="noopener">Página do concurso ↗</a>' : '') +
+      '</div>';
+  }
+  function renderFoco() {
+    var r = rascunho;
+    $('chips-area').innerHTML = chip('area', '*', r.area === '*', AREAS['*'].nome, '') + CAT.areas.map(function (a) {
+      return chip('area', a.id, a.id === r.area, a.nome, temEspecificas(a.id) ? '' : 'em breve');
+    }).join('');
+    var temArea = !!r.area;
+    $('passo-modo').hidden = !temArea;
+    $('nota-foco').hidden = !temArea;
+    if (!temArea) { $('passo-concurso').hidden = true; $('passo-banca').hidden = true; $('btn-foco-ok').disabled = true; return; }
+
+    var concursos = concursosDaArea(r.area);
+    if (!concursos.length) r.modo = 'livre';
+    $('modo-concurso').disabled = !concursos.length;
+    $('modo-concurso-sub').textContent = concursos.length ?
+      'Inscrições abertas, em andamento, previstos ou provas anteriores.' : r.area === '*' ? 'Escolha uma área para ver os concursos.' :
+      'Nenhum concurso desta área ainda. Novos chegam nas atualizações.';
+    $('modo-concurso').setAttribute('aria-pressed', r.modo === 'concurso');
+    $('modo-livre').setAttribute('aria-pressed', r.modo === 'livre');
+
+    $('passo-concurso').hidden = r.modo !== 'concurso';
+    $('passo-banca').hidden = r.modo !== 'livre';
+    var nota = '';
+    if (r.modo === 'concurso') {
+      var grupos = { abertas: [], andamento: [], previsto: [], finalizado: [] };
+      concursos.forEach(function (c) { grupos[situacao(c)].push(c); });
+      if (!concursos.some(function (c) { return c.id === r.concurso; })) r.concurso = null;
+      if (!r.aba) {
+        r.aba = r.concurso ? situacao(CONCURSOS[r.concurso]) : Object.keys(SITUACOES).filter(function (k) { return grupos[k].length; })[0];
+      }
+      if (!r.concurso && grupos[r.aba].length) r.concurso = grupos[r.aba][0].id;
+      $('link-sugerir').href = 'https://darthkley.github.io/sugerir/?area=' + encodeURIComponent(AREAS[r.area].nome);
+      $('abas-situacao').innerHTML = Object.keys(SITUACOES).map(function (k) {
+        return '<button class="aba" data-aba="' + k + '" aria-pressed="' + (r.aba === k) + '">' + SITUACOES[k] + '<small>' + grupos[k].length + '</small></button>';
+      }).join('');
+      $('lista-concursos').innerHTML = grupos[r.aba].length ? grupos[r.aba].map(function (c) { return cartaoConcurso(c, c.id === r.concurso); }).join('') :
+        '<p class="vazio-lista">' + (r.aba === 'abertas' ? 'Nenhum concurso com inscrições abertas no app agora.' : r.aba === 'andamento' ? 'Nenhum concurso em andamento no app agora.' : r.aba === 'previsto' ? 'Nenhum concurso previsto no app agora.' : 'Nenhuma prova anterior no app ainda.') +
+        ' Novos concursos chegam nas atualizações.</p>';
+      if (r.concurso && situacao(CONCURSOS[r.concurso]) !== r.aba) nota = 'Selecionado: ' + CONCURSOS[r.concurso].nome + (CONCURSOS[r.concurso].cargoId ? ', ' + CONCURSOS[r.concurso].cargo : '') + ' (aba ' + SITUACOES[situacao(CONCURSOS[r.concurso])] + '). ';
+    } else {
+      var todas = poolTudo(r, null, true), por = {}, ineditas = 0;
+      todas.forEach(function (q) { if (q.banca) por[q.banca] = (por[q.banca] || 0) + 1; if (q.fonte === 'inedita') ineditas++; });
+      if (r.banca !== '*' && !(r.banca === 'inedita' ? ineditas : por[r.banca])) r.banca = '*';
+      $('chips-banca').innerHTML = chip('banca', '*', r.banca === '*', nomeBanca('*'), todas.length) +
+        Object.keys(por).sort().map(function (b) { return chip('banca', b, r.banca === b, b, por[b]); }).join('') +
+        (ineditas ? chip('banca', 'inedita', r.banca === 'inedita', nomeBanca('inedita'), ineditas) : '');
+    }
+
+    var pronto = r.modo === 'livre' || !!r.concurso;
+    // níveis: só quando a área existe em mais de um (Ciências é só do fundamental 2); cada chip conta as questões do nível
+    var daArea = niveisDaArea(r.area), comNiveis = pronto && daArea.length > 1;
+    $('passo-niveis').hidden = !comNiveis;
+    $('titulo-niveis').textContent = (r.modo === 'concurso' ? '4' : '3') + '. Níveis em que você dá aula';
+    $('titulo-banca').textContent = (comNiveis ? '4' : '3') + '. Banca';
+    if (comNiveis) {
+      var marcados = niveisDe(r);
+      $('chips-niveis').innerHTML = daArea.map(function (n) {
+        var so = JSON.parse(JSON.stringify(r)); so.niveis = [n];
+        return chip('nivel', n, marcados.indexOf(n) >= 0, NIVEL[n].nome, poolTudo(so, null, true).length);
+      }).join('');
+    }
+    var g = pronto ? pool(r, 'geral').length : 0, e = pronto ? pool(r, 'especifica').length : 0;
+    if (!temEspecificas(r.area)) {
+      nota += 'Ainda não temos questões específicas de ' + AREAS[r.area].nome + '. Por enquanto você treina os conhecimentos gerais e pedagógicos, que caem em todo concurso de professor. ';
+    }
+    if (pronto) {
+      nota += g + e ? 'Seu treino terá ' + plural(g + e, 'questão disponível', 'questões disponíveis') + ': ' + g + ' gerais e ' + e + ' específicas.' :
+        'Nenhuma questão com essa escolha. Troque o concurso ou a banca.';
+      if (comNiveis && g + e) {
+        var c0 = concursoDe(r), nv = niveisDe(r);
+        nota += ' Níveis: ' + nomesNiveis(nv) + (c0 && !r.niveis ? ', como no edital' : '') + '.' +
+          (c0 && c0.nQuestoes ? ' A prova sai inteira; os níveis valem para o treino rápido, que usa o banco.' : '');
+      }
+    } else nota += 'Escolha um concurso.';
+    $('nota-foco').textContent = nota;
+    $('btn-foco-ok').disabled = !(g + e);
+  }
+  function confirmarFoco() {
+    var d = carregar();
+    d.foco = focoValido(rascunho);
+    salvar();
+    mostrarInicio();
+  }
+  $('chips-area').addEventListener('click', function (e) {
+    var b = e.target.closest('[data-area]');
+    if (!b) return;
+    var r = rascunho;
+    if (r.area !== b.getAttribute('data-area')) { r.area = b.getAttribute('data-area'); r.banca = '*'; delete r.niveis; }
+    renderFoco();
+    carregarArea(r.area).then(renderFoco);
+  });
+  $('modo-concurso').addEventListener('click', function () { if (rascunho.modo !== 'concurso') delete rascunho.niveis; rascunho.modo = 'concurso'; renderFoco(); });
+  $('modo-livre').addEventListener('click', function () { if (rascunho.modo !== 'livre') delete rascunho.niveis; rascunho.modo = 'livre'; renderFoco(); });
+  $('abas-situacao').addEventListener('click', function (e) {
+    var b = e.target.closest('[data-aba]');
+    if (b) { rascunho.aba = b.getAttribute('data-aba'); renderFoco(); }
+  });
+  $('lista-concursos').addEventListener('click', function (e) {
+    var b = e.target.closest('[data-concurso]');
+    if (b) { if (rascunho.concurso !== b.getAttribute('data-concurso')) delete rascunho.niveis; rascunho.concurso = b.getAttribute('data-concurso'); renderFoco(); }
+  });
+  $('chips-banca').addEventListener('click', function (e) {
+    var b = e.target.closest('[data-banca]');
+    if (b) { rascunho.banca = b.getAttribute('data-banca'); renderFoco(); }
+  });
+  // marcar ou desmarcar um nível (fica pelo menos um)
+  $('chips-niveis').addEventListener('click', function (e) {
+    var b = e.target.closest('[data-nivel]');
+    if (!b) return;
+    var n = b.getAttribute('data-nivel'), l = niveisDe(rascunho).slice(), i = l.indexOf(n);
+    if (i >= 0) { if (l.length > 1) l.splice(i, 1); } else l.push(n);
+    rascunho.niveis = niveisDaArea(rascunho.area).filter(function (x) { return l.indexOf(x) >= 0; });
+    renderFoco();
+  });
+  // treino livre sem foco: todas as áreas e todos os níveis, direto
+  $('btn-livre-tudo').addEventListener('click', function () {
+    $('btn-livre-tudo').disabled = true;
+    rascunho = { area: '*', modo: 'livre', concurso: null, banca: '*' };
+    carregarArea('*').then(function () { $('btn-livre-tudo').disabled = false; confirmarFoco(); });
+  });
+  $('btn-foco-ok').addEventListener('click', function () {
+    $('btn-foco-ok').disabled = true;
+    carregarArea(rascunho.area).then(confirmarFoco);
+  });
+  $('btn-foco-cancelar').addEventListener('click', mostrarInicio);
+  $('btn-trocar').addEventListener('click', mostrarFoco);
+
+  // ---------------- início
+  var sessao = null;
+  function idsErros(f, tipo) {
+    var h = carregar().hist;
+    return poolTudo(f, tipo).filter(function (q) { return h[q.id] && h[q.id].u === 'e'; }).map(function (q) { return q.id; });
+  }
+
+  function mostrarInicio() {
+    var d = carregar(), f = foco();
+    if (!f) { mostrarFoco(); return; }
+    telas('inicio');
+    var c = concursoDe(f), area = AREAS[f.area];
+    var nv = niveisDe(f);
+    $('foco-titulo').textContent = (c ? c.nome : 'Treino livre') + ' · ' + (c && c.cargoId ? c.cargo : area.nome) +
+      (f.niveis && !todosOsNiveis(f, nv) ? ' · ' + nomesNiveis(nv) : '');
+    var contagem = c && !c.nQuestoes && situacao(c) !== 'finalizado' ? textoContagem(c) : '';
+    $('foco-sub').textContent = c ? (c.banca ? 'Banca ' + c.banca : 'Banca não informada') + ' · ' + textoSituacao(c) + (contagem ? ' · ' + contagem : '') : nomeBanca(f.banca);
+    var g = pool(f, 'geral'), e = pool(f, 'especifica'), todas = g.concat(e);
+    var me = todas.filter(function (q) { return q.tipo === 'me'; }).length;
+    $('resumo-banco').innerHTML = ['<span class="pill">' + todas.length + ' questões no seu foco</span>',
+      '<span class="pill">' + g.length + ' gerais</span>', '<span class="pill">' + e.length + ' específicas</span>',
+      '<span class="pill">' + (todas.length - me) + ' certo ou errado</span>', '<span class="pill">' + me + ' múltipla escolha</span>'].join('');
+    // treino rápido: 20 itens do jeito que a pessoa escolher; simulado: a prova inteira, o edital ou uma prova montada
+    var nTreino = poolTreino({ formato: 'ambos', grupo: 'ambas' }).length;
+    $('btn-treino').disabled = !nTreino;
+    $('treino-sub').textContent = nTreino ? plural(Math.min(TREINO_RAPIDO, nTreino), 'questão', 'questões') + ' do seu jeito' : 'Nenhuma questão ainda';
+    $('btn-simulado').disabled = !todas.length;
+    $('simulado-sub').textContent = c && c.nQuestoes ? 'A prova de ' + c.ano + ', com tempo' : c ? 'Como no edital, com tempo' : 'Banca, tempo e tamanho';
+    var nErr = idsErros(f).length;
+    $('btn-erros').hidden = nErr === 0;
+    $('qtd-erros').textContent = plural(nErr, 'item', 'itens');
+    var h = d.hist, vistos = 0, acertos = 0, erros = 0;
+    todas.forEach(function (q) { var x = h[q.id]; if (x) { vistos++; acertos += x.a || 0; erros += x.e || 0; } });
+    atualizarOfensiva();
+    atualizarPremio();
+    atualizarEstudar(c);
+    salvar();
+    avisarAndroid();
+    var dp = desempenho(f).filter(function (m) { return m.a + m.e; });
+    $('btn-desempenho').hidden = !dp.length;
+    if (dp.length) {
+      var fraca = dp.sort(ordemDesempenho)[0];
+      $('desempenho-sub').textContent = dp.length > 1 ? 'a mais fraca: ' + fraca.nome + ' (' + pct(fraca) + '%)' : pct(fraca) + '% em ' + fraca.nome;
+    }
+    renderConta();
+    $('estatisticas').textContent = vistos ? (vistos + ' de ' + todas.length + ' itens já vistos · ' + Math.round(100 * acertos / Math.max(1, acertos + erros)) + '% de acerto no que marcou') : 'Nenhum item respondido ainda.';
+    var s = d.sessao;
+    var bcont = $('btn-continuar');
+    if (s && s.ids && s.idx < s.ids.length && mesmoFoco(s.foco, f)) {
+      bcont.hidden = false;
+      bcont.innerHTML = '<strong>Continuar de onde parou</strong><span>' + (s.titulo || nomeModo(s.modo, f)) + ' · item ' + (s.idx + 1) + ' de ' + s.ids.length +
+        (s.duracao ? ' · ' + relogioTexto(s.duracao - (s.usado || 0)) + ' restantes' : '') + '</span>';
+    } else { bcont.hidden = true; }
+    resetZerar();
+  }
+  // sessões antigas (de antes do treino rápido e do simulado por passos) guardam modo completo, gerais ou especificas
+  function nomeModo(m, f) {
+    var c = f && concursoDe(f);
+    return {
+      treino: 'Treino rápido', simulado: 'Simulado', erros: 'Revisão dos erros',
+      completo: c ? (c.nQuestoes ? 'Prova completa' : 'Simulado do edital') : 'Treino rápido', gerais: 'Só gerais', especificas: 'Só específicas'
+    }[m] || 'Simulado';
+  }
+
+  function lerPrefs() {
+    var d = carregar();
+    d.prefs.estudo = $('op-estudo').checked;
+    d.prefs.ineditas = $('op-ineditas').checked;
+    salvar();
+    return d.prefs;
+  }
+
+  // ---------------- treino rápido: 20 itens, escolhendo o tipo de questão e o que treinar
+  // Numa prova anterior o treino usa o banco inteiro da área (a prova em si fica no Simulado); nos outros focos, as questões do foco.
+  var GRUPOS_TREINO = { ambas: 'Gerais e específicas', gerais: 'Só gerais', especificas: 'Só específicas', foco: 'Foco' };
+  // matéria do estado ou do município do edital (legislação local, história e geografia): grupo 'local:<matéria>',
+  // com um botão para cada uma que o edital tiver
+  function materiaLocal(grupo) { return grupo && grupo.indexOf('local:') === 0 ? grupo.slice(6) : null; }
+  function nomeGrupo(grupo) { return materiaLocal(grupo) ? 'Só ' + materiaLocal(grupo) : GRUPOS_TREINO[grupo]; }
+  var treino = null;
+  function focoTreino(f) {
+    var c = concursoDe(f);
+    // prova anterior: o treino usa o banco todo, nos níveis do foco (sem nada marcado, os do edital da prova)
+    return c && c.nQuestoes ? { area: f.area, modo: 'livre', concurso: null, banca: '*', niveis: niveisDe(f) } : f;
+  }
+  function disciplinasDe(area) { return (CAT.disciplinas || {})[area] || []; }
+  // a disciplina vem da matéria da questão (lista em dados/catalogo.js); o que não estiver em nenhuma fica em "Outros temas"
+  function disciplinaDe(q) {
+    var l = disciplinasDe(q.area);
+    for (var i = 0; i < l.length; i++) if (l[i].materias.indexOf(q.materia) >= 0) return l[i].id;
+    return 'outros';
+  }
+  function nomeDisciplina(area, id) {
+    var d = disciplinasDe(area).filter(function (x) { return x.id === id; })[0];
+    return d ? d.nome : 'Outros temas';
+  }
+  function poolTreino(k) {
+    var f = focoTreino(foco());
+    var ml = materiaLocal(k.grupo);
+    var g = k.grupo === 'ambas' || k.grupo === 'gerais' || ml ? pool(f, 'geral', k.formato) : [];
+    var e = k.grupo === 'gerais' || ml ? [] : pool(f, 'especifica', k.formato);
+    if (ml) g = g.filter(function (q) { return q.local && q.materia === ml; });
+    if (k.grupo === 'foco') e = e.filter(function (q) { return disciplinaDe(q) === k.disc; });
+    return g.concat(e);
+  }
+  function tituloTreino(k) {
+    return 'Treino rápido · ' + (k.grupo === 'foco' ? nomeDisciplina(foco().area, k.disc) : nomeGrupo(k.grupo));
+  }
+  function abrirTreino() {
+    var salvo = carregar().prefs.treino || {};
+    treino = { formato: salvo.formato || 'ambos', grupo: salvo.grupo || 'ambas', disc: salvo.disc || null };
+    if (!GRUPOS_TREINO[treino.grupo] && !materiaLocal(treino.grupo)) treino.grupo = 'ambas';
+    // sem foco (todas as áreas) não há disciplina para escolher
+    if (foco().area === '*' && treino.grupo === 'foco') treino.grupo = 'ambas';
+    if (!poolTreino(treino).length) treino = { formato: 'ambos', grupo: 'ambas', disc: null };
+    renderTreino();
+    $('veu-treino').hidden = false;
+    $('tr-comecar').focus();
+  }
+  function renderTreino() {
+    var k = treino, f = foco(), area = AREAS[f.area], ft = focoTreino(f);
+    var espec = pool(ft, 'especifica', k.formato);
+    // contagens do tipo de questão: com "Foco" ainda sem disciplina, contam todas as específicas
+    var grupoConta = k.grupo === 'foco' && !k.disc ? 'especificas' : k.grupo;
+    $('tr-formato').innerHTML = ['ce', 'me', 'ambos'].map(function (t) {
+      var n = poolTreino({ formato: t, grupo: grupoConta, disc: k.disc }).length;
+      return chip('formato', t, k.formato === t, TIPOS[t], n, !n && k.formato !== t);
+    }).join('');
+    // área ainda sem específicas: o Foco abre do mesmo jeito, para mostrar as disciplinas que vêm por aí
+    var semEspecificas = !pool(ft, 'especifica').length;
+    var locais = [];
+    pool(ft, 'geral').forEach(function (q) { if (q.local && locais.indexOf(q.materia) < 0) locais.push(q.materia); });
+    var grupos = ['ambas', 'gerais'].concat(locais.sort().map(function (m) { return 'local:' + m; }), f.area === '*' ? ['especificas'] : ['especificas', 'foco']);
+    $('tr-grupo').innerHTML = grupos.map(function (gk) {
+      var n = gk === 'foco' ? espec.length : poolTreino({ formato: k.formato, grupo: gk }).length;
+      var extra = semEspecificas && gk !== 'ambas' && gk !== 'gerais' && !materiaLocal(gk) ? 'em breve' : n;
+      return chip('grupo', gk, k.grupo === gk, gk === 'foco' ? 'Foco: uma disciplina de ' + area.nome : nomeGrupo(gk), extra, !n && k.grupo !== gk && gk !== 'foco');
+    }).join('');
+    $('tr-passo-disc').hidden = k.grupo !== 'foco';
+    if (k.grupo === 'foco') {
+      $('tr-disc-titulo').textContent = 'Disciplina de ' + area.nome;
+      // por: no tipo de questão escolhido; existe: em qualquer tipo ("em breve" só para a disciplina sem nenhuma questão)
+      var por = {}, existe = {};
+      espec.forEach(function (q) { var d = disciplinaDe(q); por[d] = (por[d] || 0) + 1; });
+      pool(ft, 'especifica').forEach(function (q) { existe[disciplinaDe(q)] = true; });
+      var opcoes = disciplinasDe(f.area).concat(existe.outros ? [{ id: 'outros', nome: 'Outros temas' }] : []);
+      $('tr-disc').innerHTML = opcoes.length ? opcoes.map(function (d) {
+        return chip('disc', d.id, k.disc === d.id, d.nome, por[d.id] || (existe[d.id] ? 0 : 'em breve'), !por[d.id]);
+      }).join('') : '<p class="vazio-lista">As disciplinas de ' + area.nome + ' chegam com as próximas questões.</p>';
+    }
+    var n = poolTreino(k).length, q = Math.min(TREINO_RAPIDO, n);
+    var oque = k.grupo === 'ambas' ? 'gerais e específicas' : k.grupo === 'gerais' ? 'conhecimentos gerais' : materiaLocal(k.grupo) ? materiaLocal(k.grupo) :
+      k.grupo === 'especificas' ? (f.area === '*' ? 'específicas de todas as áreas' : 'específicas de ' + area.nome) : nomeDisciplina(f.area, k.disc);
+    var tipo = k.formato === 'ce' ? 'de certo ou errado' : k.formato === 'me' ? 'de múltipla escolha' : 'dos dois tipos';
+    var resumo;
+    if (k.grupo === 'foco' && semEspecificas) resumo = 'Ainda não temos questões específicas de ' + area.nome + '. As disciplinas acima chegam com as próximas atualizações; por enquanto, treine as gerais.';
+    else if (k.grupo === 'foco' && !k.disc) resumo = 'Escolha a disciplina que você quer treinar.';
+    else if (!n) resumo = 'Nenhuma questão com essa escolha. Troque o tipo de questão ou o que treinar.';
+    else {
+      resumo = plural(q, 'questão', 'questões') + ' ' + tipo + ' (' + oque + ')' + (q < TREINO_RAPIDO ? ', todas as que há com essa escolha' : '') +
+        '. A resposta aparece a cada item.' + (ft !== f && k.grupo !== 'gerais' ? ' Vêm de todo o banco de ' + area.nome + ', não só da prova do seu foco.' : '');
+    }
+    $('tr-resumo').textContent = resumo;
+    $('tr-comecar').disabled = !n;
+  }
+  function fecharTreino() { $('veu-treino').hidden = true; }
+  $('tr-formato').addEventListener('click', function (e) {
+    var b = e.target.closest('[data-formato]');
+    if (b && !b.disabled) { treino.formato = b.getAttribute('data-formato'); renderTreino(); }
+  });
+  $('tr-grupo').addEventListener('click', function (e) {
+    var b = e.target.closest('[data-grupo]');
+    if (b && !b.disabled) { treino.grupo = b.getAttribute('data-grupo'); renderTreino(); }
+  });
+  $('tr-disc').addEventListener('click', function (e) {
+    var b = e.target.closest('[data-disc]');
+    if (b && !b.disabled) { treino.disc = b.getAttribute('data-disc'); renderTreino(); }
+  });
+  $('btn-desempenho').addEventListener('click', abrirDesempenho);
+  $('fechar-desempenho').addEventListener('click', fecharDesempenho);
+  $('veu-desempenho').addEventListener('click', function (e) { if (e.target === $('veu-desempenho')) fecharDesempenho(); });
+  $('dp-corpo').addEventListener('click', function (e) {
+    var b = e.target.closest('[data-materia]');
+    if (b) treinarMateria(b.getAttribute('data-materia'));
+  });
+  $('fechar-treino').addEventListener('click', fecharTreino);
+  $('veu-treino').addEventListener('click', function (e) { if (e.target === $('veu-treino')) fecharTreino(); });
+  $('tr-comecar').addEventListener('click', function () {
+    var p = carregar().prefs, k = treino;
+    p.treino = { formato: k.formato, grupo: k.grupo, disc: k.disc };
+    salvar();
+    var lista = embaralhar(sortear(poolTreino(k), TREINO_RAPIDO, p.ineditas !== false));
+    if (!lista.length) return;
+    fecharTreino();
+    criarSessao('treino', lista, { formato: k.formato, duracao: 0 }, { estudo: true, titulo: tituloTreino(k) });
+  });
+
+  // ---------------- simulado: banca, tempo, número de questões, tipo de questão e discursiva, um passo de cada vez
+  var DURACOES = [0, 60, 120, 180, 210, 240, 270, 300];
+  // 0 é o tamanho padrão (a prova inteira, o do edital ou 50 gerais + 70 específicas); null é "ainda não escolheu"
+  var QTD_MIN = 30, QTD_MAX = 200, QTDS = [30, 50, 100, 150, 200];
+  var config = null;
+  // divide "total" entre gerais e específicas na proporção dos pesos, sem passar do que existe de cada uma
+  function repartir(total, pesoG, pesoE, dispG, dispE) {
+    var g = pesoG + pesoE ? Math.round(total * pesoG / (pesoG + pesoE)) : 0;
+    g = Math.min(g, dispG);
+    var e = Math.min(total - g, dispE);
+    return [Math.min(dispG, total - e), e];
+  }
+  function poolsSimulado(k) {
+    var f = foco(), c = concursoDe(f), b = k.banca || '*';
+    // no edital, o conteúdo do município (lei municipal, história e geografia) não é de banca nenhuma: entra com qualquer banca
+    var passa = function (q) { return (c && !c.nQuestoes && !!q.local) || passaBanca(q, b); };
+    return { g: pool(f, 'geral', k.formato, true).filter(passa), e: pool(f, 'especifica', k.formato, true).filter(passa) };
+  }
+  function listaSimulado(k, ineditas) {
+    var f = foco(), c = concursoDe(f), p = poolsSimulado(k), g = p.g, e = p.e, r;
+    // prova anterior: as questões dela, na ordem em que caíram (com número escolhido, um sorteio delas, ainda na ordem)
+    if (c && c.nQuestoes) {
+      if (!k.qtd) return ordemDaProva(g).concat(ordemDaProva(e));
+      r = repartir(k.qtd, g.length, e.length, g.length, e.length);
+      return ordemDaProva(sortear(g, r[0], ineditas)).concat(ordemDaProva(sortear(e, r[1], ineditas)));
+    }
+    var t = c && c.estrutura ? c.estrutura : { gerais: MAX_GERAIS, especificas: MAX_ESPECIFICAS };
+    r = k.qtd ? repartir(k.qtd, t.gerais, t.especificas, g.length, e.length) : [Math.min(t.gerais, g.length), Math.min(t.especificas, e.length)];
+    var gerais = c && c.distribuicao ? porMateria(g, r[0], c.distribuicao, ineditas) : sortear(g, r[0], ineditas);
+    return embaralhar(gerais.concat(sortear(e, r[1], ineditas)));
+  }
+  // reparte as gerais entre as matérias na proporção do edital (maiores restos); se uma matéria não tiver questões
+  // suficientes, a falta vai para as outras
+  function porMateria(lista, total, dist, ineditas) {
+    var grupos = {}, nomes = Object.keys(dist), soma = 0, sobra, falta = 0, saida = [];
+    lista.forEach(function (q) { (grupos[q.materia] = grupos[q.materia] || []).push(q); });
+    nomes.forEach(function (m) { soma += dist[m]; grupos[m] = grupos[m] || []; });
+    var cotas = nomes.map(function (m) { var x = soma ? total * dist[m] / soma : 0; return { m: m, n: Math.floor(x), resto: x - Math.floor(x) }; });
+    sobra = total - cotas.reduce(function (s, p) { return s + p.n; }, 0);
+    cotas.slice().sort(function (a, b) { return b.resto - a.resto; }).forEach(function (p) { if (sobra > 0) { p.n++; sobra--; } });
+    cotas.forEach(function (p) { var n = Math.min(p.n, grupos[p.m].length); falta += p.n - n; p.n = n; });
+    while (falta > 0 && cotas.some(function (p) { return grupos[p.m].length > p.n; })) {
+      cotas.forEach(function (p) { if (falta > 0 && grupos[p.m].length > p.n) { p.n++; falta--; } });
+    }
+    cotas.forEach(function (p) { saida = saida.concat(sortear(grupos[p.m], p.n, ineditas)); });
+    return saida;
+  }
+  function abrirSimulado() {
+    var d = carregar(), f = foco(), c = concursoDe(f);
+    config = { banca: null, duracao: null, qtd: null, formato: null, discursiva: null };
+    $('cfg-titulo').textContent = c && c.nQuestoes ? 'Simulado: ' + c.nome : c ? 'Simulado do edital' : 'Simulado';
+    $('op-estudo').checked = d.prefs.estudo !== false;
+    $('op-ineditas').checked = d.prefs.ineditas !== false;
+    ['cfg-passo-duracao', 'cfg-passo-qtd', 'cfg-passo-formato', 'cfg-passo-disc', 'cfg-final'].forEach(function (id) { $(id).hidden = true; });
+    renderConfig();
+    $('veu-config').hidden = false;
+    $('cfg-corpo').scrollTop = 0;
+    $('fechar-config').focus();
+  }
+  // mostra o passo seguinte (com uma entrada suave) ou esconde de novo
+  function mostrarPasso(id, mostrar) {
+    var el = $(id);
+    if (mostrar && el.hidden) {
+      el.hidden = false;
+      el.classList.remove('novo'); void el.offsetWidth; el.classList.add('novo');
+      setTimeout(function () { el.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); }, 40);
+    } else if (!mostrar) el.hidden = true;
+  }
+  function renderConfig() {
+    var k = config, f = foco(), c = concursoDe(f), prova = !!(c && c.nQuestoes);
+    // 1. banca
+    var por = {}, ineditas = 0, todas = poolTudo(f, null, true);
+    todas.forEach(function (q) { if (q.fonte === 'inedita') ineditas++; else if (q.banca) por[q.banca] = (por[q.banca] || 0) + 1; });
+    var chips = [];
+    if (prova) chips.push(chip('banca', '*', k.banca === '*', (c.banca || 'Banca não informada') + ' (a desta prova)', todas.length));
+    else {
+      chips.push(chip('banca', '*', k.banca === '*', nomeBanca('*'), todas.length));
+      Object.keys(por).sort().forEach(function (b) { chips.push(chip('banca', b, k.banca === b, b + (c && c.banca === b ? ' (a do edital)' : ''), por[b])); });
+      if (ineditas) chips.push(chip('banca', 'inedita', k.banca === 'inedita', nomeBanca('inedita'), ineditas));
+    }
+    $('cfg-banca').innerHTML = chips.join('');
+    // 2. tempo
+    var temBanca = k.banca !== null;
+    mostrarPasso('cfg-passo-duracao', temBanca);
+    $('cfg-duracao').innerHTML = DURACOES.map(function (m) {
+      return chip('duracao', m, k.duracao === m, nomeDuracao(m) + (c && c.duracao === m ? ' (o do edital)' : ''));
+    }).join('');
+    // 3. número de questões: padrão, atalhos e a faixa de 30 a 200
+    var temTempo = temBanca && k.duracao !== null;
+    mostrarPasso('cfg-passo-qtd', temTempo);
+    var base = { banca: k.banca, formato: k.formato || 'ambos', qtd: 0 };
+    var padrao = temBanca ? listaSimulado(base).length : 0, p0 = poolsSimulado(base), disp = p0.g.length + p0.e.length;
+    var teto = Math.min(QTD_MAX, disp);
+    var nomePadrao = prova ? 'Prova inteira' : c ? 'Como no edital' : 'Padrão';
+    $('cfg-qtd').innerHTML = chip('qtd', 0, k.qtd === 0, nomePadrao, padrao, !padrao) + QTDS.map(function (n) {
+      return chip('qtd', n, k.qtd === n, String(n), '', n > disp);
+    }).join('');
+    $('cfg-faixa').hidden = teto < QTD_MIN;
+    var faixa = $('cfg-qtd-faixa');
+    faixa.max = teto;
+    faixa.value = k.qtd ? Math.min(k.qtd, teto) : Math.max(QTD_MIN, Math.min(padrao, teto));
+    $('cfg-qtd-valor').textContent = k.qtd ? Math.min(k.qtd, disp) : '—';
+    // 4. tipo de questão
+    var temQtd = temTempo && k.qtd !== null;
+    mostrarPasso('cfg-passo-formato', temQtd);
+    $('cfg-formato').innerHTML = ['ce', 'me', 'ambos'].map(function (t) {
+      var n = temQtd ? listaSimulado({ banca: k.banca, formato: t, qtd: k.qtd }).length : 0;
+      return chip('formato', t, k.formato === t, TIPOS[t] + (c && !prova && c.formato === t ? ' (o do edital)' : ''), n, !n && k.formato !== t);
+    }).join('');
+    // 5. discursiva: só pergunta com mais de 1 hora de prova, porque ela desconta 1 hora das objetivas
+    var temFormato = temQtd && k.formato !== null, pedeDisc = temFormato && k.duracao > 60;
+    mostrarPasso('cfg-passo-disc', pedeDisc);
+    $('cfg-discursiva').innerHTML = chip('discursiva', 'nao', k.discursiva === false, 'Não') + chip('discursiva', 'sim', k.discursiva === true, 'Sim', 'desconta 1h');
+    // resumo, opções e começar
+    var pronto = temFormato && (!pedeDisc || k.discursiva !== null);
+    mostrarPasso('cfg-final', pronto);
+    $('cfg-acoes').hidden = !pronto;
+    if (!pronto) return;
+    var disc = comDiscursiva(k), sim = listaSimulado(k), n = sim.length, obj = k.duracao - (disc ? 60 : 0);
+    var falta = k.qtd > n && n ? 'Só há ' + plural(n, 'item', 'itens') + ' com essa escolha. ' : '';
+    // edital: mostra como as gerais ficaram por matéria e avisa que o conteúdo do município entra com qualquer banca
+    var materias = '';
+    if (c && !prova && c.distribuicao && n) {
+      var conta = {};
+      sim.forEach(function (q) { if (q.grupo === 'geral') conta[q.materia] = (conta[q.materia] || 0) + 1; });
+      materias = 'Gerais como no edital: ' + Object.keys(c.distribuicao).map(function (m) { return m + ' ' + (conta[m] || 0); }).join(', ') + '. ';
+      if (c.local && k.banca !== '*' && k.banca !== 'inedita') materias += 'O conteúdo do município entra mesmo com essa banca, porque nenhuma banca tem prova sobre ele. ';
+    }
+    $('cfg-resumo').textContent = !n ? 'Nenhuma questão com essa escolha. Troque a banca ou o tipo de questão.' : falta + materias + (!k.duracao ? plural(n, 'item', 'itens') + ', sem cronômetro: responda no seu ritmo.' :
+      'Você terá ' + nomeDuracao(obj) + ' para ' + plural(n, 'item objetivo', 'itens objetivos') + (disc ? ' (1h fica para a discursiva)' : '') +
+      ': cerca de ' + duracaoTexto(obj * 60000 / n) + ' por item. No cronômetro, "Depois" deixa a questão para o final.');
+    $('cfg-comecar').disabled = !n;
+  }
+  function comDiscursiva(k) { return !!k.discursiva && k.duracao > 60; }
+  function fecharConfig() { $('veu-config').hidden = true; }
+  $('cfg-banca').addEventListener('click', function (e) {
+    var b = e.target.closest('[data-banca]');
+    if (b && !b.disabled) { config.banca = b.getAttribute('data-banca'); renderConfig(); }
+  });
+  $('cfg-duracao').addEventListener('click', function (e) {
+    var b = e.target.closest('[data-duracao]');
+    if (b) { config.duracao = Number(b.getAttribute('data-duracao')); renderConfig(); }
+  });
+  $('cfg-qtd').addEventListener('click', function (e) {
+    var b = e.target.closest('[data-qtd]');
+    if (b && !b.disabled) { config.qtd = Number(b.getAttribute('data-qtd')); renderConfig(); }
+  });
+  $('cfg-qtd-faixa').addEventListener('input', function () {
+    config.qtd = Math.max(QTD_MIN, Math.min(QTD_MAX, Number(this.value)));
+    renderConfig();
+  });
+  $('cfg-formato').addEventListener('click', function (e) {
+    var b = e.target.closest('[data-formato]');
+    if (b && !b.disabled) { config.formato = b.getAttribute('data-formato'); renderConfig(); }
+  });
+  $('cfg-discursiva').addEventListener('click', function (e) {
+    var b = e.target.closest('[data-discursiva]');
+    if (b) { config.discursiva = b.getAttribute('data-discursiva') === 'sim'; renderConfig(); }
+  });
+  $('fechar-config').addEventListener('click', fecharConfig);
+  $('veu-config').addEventListener('click', function (e) { if (e.target === $('veu-config')) fecharConfig(); });
+  $('cfg-comecar').addEventListener('click', function () {
+    var p = lerPrefs(), k = config, f = foco(), c = concursoDe(f);
+    p.formato = k.formato;
+    var lista = listaSimulado(k, p.ineditas);
+    if (!lista.length) return;
+    fecharConfig();
+    criarSessao('simulado', lista, k, { titulo: c && c.nQuestoes ? 'Simulado da prova' : 'Simulado · ' + (k.banca === '*' ? 'todas as bancas' : nomeBanca(k.banca)) });
+  });
+
+  // extra: estudo (mostrar a resposta a cada item, ignorando a preferência) e titulo da sessão
+  function criarSessao(modo, lista, k, extra) {
+    extra = extra || {};
+    var p = carregar().prefs, f = foco(), c = concursoDe(f);
+    var minutos = k && k.duracao ? k.duracao - (comDiscursiva(k) ? 60 : 0) : 0;
+    sessao = {
+      modo: modo, ids: lista.map(function (q) { return q.id; }), idx: 0, resp: {}, estudo: extra.estudo != null ? extra.estudo : p.estudo !== false,
+      inicio: Date.now(), foco: chaveFoco(f), titulo: extra.titulo || nomeModo(modo, f), pontuacao: pontuacaoDe(f, k ? k.formato : 'ambos', k && k.banca),
+      // as notas mínimas do edital; num simulado de outro tamanho, a mesma proporção
+      minimos: c && modo === 'simulado' ? minimosDo(c, k, lista) : null,
+      duracao: minutos * 60000, usado: 0, adiadas: {}
+    };
+    carregar().sessao = sessao; salvar();
+    iniciarJogo();
+  }
+
+  // mínimos do edital (ou da prova); com outro número de questões, a mesma proporção, arredondada para cima
+  function minimosDo(c, k, lista) {
+    var m = c.minimos;
+    if (!m) return null;
+    if (!(k && k.qtd)) return m;
+    var t = c.nQuestoes ? null : c.estrutura, base = c.nQuestoes || (t ? t.gerais + t.especificas : 0);
+    if (!base) return null;
+    var g = lista.filter(function (q) { return q.grupo === 'geral'; }).length, e = lista.length - g, r = { proporcional: true };
+    if (m.total != null) r.total = Math.ceil(lista.length * m.total / base);
+    if (t && m.gerais != null && t.gerais) r.gerais = Math.ceil(g * m.gerais / t.gerais);
+    if (t && m.especificas != null && t.especificas) r.especificas = Math.ceil(e * m.especificas / t.especificas);
+    return r;
+  }
+
+  // ---------------- desempenho por matéria: o histórico do foco atual, matéria por matéria
+  function desempenho(f) {
+    var h = carregar().hist, mats = {};
+    pool(f, 'geral').concat(pool(f, 'especifica')).forEach(function (q) {
+      var m = mats[q.materia] || (mats[q.materia] = { nome: q.materia, total: 0, vistos: 0, a: 0, e: 0 });
+      m.total++;
+      var x = h[q.id];
+      if (x && (x.a || x.e)) { m.vistos++; m.a += x.a || 0; m.e += x.e || 0; }
+    });
+    return Object.keys(mats).map(function (k) { return mats[k]; });
+  }
+  function pct(m) { return Math.round(100 * m.a / Math.max(1, m.a + m.e)); }
+  // a mais fraca primeiro; no empate, a com mais respostas
+  function ordemDesempenho(x, y) { return pct(x) - pct(y) || (y.a + y.e) - (x.a + x.e); }
+  function corDesempenho(p) { return p >= 70 ? 'var(--certo)' : p >= 50 ? 'var(--pular)' : 'var(--errado)'; }
+  function abrirDesempenho() {
+    var lista = desempenho(foco()), feitas = lista.filter(function (m) { return m.a + m.e; }).sort(ordemDesempenho);
+    var novas = lista.filter(function (m) { return !(m.a + m.e); }).sort(function (x, y) { return x.nome.localeCompare(y.nome); });
+    var item = function (m, feita) {
+      var p = pct(m);
+      return '<div class="dp-item' + (feita ? '' : ' dp-vazio') + '"><div class="dp-topo"><b>' + m.nome + '</b><span class="pct">' + (feita ? p + '%' : 'ainda não treinou') + '</span></div>' +
+        (feita ? '<div class="dp-barra"><i style="width:' + p + '%;background:' + corDesempenho(p) + '"></i></div>' : '') +
+        '<div class="dp-rodape"><small>' + (feita ? m.vistos + ' de ' + m.total + ' questões vistas · ' + plural(m.a, 'acerto', 'acertos') + ', ' + plural(m.e, 'erro', 'erros') : plural(m.total, 'questão', 'questões') + ' no seu foco') +
+        '</small><button class="dp-treinar" data-materia="' + m.nome.replace(/"/g, '&quot;') + '">Treinar</button></div></div>';
+    };
+    $('dp-corpo').innerHTML = '<p class="dp-nota">No seu foco atual. A porcentagem conta os acertos em tudo o que você já marcou em cada matéria (item em branco não conta). A mais fraca vem primeiro; "Treinar" monta 20 questões dela, começando pelas que você errou.</p>' +
+      '<div class="dp-lista">' + feitas.map(function (m) { return item(m, true); }).join('') + novas.map(function (m) { return item(m, false); }).join('') + '</div>';
+    $('veu-desempenho').hidden = false;
+    $('fechar-desempenho').focus();
+  }
+  function fecharDesempenho() { $('veu-desempenho').hidden = true; }
+  // treino de uma matéria: primeiro o que a pessoa errou da última vez, depois o que viu menos
+  function treinarMateria(nome) {
+    var f = foco(), h = carregar().hist;
+    var lista = pool(f, 'geral').concat(pool(f, 'especifica')).filter(function (q) { return q.materia === nome; });
+    var errou = embaralhar(lista.filter(function (q) { return h[q.id] && h[q.id].u === 'e'; }));
+    var resto = sortear(lista.filter(function (q) { return !(h[q.id] && h[q.id].u === 'e'); }), TREINO_RAPIDO, true);
+    var sel = errou.concat(resto).slice(0, TREINO_RAPIDO);
+    if (!sel.length) return;
+    fecharDesempenho();
+    criarSessao('treino', embaralhar(sel), { formato: 'ambos', duracao: 0 }, { estudo: true, titulo: 'Treino · ' + nome });
+  }
+
+  // ---------------- cronômetro: só corre com o cartão na tela (para no comentário, no anúncio e fora do app)
+  var marco = 0, relogioTimer = null;
+  function restante() { return sessao.duracao - (sessao.usado || 0) - (marco ? Date.now() - marco : 0); }
+  function correrRelogio() {
+    if (!sessao || !sessao.duracao || marco || anuncioNaTela || document.hidden) return;
+    marco = Date.now();
+    relogioTimer = setInterval(tique, 1000);
+    tique();
+  }
+  function pararRelogio() {
+    if (!marco) return;
+    sessao.usado = (sessao.usado || 0) + Date.now() - marco;
+    marco = 0;
+    clearInterval(relogioTimer); relogioTimer = null;
+    carregar().sessao = sessao; salvar();
+  }
+  function retomarRelogio() {
+    if (!$('tela-jogo').hidden && $('veu-fb').hidden && sessao && sessao.idx < sessao.ids.length) correrRelogio();
+  }
+  function mostrarRelogio() {
+    var el = $('relogio');
+    el.hidden = !(sessao && sessao.duracao);
+    if (el.hidden) return;
+    var r = restante();
+    el.textContent = '⏱ ' + relogioTexto(r);
+    el.classList.toggle('pouco', r <= 5 * 60000);
+  }
+  function tique() {
+    var r = restante();
+    mostrarRelogio();
+    sessao.avisos = sessao.avisos || {};
+    [[30, 'Faltam 30 minutos.'], [5, 'Faltam 5 minutos.']].forEach(function (a) {
+      if (r <= a[0] * 60000 && sessao.duracao > a[0] * 60000 && !sessao.avisos[a[0]]) {
+        sessao.avisos[a[0]] = true;
+        avisoInfo(a[1], 'Use "Depois" nas que estiverem difíceis e garanta as fáceis.');
+      }
+    });
+    if (r <= 0) tempoEsgotado();
+  }
+  function tempoEsgotado() {
+    pararRelogio();
+    sessao.usado = sessao.duracao;
+    sessao.esgotado = sessao.ids.length - sessao.idx;
+    // o que ficou sem resposta conta como em branco
+    sessao.ids.slice(sessao.idx).forEach(function (id) { sessao.resp[id] = { r: 'P', ok: null }; });
+    sessao.idx = sessao.ids.length;
+    $('veu-texto').hidden = true;
+    avisoInfo('Tempo esgotado!', 'O que ficou sem resposta contou como em branco.');
+    mostrarFim();
+  }
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) { pararRelogio(); guardarCopia(); enviarNuvem(); }
+    else { anuncioNaTela = false; retomarRelogio(); }
+  });
+
+  // ---------------- jogo
+  var cartaoAtual = null, travado = false;
+
+  function iniciarJogo() {
+    telas('jogo');
+    renderMesa();
+  }
+
+  // certo ou errado no estilo Cebraspe: cada erro anula um acerto; nas demais bancas, só os acertos contam
+  function pontos(x) { return sessao.pontuacao === 'acertos' ? x.a : x.a - x.e; }
+  function contagem() {
+    var c = { g: { a: 0, e: 0, b: 0, n: 0 }, s: { a: 0, e: 0, b: 0, n: 0 } };
+    sessao.ids.forEach(function (id) {
+      var q = POR_ID[id]; var k = q.grupo === 'geral' ? 'g' : 's'; c[k].n++;
+      var r = sessao.resp[id];
+      if (!r) return;
+      if (r.r === 'P') c[k].b++; else if (r.ok) c[k].a++; else c[k].e++;
+    });
+    return c;
+  }
+
+  function atualizarTopo() {
+    var n = sessao.ids.length, i = Math.min(sessao.idx, n);
+    $('prog-txt').textContent = 'Item ' + Math.min(i + 1, n) + ' de ' + n;
+    var c = contagem();
+    var partes = [];
+    if (c.g.n) partes.push('G ' + (c.g.a + c.g.e + c.g.b) + '/' + c.g.n);
+    if (c.s.n) partes.push('E ' + (c.s.a + c.s.e + c.s.b) + '/' + c.s.n);
+    $('prog-grupos').textContent = partes.join(' · ');
+    $('prog-barra').style.width = (100 * i / n) + '%';
+    var nota = pontos(c.g) + pontos(c.s);
+    $('nota-atual').textContent = sessao.estudo ? ('Nota ' + fmtNota(nota)) : (i + ' feitos');
+    mostrarRelogio();
+    atualizarMini();
+  }
+
+  function htmlCartao(q, n) {
+    var h = '<div class="cab"><span class="etiqueta ' + q.grupo + '">' + (q.grupo === 'geral' ? 'Geral' : 'Específica') + '</span>' +
+      (sessao.adiadas && sessao.adiadas[q.id] ? '<span class="etiqueta adiada">Deixada para o final</span>' : '') +
+      '<span class="materia">' + q.materia + '</span></div><div class="corpo">';
+    h += '<div class="origem">' + origemDe(q) + '</div>';
+    if (q.comando) h += '<div class="comando">' + q.comando + '</div>';
+    if (q.texto && TEXTOS[q.texto]) h += '<button class="btn-texto" data-texto="' + q.texto + '">▤ Ver o texto</button>';
+    h += figuras(q) + '<div class="enunciado">' + q.enunciado + '</div>';
+    if (q.tipo === 'me') {
+      h += '<div class="alts">' + q.alternativas.map(function (a) {
+        return '<button class="alt" data-letra="' + a[0] + '"><span class="letra">' + a[0] + '</span><span>' + a[1] + '</span></button>';
+      }).join('') + '</div>';
+    }
+    h += '</div><div class="dica-longa" hidden>Item longo: role o texto e arraste pelo topo do cartão, ou use os botões.</div>';
+    h += '<span class="carimbo c">CERTO</span><span class="carimbo e">ERRADO</span><span class="carimbo p">EM BRANCO</span><span class="carimbo d">DEPOIS</span>';
+    return h;
+  }
+  // tirinhas, gráficos, mapas e tabelas da prova ficam em dados/imagens
+  function figuras(q) {
+    return (q.imagens || []).map(function (src) { return '<img class="figura" src="dados/' + src + '" alt="Imagem da questão">'; }).join('') +
+      (q.legenda && q.imagens ? '<div class="legenda-fig">' + q.legenda + '</div>' : '');
+  }
+  function tituloCurto(chave) {
+    var t = TEXTOS[chave].titulo || 'texto';
+    var m = t.match(/Texto [0-9IVX]+|Texto [A-Z0-9-]+(?: \(gráfico\))?/);
+    return m ? m[0].toLowerCase().replace('texto', 'texto') : 'texto';
+  }
+
+  function renderMesa() {
+    var mesa = $('mesa');
+    mesa.innerHTML = '';
+    if (sessao.idx >= sessao.ids.length) { mostrarFim(); return; }
+    atualizarTopo();
+    var prox = sessao.ids[sessao.idx + 1];
+    if (prox) {
+      var tras = document.createElement('div');
+      tras.className = 'cartao atras';
+      tras.innerHTML = htmlCartao(POR_ID[prox]);
+      tras.setAttribute('aria-hidden', 'true');
+      mesa.appendChild(tras);
+    }
+    var q = POR_ID[sessao.ids[sessao.idx]];
+    var c = document.createElement('div');
+    c.className = 'cartao';
+    c.innerHTML = htmlCartao(q);
+    mesa.appendChild(c);
+    cartaoAtual = { el: c, q: q };
+    ajustarFonte(c);
+    // a imagem carrega depois: refaz o ajuste da fonte quando ela chegar
+    c.querySelectorAll('.figura').forEach(function (img) {
+      img.addEventListener('load', function () {
+        if (cartaoAtual && cartaoAtual.el === c) { c.querySelector('.corpo').classList.remove('rolavel'); c.querySelector('.dica-longa').hidden = true; ajustarFonte(c); }
+      });
+    });
+    ligarGestos(c, q);
+    $('btn-certo').disabled = q.tipo === 'me';
+    $('btn-errado').disabled = q.tipo === 'me';
+    $('btn-depois').disabled = sessao.ids.length - sessao.idx <= 1;
+    travado = false;
+    correrRelogio();
+  }
+  // passagem natural de um item para o próximo: o único momento em que pode entrar um anúncio
+  function proximoItem() { talvezAnuncio(); renderMesa(); }
+
+  function ajustarFonte(c) {
+    var corpo = c.querySelector('.corpo');
+    var fs = 18;
+    c.style.setProperty('--fs', fs + 'px');
+    while (corpo.scrollHeight > corpo.clientHeight + 1 && fs > 14) {
+      fs -= 1; c.style.setProperty('--fs', fs + 'px');
+    }
+    if (corpo.scrollHeight > corpo.clientHeight + 1) {
+      corpo.classList.add('rolavel');
+      c.querySelector('.dica-longa').hidden = false;
+    }
+  }
+
+  // ---------------- gestos: direita certo, esquerda errado, para cima em branco, para baixo depois
+  function ligarGestos(c, q) {
+    var d = null, suprimirClique = false;
+    var carC = c.querySelector('.carimbo.c'), carE = c.querySelector('.carimbo.e'), carP = c.querySelector('.carimbo.p'), carD = c.querySelector('.carimbo.d');
+    function aplicar(dx, dy) {
+      c.style.transform = 'translate(' + dx + 'px,' + dy + 'px) rotate(' + (dx / 18) + 'deg)';
+      var w = c.offsetWidth, h = c.offsetHeight;
+      var fx = Math.min(1, Math.abs(dx) / (w * .28)), fy = Math.min(1, Math.abs(dy) / (h * .22));
+      var horizontal = Math.abs(dx) >= Math.abs(dy);
+      carC.style.opacity = (q.tipo === 'ce' && horizontal && dx > 0) ? fx : 0;
+      carE.style.opacity = (q.tipo === 'ce' && horizontal && dx < 0) ? fx : 0;
+      carP.style.opacity = (!horizontal && dy < 0) ? fy : 0;
+      carD.style.opacity = (!horizontal && dy > 0 && !$('btn-depois').disabled) ? fy : 0;
+    }
+    c.addEventListener('pointerdown', function (e) {
+      if (travado) return;
+      if (e.pointerType === 'mouse' && e.button !== 0) return;
+      var naRolagem = e.target.closest('.corpo.rolavel');
+      d = { x0: e.clientX, y0: e.clientY, dx: 0, dy: 0, id: e.pointerId, ativo: false, t: performance.now(), rolagem: !!naRolagem };
+    });
+    c.addEventListener('pointermove', function (e) {
+      if (!d || e.pointerId !== d.id) return;
+      d.dx = e.clientX - d.x0; d.dy = e.clientY - d.y0;
+      if (!d.ativo) {
+        var dist = Math.hypot(d.dx, d.dy);
+        if (dist < 10) return;
+        if (d.rolagem && Math.abs(d.dy) > Math.abs(d.dx)) { d = null; return; }
+        d.ativo = true;
+        try { c.setPointerCapture(e.pointerId); } catch (err) { /* ok */ }
+      }
+      aplicar(d.dx, d.dy);
+    });
+    function soltar(e) {
+      if (!d || e.pointerId !== d.id) return;
+      var dd = d; d = null;
+      if (!dd.ativo) return;
+      suprimirClique = true;
+      setTimeout(function () { suprimirClique = false; }, 50);
+      var w = c.offsetWidth, h = c.offsetHeight;
+      var dt = Math.max(1, performance.now() - dd.t);
+      var vx = dd.dx / dt, vy = dd.dy / dt;
+      var horizontal = Math.abs(dd.dx) >= Math.abs(dd.dy);
+      var vertical = !horizontal && (Math.abs(dd.dy) > h * .22 || (Math.abs(vy) > .6 && Math.abs(dd.dy) > 40));
+      if (horizontal && q.tipo === 'ce' && (Math.abs(dd.dx) > w * .28 || (Math.abs(vx) > .6 && Math.abs(dd.dx) > 40))) {
+        responder(dd.dx > 0 ? 'C' : 'E', dd.dx > 0 ? 'direita' : 'esquerda');
+      } else if (vertical && dd.dy < 0) {
+        responder('P', 'cima');
+      } else if (vertical && dd.dy > 0 && adiar()) {
+        // foi para o final da fila
+      } else {
+        voltar();
+        if (horizontal && q.tipo === 'me' && Math.abs(dd.dx) > 60) dicaMe();
+      }
+    }
+    c.addEventListener('pointerup', soltar);
+    c.addEventListener('pointercancel', function (e) { if (d && e.pointerId === d.id) { d = null; voltar(); } });
+    c.addEventListener('click', function (e) {
+      if (suprimirClique) { e.stopPropagation(); e.preventDefault(); return; }
+      var bt = e.target.closest('.btn-texto');
+      if (bt) { abrirTexto(bt.getAttribute('data-texto')); return; }
+      var alt = e.target.closest('.alt');
+      if (alt && !travado) { responder(alt.getAttribute('data-letra'), 'cima', alt); }
+    }, true);
+    function voltar() {
+      c.classList.add('voltando');
+      c.style.transform = '';
+      [carC, carE, carP, carD].forEach(function (x) { x.style.opacity = 0; });
+      setTimeout(function () { c.classList.remove('voltando'); }, 230);
+    }
+  }
+  function dicaMe() {
+    var alts = cartaoAtual && cartaoAtual.el.querySelector('.alts');
+    if (!alts) return;
+    alts.animate && alts.animate([{ transform: 'translateX(0)' }, { transform: 'translateX(-6px)' }, { transform: 'translateX(6px)' }, { transform: 'translateX(0)' }], { duration: 260 });
+  }
+
+  function voarPara(direcao, depois) {
+    var c = cartaoAtual.el;
+    var w = window.innerWidth, h = window.innerHeight;
+    var alvo = direcao === 'direita' ? 'translate(' + (w * 1.2) + 'px, 40px) rotate(18deg)' :
+      direcao === 'esquerda' ? 'translate(' + (-w * 1.2) + 'px, 40px) rotate(-18deg)' :
+      direcao === 'baixo' ? 'translate(0, ' + h + 'px)' : 'translate(0, ' + (-h) + 'px)';
+    var reduz = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduz) { depois(); return; }
+    c.classList.add('voando');
+    c.style.transform = alvo;
+    c.style.opacity = '0';
+    // depois do voo o cartão sai da página: deslocado para fora da borda, ele alargava a página até a próxima questão
+    setTimeout(function () { c.hidden = true; depois(); }, 270);
+  }
+
+  // deixa a questão para o final do simulado, como na prova: não conta como resposta nem como em branco
+  function adiar() {
+    if (travado || !cartaoAtual) return false;
+    if (sessao.ids.length - sessao.idx <= 1) {
+      avisoInfo('Esta é a última que falta.', 'Responda ou deixe em branco.');
+      return false;
+    }
+    travado = true;
+    var id = sessao.ids.splice(sessao.idx, 1)[0];
+    sessao.ids.push(id);
+    sessao.adiadas = sessao.adiadas || {};
+    sessao.adiadas[id] = true;
+    carregar().sessao = sessao; salvar();
+    voarPara('baixo', renderMesa);
+    return true;
+  }
+
+  function responder(r, direcao, altEl) {
+    if (travado || !cartaoAtual) return;
+    travado = true;
+    var q = cartaoAtual.q;
+    var ok = r === 'P' ? null : (r === q.gabarito);
+    sessao.resp[q.id] = { r: r, ok: ok };
+    var d = carregar();
+    var h = d.hist[q.id] || { v: 0, a: 0, e: 0 };
+    var bateuMeta = false;
+    if (r !== 'P') { h.v++; if (ok) h.a++; else h.e++; h.u = ok ? 'a' : 'e'; bateuMeta = registrarDia(); }
+    d.hist[q.id] = h;
+    sessao.idx++;
+    d.sessao = sessao;
+    contarParaAnuncio();
+    salvar();
+    if (r !== 'P') { atualizarMini(); avisarAndroid(); }
+    if (bateuMeta) comemorarMeta();
+    try { if (navigator.vibrate) navigator.vibrate(ok === false ? [20, 40, 20] : 12); } catch (e) { /* sem vibração */ }
+    if (altEl) {
+      // marca a alternativa escolhida antes de sair
+      cartaoAtual.el.querySelectorAll('.alt').forEach(function (a) {
+        var l = a.getAttribute('data-letra');
+        if (sessao.estudo && l === q.gabarito) a.classList.add('certa');
+        if (l === r) a.classList.add(sessao.estudo ? (ok ? 'certa' : 'errada') : 'marcada');
+      });
+    }
+    var segue = function () {
+      if (sessao.estudo) mostrarFeedback(q, r, ok); else proximoItem();
+    };
+    if (altEl) setTimeout(function () { voarPara('cima', segue); }, sessao.estudo ? 380 : 160);
+    else voarPara(direcao, segue);
+  }
+
+  function mostrarFeedback(q, r, ok) {
+    // ler o comentário não gasta o tempo da prova
+    pararRelogio();
+    var res = $('fb-res');
+    res.className = 'res ' + (ok === null ? 'pl' : ok ? 'ok' : 'no');
+    $('fb-titulo').textContent = ok === null ? 'Em branco' : ok ? 'Acertou' : 'Errou';
+    $('fb-sub').textContent = r === 'P' ? 'Item em branco vale zero.' : (ok ? '+1 ponto' : (sessao.pontuacao === 'acertos' ? 'Não pontua' : '−1 ponto'));
+    var gab = q.tipo === 'me' ? ('Gabarito: ' + q.gabarito + (r !== 'P' ? ' · você marcou ' + r : '')) :
+      ('Gabarito: ' + (q.gabarito === 'C' ? 'CERTO' : 'ERRADO') + (r !== 'P' ? ' · você marcou ' + (r === 'C' ? 'CERTO' : 'ERRADO') : ''));
+    var corpo = figuras(q) + '<p class="item-resp">' + q.enunciado + '</p><div class="gab">' + origemDe(q) + '</div><div class="gab">' + gab + '</div>';
+    if (q.tipo === 'me') {
+      var alt = q.alternativas.filter(function (a) { return a[0] === q.gabarito; })[0];
+      if (alt) corpo += '<p style="text-indent:0"><b>' + alt[0] + ')</b> ' + alt[1] + '</p>';
+    }
+    corpo += '<p style="text-indent:0">' + q.comentario + '</p>' + linkReportar(q);
+    $('fb-corpo').innerHTML = corpo;
+    var bt = $('fb-ver-texto');
+    if (q.texto && TEXTOS[q.texto]) { bt.hidden = false; bt.onclick = function () { abrirTexto(q.texto); }; } else { bt.hidden = true; }
+    $('veu-fb').hidden = false;
+    $('fb-proxima').focus();
+  }
+  // pelo botão voltar do celular o comentário fecha sem abrir anúncio
+  function fecharFeedback(semAnuncio) {
+    $('veu-fb').hidden = true;
+    if (semAnuncio === true) renderMesa(); else proximoItem();
+  }
+
+  // ---------------- texto de apoio
+  function abrirTexto(chave) {
+    var t = TEXTOS[chave];
+    if (!t) return;
+    $('texto-titulo').textContent = t.titulo;
+    var h = '';
+    if (t.linhas) {
+      h = '<div class="linhas">' + t.linhas.map(function (ln, i) {
+        var n = i + 1;
+        return '<span class="n' + ((n - 1) % 3 === 0 ? ' marco' : '') + '">' + n + '</span><span class="t' + (ln.p ? ' prim' : '') + '">' + ln.t + '</span>';
+      }).join('') + '</div>';
+      if (t.fonte) h += '<div class="fonte-texto">' + t.fonte + '</div>';
+    } else {
+      h = t.html.replace(/<table>/g, '<div class="tabela-rola"><table>').replace(/<\/table>/g, '</table></div>');
+    }
+    $('texto-corpo').innerHTML = h;
+    $('texto-corpo').scrollTop = 0;
+    $('veu-texto').hidden = false;
+    ajustarLinhas();
+    $('fechar-texto').focus();
+  }
+  function fecharTexto() { $('veu-texto').hidden = true; }
+  // cada linha numerada cabe inteira na tela, para bater com a numeração do PDF
+  function ajustarLinhas() {
+    var cont = $('texto-corpo').querySelector('.linhas');
+    if (!cont) return;
+    var ts = cont.querySelectorAll('.t');
+    var fs = 15;
+    cont.style.fontSize = fs + 'px';
+    var sobra = function () { var m = 0; for (var i = 0; i < ts.length; i++) { m = Math.max(m, ts[i].scrollWidth - ts[i].clientWidth); } return m; };
+    while (sobra() > 0 && fs > 11) { fs -= 0.5; cont.style.fontSize = fs + 'px'; }
+    if (sobra() > 0) cont.classList.add('larga');
+  }
+
+  // ---------------- resultado
+  function mostrarFim() {
+    pararRelogio();
+    var d = carregar();
+    d.sessao = null; salvar();
+    telas('fim');
+    var c = contagem();
+    var p1 = pontos(c.g), p2 = pontos(c.s);
+    var m = sessao.minimos, md = sessao.modo;
+    var blocos = [];
+    var inteiro = md === 'completo' || md === 'simulado';
+    if (c.g.n) blocos.push(['Gerais', p1, c.g.n, m && (inteiro || md === 'gerais') ? m.gerais : null]);
+    if (c.s.n) blocos.push(['Específicas', p2, c.s.n, m && (inteiro || md === 'especificas') ? m.especificas : null]);
+    if (c.g.n && c.s.n) blocos.push(['Total', p1 + p2, c.g.n + c.s.n, m && inteiro ? m.total : null]);
+    var h = '<h2>Resultado</h2><p class="aviso" style="margin:0">' + (sessao.titulo || nomeModo(sessao.modo, foco())) + ' · ' + plural(sessao.ids.length, 'item', 'itens') + '</p>';
+    h += '<div class="notas">' + blocos.map(function (b) {
+      var qual = m && m.proporcional ? 'mínimo proporcional' : 'mínimo';
+      var st = b[3] == null ? '' : (b[1] >= b[3] ? '<em class="ok">acima do ' + qual + ' (' + b[3] + ')</em>' : '<em class="no">abaixo do ' + qual + ' (' + b[3] + ')</em>');
+      return '<div><small>' + b[0] + '</small><b>' + fmtNota(b[1]) + '</b><span class="aviso">de ' + b[2] + ' pontos</span>' + st + '</div>';
+    }).join('') + '</div>';
+    if (m && m.proporcional) h += '<p class="aviso" style="margin:0">Este simulado tem outro tamanho, então o mínimo é proporcional ao do edital.</p>';
+    if (sessao.duracao) {
+      var respondidos = sessao.ids.filter(function (id) { var r = sessao.resp[id]; return r && r.r !== 'P'; }).length;
+      h += '<p class="aviso" style="margin:0">' + (sessao.esgotado ? 'O tempo acabou com ' + plural(sessao.esgotado, 'item sem resposta', 'itens sem resposta') + ', que contaram como em branco. ' : '') +
+        'Tempo usado: ' + duracaoTexto(Math.min(sessao.usado || 0, sessao.duracao)) + ' de ' + duracaoTexto(sessao.duracao) +
+        (respondidos ? ' · média de ' + duracaoTexto((sessao.usado || 0) / respondidos) + ' por item respondido' : '') + '.</p>';
+    }
+    // por matéria
+    var mats = {};
+    sessao.ids.forEach(function (id) {
+      var q = POR_ID[id]; var x = mats[q.materia] || (mats[q.materia] = { a: 0, e: 0, b: 0, g: q.grupo });
+      var r = sessao.resp[id]; if (!r) return;
+      if (r.r === 'P') x.b++; else if (r.ok) x.a++; else x.e++;
+    });
+    var nomes = Object.keys(mats).sort(function (a, b) { return (mats[a].g === mats[b].g ? a.localeCompare(b) : (mats[a].g === 'geral' ? -1 : 1)); });
+    h += '<table class="tabela-materias"><tr><th>Assunto</th><th>Acertos</th><th>Erros</th><th>Branco</th><th>Nota</th></tr>' +
+      nomes.map(function (n) { var x = mats[n]; return '<tr><td>' + n + '</td><td>' + x.a + '</td><td>' + x.e + '</td><td>' + x.b + '</td><td>' + fmtNota(pontos(x)) + '</td></tr>'; }).join('') + '</table>';
+    var temMe = sessao.ids.some(function (id) { return POR_ID[id].tipo === 'me'; });
+    if (sessao.pontuacao === 'acertos') h += '<p class="aviso">Cada acerto vale 1 ponto. Erro e branco valem zero.</p>';
+    else if (temMe) h += '<p class="aviso">As questões de múltipla escolha entram na conta como itens: acerto vale +1 e erro vale −1.</p>';
+    var errados = sessao.ids.filter(function (id) { var r = sessao.resp[id]; return r && r.ok === false; });
+    h += '<h2 style="font-size:17px">Itens que você errou (' + errados.length + ')</h2>';
+    if (!errados.length) h += '<p class="vazio">Nenhum erro neste simulado.</p>';
+    h += '<div class="erros-lista">' + errados.map(function (id) {
+      var q = POR_ID[id], r = sessao.resp[id].r;
+      var resp = q.tipo === 'me' ? ('Você marcou ' + r + ' · gabarito ' + q.gabarito) : ('Você marcou ' + (r === 'C' ? 'CERTO' : 'ERRADO') + ' · gabarito ' + (q.gabarito === 'C' ? 'CERTO' : 'ERRADO'));
+      var alt = '';
+      if (q.tipo === 'me') { var a = q.alternativas.filter(function (x) { return x[0] === q.gabarito; })[0]; if (a) alt = '<p><b>' + a[0] + ')</b> ' + a[1] + '</p>'; }
+      return '<details><summary>' + q.enunciado + '</summary><div class="det">' + figuras(q) + '<div class="gab">' + q.materia + ' · ' + origemDe(q) + '</div><div class="gab">' + resp + '</div>' + alt + '<p>' + q.comentario + '</p>' + linkReportar(q) +
+        (q.texto && TEXTOS[q.texto] ? '<button class="btn-texto" data-texto="' + q.texto + '">▤ Ver o texto</button>' : '') + '</div></details>';
+    }).join('') + '</div>';
+    h += '<div class="fim-acoes"><button class="btn" id="fim-erros"' + (errados.length ? '' : ' disabled') + '>Refazer os erros</button><button class="btn primario" id="fim-novo">' + (sessao.modo === 'treino' ? 'Novo treino' : 'Novo simulado') + '</button></div>';
+    h += '<button class="link-btn" id="fim-inicio">Voltar ao início</button>';
+    var tela = $('tela-fim');
+    tela.innerHTML = h;
+    tela.scrollTop = 0;
+    var errosSessao = errados.map(function (id) { return POR_ID[id]; });
+    tela.querySelectorAll('.btn-texto').forEach(function (b) { b.addEventListener('click', function () { abrirTexto(b.getAttribute('data-texto')); }); });
+    var eraTreino = sessao.modo === 'treino';
+    $('fim-erros').addEventListener('click', function () { criarSessao('erros', embaralhar(errosSessao), null, { estudo: true }); });
+    $('fim-novo').addEventListener('click', function () { mostrarInicio(); if (eraTreino) abrirTreino(); else abrirSimulado(); });
+    $('fim-inicio').addEventListener('click', mostrarInicio);
+  }
+
+  // ---------------- zerar histórico com confirmação na própria página
+  var zerarArmado = false, zerarTimer = null;
+  function resetZerar() { zerarArmado = false; $('btn-zerar').textContent = 'Zerar histórico'; }
+  $('btn-zerar').addEventListener('click', function () {
+    if (!zerarArmado) {
+      zerarArmado = true; $('btn-zerar').textContent = 'Toque de novo para apagar tudo';
+      clearTimeout(zerarTimer); zerarTimer = setTimeout(resetZerar, 4000);
+      return;
+    }
+    var d = carregar(); d.hist = {}; d.sessao = null; salvar(); sessao = null; mostrarInicio();
+  });
+
+  // ---------------- conta opcional (login com Google): guarda o progresso na nuvem, para trocar de celular sem perder
+  // nada. Só existe no app Android com o Firebase configurado (Conta.java). O app usa só o nome e o e-mail, para mostrar
+  // com qual conta a pessoa entrou; a foto não é lida nem guardada. As respostas do Android chegam em window.gizConta
+  var CONTA = { disponivel: false, entrou: false, nome: '', email: '', ocupado: false, msg: '', salvoEm: 0, sairDepois: false };
+  var nuvemTimer = null, nuvemUltimo = '', nuvemEnviando = false, apagarArmado = false, apagarTimer = null;
+  function lerEstadoConta() {
+    CONTA.disponivel = !!ponte('contaDisponivel');
+    if (!CONTA.disponivel) return;
+    var e = null;
+    try { e = JSON.parse(ponte('contaEstado') || 'null'); } catch (x) { e = null; }
+    CONTA.entrou = !!(e && e.entrou); CONTA.nome = (e && e.nome) || ''; CONTA.email = (e && e.email) || '';
+  }
+  // o que vai para a nuvem: o progresso (histórico, diploma, foco e preferências), sem a sessão aberta nem a contagem
+  // dos anúncios
+  function copiaParaNuvem() {
+    var d = carregar(), c = {};
+    Object.keys(d).forEach(function (k) { if (k !== 'sessao' && k !== 'anuncio') c[k] = d[k]; });
+    return JSON.stringify(c);
+  }
+  // manda agora o que mudou; devolve true se mandou
+  function enviarNuvem() {
+    clearTimeout(nuvemTimer); nuvemTimer = null;
+    var p = window.JulgaAndroid || window.GizWeb;
+    if (!CONTA || !CONTA.entrou || !p || !p.contaSalvar) return false;
+    var txt = copiaParaNuvem();
+    if (txt === nuvemUltimo) return false;
+    nuvemUltimo = txt; nuvemEnviando = true;
+    try { p.contaSalvar(txt); } catch (e) { nuvemUltimo = ''; nuvemEnviando = false; return false; }
+    return true;
+  }
+  function agendarNuvem() {
+    // salvar() pode rodar antes desta parte do código ser lida, com CONTA ainda vazia
+    if (!CONTA || !CONTA.entrou) return;
+    clearTimeout(nuvemTimer); nuvemTimer = setTimeout(enviarNuvem, 20000);
+  }
+  // junta o progresso da nuvem com o do celular: em cada questão fica a cópia com mais respostas; no diploma, o maior
+  // número de questões de cada dia. Celular novo (nada respondido ainda): ficam também o foco e as preferências da nuvem
+  function mesclarNuvem(texto) {
+    var n = null;
+    try { n = JSON.parse(texto || 'null'); } catch (e) { n = null; }
+    var d = carregar(), novo = !Object.keys(d.hist).length;
+    if (n && typeof n === 'object') {
+      var hn = n.hist && typeof n.hist === 'object' ? n.hist : {};
+      Object.keys(hn).forEach(function (id) {
+        var a = d.hist[id], b = hn[id];
+        if (b && typeof b === 'object' && (!a || (b.v || 0) > (a.v || 0))) d.hist[id] = b;
+      });
+      if (n.ofen && n.ofen.dias && typeof n.ofen.dias === 'object') {
+        var o = dadosOfensiva();
+        Object.keys(n.ofen.dias).forEach(function (k) { o.dias[k] = Math.max(o.dias[k] || 0, Number(n.ofen.dias[k]) || 0); });
+        o.recorde = Math.max(o.recorde || 0, Number(n.ofen.recorde) || 0);
+      }
+      if (novo) {
+        if (n.foco && typeof n.foco === 'object') d.foco = n.foco;
+        if (n.prefs && typeof n.prefs === 'object') { d.prefs = n.prefs; aplicarTema(d.prefs.tema); }
+      }
+    }
+    salvar();
+    nuvemUltimo = '';
+    enviarNuvem();
+    // na tela inicial, mostra já o progresso junto (no meio de um treino, espera a pessoa voltar)
+    if (!$('tela-inicio').hidden || (novo && !$('tela-foco').hidden && foco())) seguirParaApp();
+  }
+  function hora(ms) { var x = new Date(ms); return ('0' + x.getHours()).slice(-2) + ':' + ('0' + x.getMinutes()).slice(-2); }
+  function renderConta() {
+    var box = $('conta');
+    box.hidden = !CONTA.disponivel;
+    if (!CONTA.disponivel) return;
+    $('conta-titulo').textContent = CONTA.entrou ? 'Progresso guardado na nuvem' : 'Guarde seu progresso';
+    $('conta-sub').textContent = CONTA.msg || (CONTA.entrou ?
+      'Conta: ' + (CONTA.nome ? CONTA.nome + ' · ' : '') + CONTA.email + (CONTA.salvoEm ? ' · salvo às ' + hora(CONTA.salvoEm) : '') :
+      (window.NO_NAVEGADOR ? 'Entre com o Google para continuar de onde parou no celular ou em outro computador. É opcional: sem conta, tudo continua funcionando.' : 'Entre com o Google para não perder nada ao trocar de celular. É opcional: sem conta, tudo continua funcionando.'));
+    $('btn-conta-entrar').hidden = CONTA.entrou;
+    $('btn-conta-entrar').disabled = CONTA.ocupado;
+    $('conta-acoes').hidden = !CONTA.entrou;
+    $('btn-conta-sair').disabled = CONTA.ocupado;
+    $('btn-conta-apagar').disabled = CONTA.ocupado;
+  }
+  var MSG_ERRO_CONTA = {
+    rede: 'Sem internet agora. Tente de novo daqui a pouco.',
+    'sem-conta': 'Nenhuma conta Google neste celular. Adicione uma nas configurações do Android e tente de novo.',
+    // no site: o navegador bloqueou a janela do login do Google
+    bloqueado: 'O navegador bloqueou a janela de login. Permita janelas deste site e tente de novo.',
+    outro: 'Não deu certo agora. Tente de novo daqui a pouco.'
+  };
+  window.gizConta = function (texto) {
+    var e = null;
+    try { e = JSON.parse(texto); } catch (x) { return; }
+    if (!e || typeof e !== 'object') return;
+    CONTA.disponivel = true;
+    CONTA.entrou = !!e.entrou; CONTA.nome = e.nome || ''; CONTA.email = e.email || '';
+    CONTA.ocupado = false; CONTA.msg = '';
+    if (e.evento === 'entrou') {
+      CONTA.ocupado = true; CONTA.msg = 'Juntando o progresso ' + (window.NO_NAVEGADOR ? 'deste navegador' : 'deste celular') + ' com o da nuvem...';
+      ponte('contaLer');
+    } else if (e.evento === 'nuvem') {
+      mesclarNuvem(e.dados);
+    } else if (e.evento === 'salvou') {
+      nuvemEnviando = false; CONTA.salvoEm = Date.now();
+    } else if (e.evento === 'saiu') {
+      CONTA.msg = 'Você saiu da conta. O progresso continua ' + (window.NO_NAVEGADOR ? 'neste navegador.' : 'neste celular.'); CONTA.salvoEm = 0; nuvemUltimo = '';
+    } else if (e.evento === 'apagou') {
+      CONTA.msg = 'Conta apagada, e o progresso saiu da nuvem. ' + (window.NO_NAVEGADOR ? 'Neste navegador' : 'Neste celular') + ', ele continua.'; CONTA.salvoEm = 0; nuvemUltimo = '';
+    } else if (e.evento === 'erro') {
+      nuvemEnviando = false;
+      CONTA.msg = e.motivo === 'cancelado' ? '' : MSG_ERRO_CONTA[e.motivo] || MSG_ERRO_CONTA.outro;
+      if (CONTA.entrou) nuvemUltimo = '';
+    }
+    // sair depois de mandar o que faltava
+    if (CONTA.sairDepois && !nuvemEnviando) { CONTA.sairDepois = false; CONTA.ocupado = true; ponte('contaSair'); }
+    renderConta();
+  };
+  $('btn-conta-entrar').addEventListener('click', function () {
+    CONTA.ocupado = true; CONTA.msg = 'Abrindo as contas do Google...'; renderConta();
+    ponte('contaEntrar');
+  });
+  $('btn-conta-sair').addEventListener('click', function () {
+    CONTA.ocupado = true; CONTA.msg = 'Saindo...'; renderConta();
+    if (enviarNuvem()) CONTA.sairDepois = true; else ponte('contaSair');
+  });
+  function resetApagar() { apagarArmado = false; $('btn-conta-apagar').textContent = 'Apagar minha conta'; }
+  $('btn-conta-apagar').addEventListener('click', function () {
+    if (!apagarArmado) {
+      apagarArmado = true; $('btn-conta-apagar').textContent = 'Toque de novo para apagar a conta';
+      clearTimeout(apagarTimer); apagarTimer = setTimeout(resetApagar, 4000);
+      return;
+    }
+    clearTimeout(apagarTimer); resetApagar(); clearTimeout(nuvemTimer);
+    CONTA.ocupado = true; CONTA.msg = 'Apagando a conta e o progresso da nuvem...'; renderConta();
+    ponte('contaApagar');
+  });
+
+  // ---------------- ligações
+  $('btn-treino').addEventListener('click', abrirTreino);
+  $('btn-simulado').addEventListener('click', abrirSimulado);
+  // revisão dos erros: até 50 itens errados do foco, com a resposta na hora
+  $('btn-erros').addEventListener('click', function () {
+    var lista = embaralhar(idsErros(foco()).map(function (id) { return POR_ID[id]; })).slice(0, 50);
+    if (lista.length) criarSessao('erros', lista, null, { estudo: true });
+  });
+  $('btn-continuar').addEventListener('click', function () {
+    var s = carregar().sessao;
+    if (!s) return;
+    s.ids = s.ids.filter(function (id) { return POR_ID[id]; });
+    sessao = s; iniciarJogo();
+  });
+  $('btn-premio').addEventListener('click', function () {
+    if (!ponte('mostrarPremiado')) avisoInfo('O anúncio ainda está carregando.', 'Tente de novo em instantes.');
+  });
+  $('btn-estudar').addEventListener('click', function () {
+    var url = apostilasDe(concursoDe(foco()));
+    if (!url) return;
+    // fora do app Android (ou no APK de teste, sem anúncios) a página abre direto
+    if (!anunciosLigados()) { abrirFora(url); return; }
+    if (!ponte('mostrarPremiadoApostila')) { avisoInfo('O anúncio ainda está carregando.', 'Tente de novo em instantes.'); return; }
+    apostilaPedida = url; apostilaLiberada = false;
+  });
+  // versão instalada, que o Android conta pela ponte (fora do app, como nos testes no navegador, fica escondida)
+  (function () {
+    var v = String(ponte('versaoApp') || '');
+    if (v) { $('versao-app').textContent = 'Versão do app ' + v; $('versao-app').hidden = false; }
+    else if (window.NO_NAVEGADOR && window.GIZ_VERSAO_WEB) { $('versao-app').textContent = 'Versão para navegador ' + window.GIZ_VERSAO_WEB; $('versao-app').hidden = false; }
+  })();
+  ['op-estudo', 'op-ineditas'].forEach(function (id) { $(id).addEventListener('change', lerPrefs); });
+  $('btn-sair').addEventListener('click', function () { pararRelogio(); carregar().sessao = sessao; salvar(); mostrarInicio(); });
+  $('btn-certo').addEventListener('click', function () { if (cartaoAtual && cartaoAtual.q.tipo === 'ce') responder('C', 'direita'); });
+  $('btn-errado').addEventListener('click', function () { if (cartaoAtual && cartaoAtual.q.tipo === 'ce') responder('E', 'esquerda'); });
+  $('btn-pular').addEventListener('click', function () { responder('P', 'cima'); });
+  $('btn-depois').addEventListener('click', adiar);
+  $('fb-proxima').addEventListener('click', fecharFeedback);
+  $('fechar-texto').addEventListener('click', fecharTexto);
+  $('veu-texto').addEventListener('click', function (e) { if (e.target === $('veu-texto')) fecharTexto(); });
+  document.addEventListener('keydown', function (e) {
+    if (!$('veu-texto').hidden) { if (e.key === 'Escape') fecharTexto(); return; }
+    if (!$('veu-config').hidden) { if (e.key === 'Escape') fecharConfig(); return; }
+    if (!$('veu-treino').hidden) { if (e.key === 'Escape') fecharTreino(); return; }
+    if (!$('veu-desempenho').hidden) { if (e.key === 'Escape') fecharDesempenho(); return; }
+    if (!$('veu-tema').hidden) { if (e.key === 'Escape') fecharTemas(); return; }
+    if (!$('veu-fb').hidden) { if (e.key === 'Enter' || e.key === ' ' || e.key === 'ArrowRight') { e.preventDefault(); fecharFeedback(); } return; }
+    if ($('tela-jogo').hidden || !cartaoAtual) return;
+    var q = cartaoAtual.q;
+    if (e.key === 'ArrowRight' && q.tipo === 'ce') responder('C', 'direita');
+    else if (e.key === 'ArrowLeft' && q.tipo === 'ce') responder('E', 'esquerda');
+    else if (e.key === 'ArrowUp') { e.preventDefault(); responder('P', 'cima'); }
+    else if (e.key === 'ArrowDown') { e.preventDefault(); adiar(); }
+    else if (q.tipo === 'me' && /^[a-eA-E]$/.test(e.key)) {
+      var el = cartaoAtual.el.querySelector('.alt[data-letra="' + e.key.toUpperCase() + '"]');
+      if (el) responder(e.key.toUpperCase(), 'cima', el);
+    }
+  });
+  window.addEventListener('resize', function () { if (cartaoAtual && !$('tela-jogo').hidden && !travado) { cartaoAtual.el.querySelector('.corpo').classList.remove('rolavel'); ajustarFonte(cartaoAtual.el); } });
+  window.addEventListener('pagehide', function () { guardarCopia(); enviarNuvem(); });
+  setInterval(function () { if (!$('tela-inicio').hidden) atualizarPremio(); }, 30000);
+
+  // botão voltar do aplicativo Android: fecha o que estiver aberto antes de sair do app
+  window.voltarAndroid = function () {
+    if (!$('veu-texto').hidden) { fecharTexto(); return true; }
+    if (!$('veu-config').hidden) { fecharConfig(); return true; }
+    if (!$('veu-treino').hidden) { fecharTreino(); return true; }
+    if (!$('veu-desempenho').hidden) { fecharDesempenho(); return true; }
+    if (!$('veu-tema').hidden) { fecharTemas(); return true; }
+    if (!$('tela-termos').hidden) { if (termosAceitos()) { mostrarInicio(); return true; } return false; }
+    if (!$('veu-fb').hidden) { fecharFeedback(true); return true; }
+    if (!$('tela-jogo').hidden) { $('btn-sair').click(); return true; }
+    if (!$('tela-fim').hidden) { mostrarInicio(); return true; }
+    if (!$('tela-foco').hidden && foco()) { mostrarInicio(); return true; }
+    return false;
+  };
+
+  // os concursos vêm antes de tudo: a migração de quem já usava o app e a tela de foco dependem deles
+  carregarConcursos().then(function () {
+    // a cópia do backup pode trazer um tema diferente do que estava no armazenamento
+    aplicarTema(carregar().prefs.tema);
+    if (!termosAceitos()) { mostrarTermos(); return; }
+    ponte('iniciarAnuncios');
+    seguirParaApp();
+    lerEstadoConta();
+    if (CONTA.entrou) { CONTA.msg = 'Conferindo o progresso na nuvem...'; ponte('contaLer'); }
+  });
+})();
+</script>
+
+</body>
+</html>

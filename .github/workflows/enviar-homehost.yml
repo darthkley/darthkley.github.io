@@ -19,7 +19,7 @@ concurrency:
 jobs:
   enviar:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 30
     steps:
       - name: Conferir se os dados de acesso já foram cadastrados
         id: dados

@@ -1,0 +1,27 @@
+/* Concurso Campo Alegre/AL 2026 (Edital 001/2026, IGEDUC): edital sem questões próprias; o simulado é montado com o banco, pelas matérias do edital, e as questões do município vêm dos pacotes legislacao-campo-alegre e historia-geografia-campo-alegre */
+registrarConcurso({
+"id": "campo-alegre-2026",
+"nome": "Campo Alegre/AL 2026",
+"orgao": "Prefeitura de Campo Alegre (AL)",
+"cargo": "Professor",
+"etapa": "anos-finais",
+"banca": "IGEDUC",
+"ano": 2026,
+"formato": "me",
+"pontuacao": "acertos",
+"areas": ["artes", "ciencias", "educacao-fisica", "geografia", "historia", "ingles", "portugues", "matematica", "pedagogia", "educacao-especial"],
+"cargos": [{"id": "arte", "nome": "Professor de Arte", "area": "artes"}, {"id": "ciencias", "nome": "Professor de Ciências", "area": "ciencias"}, {"id": "educacao-fisica", "nome": "Professor de Educação Física", "area": "educacao-fisica"}, {"id": "geografia", "nome": "Professor de Geografia", "area": "geografia"}, {"id": "historia", "nome": "Professor de História", "area": "historia"}, {"id": "ingles", "nome": "Professor de Língua Inglesa", "area": "ingles"}, {"id": "portugues", "nome": "Professor de Língua Portuguesa", "area": "portugues"}, {"id": "matematica", "nome": "Professor de Matemática", "area": "matematica"}, {"id": "infantil-fundamental", "nome": "Professor de Educação Infantil e Ensino Fundamental I", "area": "pedagogia"}, {"id": "educacao-especial", "nome": "Professor para Educação Especial Inclusiva", "area": "educacao-especial"}],
+"link": "https://igeduc.selecao.net.br/informacoes/128/",
+"apostilas": "https://darthkley.github.io/estudar/campo-alegre-2026/",
+"inscricoes": {"inicio": "2026-06-08", "fim": "2026-08-03"},
+"prova": "2026-11-01",
+"duracao": 240,
+"discursiva": false,
+"local": "Campo Alegre/AL",
+"estrutura": {"gerais": 25, "especificas": 40},
+"minimos": {"total": 46},
+"materiasGerais": ["Língua Portuguesa", "Legislação municipal", "História e Geografia de Campo Alegre", "Educação Brasileira"],
+"distribuicao": {"Língua Portuguesa": 10, "Legislação municipal": 5, "Educação Brasileira": 5, "História e Geografia de Campo Alegre": 5},
+"textos": {},
+"questoes": []
+});
