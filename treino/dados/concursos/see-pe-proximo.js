@@ -11,7 +11,7 @@ registrarConcurso({
 "areas": ["artes", "biologia", "educacao-fisica", "filosofia", "fisica", "geografia", "historia", "espanhol", "ingles", "portugues", "matematica", "quimica", "sociologia"],
 "cargos": [{"id": "artes", "nome": "Professor – Artes", "area": "artes"}, {"id": "biologia", "nome": "Professor – Biologia", "area": "biologia"}, {"id": "educacao-fisica", "nome": "Professor – Educação Física", "area": "educacao-fisica"}, {"id": "filosofia", "nome": "Professor – Filosofia", "area": "filosofia"}, {"id": "fisica", "nome": "Professor – Física", "area": "fisica"}, {"id": "geografia", "nome": "Professor – Geografia", "area": "geografia"}, {"id": "historia", "nome": "Professor – História", "area": "historia"}, {"id": "espanhol", "nome": "Professor – Língua Espanhola", "area": "espanhol"}, {"id": "ingles", "nome": "Professor – Língua Inglesa", "area": "ingles"}, {"id": "portugues", "nome": "Professor – Língua Portuguesa", "area": "portugues"}, {"id": "matematica", "nome": "Professor – Matemática", "area": "matematica"}, {"id": "quimica", "nome": "Professor – Química", "area": "quimica"}, {"id": "sociologia", "nome": "Professor – Sociologia", "area": "sociologia"}],
 "link": "",
-"apostilas": "https://darthkley.github.io/estudar/see-pe/",
+"apostilas": "https://www.gizegabarito.com.br/estudar/see-pe/",
 "previsto": true,
 "duracao": 270,
 "discursiva": true,

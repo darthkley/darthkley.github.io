@@ -15,7 +15,7 @@
  *   pontuacao   'liquida' (cada erro anula um acerto) ou 'acertos'
  *   areas       '*' (todas) ou lista de áreas, ex.: ['biologia', 'quimica']
  *   link        página oficial do concurso (o app não guarda PDF de edital)
- *   apostilas   menu das apostilas do concurso no site (https://darthkley.github.io/estudar/<id>/): enquanto o
+ *   apostilas   menu das apostilas do concurso no site (https://www.gizegabarito.com.br/estudar/<id>/): enquanto o
  *               concurso não acaba, a tela inicial mostra "Estude grátis agora mesmo!", que abre esse menu (com
  *               ?cargo=) depois de um anúncio premiado próprio
  *   inscricoes  {inicio, fim} em aaaa-mm-dd: enquanto não passar o fim, aparece em "Inscrições abertas"

@@ -18,7 +18,7 @@ if (window.NO_NAVEGADOR) document.documentElement.classList.add('no-navegador');
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icone-192.png" type="image/png">
 <link rel="apple-touch-icon" href="icone-192.png">
-<script>window.GIZ_VERSAO_WEB = "09/11/2026 · 589f5d2"; window.GIZ_FIREBASE = {"apiKey": "AIzaSyAJh0hzGgHPRrwXEkBdaadLUEv7qgzvU1A", "authDomain": "giz-e-gabarito.firebaseapp.com", "projectId": "giz-e-gabarito", "storageBucket": "giz-e-gabarito.firebasestorage.app", "messagingSenderId": "538781158823", "appId": "1:538781158823:web:733fd8bf9e1ad08c44ba82"};</script>
+<script>window.GIZ_VERSAO_WEB = "09/11/2026 · b4b59cf"; window.GIZ_FIREBASE = {"apiKey": "AIzaSyAJh0hzGgHPRrwXEkBdaadLUEv7qgzvU1A", "authDomain": "giz-e-gabarito.firebaseapp.com", "projectId": "giz-e-gabarito", "storageBucket": "giz-e-gabarito.firebasestorage.app", "messagingSenderId": "538781158823", "appId": "1:538781158823:web:733fd8bf9e1ad08c44ba82"};</script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
@@ -647,7 +647,7 @@ html:not(.no-navegador) .so-web, html.no-navegador .so-app { display: none !impo
       <b>3. Concurso</b>
       <div class="abas" id="abas-situacao"></div>
       <div class="lista-concursos" id="lista-concursos"></div>
-      <a class="sugerir-link" id="link-sugerir" href="https://darthkley.github.io/sugerir/" target="_blank" rel="noopener">Não achou seu concurso? Sugira um ↗</a>
+      <a class="sugerir-link" id="link-sugerir" href="https://www.gizegabarito.com.br/sugerir/" target="_blank" rel="noopener">Não achou seu concurso? Sugira um ↗</a>
     </div>
     <div class="passo" id="passo-niveis" hidden>
       <b id="titulo-niveis">3. Níveis em que você dá aula</b>
@@ -730,9 +730,9 @@ html:not(.no-navegador) .so-web, html.no-navegador .so-app { display: none !impo
     <div class="links-rodape">
       <button class="link-btn" id="btn-aparencia">Aparência</button>
       <button class="link-btn" id="btn-termos">Termos de uso</button>
-      <a class="link-btn" href="https://darthkley.github.io/sugerir/" target="_blank" rel="noopener">Sugerir concurso</a>
+      <a class="link-btn" href="https://www.gizegabarito.com.br/sugerir/" target="_blank" rel="noopener">Sugerir concurso</a>
     </div>
-    <p class="versao-app"><span class="so-app">Apostilas também no computador: <a id="link-pc" href="https://darthkley.github.io/estudar/" target="_blank" rel="noopener">darthkley.github.io/estudar</a></span><span class="so-web">Apostilas: <a href="https://darthkley.github.io/estudar/" target="_blank" rel="noopener">darthkley.github.io/estudar</a> · <a href="https://darthkley.github.io/">página inicial do site</a></span><span id="versao-app" hidden></span></p>
+    <p class="versao-app"><span class="so-app">Apostilas também no computador: <a id="link-pc" href="https://www.gizegabarito.com.br/estudar/" target="_blank" rel="noopener">gizegabarito.com.br/estudar</a></span><span class="so-web">Apostilas: <a href="https://www.gizegabarito.com.br/estudar/" target="_blank" rel="noopener">gizegabarito.com.br/estudar</a> · <a href="https://www.gizegabarito.com.br/">página inicial do site</a></span><span id="versao-app" hidden></span></p>
     </div>
   </section>
 
@@ -1114,7 +1114,7 @@ html:not(.no-navegador) .so-web, html.no-navegador .so-app { display: none !impo
 
   // link para avisar um erro na questão: abre a página do site no navegador, já com o código e a origem da questão
   function linkReportar(q) {
-    return '<p class="reportar"><a href="https://darthkley.github.io/reportar/?q=' + encodeURIComponent(q.id) + '&o=' +
+    return '<p class="reportar"><a href="https://www.gizegabarito.com.br/reportar/?q=' + encodeURIComponent(q.id) + '&o=' +
       encodeURIComponent(origemDe(q).slice(0, 160)) + '" target="_blank" rel="noopener">Viu um erro nesta questão? Avise a gente ↗</a></p>';
   }
   // dias até a prova (0 = hoje); null sem data ou depois da prova
@@ -1502,7 +1502,7 @@ html:not(.no-navegador) .so-web, html.no-navegador .so-app { display: none !impo
         r.aba = r.concurso ? situacao(CONCURSOS[r.concurso]) : Object.keys(SITUACOES).filter(function (k) { return grupos[k].length; })[0];
       }
       if (!r.concurso && grupos[r.aba].length) r.concurso = grupos[r.aba][0].id;
-      $('link-sugerir').href = 'https://darthkley.github.io/sugerir/?area=' + encodeURIComponent(AREAS[r.area].nome);
+      $('link-sugerir').href = 'https://www.gizegabarito.com.br/sugerir/?area=' + encodeURIComponent(AREAS[r.area].nome);
       $('abas-situacao').innerHTML = Object.keys(SITUACOES).map(function (k) {
         return '<button class="aba" data-aba="' + k + '" aria-pressed="' + (r.aba === k) + '">' + SITUACOES[k] + '<small>' + grupos[k].length + '</small></button>';
       }).join('');
