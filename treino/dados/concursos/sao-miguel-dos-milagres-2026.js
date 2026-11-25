@@ -1,0 +1,25 @@
+/* Concurso São Miguel dos Milagres/AL 2026 (INBRAEDEM; prova em 31/01/2027): edital sem questões próprias; o simulado é montado com o banco, pelas matérias do edital (Português 10, Matemática 10 e 20 específicas), com o corte de 20 pontos. Gerado por ferramentas-mulder/geradores/montar_smm.py */
+registrarConcurso({
+"id": "sao-miguel-dos-milagres-2026",
+"nome": "São Miguel dos Milagres/AL 2026",
+"orgao": "Prefeitura de São Miguel dos Milagres (AL)",
+"cargo": "Professor",
+"etapa": "anos-finais",
+"banca": "INBRAEDEM",
+"ano": 2026,
+"formato": "me",
+"pontuacao": "acertos",
+"areas": ["artes", "ciencias", "educacao-fisica", "ensino-religioso", "geografia", "historia", "ingles", "portugues", "matematica", "pedagogia"],
+"cargos": [{"id": "artes", "nome": "Professor de Artes", "area": "artes"}, {"id": "ciencias-biologicas", "nome": "Professor de Ciências Biológicas", "area": "ciencias"}, {"id": "educacao-fisica", "nome": "Professor de Educação Física", "area": "educacao-fisica"}, {"id": "ensino-religioso", "nome": "Professor de Ensino Religioso", "area": "ensino-religioso"}, {"id": "geografia", "nome": "Professor de Geografia", "area": "geografia"}, {"id": "historia", "nome": "Professor de História", "area": "historia"}, {"id": "ingles", "nome": "Professor de Língua Inglesa", "area": "ingles"}, {"id": "portugues", "nome": "Professor de Língua Portuguesa", "area": "portugues"}, {"id": "matematica", "nome": "Professor de Matemática", "area": "matematica"}, {"id": "pedagogo", "nome": "Professor Pedagogo (Anos Iniciais)", "area": "pedagogia"}],
+"link": "https://concursosinbraedem.org.br/",
+"inscricoes": {"inicio": "2026-11-23", "fim": "2026-12-23"},
+"prova": "2027-01-31",
+"duracao": 180,
+"discursiva": false,
+"estrutura": {"gerais": 20, "especificas": 20},
+"minimos": {"total": 20},
+"materiasGerais": ["Língua Portuguesa", "Matemática"],
+"distribuicao": {"Língua Portuguesa": 10, "Matemática": 10},
+"textos": {},
+"questoes": []
+});

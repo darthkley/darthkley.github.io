@@ -273,7 +273,12 @@ window.CATALOGO = {
     { id: 'see-pe-ce-matematica', arquivo: 'dados/see-pe-ce-matematica.js', areas: ['matematica'] },
     // conhecimentos gerais do magistério no estilo IGEDUC (Custódia/PE 2026), também por gerar.py; só leis nacionais
     { id: 'ineditas-tecnologia-educacao', arquivo: 'dados/ineditas-tecnologia-educacao.js', areas: '*' },
-    { id: 'ineditas-legislacao-educacao', arquivo: 'dados/ineditas-legislacao-educacao.js', areas: '*' }
+    { id: 'ineditas-legislacao-educacao', arquivo: 'dados/ineditas-legislacao-educacao.js', areas: '*' },
+    // matemática básica e português das gerais, com 4 alternativas (São Miguel dos Milagres/AL 2026, INBRAEDEM)
+    { id: 'ineditas-matematica-basica', arquivo: 'dados/ineditas-matematica-basica.js', areas: '*' },
+    { id: 'ineditas-portugues-inbraedem', arquivo: 'dados/ineditas-portugues-inbraedem.js', areas: '*' },
+    // específicas de Ciências com 4 alternativas, no molde do cargo de Ciências Biológicas de São Miguel dos Milagres
+    { id: 'ineditas-ciencias-inbraedem', arquivo: 'dados/ineditas-ciencias-inbraedem.js', areas: ['ciencias'] }
   ],
 
   concursos: [
@@ -284,6 +289,7 @@ window.CATALOGO = {
     'altos-2026',
     'terra-nova-2026',
     'custodia-2026',
+    'sao-miguel-dos-milagres-2026',
     'japaratinga-2025',
     'sao-jose-do-campestre-2025',
     'sao-jose-do-serido-2025',
