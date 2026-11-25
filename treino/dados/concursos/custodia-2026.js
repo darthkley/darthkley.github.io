@@ -1,0 +1,26 @@
+/* Concurso Custódia/PE 2026 (Edital 002/2026, IGEDUC; prova em 24/01/2027): edital sem questões próprias; o simulado é montado com o banco, pelas matérias do edital, com os pesos da prova (1,25 nas gerais e 2,5 nas específicas) e o corte de 70 pontos. Gerado por ferramentas-mulder/geradores/montar_custodia.py */
+registrarConcurso({
+"id": "custodia-2026",
+"nome": "Custódia/PE 2026",
+"orgao": "Prefeitura de Custódia (PE)",
+"cargo": "Professor",
+"etapa": "anos-finais",
+"banca": "IGEDUC",
+"ano": 2026,
+"formato": "me",
+"pontuacao": "acertos",
+"areas": ["ciencias", "educacao-fisica", "pedagogia", "geografia", "historia", "ingles", "portugues", "matematica", "artes"],
+"cargos": [{"id": "ciencias", "nome": "Professor de Ciências", "area": "ciencias"}, {"id": "educacao-fisica", "nome": "Professor de Educação Física", "area": "educacao-fisica"}, {"id": "infantil-anos-iniciais", "nome": "Professor de Educação Infantil e Anos Iniciais", "area": "pedagogia"}, {"id": "geografia", "nome": "Professor de Geografia", "area": "geografia"}, {"id": "historia", "nome": "Professor de História", "area": "historia"}, {"id": "ingles", "nome": "Professor de Língua Inglesa", "area": "ingles"}, {"id": "portugues", "nome": "Professor de Língua Portuguesa", "area": "portugues"}, {"id": "matematica", "nome": "Professor de Matemática", "area": "matematica"}, {"id": "musica", "nome": "Professor de Música", "area": "artes"}],
+"link": "https://igeduc.selecao.net.br/informacoes/192/",
+"inscricoes": {"inicio": "2026-11-18", "fim": "2026-12-18"},
+"prova": "2027-01-24",
+"discursiva": false,
+"estrutura": {"gerais": 20, "especificas": 30},
+"pesos": {"gerais": 1.25, "especificas": 2.5},
+"minimos": {"total": 70},
+"zeroElimina": true,
+"materiasGerais": ["Tecnologia na educação", "Legislação"],
+"distribuicao": {"Tecnologia na educação": 10, "Legislação": 10},
+"textos": {},
+"questoes": []
+});

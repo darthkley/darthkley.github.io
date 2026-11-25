@@ -270,7 +270,10 @@ window.CATALOGO = {
     { id: 'see-pe-ce-gerais', arquivo: 'dados/see-pe-ce-gerais.js', areas: '*' },
     // os temas educacionais e pedagógicos da P2: uma cópia por área das 13 disciplinas; as do Currículo de PE têm local PE
     { id: 'see-pe-ce-comuns', arquivo: 'dados/see-pe-ce-comuns.js', areas: ['artes', 'biologia', 'educacao-fisica', 'filosofia', 'fisica', 'geografia', 'historia', 'espanhol', 'ingles', 'portugues', 'matematica', 'quimica', 'sociologia'] },
-    { id: 'see-pe-ce-matematica', arquivo: 'dados/see-pe-ce-matematica.js', areas: ['matematica'] }
+    { id: 'see-pe-ce-matematica', arquivo: 'dados/see-pe-ce-matematica.js', areas: ['matematica'] },
+    // conhecimentos gerais do magistério no estilo IGEDUC (Custódia/PE 2026), também por gerar.py; só leis nacionais
+    { id: 'ineditas-tecnologia-educacao', arquivo: 'dados/ineditas-tecnologia-educacao.js', areas: '*' },
+    { id: 'ineditas-legislacao-educacao', arquivo: 'dados/ineditas-legislacao-educacao.js', areas: '*' }
   ],
 
   concursos: [
@@ -280,6 +283,7 @@ window.CATALOGO = {
     'jati-2026',
     'altos-2026',
     'terra-nova-2026',
+    'custodia-2026',
     'japaratinga-2025',
     'sao-jose-do-campestre-2025',
     'sao-jose-do-serido-2025',

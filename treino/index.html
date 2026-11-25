@@ -18,7 +18,7 @@ if (window.NO_NAVEGADOR) document.documentElement.classList.add('no-navegador');
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icone-192.png" type="image/png">
 <link rel="apple-touch-icon" href="icone-192.png">
-<script>window.GIZ_VERSAO_WEB = "09/11/2026 · b4b59cf"; window.GIZ_FIREBASE = {"apiKey": "AIzaSyAJh0hzGgHPRrwXEkBdaadLUEv7qgzvU1A", "authDomain": "giz-e-gabarito.firebaseapp.com", "projectId": "giz-e-gabarito", "storageBucket": "giz-e-gabarito.firebasestorage.app", "messagingSenderId": "538781158823", "appId": "1:538781158823:web:733fd8bf9e1ad08c44ba82"};</script>
+<script>window.GIZ_VERSAO_WEB = "25/11/2026 · 1bfbc9c"; window.GIZ_FIREBASE = {"apiKey": "AIzaSyAJh0hzGgHPRrwXEkBdaadLUEv7qgzvU1A", "authDomain": "giz-e-gabarito.firebaseapp.com", "projectId": "giz-e-gabarito", "storageBucket": "giz-e-gabarito.firebasestorage.app", "messagingSenderId": "538781158823", "appId": "1:538781158823:web:733fd8bf9e1ad08c44ba82"};</script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
@@ -1349,7 +1349,8 @@ html:not(.no-navegador) .so-web, html.no-navegador .so-app { display: none !impo
     return arr.slice(0, n).map(function (x) { return x.q; });
   }
   function ordemDaProva(lista) { return lista.slice().sort(function (a, b) { return (a.numero || 0) - (b.numero || 0); }); }
-  function fmtNota(n) { return (n > 0 ? '+' : '') + n; }
+  function fmtNum(n) { return String(Math.round(n * 100) / 100).replace('.', ','); }
+  function fmtNota(n) { return (n > 0 ? '+' : '') + fmtNum(n); }
   function plural(n, s, p) { return n + ' ' + (n === 1 ? s : p); }
   function nomeResp(r, q) {
     if (r === 'P') return 'em branco';
@@ -1975,6 +1976,8 @@ html:not(.no-navegador) .so-web, html.no-navegador .so-app { display: none !impo
       inicio: Date.now(), foco: chaveFoco(f), titulo: extra.titulo || nomeModo(modo, f), pontuacao: pontuacaoDe(f, k ? k.formato : 'ambos', k && k.banca),
       // as notas mínimas do edital; num simulado de outro tamanho, a mesma proporção
       minimos: c && modo === 'simulado' ? minimosDo(c, k, lista) : null,
+      // pontos por questão de cada grupo, quando o edital tem pesos (ex.: 1,25 nas gerais e 2,5 nas específicas)
+      pesos: c && modo === 'simulado' && c.pesos ? c.pesos : null, zeroElimina: !!(c && modo === 'simulado' && c.zeroElimina),
       duracao: minutos * 60000, usado: 0, adiadas: {}
     };
     carregar().sessao = sessao; salvar();
@@ -1989,6 +1992,12 @@ html:not(.no-navegador) .so-web, html.no-navegador .so-app { display: none !impo
     var t = c.nQuestoes ? null : c.estrutura, base = c.nQuestoes || (t ? t.gerais + t.especificas : 0);
     if (!base) return null;
     var g = lista.filter(function (q) { return q.grupo === 'geral'; }).length, e = lista.length - g, r = { proporcional: true };
+    if (c.pesos && t) {
+      // com pesos, o mínimo é em pontos: a mesma fração dos pontos possíveis, em quartos de ponto
+      var pg = c.pesos.gerais || 1, pe = c.pesos.especificas || 1, baseP = t.gerais * pg + t.especificas * pe;
+      if (m.total != null) r.total = Math.ceil(4 * (g * pg + e * pe) * m.total / baseP) / 4;
+      return r;
+    }
     if (m.total != null) r.total = Math.ceil(lista.length * m.total / base);
     if (t && m.gerais != null && t.gerais) r.gerais = Math.ceil(g * m.gerais / t.gerais);
     if (t && m.especificas != null && t.especificas) r.especificas = Math.ceil(e * m.especificas / t.especificas);
@@ -2102,7 +2111,12 @@ html:not(.no-navegador) .so-web, html.no-navegador .so-app { display: none !impo
   }
 
   // certo ou errado no estilo Cebraspe: cada erro anula um acerto; nas demais bancas, só os acertos contam
-  function pontos(x) { return sessao.pontuacao === 'acertos' ? x.a : x.a - x.e; }
+  function pontos(x, grupo) {
+    var p = sessao.pontuacao === 'acertos' ? x.a : x.a - x.e;
+    return sessao.pesos ? p * peso(grupo) : p;
+  }
+  // pontos de uma questão do grupo (1 sem pesos)
+  function peso(grupo) { return sessao.pesos ? (grupo === 'geral' ? sessao.pesos.gerais : sessao.pesos.especificas) || 1 : 1; }
   function contagem() {
     var c = { g: { a: 0, e: 0, b: 0, n: 0 }, s: { a: 0, e: 0, b: 0, n: 0 } };
     sessao.ids.forEach(function (id) {
@@ -2123,7 +2137,7 @@ html:not(.no-navegador) .so-web, html.no-navegador .so-app { display: none !impo
     if (c.s.n) partes.push('E ' + (c.s.a + c.s.e + c.s.b) + '/' + c.s.n);
     $('prog-grupos').textContent = partes.join(' · ');
     $('prog-barra').style.width = (100 * i / n) + '%';
-    var nota = pontos(c.g) + pontos(c.s);
+    var nota = pontos(c.g, 'geral') + pontos(c.s, 'especifica');
     $('nota-atual').textContent = sessao.estudo ? ('Nota ' + fmtNota(nota)) : (i + ' feitos');
     mostrarRelogio();
     atualizarMini();
@@ -2423,18 +2437,19 @@ html:not(.no-navegador) .so-web, html.no-navegador .so-app { display: none !impo
     d.sessao = null; salvar();
     telas('fim');
     var c = contagem();
-    var p1 = pontos(c.g), p2 = pontos(c.s);
+    var p1 = pontos(c.g, 'geral'), p2 = pontos(c.s, 'especifica');
+    var max1 = c.g.n * peso('geral'), max2 = c.s.n * peso('especifica');
     var m = sessao.minimos, md = sessao.modo;
     var blocos = [];
     var inteiro = md === 'completo' || md === 'simulado';
-    if (c.g.n) blocos.push(['Gerais', p1, c.g.n, m && (inteiro || md === 'gerais') ? m.gerais : null]);
-    if (c.s.n) blocos.push(['Específicas', p2, c.s.n, m && (inteiro || md === 'especificas') ? m.especificas : null]);
-    if (c.g.n && c.s.n) blocos.push(['Total', p1 + p2, c.g.n + c.s.n, m && inteiro ? m.total : null]);
+    if (c.g.n) blocos.push(['Gerais', p1, max1, m && (inteiro || md === 'gerais') ? m.gerais : null]);
+    if (c.s.n) blocos.push(['Específicas', p2, max2, m && (inteiro || md === 'especificas') ? m.especificas : null]);
+    if (c.g.n && c.s.n) blocos.push(['Total', p1 + p2, max1 + max2, m && inteiro ? m.total : null]);
     var h = '<h2>Resultado</h2><p class="aviso" style="margin:0">' + (sessao.titulo || nomeModo(sessao.modo, foco())) + ' · ' + plural(sessao.ids.length, 'item', 'itens') + '</p>';
     h += '<div class="notas">' + blocos.map(function (b) {
       var qual = m && m.proporcional ? 'mínimo proporcional' : 'mínimo';
-      var st = b[3] == null ? '' : (b[1] >= b[3] ? '<em class="ok">acima do ' + qual + ' (' + b[3] + ')</em>' : '<em class="no">abaixo do ' + qual + ' (' + b[3] + ')</em>');
-      return '<div><small>' + b[0] + '</small><b>' + fmtNota(b[1]) + '</b><span class="aviso">de ' + b[2] + ' pontos</span>' + st + '</div>';
+      var st = b[3] == null ? '' : (b[1] >= b[3] ? '<em class="ok">acima do ' + qual + ' (' + fmtNum(b[3]) + ')</em>' : '<em class="no">abaixo do ' + qual + ' (' + fmtNum(b[3]) + ')</em>');
+      return '<div><small>' + b[0] + '</small><b>' + fmtNota(b[1]) + '</b><span class="aviso">de ' + fmtNum(b[2]) + ' pontos</span>' + st + '</div>';
     }).join('') + '</div>';
     if (m && m.proporcional) h += '<p class="aviso" style="margin:0">Este simulado tem outro tamanho, então o mínimo é proporcional ao do edital.</p>';
     if (sessao.duracao) {
@@ -2452,9 +2467,10 @@ html:not(.no-navegador) .so-web, html.no-navegador .so-app { display: none !impo
     });
     var nomes = Object.keys(mats).sort(function (a, b) { return (mats[a].g === mats[b].g ? a.localeCompare(b) : (mats[a].g === 'geral' ? -1 : 1)); });
     h += '<table class="tabela-materias"><tr><th>Assunto</th><th>Acertos</th><th>Erros</th><th>Branco</th><th>Nota</th></tr>' +
-      nomes.map(function (n) { var x = mats[n]; return '<tr><td>' + n + '</td><td>' + x.a + '</td><td>' + x.e + '</td><td>' + x.b + '</td><td>' + fmtNota(pontos(x)) + '</td></tr>'; }).join('') + '</table>';
+      nomes.map(function (n) { var x = mats[n]; return '<tr><td>' + n + '</td><td>' + x.a + '</td><td>' + x.e + '</td><td>' + x.b + '</td><td>' + fmtNota(pontos(x, x.g)) + '</td></tr>'; }).join('') + '</table>';
     var temMe = sessao.ids.some(function (id) { return POR_ID[id].tipo === 'me'; });
-    if (sessao.pontuacao === 'acertos') h += '<p class="aviso">Cada acerto vale 1 ponto. Erro e branco valem zero.</p>';
+    if (sessao.pesos) h += '<p class="aviso">Como no edital, cada acerto vale ' + fmtNum(peso('geral')) + ' ponto nas gerais e ' + fmtNum(peso('especifica')) + ' pontos nas específicas. Erro e branco valem zero.' + (sessao.zeroElimina ? ' No edital, zerar qualquer disciplina também elimina.' : '') + '</p>';
+    else if (sessao.pontuacao === 'acertos') h += '<p class="aviso">Cada acerto vale 1 ponto. Erro e branco valem zero.</p>';
     else if (temMe) h += '<p class="aviso">As questões de múltipla escolha entram na conta como itens: acerto vale +1 e erro vale −1.</p>';
     var errados = sessao.ids.filter(function (id) { var r = sessao.resp[id]; return r && r.ok === false; });
     h += '<h2 style="font-size:17px">Itens que você errou (' + errados.length + ')</h2>';
