@@ -11,6 +11,7 @@ registrarConcurso({
 "pontuacao": "acertos",
 "areas": ["artes", "ciencias", "educacao-fisica", "ensino-religioso", "geografia", "historia", "ingles", "portugues", "matematica", "pedagogia"],
 "cargos": [{"id": "artes", "nome": "Professor de Artes", "area": "artes"}, {"id": "ciencias-biologicas", "nome": "Professor de Ciências Biológicas", "area": "ciencias"}, {"id": "educacao-fisica", "nome": "Professor de Educação Física", "area": "educacao-fisica"}, {"id": "ensino-religioso", "nome": "Professor de Ensino Religioso", "area": "ensino-religioso"}, {"id": "geografia", "nome": "Professor de Geografia", "area": "geografia"}, {"id": "historia", "nome": "Professor de História", "area": "historia"}, {"id": "ingles", "nome": "Professor de Língua Inglesa", "area": "ingles"}, {"id": "portugues", "nome": "Professor de Língua Portuguesa", "area": "portugues"}, {"id": "matematica", "nome": "Professor de Matemática", "area": "matematica"}, {"id": "pedagogo", "nome": "Professor Pedagogo (Anos Iniciais)", "area": "pedagogia"}],
+"local": "São Miguel dos Milagres/AL",
 "link": "https://concursosinbraedem.org.br/",
 "inscricoes": {"inicio": "2026-11-23", "fim": "2026-12-23"},
 "prova": "2027-01-31",
@@ -20,6 +21,7 @@ registrarConcurso({
 "minimos": {"total": 20},
 "materiasGerais": ["Língua Portuguesa", "Matemática"],
 "distribuicao": {"Língua Portuguesa": 10, "Matemática": 10},
+"distribuicaoEspecificas": {"Conhecimentos pedagógicos": 3, "*": 17},
 "textos": {},
 "questoes": []
 });

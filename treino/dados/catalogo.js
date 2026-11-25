@@ -69,21 +69,22 @@ window.CATALOGO = {
       { id: 'metodologias', nome: 'Metodologias de ensino', materias: ['Metodologias de ensino'] },
       { id: 'psicologia', nome: 'Psicologia da educação', materias: ['Psicologia da educação', 'Desenvolvimento e aprendizagem'] },
       { id: 'inclusiva', nome: 'Educação inclusiva', materias: ['Educação inclusiva'] },
-      { id: 'politicas', nome: 'Políticas e currículo', materias: ['Política de ensino do Recife'] }
+      { id: 'politicas', nome: 'Políticas e currículo', materias: ['Política de ensino do Recife'] },
+      { id: 'pedagogicos', nome: 'Conhecimentos pedagógicos', materias: ['Conhecimentos pedagógicos'] }
     ],
     portugues: [
       { id: 'gramatica', nome: 'Gramática e linguística', materias: ['Gramática e linguística'] },
       { id: 'leitura', nome: 'Leitura e interpretação', materias: ['Leitura e interpretação de textos'] },
       { id: 'literatura', nome: 'Literatura', materias: ['Literatura'] },
       { id: 'ensino', nome: 'Ensino de língua portuguesa', materias: ['Ensino de língua portuguesa', 'Letramento', 'Avaliação'] },
-      { id: 'pedagogicos', nome: 'Temas educacionais e pedagógicos', materias: ['Educação inclusiva', 'Didática e planejamento', 'Currículo de Pernambuco'] }
+      { id: 'pedagogicos', nome: 'Temas educacionais e pedagógicos', materias: ['Educação inclusiva', 'Didática e planejamento', 'Currículo de Pernambuco', 'Conhecimentos pedagógicos'] }
     ],
     ingles: [
       { id: 'leitura', nome: 'Leitura e interpretação', materias: ['Leitura e interpretação em inglês'] },
       { id: 'gramatica', nome: 'Gramática', materias: ['Gramática da língua inglesa'] },
       { id: 'vocabulario', nome: 'Vocabulário', materias: ['Vocabulário'] },
       { id: 'ensino', nome: 'Ensino de língua inglesa', materias: ['Ensino de língua inglesa', 'Ensino de línguas estrangeiras'] },
-      { id: 'pedagogicos', nome: 'Temas educacionais e pedagógicos', materias: ['Educação inclusiva', 'Didática e planejamento', 'Currículo de Pernambuco'] }
+      { id: 'pedagogicos', nome: 'Temas educacionais e pedagógicos', materias: ['Educação inclusiva', 'Didática e planejamento', 'Currículo de Pernambuco', 'Conhecimentos pedagógicos'] }
     ],
     espanhol: [
       { id: 'leitura', nome: 'Leitura e interpretação', materias: ['Leitura e interpretação em espanhol'] },
@@ -99,7 +100,7 @@ window.CATALOGO = {
       { id: 'estatistica', nome: 'Estatística e probabilidade', materias: ['Estatística e probabilidade'] },
       { id: 'ensino', nome: 'Ensino de matemática', materias: ['Ensino de matemática'] },
       { id: 'historia', nome: 'História da matemática', materias: ['História da matemática'] },
-      { id: 'pedagogicos', nome: 'Temas educacionais e pedagógicos', materias: ['Educação inclusiva', 'Didática e planejamento', 'Currículo de Pernambuco'] }
+      { id: 'pedagogicos', nome: 'Temas educacionais e pedagógicos', materias: ['Educação inclusiva', 'Didática e planejamento', 'Currículo de Pernambuco', 'Conhecimentos pedagógicos'] }
     ],
     ciencias: [
       { id: 'ensino', nome: 'Ensino de ciências', materias: ['Ensino de ciências'] },
@@ -110,7 +111,8 @@ window.CATALOGO = {
       { id: 'ecologia', nome: 'Ecologia e meio ambiente', materias: ['Ecologia', 'Meio ambiente'] },
       { id: 'fisica', nome: 'Física', materias: ['Física'] },
       { id: 'quimica', nome: 'Química', materias: ['Química'] },
-      { id: 'terra', nome: 'Terra e universo', materias: ['Terra e universo'] }
+      { id: 'terra', nome: 'Terra e universo', materias: ['Terra e universo'] },
+      { id: 'pedagogicos', nome: 'Conhecimentos pedagógicos', materias: ['Conhecimentos pedagógicos'] }
     ],
     biologia: [
       { id: 'citologia', nome: 'Citologia e microscopia', materias: ['Célula e microscopia'] },
@@ -149,6 +151,7 @@ window.CATALOGO = {
       { id: 'pedagogicos', nome: 'Temas educacionais e pedagógicos', materias: ['Educação inclusiva', 'Didática e planejamento', 'Currículo de Pernambuco'] }
     ],
     historia: [
+      { id: 'alagoas', nome: 'História de Alagoas', materias: ['História de Alagoas'] },
       { id: 'brasil', nome: 'História do Brasil', materias: ['História do Brasil'] },
       { id: 'antiga', nome: 'História antiga e medieval', materias: ['História antiga e medieval'] },
       { id: 'moderna', nome: 'História moderna', materias: ['História moderna'] },
@@ -157,9 +160,10 @@ window.CATALOGO = {
       { id: 'africa', nome: 'História da África e afro-brasileira', materias: ['História da África'] },
       { id: 'teoria', nome: 'Teoria da história', materias: ['Teoria da história'] },
       { id: 'ensino', nome: 'Ensino de história', materias: ['Metodologias de ensino', 'Política de ensino do Recife'] },
-      { id: 'pedagogicos', nome: 'Temas educacionais e pedagógicos', materias: ['Educação inclusiva', 'Didática e planejamento', 'Currículo de Pernambuco'] }
+      { id: 'pedagogicos', nome: 'Temas educacionais e pedagógicos', materias: ['Educação inclusiva', 'Didática e planejamento', 'Currículo de Pernambuco', 'Conhecimentos pedagógicos'] }
     ],
     geografia: [
+      { id: 'alagoas', nome: 'Geografia de Alagoas e do Nordeste', materias: ['Geografia de Alagoas e do Nordeste'] },
       { id: 'fisica', nome: 'Geografia física', materias: ['Geografia física'] },
       { id: 'humana', nome: 'Geografia humana e econômica', materias: ['Geografia econômica', 'Geografia humana e econômica'] },
       { id: 'urbana', nome: 'Geografia urbana e da população', materias: ['Geografia urbana e da população'] },
@@ -167,7 +171,7 @@ window.CATALOGO = {
       { id: 'ambiente', nome: 'Meio ambiente', materias: ['Meio ambiente'] },
       { id: 'pensamento', nome: 'Pensamento geográfico', materias: ['Pensamento geográfico'] },
       { id: 'ensino', nome: 'Ensino de geografia', materias: ['Ensino de geografia', 'Política de ensino do Recife', 'Avaliação'] },
-      { id: 'pedagogicos', nome: 'Temas educacionais e pedagógicos', materias: ['Educação inclusiva', 'Didática e planejamento', 'Currículo de Pernambuco'] }
+      { id: 'pedagogicos', nome: 'Temas educacionais e pedagógicos', materias: ['Educação inclusiva', 'Didática e planejamento', 'Currículo de Pernambuco', 'Conhecimentos pedagógicos'] }
     ],
     filosofia: [
       { id: 'antiga', nome: 'Filosofia antiga e medieval', materias: ['Filosofia antiga e medieval'] },
@@ -195,7 +199,7 @@ window.CATALOGO = {
       { id: 'danca', nome: 'Dança', materias: ['Dança'] },
       { id: 'cultura', nome: 'Cultura popular e patrimônio', materias: ['Cultura popular e patrimônio'] },
       { id: 'ensino', nome: 'Ensino de arte', materias: ['Ensino de arte'] },
-      { id: 'pedagogicos', nome: 'Temas educacionais e pedagógicos', materias: ['Educação inclusiva', 'Didática e planejamento', 'Currículo de Pernambuco'] }
+      { id: 'pedagogicos', nome: 'Temas educacionais e pedagógicos', materias: ['Educação inclusiva', 'Didática e planejamento', 'Currículo de Pernambuco', 'Conhecimentos pedagógicos'] }
     ],
     'educacao-fisica': [
       { id: 'cultura', nome: 'Cultura corporal e práticas corporais', materias: ['Cultura corporal e práticas corporais', 'Dança'] },
@@ -204,14 +208,15 @@ window.CATALOGO = {
       { id: 'historia', nome: 'História da educação física', materias: ['História da educação física'] },
       { id: 'didatica', nome: 'Didática, planejamento e avaliação', materias: ['Didática e planejamento', 'Avaliação'] },
       { id: 'legislacao', nome: 'BNCC e legislação', materias: ['BNCC e legislação', 'Legislação educacional'] },
-      { id: 'pedagogicos', nome: 'Temas educacionais e pedagógicos', materias: ['Educação inclusiva', 'Currículo de Pernambuco'] }
+      { id: 'pedagogicos', nome: 'Temas educacionais e pedagógicos', materias: ['Educação inclusiva', 'Currículo de Pernambuco', 'Conhecimentos pedagógicos'] }
     ],
     'ensino-religioso': [
       { id: 'fenomeno', nome: 'Fenômeno religioso', materias: ['Fenômeno religioso'] },
       { id: 'tradicoes', nome: 'Tradições e culturas religiosas', materias: ['Tradições e culturas religiosas'] },
       { id: 'textos', nome: 'Textos sagrados', materias: ['Textos sagrados'] },
       { id: 'ethos', nome: 'Ethos, ética e valores', materias: ['Ethos, ética e valores'] },
-      { id: 'ensino', nome: 'Ensino religioso e legislação', materias: ['Ensino religioso e legislação'] }
+      { id: 'ensino', nome: 'Ensino religioso e legislação', materias: ['Ensino religioso e legislação'] },
+      { id: 'pedagogicos', nome: 'Conhecimentos pedagógicos', materias: ['Conhecimentos pedagógicos'] }
     ],
     'educacao-especial': [
       { id: 'aee', nome: 'AEE e salas de recursos', materias: ['AEE e salas de recursos'] },
@@ -278,7 +283,22 @@ window.CATALOGO = {
     { id: 'ineditas-matematica-basica', arquivo: 'dados/ineditas-matematica-basica.js', areas: '*' },
     { id: 'ineditas-portugues-inbraedem', arquivo: 'dados/ineditas-portugues-inbraedem.js', areas: '*' },
     // específicas de Ciências com 4 alternativas, no molde do cargo de Ciências Biológicas de São Miguel dos Milagres
-    { id: 'ineditas-ciencias-inbraedem', arquivo: 'dados/ineditas-ciencias-inbraedem.js', areas: ['ciencias'] }
+    { id: 'ineditas-ciencias-inbraedem', arquivo: 'dados/ineditas-ciencias-inbraedem.js', areas: ['ciencias'] },
+    // Ciências no estilo IGEDUC (5 alternativas), no conteúdo do cargo de Ciências de Custódia/PE 2026
+    { id: 'ineditas-ciencias-igeduc', arquivo: 'dados/ineditas-ciencias-igeduc.js', areas: ['ciencias'] },
+    // História e Geografia de Alagoas e do Nordeste (São Miguel dos Milagres/AL 2026): têm local AL, só entram em editais de Alagoas
+    { id: 'ineditas-historia-al-inbraedem', arquivo: 'dados/ineditas-historia-al-inbraedem.js', areas: ['historia'] },
+    { id: 'ineditas-geografia-al-inbraedem', arquivo: 'dados/ineditas-geografia-al-inbraedem.js', areas: ['geografia'] },
+    // múltipla escolha para os outros cargos de professor (o banco tinha poucas; as provas dos dois concursos são só ME)
+    { id: 'ineditas-pedagogia-igeduc', arquivo: 'dados/ineditas-pedagogia-igeduc.js', areas: ['pedagogia'] },
+    { id: 'ineditas-educacao-fisica-igeduc', arquivo: 'dados/ineditas-educacao-fisica-igeduc.js', areas: ['educacao-fisica'] },
+    { id: 'ineditas-historia-igeduc', arquivo: 'dados/ineditas-historia-igeduc.js', areas: ['historia'] },
+    { id: 'ineditas-geografia-igeduc', arquivo: 'dados/ineditas-geografia-igeduc.js', areas: ['geografia'] },
+    { id: 'ineditas-musica-igeduc', arquivo: 'dados/ineditas-musica-igeduc.js', areas: ['artes'] },
+    { id: 'ineditas-ingles-igeduc', arquivo: 'dados/ineditas-ingles-igeduc.js', areas: ['ingles'] },
+    { id: 'ineditas-ensino-religioso-inbraedem', arquivo: 'dados/ineditas-ensino-religioso-inbraedem.js', areas: ['ensino-religioso'] },
+    // conhecimentos pedagógicos das específicas (Custódia/PE: 15 de 30), uma cópia por área de professor
+    { id: 'ineditas-pedagogicos-igeduc', arquivo: 'dados/ineditas-pedagogicos-igeduc.js', areas: ['ciencias', 'educacao-fisica', 'pedagogia', 'geografia', 'historia', 'ingles', 'portugues', 'matematica', 'artes', 'ensino-religioso'] }
   ],
 
   concursos: [

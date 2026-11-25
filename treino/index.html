@@ -18,7 +18,7 @@ if (window.NO_NAVEGADOR) document.documentElement.classList.add('no-navegador');
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icone-192.png" type="image/png">
 <link rel="apple-touch-icon" href="icone-192.png">
-<script>window.GIZ_VERSAO_WEB = "25/11/2026 · 9574107"; window.GIZ_FIREBASE = {"apiKey": "AIzaSyAJh0hzGgHPRrwXEkBdaadLUEv7qgzvU1A", "authDomain": "giz-e-gabarito.firebaseapp.com", "projectId": "giz-e-gabarito", "storageBucket": "giz-e-gabarito.firebasestorage.app", "messagingSenderId": "538781158823", "appId": "1:538781158823:web:733fd8bf9e1ad08c44ba82"};</script>
+<script>window.GIZ_VERSAO_WEB = "25/11/2026 · 6e04b71"; window.GIZ_FIREBASE = {"apiKey": "AIzaSyAJh0hzGgHPRrwXEkBdaadLUEv7qgzvU1A", "authDomain": "giz-e-gabarito.firebaseapp.com", "projectId": "giz-e-gabarito", "storageBucket": "giz-e-gabarito.firebasestorage.app", "messagingSenderId": "538781158823", "appId": "1:538781158823:web:733fd8bf9e1ad08c44ba82"};</script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
@@ -1699,8 +1699,12 @@ html:not(.no-navegador) .so-web, html.no-navegador .so-app { display: none !impo
     var f = focoTreino(foco());
     var ml = materiaLocal(k.grupo);
     var g = k.grupo === 'ambas' || k.grupo === 'gerais' || ml ? pool(f, 'geral', k.formato) : [];
-    var e = k.grupo === 'gerais' || ml ? [] : pool(f, 'especifica', k.formato);
-    if (ml) g = g.filter(function (q) { return q.local && q.materia === ml; });
+    var e = k.grupo === 'gerais' ? [] : pool(f, 'especifica', k.formato);
+    // matéria local: gerais (lei e história do município) ou específicas (história e geografia do estado)
+    if (ml) {
+      var daLocal = function (q) { return q.local && q.materia === ml; };
+      g = g.filter(daLocal); e = e.filter(daLocal);
+    }
     if (k.grupo === 'foco') e = e.filter(function (q) { return disciplinaDe(q) === k.disc; });
     return g.concat(e);
   }
@@ -1730,7 +1734,7 @@ html:not(.no-navegador) .so-web, html.no-navegador .so-app { display: none !impo
     // área ainda sem específicas: o Foco abre do mesmo jeito, para mostrar as disciplinas que vêm por aí
     var semEspecificas = !pool(ft, 'especifica').length;
     var locais = [];
-    pool(ft, 'geral').forEach(function (q) { if (q.local && locais.indexOf(q.materia) < 0) locais.push(q.materia); });
+    pool(ft, 'geral').concat(pool(ft, 'especifica')).forEach(function (q) { if (q.local && locais.indexOf(q.materia) < 0) locais.push(q.materia); });
     var grupos = ['ambas', 'gerais'].concat(locais.sort().map(function (m) { return 'local:' + m; }), f.area === '*' ? ['especificas'] : ['especificas', 'foco']);
     $('tr-grupo').innerHTML = grupos.map(function (gk) {
       var n = gk === 'foco' ? espec.length : poolTreino({ formato: k.formato, grupo: gk }).length;
@@ -1825,13 +1829,19 @@ html:not(.no-navegador) .so-web, html.no-navegador .so-app { display: none !impo
     var t = c && c.estrutura ? c.estrutura : { gerais: MAX_GERAIS, especificas: MAX_ESPECIFICAS };
     r = k.qtd ? repartir(k.qtd, t.gerais, t.especificas, g.length, e.length) : [Math.min(t.gerais, g.length), Math.min(t.especificas, e.length)];
     var gerais = c && c.distribuicao ? porMateria(g, r[0], c.distribuicao, ineditas) : sortear(g, r[0], ineditas);
-    return embaralhar(gerais.concat(sortear(e, r[1], ineditas)));
+    // específicas divididas como no edital (ex.: 15 de conhecimentos pedagógicos e 15 do cargo, que é o "*")
+    var de = c && c.distribuicaoEspecificas;
+    var espec = de ? porMateria(e, r[1], de, ineditas, chaveEspecifica(de)) : sortear(e, r[1], ineditas);
+    return embaralhar(gerais.concat(espec));
   }
-  // reparte as gerais entre as matérias na proporção do edital (maiores restos); se uma matéria não tiver questões
-  // suficientes, a falta vai para as outras
-  function porMateria(lista, total, dist, ineditas) {
+  // na divisão das específicas, a matéria citada no edital é ela mesma; as outras do cargo caem no "*"
+  function chaveEspecifica(de) { return function (q) { return de[q.materia] != null ? q.materia : '*'; }; }
+  // reparte as gerais (ou as específicas) entre as matérias na proporção do edital (maiores restos); se uma matéria não
+  // tiver questões suficientes, a falta vai para as outras. chave: a matéria de cada questão (padrão: q.materia)
+  function porMateria(lista, total, dist, ineditas, chave) {
     var grupos = {}, nomes = Object.keys(dist), soma = 0, sobra, falta = 0, saida = [];
-    lista.forEach(function (q) { (grupos[q.materia] = grupos[q.materia] || []).push(q); });
+    chave = chave || function (q) { return q.materia; };
+    lista.forEach(function (q) { var m = chave(q); (grupos[m] = grupos[m] || []).push(q); });
     nomes.forEach(function (m) { soma += dist[m]; grupos[m] = grupos[m] || []; });
     var cotas = nomes.map(function (m) { var x = soma ? total * dist[m] / soma : 0; return { m: m, n: Math.floor(x), resto: x - Math.floor(x) }; });
     sobra = total - cotas.reduce(function (s, p) { return s + p.n; }, 0);
@@ -1922,7 +1932,12 @@ html:not(.no-navegador) .so-web, html.no-navegador .so-app { display: none !impo
       var conta = {};
       sim.forEach(function (q) { if (q.grupo === 'geral') conta[q.materia] = (conta[q.materia] || 0) + 1; });
       materias = 'Gerais como no edital: ' + Object.keys(c.distribuicao).map(function (m) { return m + ' ' + (conta[m] || 0); }).join(', ') + '. ';
-      if (c.local && k.banca !== '*' && k.banca !== 'inedita') materias += 'O conteúdo do município entra mesmo com essa banca, porque nenhuma banca tem prova sobre ele. ';
+      if (c.local && k.banca !== '*' && k.banca !== 'inedita') materias += 'O conteúdo local (do município ou do estado) entra mesmo com essa banca, porque nenhuma banca tem prova sobre ele. ';
+    }
+    if (c && !prova && c.distribuicaoEspecificas && n) {
+      var de = c.distribuicaoEspecificas, ch = chaveEspecifica(de), ce = {};
+      sim.forEach(function (q) { if (q.grupo !== 'geral') ce[ch(q)] = (ce[ch(q)] || 0) + 1; });
+      materias += 'Específicas como no edital: ' + Object.keys(de).map(function (m) { return (m === '*' ? 'do cargo' : m) + ' ' + (ce[m] || 0); }).join(', ') + '. ';
     }
     $('cfg-resumo').textContent = !n ? 'Nenhuma questão com essa escolha. Troque a banca ou o tipo de questão.' : falta + materias + (!k.duracao ? plural(n, 'item', 'itens') + ', sem cronômetro: responda no seu ritmo.' :
       'Você terá ' + nomeDuracao(obj) + ' para ' + plural(n, 'item objetivo', 'itens objetivos') + (disc ? ' (1h fica para a discursiva)' : '') +

@@ -21,6 +21,7 @@ registrarConcurso({
 "zeroElimina": true,
 "materiasGerais": ["Tecnologia na educação", "Legislação"],
 "distribuicao": {"Tecnologia na educação": 10, "Legislação": 10},
+"distribuicaoEspecificas": {"Conhecimentos pedagógicos": 15, "*": 15},
 "textos": {},
 "questoes": []
 });
