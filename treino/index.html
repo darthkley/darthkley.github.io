@@ -18,7 +18,7 @@ if (window.NO_NAVEGADOR) document.documentElement.classList.add('no-navegador');
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icone-192.png" type="image/png">
 <link rel="apple-touch-icon" href="icone-192.png">
-<script>window.GIZ_VERSAO_WEB = "25/11/2026 · a08f17a"; window.GIZ_FIREBASE = {"apiKey": "AIzaSyAJh0hzGgHPRrwXEkBdaadLUEv7qgzvU1A", "authDomain": "giz-e-gabarito.firebaseapp.com", "projectId": "giz-e-gabarito", "storageBucket": "giz-e-gabarito.firebasestorage.app", "messagingSenderId": "538781158823", "appId": "1:538781158823:web:733fd8bf9e1ad08c44ba82"};</script>
+<script>window.GIZ_VERSAO_WEB = "28/11/2026 · 5ef1084"; window.GIZ_FIREBASE = {"apiKey": "AIzaSyAJh0hzGgHPRrwXEkBdaadLUEv7qgzvU1A", "authDomain": "giz-e-gabarito.firebaseapp.com", "projectId": "giz-e-gabarito", "storageBucket": "giz-e-gabarito.firebasestorage.app", "messagingSenderId": "538781158823", "appId": "1:538781158823:web:733fd8bf9e1ad08c44ba82"};</script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
@@ -2484,7 +2484,7 @@ html:not(.no-navegador) .so-web, html.no-navegador .so-app { display: none !impo
     h += '<table class="tabela-materias"><tr><th>Assunto</th><th>Acertos</th><th>Erros</th><th>Branco</th><th>Nota</th></tr>' +
       nomes.map(function (n) { var x = mats[n]; return '<tr><td>' + n + '</td><td>' + x.a + '</td><td>' + x.e + '</td><td>' + x.b + '</td><td>' + fmtNota(pontos(x, x.g)) + '</td></tr>'; }).join('') + '</table>';
     var temMe = sessao.ids.some(function (id) { return POR_ID[id].tipo === 'me'; });
-    if (sessao.pesos) h += '<p class="aviso">Como no edital, cada acerto vale ' + fmtNum(peso('geral')) + ' ponto nas gerais e ' + fmtNum(peso('especifica')) + ' pontos nas específicas. Erro e branco valem zero.' + (sessao.zeroElimina ? ' No edital, zerar qualquer disciplina também elimina.' : '') + '</p>';
+    if (sessao.pesos) h += '<p class="aviso">Como no edital, cada acerto vale ' + (peso('geral') === peso('especifica') ? fmtNum(peso('geral')) + ' ponto, nas gerais e nas específicas' : fmtNum(peso('geral')) + ' ponto nas gerais e ' + fmtNum(peso('especifica')) + ' pontos nas específicas') + '. Erro e branco valem zero.' + (sessao.zeroElimina ? ' No edital, zerar qualquer disciplina também elimina.' : '') + '</p>';
     else if (sessao.pontuacao === 'acertos') h += '<p class="aviso">Cada acerto vale 1 ponto. Erro e branco valem zero.</p>';
     else if (temMe) h += '<p class="aviso">As questões de múltipla escolha entram na conta como itens: acerto vale +1 e erro vale −1.</p>';
     var errados = sessao.ids.filter(function (id) { var r = sessao.resp[id]; return r && r.ok === false; });

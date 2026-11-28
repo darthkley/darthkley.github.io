@@ -1,0 +1,25 @@
+/* Concurso UFPE 2026 técnico-administrativos (Edital 12/2026, FADE/UFPE; prova do nível E em 24/01/2027): edital sem questões próprias; o simulado é montado com o banco (Português 20, Raciocínio Lógico 5, Legislação aplicada ao servidor 10 e 45 específicas do cargo), cada questão valendo 1,25, com corte de 60 pontos. Gerado por ferramentas-mulder/geradores/montar_ufpe.py */
+registrarConcurso({
+"id": "ufpe-tae-2026",
+"nome": "UFPE 2026 (técnico-administrativos)",
+"orgao": "Universidade Federal de Pernambuco",
+"cargo": "Técnico-administrativo",
+"banca": "FADE/UFPE",
+"ano": 2026,
+"formato": "me",
+"pontuacao": "acertos",
+"areas": ["biologo"],
+"cargos": [{"id": "biologo", "nome": "Biólogo", "area": "biologo"}],
+"link": "https://www.fadeconcursos.org.br/concursoufpe2026",
+"inscricoes": {"inicio": "2026-08-12", "fim": "2026-09-08"},
+"prova": "2027-01-24",
+"duracao": 240,
+"discursiva": false,
+"estrutura": {"gerais": 35, "especificas": 45},
+"pesos": {"gerais": 1.25, "especificas": 1.25},
+"minimos": {"total": 60},
+"materiasGerais": ["Língua Portuguesa", "Raciocínio Lógico", "Legislação aplicada ao servidor"],
+"distribuicao": {"Língua Portuguesa": 20, "Raciocínio Lógico": 5, "Legislação aplicada ao servidor": 10},
+"textos": {},
+"questoes": []
+});

@@ -46,6 +46,7 @@ window.CATALOGO = {
     { id: 'matematica', nome: 'Matemática' },
     { id: 'ciencias', nome: 'Ciências', detalhe: 'Anos finais do fundamental' },
     { id: 'biologia', nome: 'Biologia' },
+    { id: 'biologo', nome: 'Biólogo', detalhe: 'Bacharelado: concursos de nível superior' },
     { id: 'quimica', nome: 'Química' },
     { id: 'fisica', nome: 'Física' },
     { id: 'historia', nome: 'História' },
@@ -128,6 +129,18 @@ window.CATALOGO = {
       { id: 'fisquim', nome: 'Física e química da vida', materias: ['Física e química'] },
       { id: 'ensino', nome: 'Ensino de biologia', materias: ['Ensino de biologia'] },
       { id: 'pedagogicos', nome: 'Temas educacionais e pedagógicos', materias: ['Educação inclusiva', 'Didática e planejamento', 'Currículo de Pernambuco'] }
+    ],
+    biologo: [
+      { id: 'vigilancia', nome: 'Vigilância em saúde e epidemiologia', materias: ['Vigilância em saúde e epidemiologia', 'Zoonoses e doenças infecciosas', 'Fauna sinantrópica'] },
+      { id: 'imunologia', nome: 'Imunologia e técnicas imunológicas', materias: ['Imunologia', 'Técnicas imunológicas'] },
+      { id: 'molecular', nome: 'Biologia molecular', materias: ['Biologia molecular', 'Técnicas moleculares'] },
+      { id: 'celular', nome: 'Biologia celular e cultura de células', materias: ['Biologia celular e cultura de células'] },
+      { id: 'microbiologia', nome: 'Microbiologia e parasitologia', materias: ['Microbiologia', 'Parasitologia', 'Microbiologia ambiental e saneamento'] },
+      { id: 'biosseguranca', nome: 'Biossegurança', materias: ['Biossegurança'] },
+      { id: 'ecologia', nome: 'Ecologia e ecotoxicologia', materias: ['Ecologia', 'Ecotoxicologia'] },
+      { id: 'zoologia', nome: 'Zoologia', materias: ['Zoologia'] },
+      { id: 'botanica', nome: 'Botânica', materias: ['Botânica'] },
+      { id: 'legislacao', nome: 'Legislação e ética do biólogo', materias: ['Legislação profissional e ética do biólogo'] }
     ],
     quimica: [
       { id: 'geral', nome: 'Química geral e inorgânica', materias: ['Química geral e inorgânica'] },
@@ -297,6 +310,14 @@ window.CATALOGO = {
     { id: 'ineditas-musica-igeduc', arquivo: 'dados/ineditas-musica-igeduc.js', areas: ['artes'] },
     { id: 'ineditas-ingles-igeduc', arquivo: 'dados/ineditas-ingles-igeduc.js', areas: ['ingles'] },
     { id: 'ineditas-ensino-religioso-inbraedem', arquivo: 'dados/ineditas-ensino-religioso-inbraedem.js', areas: ['ensino-religioso'] },
+    // Biólogo (bacharelado), para o concurso da UFPE 2026 (técnico-administrativos): questões inéditas da área biologo
+    { id: 'biologo-vigilancia', arquivo: 'dados/biologo-vigilancia.js', areas: ['biologo'] },
+    { id: 'biologo-imuno-molecular', arquivo: 'dados/biologo-imuno-molecular.js', areas: ['biologo'] },
+    { id: 'biologo-microbiologia', arquivo: 'dados/biologo-microbiologia.js', areas: ['biologo'] },
+    { id: 'biologo-biosseguranca', arquivo: 'dados/biologo-biosseguranca.js', areas: ['biologo'] },
+    { id: 'biologo-ecologia', arquivo: 'dados/biologo-ecologia.js', areas: ['biologo'] },
+    { id: 'biologo-zoologia-botanica', arquivo: 'dados/biologo-zoologia-botanica.js', areas: ['biologo'] },
+    { id: 'ineditas-legislacao-servidor', arquivo: 'dados/ineditas-legislacao-servidor.js', areas: '*' },
     // conhecimentos pedagógicos das específicas (Custódia/PE: 15 de 30), uma cópia por área de professor
     { id: 'ineditas-pedagogicos-igeduc', arquivo: 'dados/ineditas-pedagogicos-igeduc.js', areas: ['ciencias', 'educacao-fisica', 'pedagogia', 'geografia', 'historia', 'ingles', 'portugues', 'matematica', 'artes', 'ensino-religioso'] }
   ],
@@ -310,6 +331,7 @@ window.CATALOGO = {
     'terra-nova-2026',
     'custodia-2026',
     'sao-miguel-dos-milagres-2026',
+    'ufpe-tae-2026',
     'japaratinga-2025',
     'sao-jose-do-campestre-2025',
     'sao-jose-do-serido-2025',
